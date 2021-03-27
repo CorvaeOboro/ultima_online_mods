@@ -6,6 +6,7 @@ Aims to quickly convey the use and importance of certain scrolls .
 - Useful spell scrolls like Recall are shown glowing and easily distinguishable even when they are lower 4th circle .
 - Credit and Thanks to Gaechti for all the great tools and guides as well as their ScrollsByCircle mod which was the basis and template of this mod . 
 ![Magic Scrolls](/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
+![Magic Scrolls Backpack](/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
 
 # Installation / Patching
 - download from above clicking code > download as zip > extract .
