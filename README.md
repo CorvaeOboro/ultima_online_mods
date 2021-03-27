@@ -8,8 +8,9 @@ Aims to quickly convey the use and importance of certain scrolls .
 ![Magic Scrolls](/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
 
 # Installation / Patching
-download from above clicking code > download as zip > extract 
-then using the Mulpatcher > Features > Autopatch select the txt file for the mod ( ART_MagicScrolls.txt ) and set Art(s) as catergory. then back to Settings to Save the Art mul .
+- download from above clicking code > download as zip > extract .
+- using Mulpatcher > Features > Autopatch select the txt file for the mod ( ART_MagicScrolls.txt ) and set Art(s) as catergory . 
+- Settings > Save the Art mul .
 
 software guide and additional mods by Gaechti :
 http://www.burningsheep.ch/finished.html
@@ -20,8 +21,9 @@ https://forums.uooutlands.com/index.php?threads/gaechtis-ultima-online-patches-t
 https://uooutlands.com/
 - fantastic server , highly reccomend ! some notes for using art mods with their launcher :
 
-in launcher settings uncheck automatic patch , then on reopen will see the difference in client vs server patch and can skip ( cancel patch ) if the difference is small and only apart of changes made by the mods patched in . 
-if see multiple of the .mul files with differences then the server patched and should update to match then reapply the art mods using the multipatcher .
+- in launcher > gear > settings > uncheck automatic patch , close .
+- then on reopen will see the difference in client vs server patch and can skip ( cancel patch ) if the difference is small and only apart of changes made by the mods patched in . 
+- if see multiple of the .mul files with differences then the server patched and should update to match then reapply the art mods using the Mulpatcher .
 
 # CC0
 free to all , CC0 public domian , free to re-distribute , no credit needed
