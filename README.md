@@ -29,8 +29,9 @@ https://uooutlands.com/
 
 # Thanks
 - many thanks to ultima community creating shards , guides , tools , and content !
-- Varan - patch tools - http://varan.uodev.de/
-- Gaechti - art mods - http://www.burningsheep.ch/finished.html
+- Varan - Mulpatcher tools - http://varan.uodev.de/
+- Gaechti - Art mods + Guides - http://www.burningsheep.ch/finished.html
+- Polserver - UOFiddler art tools - https://github.com/polserver/UOFiddler , http://uofiddler.polserver.com/
 
 # CC0
 free to all , CC0 public domian , free to re-distribute , no credit needed
