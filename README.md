@@ -1,7 +1,7 @@
 # ULTIMA ONLINE ART MODS 
 # Magic Scrolls
 ![Magic Scrolls Backpack](/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
-Aims to quickly convey the use and importance of certain scrolls .
+- Aims to quickly convey the use and importance of certain scrolls .
 - a somewhat simpler stylized scroll with ribbon colorized by harmful \ benefical \ utility . 
 - Low circle spell scrolls are desaturated and rough looking in contrast to higher 6+ circle spells glowing and resembling the spell they contain .
 - Useful spell scrolls like Recall are shown glowing and easily distinguishable even when they are lower 4th circle .
