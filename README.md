@@ -9,7 +9,7 @@ Aims to quickly convey the use and importance of certain scrolls .
 
 # Installation / Patching
 download from above clicking code > download as zip > extract 
-then using the multipatcher select the txt file for the mod ( ART_MagicScrolls.txt ) 
+then using the Mulpatcher > Features > Autopatch select the txt file for the mod ( ART_MagicScrolls.txt ) and set Art(s) as catergory. then back to Settings to Save the Art mul .
 
 software guide and additional mods by Gaechti :
 http://www.burningsheep.ch/finished.html
