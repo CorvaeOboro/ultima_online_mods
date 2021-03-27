@@ -23,7 +23,7 @@ https://uooutlands.com/
 
 - in launcher > gear > settings > uncheck automatic patch , close .
 - then on reopen will see the difference in client vs server patch and can skip ( cancel patch ) if the difference is small and only apart of changes made by the mods patched in . 
-- if see multiple of the .mul files with differences then the server patched and should update to match then reapply the art mods using the Mulpatcher .
+- if see multiple of the .mul files with differences then the server patched and you should Apply Patch to update to match the latest then reapply the art mods using the Mulpatcher .
 
 # CC0
 free to all , CC0 public domian , free to re-distribute , no credit needed
