@@ -28,8 +28,9 @@ https://uooutlands.com/
 - if see multiple of the .mul files with differences then the server patched and you should Apply Patch to update to match the latest then reapply the art mods using the Mulpatcher .
 
 # Thanks
-- Varan http://varan.uodev.de/
-- Gaechti http://www.burningsheep.ch/finished.html
+- many thanks to ultima community creating shards guides and tools
+- Varan - patcher tools - http://varan.uodev.de/
+- Gaechti - art mods - http://www.burningsheep.ch/finished.html
 
 # CC0
 free to all , CC0 public domian , free to re-distribute , no credit needed
