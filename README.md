@@ -10,7 +10,7 @@
 
 # Installation / Patching
 - download [ART_MagicScrolls.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/ART_MagicScrolls_01/ART_MagicScrolls.zip )  or from above clicking code > download as zip > extract . 
-- using [Mulpatcher]( http://varan.uodev.de/Mulpatcher.zip ) > Settings > set the Art muls paths and Load them
+- using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art muls paths and Load them
 - Features > Autopatch select the txt file for the mod ( ART_MagicScrolls.txt ) and set Art(s) as catergory . 
 - Settings > Save the Art mul .
 
