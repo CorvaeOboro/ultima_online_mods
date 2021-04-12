@@ -1,0 +1,2 @@
+0x3C ui_container_backpack_0x3C.bmp
+0x2A6C ui_character_StatsBig_0x2A6C.bmp

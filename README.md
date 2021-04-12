@@ -4,26 +4,51 @@ fan art modifications in ultima online
 # Magic Scrolls
 ![Magic Scrolls Backpack](/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
 - Aims to quickly convey the use and importance of certain scrolls .
-- a somewhat simpler stylized scroll with ribbon colorized by harmful \ benefical \ utility . 
+- a somewhat simpler stylized scroll with ribbon colourized by harmful \ beneficial \ utility . 
 - Low circle spell scrolls are desaturated and rough looking in contrast to higher 6+ circle spells glowing and resembling the spell they contain .
 - Useful spell scrolls like Recall are shown glowing and easily distinguishable even when they are lower circle .
-- Credit and Thanks to Jewele Gaechti for all the great guides as well as their ScrollsByCircle mod which was the basis and template of this mod . 
+- Thanks to Gaechti for the great guides ,  thanks to Jewele their ScrollsByCircle mod was the basis and inspiration of this mod . 
 ![Magic Scrolls](/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
+
+# Aspect Rares
+![Aspect Rares](/ART_AspectRares/item_00_comp_A.jpg?raw=true "Aspect Rares")
+- items specific to Outlands made larger and re-imagined .
+![Aspect Rares](/ART_AspectRares/item_00_comp_C.jpg?raw=true "Aspect Rares")
+
+# Magic Spells
+![Magic Spells Icons](/UI_MagicScrolls/ui_spell_00_comp.jpg?raw=true "Magic Spells Icons")
+- Colorized paintover on top of the classic linework  .
+- Thanks to Boothby and Jewele for inspiration their MoreColorSpells was the basis of this mod .
+
+# Gems
+![Gems](/ART_Gems/item_gem_00_comp.jpg?raw=true "Gems")
+- Larger Diablo inspired .
+
+# Reagents
+![Reagents](/ART_Reagents/item_reagent_00_comp.jpg?raw=true "Reagents")
+
+# Tools
+![Tools](/ART_Tools/item_tool_00_comp.jpg?raw=true "Tools")
+- Larger tools commonly used  .
+
+# Potions
+![Potions](/ART_Potions/item_potion_00_comp.jpg?raw=true "Potions")
+![Potions](/ART_Potions/item_potion_00_comp_B.jpg?raw=true "Potions")
 
 # Installation / Patching
 - download [ART_MagicScrolls.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/ART_MagicScrolls_01/ART_MagicScrolls.zip )  or from above clicking code > download as zip > extract . 
+- if there are any you dont care for feel free to edit the TEXT file and remove the line matching the item \ image name 
 - using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art muls paths and Load them
-- Features > Autopatch select the txt file for the mod ( ART_MagicScrolls.txt ) and set Art(s) as catergory . 
-- Settings > Save the Art mul .
+- Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(s) as catergory ( or gump for UI mods )  . 
+- Settings > Save the Art mul to the UO Client directory ( defaults to program files ) .
 
 software guide and additional mods by Gaechti :
 http://www.burningsheep.ch/finished.html
-
 https://forums.uooutlands.com/index.php?threads/gaechtis-ultima-online-patches-tree-stump-better-reags-and-more.838/
 
 # UO Outlands
 https://uooutlands.com/
-- fantastic server , highly reccomend ! some notes for using art mods with their launcher :
+- fantastic server , highly recommend ! some notes for using art mods with their launcher :
 
 - in launcher > gear > settings > uncheck automatic patch , close .
 - then on reopen will see the difference in client vs server patch and can skip ( cancel patch ) if the difference is small and only apart of changes made by the mods patched in . 
@@ -37,7 +62,7 @@ https://uooutlands.com/
 - Polserver - UOFiddler art tools - https://github.com/polserver/UOFiddler , http://uofiddler.polserver.com/
 - Kartman - Art mods 
 - CakeForge - Art mods
+- Boothby - Art mods
 
 # CC0
 free to all , CC0 public domian , free to re-distribute , no credit needed
-
