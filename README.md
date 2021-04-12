@@ -8,20 +8,24 @@ fan art modifications in ultima online
 - Low circle spell scrolls are desaturated and rough looking in contrast to higher 6+ circle spells glowing and resembling the spell they contain .
 - Useful spell scrolls like Recall are shown glowing and easily distinguishable even when they are lower circle .
 - Thanks to Gaechti for the great guides ,  thanks to Jewele their ScrollsByCircle mod was the basis and inspiration of this mod . 
+
 ![Magic Scrolls](/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
 
 # Aspect Rares
 - items specific to Outlands made larger and re-imagined .
+
 ![Aspect Rares](/ART_AspectRares/item_00_comp_A.jpg?raw=true "Aspect Rares")
 ![Aspect Rares](/ART_AspectRares/item_00_comp_C.jpg?raw=true "Aspect Rares")
 
 # Magic Spells
 - Colorized paintover on top of the classic linework  .
 - Thanks to Boothby and Jewele for inspiration their MoreColorSpells was the basis of this mod .
+
 ![Magic Spells Icons](/UI_MagicSpells/ui_spell_00_comp.jpg?raw=true "Magic Spells Icons")
 
 # Gems
 - Larger Diablo inspired .
+
 ![Gems](/ART_Gems/item_gem_00_comp.jpg?raw=true "Gems")
 
 # Reagents
@@ -29,6 +33,7 @@ fan art modifications in ultima online
 
 # Tools
 - Larger tools commonly used  .
+
 ![Tools](/ART_Tools/item_tool_00_comp.jpg?raw=true "Tools")
 
 # Potions
