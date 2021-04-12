@@ -11,8 +11,8 @@ fan art modifications in ultima online
 ![Magic Scrolls](/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
 
 # Aspect Rares
-![Aspect Rares](/ART_AspectRares/item_00_comp_A.jpg?raw=true "Aspect Rares")
 - items specific to Outlands made larger and re-imagined .
+![Aspect Rares](/ART_AspectRares/item_00_comp_A.jpg?raw=true "Aspect Rares")
 ![Aspect Rares](/ART_AspectRares/item_00_comp_C.jpg?raw=true "Aspect Rares")
 
 # Magic Spells
