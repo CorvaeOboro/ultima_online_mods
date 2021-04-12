@@ -4,10 +4,10 @@ fan art modifications in ultima online
 # Magic Scrolls
 ![Magic Scrolls Backpack](/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
 - Aims to quickly convey the use and importance of certain scrolls .
-- a somewhat simpler stylized scroll with ribbon colourized by harmful \ beneficial \ utility . 
+- Simpler scroll with ribbon colourized by harmful \ beneficial \ utility . 
 - Low circle spell scrolls are desaturated and rough looking in contrast to higher 6+ circle spells glowing and resembling the spell they contain .
 - Useful spell scrolls like Recall are shown glowing and easily distinguishable even when they are lower circle .
-- Thanks to Gaechti for the great guides ,  thanks to Jewele their ScrollsByCircle mod was the basis and inspiration of this mod . 
+- Thanks to Jewele their ScrollsByJewele mod was the basis of this mod , thanks to Gaechti for ScrollsByCircle and the great guides .
 
 ![Magic Scrolls](/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
 
@@ -19,7 +19,7 @@ fan art modifications in ultima online
 
 # Magic Spells
 - Colorized paintover on top of the classic linework  .
-- Thanks to Boothby and Jewele for inspiration their MoreColorSpells was the basis of this mod .
+- Thanks to Gaechti and Boothby their MoreColorSpells was the basis of this mod .
 
 ![Magic Spells Icons](/UI_MagicSpells/ui_spell_00_comp.jpg?raw=true "Magic Spells Icons")
 
@@ -42,9 +42,9 @@ fan art modifications in ultima online
 
 # Installation / Patching
 - download [UO_ART_MODS_01.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_01/UO_ART_MODS_01.zip)  or from above clicking code > download as zip  . 
-- extract downloaded zip , if there are any you dont care for feel free to edit the TEXT file and remove the line matching the item \ image name 
-- using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art muls ( UO Client in program files )  paths and Load them
-- Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(s) as category ( or gump for UI mods )  . 
+- extract downloaded zip , if there are any modded items you dont care for feel free to edit the TXT file and remove the line matching the item \ image name ( no empty lines )
+- using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art mul path ( UO Client in program files )   and LOAD them
+- Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(s) as category ( or gump for UI mods )  > hit START . 
 - Settings > Save the Art mul to the UO Client directory ( defaults to program files ) .
 - Repeat for UI_MagicSpells patching Gumps instead of Art
 
