@@ -16,31 +16,32 @@ fan art modifications in ultima online
 ![Aspect Rares](/ART_AspectRares/item_00_comp_C.jpg?raw=true "Aspect Rares")
 
 # Magic Spells
-![Magic Spells Icons](/UI_MagicScrolls/ui_spell_00_comp.jpg?raw=true "Magic Spells Icons")
 - Colorized paintover on top of the classic linework  .
 - Thanks to Boothby and Jewele for inspiration their MoreColorSpells was the basis of this mod .
+![Magic Spells Icons](/UI_MagicSpells/ui_spell_00_comp.jpg?raw=true "Magic Spells Icons")
 
 # Gems
-![Gems](/ART_Gems/item_gem_00_comp.jpg?raw=true "Gems")
 - Larger Diablo inspired .
+![Gems](/ART_Gems/item_gem_00_comp.jpg?raw=true "Gems")
 
 # Reagents
 ![Reagents](/ART_Reagents/item_reagent_00_comp.jpg?raw=true "Reagents")
 
 # Tools
-![Tools](/ART_Tools/item_tool_00_comp.jpg?raw=true "Tools")
 - Larger tools commonly used  .
+![Tools](/ART_Tools/item_tool_00_comp.jpg?raw=true "Tools")
 
 # Potions
 ![Potions](/ART_Potions/item_potion_00_comp.jpg?raw=true "Potions")
 ![Potions](/ART_Potions/item_potion_00_comp_B.jpg?raw=true "Potions")
 
 # Installation / Patching
-- download [ART_MagicScrolls.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/ART_MagicScrolls_01/ART_MagicScrolls.zip )  or from above clicking code > download as zip > extract . 
-- if there are any you dont care for feel free to edit the TEXT file and remove the line matching the item \ image name 
-- using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art muls paths and Load them
-- Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(s) as catergory ( or gump for UI mods )  . 
+- download [UO_ART_MODS_01.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_01/UO_ART_MODS_01.zip)  or from above clicking code > download as zip  . 
+- extract downloaded zip , if there are any you dont care for feel free to edit the TEXT file and remove the line matching the item \ image name 
+- using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art muls ( UO Client in program files )  paths and Load them
+- Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(s) as category ( or gump for UI mods )  . 
 - Settings > Save the Art mul to the UO Client directory ( defaults to program files ) .
+- Repeat for UI_MagicSpells patching Gumps instead of Art
 
 software guide and additional mods by Gaechti :
 http://www.burningsheep.ch/finished.html
@@ -51,7 +52,7 @@ https://uooutlands.com/
 - fantastic server , highly recommend ! some notes for using art mods with their launcher :
 
 - in launcher > gear > settings > uncheck automatic patch , close .
-- then on reopen will see the difference in client vs server patch and can skip ( cancel patch ) if the difference is small and only apart of changes made by the mods patched in . 
+- then on reopen will see the difference in client vs server patch and can skip ( cancel patch )
 - if see multiple of the .mul files with differences then the server patched and you should Apply Patch to update to match the latest then reapply the art mods using the Mulpatcher .
 
 # Thanks
@@ -65,4 +66,4 @@ https://uooutlands.com/
 - Boothby - Art mods
 
 # CC0
-free to all , CC0 public domian , free to re-distribute , no credit needed
+free to all , CC0 public domain , free to re-distribute , no credit needed
