@@ -1,0 +1,11 @@
+0x2B04 ui_chivalry_book_0x2B04.bmp
+0x5100 ui_chivalry_spell_1_0x5100.bmp
+0x5101 ui_chivalry_spell_1_0x5101.bmp
+0x5102 ui_chivalry_spell_1_0x5102.bmp
+0x5103 ui_chivalry_spell_1_0x5103.bmp
+0x5104 ui_chivalry_spell_1_0x5104.bmp
+0x5105 ui_chivalry_spell_1_0x5105.bmp
+0x5106 ui_chivalry_spell_1_0x5106.bmp
+0x5107 ui_chivalry_spell_1_0x5107.bmp
+0x5108 ui_chivalry_spell_1_0x5108.bmp
+0x5109 ui_chivalry_spell_1_0x5109.bmp
