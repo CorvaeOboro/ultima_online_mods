@@ -51,7 +51,7 @@ fan art modifications in ultima online
 - using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art mul path ( UO Client in program files )   and LOAD them
 - Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(s) as category ( or gump for UI mods )  > hit START . 
 - Settings > Save the Art mul to the UO Client directory ( defaults to program files ) .
-- Repeat for UI_MagicSpells patching Gumps instead of Art
+- Repeat process for UI loading Gumps and patching ( GUMPS_00_ALL.txt ) Gumps instead of Art(s)
 
 software guide and additional mods by Gaechti :
 http://www.burningsheep.ch/finished.html
