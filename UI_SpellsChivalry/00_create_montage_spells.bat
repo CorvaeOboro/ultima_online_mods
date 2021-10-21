@@ -15,4 +15,5 @@ ui_chivalry_spell_1_0x5106.bmp ^
 -border 8 ^
 -bordercolor black ^
 -background black ^
+-interpolate Nearest -filter point ^
 ui_spell_chivalry_comp.png

@@ -15,4 +15,5 @@ ui_necro_spell_1_0x5008.bmp ^
 -border 8 ^
 -bordercolor black ^
 -background black ^
+-interpolate Nearest -filter point ^
 ui_spell_necro_comp.png
