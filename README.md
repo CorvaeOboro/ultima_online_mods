@@ -40,6 +40,11 @@ fan art modifications in ultima online
 ![Potions](/ART_Potions/item_potion_00_comp.jpg?raw=true "Potions")
 ![Potions](/ART_Potions/item_potion_00_comp_B.jpg?raw=true "Potions")
 
+# Chivalry and Necromancy Spells
+![Chivalry Spells Icons](/UI_SpellsChivalry/ui_spell_chivalry_comp.jpg?raw=true "Chivalry Spells Icons")
+![Necromancy Spells Icons](/UI_SpellsNecromancy/ui_spell_necro_comp.jpg?raw=true "Necromancy Spells Icons")
+![Books of Chivalry and Necromancy](/UI_SpellsChivalry/ui_00_books_chivnecro_comp.jpg?raw=true "Books of Chivalry and Necromancy")
+
 # Installation / Patching
 - download [UO_ART_MODS_01.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_01/UO_ART_MODS_01.zip)  or from above clicking code > download as zip  . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the TXT file and remove the line matching the item \ image name ( no empty lines )
