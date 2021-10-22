@@ -46,7 +46,7 @@ fan art modifications in ultima online
 ![Books of Chivalry and Necromancy](/UI_SpellsChivalry/ui_00_books_chivnecro_comp.jpg?raw=true "Books of Chivalry and Necromancy")
 
 # Installation / Patching
-- download [UO_ART_MODS_01.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_01/UO_ART_MODS_01.zip)  or from above clicking code > download as zip  . 
+- download [UO_ART_MODS_20211021.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20211021/UO_ART_MODS_20211021.zip )  or from above clicking code > download as zip  . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the TXT file and remove the line matching the item \ image name ( no empty lines )
 - using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art mul path ( UO Client in program files )   and LOAD them
 - Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(s) as category ( or gump for UI mods )  > hit START . 
