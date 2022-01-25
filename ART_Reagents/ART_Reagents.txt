@@ -1,8 +1,0 @@
-0xF7A item_reagent_BlackPearl_0xF7A.bmp
-0xF7B item_reagent_BloodMoss_0xF7B.bmp
-0xF8C item_reagent_SulphurousAsh_0xF8C.bmp
-0xF8D item_reagent_SpiderSilk_0xF8D.bmp
-0xF84 item_reagent_Garlic_0xF84.bmp
-0xF85 item_reagent_Gensing_0xF85.bmp
-0xF86 item_reagent_MandrakeRoot_0xF86.bmp
-0xF88 item_reagent_NightShade_0xF88.bmp
