@@ -1,0 +1,17 @@
+**/original/**
+**/original_backup/**
+**/backup/**
+**/backup_02/**
+**/backup_03/**
+**/rename_01/**
+**/rename_02/**
+**/rename_03/**
+**/export/**
+**/removed/**
+**/ENV_LandTEST_TEX/**
+**/ENV_Land_M_Test/**
+*Thumbs.db
+*.mp4
+*.fbx
+*.exr
+*.mantra_checkpoint
