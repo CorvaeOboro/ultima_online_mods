@@ -1,5 +1,6 @@
 # ULTIMA ONLINE ART MODS 
 fan art modifications in ultima online
+[DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20211021/UO_ART_MODS_20211021.zip )  | [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching ) 
 
 # Magic Scrolls
 ![Magic Scrolls Backpack](/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
@@ -59,11 +60,12 @@ https://forums.uooutlands.com/index.php?threads/gaechtis-ultima-online-patches-t
 
 # UO Outlands
 https://uooutlands.com/
-- fantastic server , highly recommend ! some notes for using art mods with their launcher :
-
-- in launcher > gear > settings > uncheck automatic patch , close .
-- then on reopen will see the difference in client vs server patch and can skip ( cancel patch )
-- if see multiple of the .mul files with differences then the server patched and you should Apply Patch to update to match the latest then reapply the art mods using the Mulpatcher .
+- fantastic server , highly recommend ! some notes for using art mods with launcher :
+- first in launcher > gear > settings > uncheck automatic patch , uncheck automatic diff > close .
+- apply art mods using mulpatcher .
+- follow the outlands news for patches .
+- when new patch occurs , in the launcher click the verify button which will get latest 
+- reapply art mods using mulpatcher .
 
 # Thanks
 - many thanks to ultima community creating shards , guides , tools , and content !
