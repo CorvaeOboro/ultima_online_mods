@@ -18,3 +18,4 @@
 0x1BFE item_weapon_BoltProjectile_0x1BFE.bmp
 0xDF0 item_weapon_BlackStaffL_0xDF0.bmp
 0xDF1 item_weapon_BlackStaffR_0xDF1.bmp
+0x7154 item_resource_fungi_mana_0x7154.bmp
