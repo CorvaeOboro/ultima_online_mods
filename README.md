@@ -1,5 +1,6 @@
 # ULTIMA ONLINE ART MODS 
 fan art modifications in ultima online
+
 [DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20211021/UO_ART_MODS_20211021.zip )  | [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching ) 
 
 # Magic Scrolls
@@ -47,22 +48,30 @@ fan art modifications in ultima online
 ![Books of Chivalry and Necromancy](/UI_SpellsChivalry/ui_00_books_chivnecro_comp.jpg?raw=true "Books of Chivalry and Necromancy")
 
 # Installation / Patching
-- download [UO_ART_MODS_20211021.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20211021/UO_ART_MODS_20211021.zip )  or from above clicking code > download as zip  . 
+- download [UO_ART_MODS_20211021.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20211021/UO_ART_MODS_20211021.zip )  or full source above clicking code > download as zip  . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the TXT file and remove the line matching the item \ image name ( no empty lines )
 - using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art mul path ( UO Client in program files )   and LOAD them
-- Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(s) as category ( or gump for UI mods )  > hit START . 
+- Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(S) as category ( or gump for UI mods )  > hit START . 
 - Settings > Save the Art mul to the UO Client directory ( defaults to program files ) .
-- Repeat process for UI loading Gumps and patching ( GUMPS_00_ALL.txt ) Gumps instead of Art(s)
+- Repeat process for UI loading Gumps and patching ( GUMPS_00_ALL.txt ) Gumps instead of Art(S)
 
-software guide and additional mods by Gaechti :
+[INSTALL NOTES EXPANDED]( https://github.com/CorvaeOboro/ultima_online_mods/Z_InstallNotes/ ) 
+
+Guides and Mods by Gaechti :
+
 http://www.burningsheep.ch/finished.html
 https://forums.uooutlands.com/index.php?threads/gaechtis-ultima-online-patches-tree-stump-better-reags-and-more.838/
+
+# Recommended Other Mods
+- Equipment Slots ( PaperdollPatch ) by Gaechti = http://www.burningsheep.ch/PaperdollPatch.zip
+- BigKeys by Gaechti = http://www.burningsheep.ch/BigKey.zip
 
 # UO Outlands
 https://uooutlands.com/
 - fantastic server , highly recommend ! some notes for using art mods with launcher :
-- first in launcher > gear > settings > uncheck automatic patch , uncheck automatic diff > close .
+- first in launcher > gear > settings > uncheck automatic patch , uncheck automatic updates > close .
 - apply art mods using mulpatcher .
+- play outlands .
 - follow the outlands news for patches .
 - when new patch occurs , in the launcher click the verify button which will get latest 
 - reapply art mods using mulpatcher .

@@ -23,7 +23,6 @@
 | ![BoltProjectile](item_weapon_BoltProjectile_0x1BFE.bmp?raw=true ) |BoltProjectile | item_weapon_BoltProjectile_0x1BFE | 0x1BFE |
 | ![CrookR](item_tool_CrookR_0x0E81.bmp?raw=true ) |CrookR | item_tool_CrookR_0x0E81 | 0x0E81 |
 | ![CrookL](item_tool_CrookL_0x0E82.bmp?raw=true ) |CrookL | item_tool_CrookL_0x0E82 | 0x0E82 |
-| ![CrookC](item_tool_CrookC_0x13F4.bmp?raw=true ) |CrookC | item_tool_CrookC_0x13F4 | 0x13F4 |
 | ![Pouch](item_container_Pouch_0xE79.bmp?raw=true ) |Pouch | item_container_Pouch_0xE79 | 0xE79 |
 | ![Backpack](item_container_Backpack_0xE75.bmp?raw=true ) |Backpack | item_container_Backpack_0xE75 | 0xE75 |
 | ![BlackStaffL](item_weapon_BlackStaffL_0xDF0.bmp?raw=true ) |BlackStaffL | item_weapon_BlackStaffL_0xDF0 | 0xDF0 |

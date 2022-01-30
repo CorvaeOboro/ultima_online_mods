@@ -1,5 +1,5 @@
-# Installation / Patching
-- download [UO_ART_MODS_20211021.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20211021/UO_ART_MODS_20211021.zip )  or from above clicking code > download as zip  . 
+# Quick Installation / Patching
+- download [UO_ART_MODS_20211021.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20211021/UO_ART_MODS_20211021.zip )  or full source from github above clicking code > download as zip  . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the TXT file and remove the line matching the item image name ( no empty lines )
 - using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art mul path ( UO Client in program files )   and LOAD them
 - Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(s) as category ( or gump for UI mods )  > hit START . 
@@ -9,8 +9,9 @@
 # Installation / Patching - Expanded
 
 1. Client Launcher Settings 
-- Update to Latest , and Disable auotpatching or diffing 
-- first in launcher > gear > settings > uncheck automatic patch , uncheck automatic diff > close .
+- Update to Latest ( click verify ) 
+- Disable auotpatching andor autoupdates ( gear > settings > uncheck both ) 
+
 
 2. Mulpatcher 
 - download [Mulpatcher]( http://varan.uodev.de/ )
@@ -50,6 +51,8 @@ Launch Client and play !
 
 # Additional Guides
 Gaechti :
+
 http://www.burningsheep.ch/finished.html
+
 https://forums.uooutlands.com/index.php?threads/gaechtis-ultima-online-patches-tree-stump-better-reags-and-more.838/
 
