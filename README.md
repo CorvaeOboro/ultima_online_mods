@@ -58,7 +58,7 @@ fan art modifications in ultima online
 - Settings > Save the Art mul to the UO Client directory ( defaults to program files ) .
 - Repeat process for UI loading Gumps and patching ( GUMPS_00_ALL.txt ) Gumps instead of Art(S)
 
-[INSTALL NOTES EXPANDED]( https://github.com/CorvaeOboro/ultima_online_mods/Z_InstallNotes/ ) 
+[INSTALL NOTES EXPANDED]( https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_InstallNotes#installation--patching---expanded) 
 
 Guides and Mods by Gaechti :
 
