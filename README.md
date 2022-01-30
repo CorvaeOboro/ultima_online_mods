@@ -10,6 +10,7 @@ fan art modifications in ultima online
 - Low circle spell scrolls are desaturated and rough looking in contrast to higher 6+ circle spells glowing and resembling the spell they contain .
 - Useful spell scrolls like Recall are shown glowing and easily distinguishable even when they are lower circle .
 - Thanks to Jewele their ScrollsByJewele mod was the basis of this mod , thanks to Gaechti for ScrollsByCircle and the great guides .
+- [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ART_MagicScrolls#complete-list)
 
 ![Magic Scrolls](/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
 
@@ -55,7 +56,7 @@ fan art modifications in ultima online
 ![Dark Scrolls](/UI_DarkScrolls/00_dark_scrolls_comp_01.jpg?raw=true "Dark Scrolls")
 
 # Installation / Patching
-- download [UO_ART_MODS_20211021.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20211021/UO_ART_MODS_20211021.zip )  or full source above clicking code > download as zip  . 
+- download [UO_ART_MODS_20220130.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220130/UO_ART_MODS_20220130.zip )  or full source above clicking code > download as zip  . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the TXT file and remove the line matching the item \ image name ( no empty lines )
 - using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art mul path ( UO Client in program files )   and LOAD them
 - Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(S) as category ( or gump for UI mods )  > hit START . 
