@@ -18,6 +18,7 @@
 0x1BFE ART_Tools\item_weapon_BoltProjectile_0x1BFE.bmp
 0xDF0 ART_Tools\item_weapon_BlackStaffL_0xDF0.bmp
 0xDF1 ART_Tools\item_weapon_BlackStaffR_0xDF1.bmp
+0x7154 ART_Tools\item_resource_fungi_mana_0x7154.bmp
 0xF10 ART_Gems\item_gem_Emerald_0xF10.bmp
 0xF13 ART_Gems\item_gem_Ruby_0xF13.bmp
 0xF15 ART_Gems\item_gem_Citrine_0xF15.bmp

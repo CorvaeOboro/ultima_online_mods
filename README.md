@@ -15,6 +15,7 @@ fan art modifications in ultima online
 
 # Aspect Rares
 - items specific to Outlands made larger and re-imagined .
+- [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ART_AspectRares#complete-list)
 
 ![Aspect Rares](/ART_AspectRares/item_00_comp_A.jpg?raw=true "Aspect Rares")
 ![Aspect Rares](/ART_AspectRares/item_00_comp_C.jpg?raw=true "Aspect Rares")
@@ -22,11 +23,12 @@ fan art modifications in ultima online
 # Magic Spells
 - Colorized paintover on top of the classic linework  .
 - Thanks to Gaechti and Boothby their MoreColorSpells was the basis of this mod .
+- [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/UI_MagicSpells#complete-list)
 
 ![Magic Spells Icons](/UI_MagicSpells/ui_spell_00_comp.jpg?raw=true "Magic Spells Icons")
 
 # Gems
-- Larger Diablo inspired .
+- gems made larger Diablo inspired .
 
 ![Gems](/ART_Gems/item_gem_00_comp.jpg?raw=true "Gems")
 
@@ -34,7 +36,8 @@ fan art modifications in ultima online
 ![Reagents](/ART_Reagents/item_reagent_00_comp.jpg?raw=true "Reagents")
 
 # Tools
-- Larger tools commonly used  .
+- commonly used tools made larger .
+- [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ART_Tools#complete-list)
 
 ![Tools](/ART_Tools/item_tool_00_comp.jpg?raw=true "Tools")
 
@@ -63,12 +66,12 @@ http://www.burningsheep.ch/finished.html
 https://forums.uooutlands.com/index.php?threads/gaechtis-ultima-online-patches-tree-stump-better-reags-and-more.838/
 
 # Recommended Other Mods
-- Equipment Slots ( PaperdollPatch ) by Gaechti = http://www.burningsheep.ch/PaperdollPatch.zip
-- BigKeys by Gaechti = http://www.burningsheep.ch/BigKey.zip
+- Equipment Slots ( PaperdollPatch ) by Gaechti = http://www.burningsheep.ch/finished_gumps.html#PaperdollPatch
+- BigKeys by Gaechti = http://www.burningsheep.ch/finished.html#BigKey
 
 # UO Outlands
 https://uooutlands.com/
-- fantastic server , highly recommend ! some notes for using art mods with launcher :
+- fantastic shard , highly recommend ! some notes for using art mods with launcher :
 - first in launcher > gear > settings > uncheck automatic patch , uncheck automatic updates > close .
 - apply art mods using mulpatcher .
 - play outlands .
@@ -79,9 +82,9 @@ https://uooutlands.com/
 # Thanks
 - many thanks to ultima community creating shards , guides , tools , and content !
 - Varan - Mulpatcher tools - http://varan.uodev.de/
+- Polserver - UOFiddler art tools - https://github.com/polserver/UOFiddler , http://uofiddler.polserver.com/
 - Jewele - Art mods - https://web.archive.org/web/20191114223020/http://www.outlandstreasure.com:80/uo-custom-mods/
 - Gaechti - Art mods + Guides - http://www.burningsheep.ch/finished.html
-- Polserver - UOFiddler art tools - https://github.com/polserver/UOFiddler , http://uofiddler.polserver.com/
 - Kartman - Art mods 
 - CakeForge - Art mods
 - Boothby - Art mods
