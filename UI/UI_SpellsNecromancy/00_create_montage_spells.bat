@@ -11,8 +11,8 @@ ui_necro_spell_1_0x500E.bmp ^
 ui_necro_spell_1_0x5008.bmp ^
 -density 72 ^
 -tile 5x2 ^
--geometry 88x88+8+8 ^
--border 8 ^
+-geometry 88x88+4+4 ^
+-border 4 ^
 -bordercolor black ^
 -background black ^
 -interpolate Nearest -filter point ^

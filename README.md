@@ -43,11 +43,11 @@ fan art modifications in ultima online classic
 
 # Chivalry and Necromancy Spells
 
-<img src="/UI/UI_SpellsChivalry/ui_spell_chivalry_comp.jpg.jpg?raw=true" height="250" />
+<img src="/UI/UI_SpellsChivalry/ui_spell_chivalry_comp.jpg?raw=true" height="250" />
 
-<img src="/UI/UI_SpellsNecromancy/ui_spell_necro_comp.jpg.jpg?raw=true" height="250" />
+<img src="/UI/UI_SpellsNecromancy/ui_spell_necro_comp.jpg?raw=true" height="250" />
 
-<img src="/UI/UI_SpellsChivalry/ui_00_books_chivnecro_comp.jpg.jpg?raw=true" height="250" />
+<img src="/UI/UI_SpellsChivalry/ui_00_books_chivnecro_comp.jpg?raw=true" height="250" />
 
 # Dark Scrolls
 - ui enchanted with dark magic
