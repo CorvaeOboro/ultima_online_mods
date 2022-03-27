@@ -26,6 +26,7 @@
 - for Art and Gumps click Load . ( this will freeze for a few seconds )
 - switch to the Features tab , in the upper left Autopatch , set the file path to the TXT file included in the mod ( example= C:\ultima_online_mods\ART_00_ALL.txt ) 
 - set the drop down to match the category ( Art (S) = item art , Gumps = ui ) 
+- click the Apply button ( this will show progress and ok when completed ) 
 
 ![Mulpatcher_Autopatch](/Z_InstallNotes/z_install_mulpatcher_patch_01.jpg?raw=true "Mulpatcher_Autopatch")
 
