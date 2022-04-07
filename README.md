@@ -1,7 +1,7 @@
 # ULTIMA ONLINE ART MODS 
 fan art modifications in ultima online classic 
 
-[DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220130/UO_ART_MODS_20220130.zip )  | [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching ) 
+[DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220406/UO_ART_MODS_20220406.zip )  | [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching ) 
 
 # Magic Scrolls
 ![Magic Scrolls Backpack](/ART/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
@@ -43,11 +43,11 @@ fan art modifications in ultima online classic
 
 # Chivalry and Necromancy Spells
 
-<img src="/UI/UI_SpellsChivalry/ui_spell_chivalry_comp.jpg?raw=true" height="250" />
+<img src="/UI/UI_SpellsChivalry/ui_spell_chivalry_comp.jpg?raw=true"  />
 
-<img src="/UI/UI_SpellsNecromancy/ui_spell_necro_comp.jpg?raw=true" height="250" />
+<img src="/UI/UI_SpellsNecromancy/ui_spell_necro_comp.jpg?raw=true"  />
 
-<img src="/UI/UI_SpellsChivalry/ui_00_books_chivnecro_comp.jpg?raw=true" height="250" />
+<img src="/UI/UI_SpellsChivalry/ui_00_books_chivnecro_comp.jpg?raw=true"  />
 
 # Dark Scrolls
 - ui enchanted with dark magic
@@ -55,7 +55,7 @@ fan art modifications in ultima online classic
 ![Dark Scrolls](/UI/UI_DarkScrolls/00_dark_scrolls_comp_01.jpg?raw=true "Dark Scrolls")
 
 # Installation / Patching
-- download [UO_ART_MODS_20220130.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220130/UO_ART_MODS_20220130.zip ) . 
+- download [UO_ART_MODS_20220406.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220406/UO_ART_MODS_20220406.zip ) . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the mod TXT file and remove the line matching the item \ image name ( no empty lines )
 - using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > Art > set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .
 - Features > Autopatch > select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  > hit START . 
@@ -89,5 +89,5 @@ https://uooutlands.com/
 - CakeForge - Art mods
 - Boothby - Art mods
 
-# CC0
-free to all , CC0 public domain , free to re-distribute , no credit needed
+# Creative Commons Zero
+free to all , creative commons CC0 , free to re-distribute , no credit needed
