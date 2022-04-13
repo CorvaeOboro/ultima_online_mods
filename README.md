@@ -54,6 +54,20 @@ fan art modifications in ultima online classic
 
 ![Dark Scrolls](/UI/UI_DarkScrolls/00_dark_scrolls_comp_01.jpg?raw=true "Dark Scrolls")
 
+# Altered Lands
+- a collection of land texture modifications 
+
+![Altered Lands](/ENV/ENV_00_AlteredLands.gif?raw=true "Altered Lands")
+
+- [Additional Images](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ENV/)
+- Farm Lands : Verdant farms of sproutlings and wild weeds
+- Dirt Hills : Blended overhang slopes and reduced runnels along embankments
+- Cave Dark : Darkened gray caverns , reduced tiling lines on cave-mountains
+- Mountain Path : Reduced lines , transitions of rocks to dirt and grass
+- Forest Grove : Verdant green forest
+- Snow Ridge : Smoothed snow slopes
+- Sand Dunes : Blended embankments , darkened and desaturated
+
 # Installation / Patching
 - download [UO_ART_MODS_20220406.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220406/UO_ART_MODS_20220406.zip ) . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the mod TXT file and remove the line matching the item \ image name ( no empty lines )
@@ -90,4 +104,4 @@ https://uooutlands.com/
 - Boothby - Art mods
 
 # Creative Commons Zero
-free to all , creative commons CC0 , free to re-distribute , no credit needed
+free to all , [creative commons CC0](https://creativecommons.org/publicdomain/zero/1.0/) , free to re-distribute , no credit needed
