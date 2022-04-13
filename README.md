@@ -1,7 +1,7 @@
 # ULTIMA ONLINE ART MODS 
 fan art modifications in ultima online classic 
 
-[DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220406/UO_ART_MODS_20220406.zip )  | [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching ) 
+[DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220413/UO_ART_MODS_20220413.zip )  | [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching ) 
 
 # Magic Scrolls
 ![Magic Scrolls Backpack](/ART/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
@@ -59,7 +59,7 @@ fan art modifications in ultima online classic
 
 ![Altered Lands](/ENV/ENV_00_AlteredLands.gif?raw=true "Altered Lands")
 
-- [Additional Images](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ENV/)
+- [Additional Images](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ENV/#altered-lands)
 - Farm Lands : Verdant farms of sproutlings and wild weeds
 - Dirt Hills : Blended overhang slopes and reduced runnels along embankments
 - Cave Dark : Darkened gray caverns , reduced tiling lines on cave-mountains
@@ -69,7 +69,7 @@ fan art modifications in ultima online classic
 - Sand Dunes : Blended embankments , darkened and desaturated
 
 # Installation / Patching
-- download [UO_ART_MODS_20220406.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220406/UO_ART_MODS_20220406.zip ) . 
+- download [UO_ART_MODS_20220413.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220413/UO_ART_MODS_20220413.zip ) . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the mod TXT file and remove the line matching the item \ image name ( no empty lines )
 - using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > Art > set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .
 - Features > Autopatch > select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  > hit START . 
