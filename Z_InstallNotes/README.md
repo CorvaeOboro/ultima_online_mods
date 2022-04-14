@@ -1,10 +1,11 @@
 # Quick Installation / Patching
-- download [UO_ART_MODS_20220130.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220130/UO_ART_MODS_20220130.zip )  or full source from github above clicking code > download as zip  . 
-- extract downloaded zip , if there are any modded items you dont care for feel free to edit the TXT file and remove the line matching the item image name ( no empty lines )
-- using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > set the Art mul path ( UO Client in program files )   and LOAD them
-- Features > Autopatch select the txt file for all ( ART_00_ALL.txt ) or a specific set ( ART_MagicScrolls.txt ) and set Art(s) as category ( or gump for UI mods )  > hit START . 
-- Settings > Save the Art mul to the UO Client directory ( defaults to program files ) .
-- Repeat process for UI loading Gumps and patching ( GUMPS_00_ALL.txt ) Gumps instead of Art(s)
+- download [UO_ART_MODS_20220413.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220413/UO_ART_MODS_20220413.zip ) . 
+- extract downloaded zip , if there are any modded items you dont care for feel free to edit the mod TXT file and remove the line matching the item \ image name ( no empty lines )
+- using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > Art > set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .
+- Features > Autopatch > select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  > hit START . 
+- Repeat Autopatch process for the following mod txt files :
+- 00_UI_ALL_GUMP.txt ( Gumps ) , 00_ENV_ALL_TEX.txt ( Textures ) , 00_ENV_ALL_ART_M.txt ( Art (M) ) , 00_ENV_ALL_ART_S.txt ( Art (S) ) 
+- Settings > Save the Art mul to the Ultima directory ( Ultima directory ) . repeat for Gumps and Textures .
 
 # Installation / Patching - Expanded
 
@@ -30,11 +31,12 @@
 
 ![Mulpatcher_Autopatch](/Z_InstallNotes/z_install_mulpatcher_patch_01.jpg?raw=true "Mulpatcher_Autopatch")
 
-- switch back to the Settings tab , in the Art area click Save , set the path to Ultima Online client ( example= C:\Program Files (x86)\Ultima Online Outlands\ ) and save the corresponding artidx.mul art.mul .
+- switch back to the Settings tab , in the Art area click SAVE , set the path to Ultima Online client ( example= C:\Program Files (x86)\Ultima Online Outlands\ ) and save the corresponding artidx.mul art.mul .
 
 ![Mulpatcher_Save](/Z_InstallNotes/z_install_save_art_01.jpg?raw=true "Mulpatcher_Save")
 
-- repeat process for UI loading Gumps and patching ( GUMPS_00_ALL.txt ) Gumps instead of Art(s)
+- Repeat Autopatch process for the following mod txt files :
+- 00_UI_ALL_GUMP.txt ( Gumps ) , 00_ENV_ALL_TEX.txt ( Textures ) , 00_ENV_ALL_ART_M.txt ( Art (M) ) , 00_ENV_ALL_ART_S.txt ( Art (S) ) 
 
 Launch Client and play !
 
