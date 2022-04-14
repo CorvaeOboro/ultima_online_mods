@@ -14,6 +14,7 @@ a collection of land texture modifications
 
 Cons :
 - On hills the original lined runnels convey depth and impassibility well , these modded textures are less clear and may be more difficult to visually navigate areas .
+- In reducing the tiling repetition , there is a loss of visually distinct forms and large areas of the modded textures appear as generic bland noise .
 - Possibly undesired changes to hued environments which share textures ( Cavernam stalagmites slightly darkened from cave modded textures )
 
 # Additional Images
