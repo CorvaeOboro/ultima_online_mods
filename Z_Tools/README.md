@@ -32,7 +32,7 @@ Landtiles ( Art_M ) - isometric tiles , placed in world mixed with 3d textures o
 for each envrionment texture there is a corresponding art_m landtile , and additional art after that .
 
 TEX_to_ART_M
-- this python script will batch convert Textures to ART_M , however isnt perfect and reccomend additional adjustments
+- this python script will batch convert Textures to ART_M , however isnt perfect and recommend additional adjustments
 - ![TEX to ART_M](ultima_TEX_convert_to_ART_M.jpg?raw=true "TEX to ART_M")
 - located in Z_Tools/00_BATCH_images_rotate_to_ART_M.py and in each ENV mod folder
 
@@ -42,6 +42,7 @@ TEX_debug
 - located in Z_Tools/00_BATCH_image_number_and_border.py
 
 Substance Painter files for ENV textures :
+- located in Z_Tools/*.spp 
 - ultima_art_mod_env_dirt_grass
 - ![ultima_art_mod_env_dirt_grass](ultima_art_mod_env_dirt_grass.jpg?raw=true "ultima_art_mod_env_dirt_grass")
 - ultima_art_mod_env_sand_grass
@@ -55,6 +56,7 @@ Substance Painter files for ENV textures :
 - ( "HEX imagename.bmp" example= "0xF88 item_reagent_NightShade_0xF88.bmp" )
 - generated from spreadsheet 
 - ![ultima_mods_spreadsheet](ultima_mods_spreadsheet.jpg?raw=true "ultima_mods_spreadsheet")
+- located in Z_Tools/ultima_mods_ART.xlsx  , ultima_mods_ENV.xlsx , ultima_mods_UI.xlsx
 
 # NAMING
 - exports from UOFiddler are HEX or Numbered 
@@ -67,7 +69,7 @@ Substance Painter files for ENV textures :
 - however some are split into 2 , mapping the color gradient to the greyscale values of 0 to 0.5 and 0.5 to 1 .
 - ( this might be done to increase total hues available and/or create complex multi color gradient art compressing the arts value ranges remapping to the multi color gradient )
 - example = skill scroll , a necromantic scroll fit to the lower hue gradient by its values fit 0 to 0.5
-- when creating these arts reccomend using the curves adjustment layer to remap the range .   
+- when creating these arts recommend using the curves adjustment layer to remap the range .   
 
 # LINKS
 - servuo - https://www.servuo.com/
