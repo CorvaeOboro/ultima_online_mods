@@ -83,6 +83,13 @@ Additional Guides and Mods hosted by Gaechti :
 http://www.burningsheep.ch/finished.html
 https://forums.uooutlands.com/index.php?threads/gaechtis-ultima-online-patches-tree-stump-better-reags-and-more.838/
 
+# Modding Tools / Notes
+- [MODDING NOTES and TOOLS]( https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_Tools#Modding-Notes) 
+- located in Z_Tools , includes :
+- python script TEX_to_ART_M 
+- substance painter files for ENV textures 
+- spreadsheets of modded art names and autopatch txt generator
+
 # UO Outlands
 https://uooutlands.com/
 - fantastic shard , highly recommend ! some notes for using art mods with launcher :
