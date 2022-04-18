@@ -1,9 +1,9 @@
 #=================================
 # IMAGE ROTATE 45 TEX to ART_M 
-# used with ultima online textures to convert textures to art_m flatlandtiles 
+# used with ultima online textures to convert textures to art_m flat land tiles 
 # currently an imperfect method due to aliasing during rotation and resizing ( bicubic during final resize )
 # attempting to closer match the original's style by sharpening 5% , blending 0.1% noise , and darkening 11% 
-# an additional 5% gauss noise is overlayed in photoshop then desaturated -5 this was particular to matching sand terrain and landtile
+# an additional 5% gaussian noise is overlayed in photoshop then desaturated -5 ( included as action Photoshop_Action_ART_M_Noise.atn )
 #=================================
 from PIL import Image, ImageDraw, ImageFont ,ImageEnhance,ImageFilter , ImageChops , ImageOps
 import PIL
@@ -15,6 +15,7 @@ import colorsys
 import random
 import blend_modes
 from pathlib import Path
+
 #//=== VARIABLES ==============================
 artm_landtile_size = 44 
 x1, y1, x2, y2 = 0, 0, 44, 44
@@ -80,16 +81,16 @@ def add_noise_guass(image,amount):
         for j in range(b):
             image[i][j] +=  gauss(0.01)*(1/255)
   return(image)
-#//=======================================
+
 #//========================================================================================
 #// TEXTURE TO ART_M 
 #//========================================================================================
 def tex_to_art_m(target_directory):
 
-  if not os.path.isdir(target_directory+ARTM_folderpath):
+  if not os.path.isdir(target_directory+ARTM_folderpath): # create ART_M folder
     os.mkdir(target_directory+ARTM_folderpath)
   
-  for infile in glob.glob(os.path.join(target_directory, "*.bmp")):
+  for infile in glob.glob(os.path.join(target_directory, "*.bmp")): 
     image_current = Image.open(infile)
     width, height = image_current.size
     draw = ImageDraw.Draw(image_current)
@@ -102,7 +103,7 @@ def tex_to_art_m(target_directory):
     image_main_rotated = image_current.resize( (artm_high_resolution,artm_high_resolution) , Image.NEAREST)
 
     #//============== LARGER VERSIONS FIT CROPPED PASTED ONTOP OF EACH OTHER ================================================
-    #make larger versions to paste into bg for edge padding
+    # make larger versions to paste into bg for edge padding
     image_main_bgA = image_current.resize( (artm_high_resolution+8,artm_high_resolution+8) , Image.NEAREST) 
     image_main_bgB = image_main_bgA.resize( (artm_high_resolution+16,artm_high_resolution+16) , Image.NEAREST)
     image_main_bgC = image_main_bgB.resize( (artm_high_resolution+24,artm_high_resolution+24) , Image.NEAREST)
@@ -126,23 +127,24 @@ def tex_to_art_m(target_directory):
     image_original_resized = image_original.resize( (image_main_rotated.size) , Image.NEAREST)
 
     final_size = (artm_landtile_size, artm_landtile_size)
-    image_current = image_current.resize(final_size, Image.BICUBIC)
+    #image_current = image_current.resize(final_size, Image.BICUBIC)
+    image_current = image_current.resize(final_size, Image.NEAREST)
 
-    #brightness
+    # brightness --------------------------------------
     enhancer = ImageEnhance.Brightness(image_current)
     brightness_modifier = brightness_amount #darkens the image
     image_current = enhancer.enhance(brightness_modifier)
-    #contrast
+    # contrast disabled -------------------------------
     #image_current = ImageEnhance.Color(image_current)
     #image_current = image_current.enhance(1.0)
-    #noise
+    #noise -------------------------------------------
     image_noised = add_pepper(image_current,noise_amount)
     image_current = Image.blend(image_current, image_noised, noise_blend_amount)
-    #sharpen
+    #sharpen -----------------------------------------
     image_sharpened = image_current.filter(ImageFilter.SHARPEN)
     image_current = Image.blend(image_current, image_sharpened, sharpen_blend_amount)
 
-    #ALPHA from original 
+    # ALPHA from original 
     original_alpha = Image.open(alpha_texture_filepath)
     red, green, blue = original_alpha.split()
     image_current_png = image_current.putalpha(red)
