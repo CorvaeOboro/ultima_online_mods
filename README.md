@@ -3,9 +3,8 @@ fan art modifications in ultima online classic
 
 [DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220413/UO_ART_MODS_20220413.zip )  | [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching ) 
 
-|      |      |      |      |      |
-| :---: | :---: | :---: | :---: | :---: |
 | <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-scrolls"> <img src="/ART/ART_MagicScrolls/ART_MagicScrolls_thumb.jpg?raw=true" width="150" height="150" /> </a>| <a href="https://github.com/CorvaeOboro/ultima_online_mods#reagents"> <img src="/ART/ART_BaseItemVariants_thumb.jpg?raw=true" width="150" height="150" />  </a>  |  <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-spells"> <img src="/UI/UI_MagicSpells/ui_spell_00_comp_thumb.jpg?raw=true" width="150" height="150" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#dark-scrolls"> <img src="/UI/ui_dark_scrolls_comp_thumb.jpg?raw=true" width="150" height="150" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#altered-lands"> <img src="/ENV/ENV_00_AlteredLands_thumb.jpg?raw=true" width="150" height="150" /> </a>|
+| :---: | :---: | :---: | :---: | :---: |
 
 # Magic Scrolls
 ![Magic Scrolls Backpack](/ART/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
