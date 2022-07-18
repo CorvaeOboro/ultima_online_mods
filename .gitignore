@@ -27,3 +27,4 @@
 *.mantra_checkpoint
 **/GumpOverridesOTHER/**
 *00_UI_OTHER_GUMP.txt
+**/completed/**
