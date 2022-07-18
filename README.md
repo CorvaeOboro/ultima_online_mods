@@ -71,6 +71,11 @@ fan art modifications in ultima online classic
 - Snow Ridge : Smoothed snow slopes
 - Sand Dunes : Blended embankments , darkened and desaturated
 
+# Dark Buffs
+- buffs and debuffs stylized darker matching magic spells and outlands specific buffs
+
+![Dark Buffs](/UI/UI_Buffs/ui_buff_00_comp_names.jpg?raw=true "Dark Buffs")
+
 # Installation / Patching
 - download [UO_ART_MODS_20220413.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220413/UO_ART_MODS_20220413.zip ) . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the mod TXT file and remove the line matching the item \ image name ( no empty lines )
