@@ -71,7 +71,7 @@ fan art modifications in ultima online classic
 - Snow Ridge : Smoothed snow slopes
 - Sand Dunes : Blended embankments , darkened and desaturated
 
-# Dark Buffs
+# Magic Buffs
 - buffs and debuffs stylized darker matching magic spells and outlands specific buffs
 
 ![Dark Buffs](/UI/UI_Buffs/ui_buff_00_comp_names.jpg?raw=true "Dark Buffs")
