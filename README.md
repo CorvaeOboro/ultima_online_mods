@@ -46,11 +46,7 @@ fan art modifications in ultima online classic
 
 # Chivalry and Necromancy Spells
 
-<img src="/UI/UI_SpellsChivalry/ui_spell_chivalry_comp.jpg?raw=true"  />
-
-<img src="/UI/UI_SpellsNecromancy/ui_spell_necro_comp.jpg?raw=true"  />
-
-<img src="/UI/UI_SpellsChivalry/ui_00_books_chivnecro_comp.jpg?raw=true"  />
+<img src="/UI/UI_SpellsChivalry/ui_spell_chivnecro_comp.jpg?raw=true"  />
 
 # Dark Scrolls
 - ui enchanted with dark magic
@@ -100,13 +96,9 @@ https://forums.uooutlands.com/index.php?threads/gaechtis-ultima-online-patches-t
 
 # UO Outlands
 https://uooutlands.com/
-- fantastic shard , highly recommend ! some notes for using art mods with launcher :
-- first in launcher > gear > settings > uncheck automatic patch , uncheck automatic updates > close .
-- apply art mods using mulpatcher .
-- play outlands .
-- follow the outlands news for patches .
-- when new patch occurs , in the launcher click the verify button which will get latest 
-- reapply art mods using mulpatcher .
+- fantastic shard , highly recommend ! some notes for using art mods in outlands :
+- copy UI/GumpOverrides folder into game directory [https://uooutlands.com/wiki/Gump_Overrides]( https://uooutlands.com/wiki/Gump_Overrides )  
+- currently only UI art moddable 
 
 # Thanks
 - many thanks to ultima community creating shards , guides , tools , and content !
