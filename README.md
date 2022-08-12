@@ -84,8 +84,8 @@ fan art modifications in ultima online classic
 [INSTALL NOTES EXPANDED]( https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_InstallNotes#installation--patching---expanded) 
 
 Additional Guides and Mods hosted by Gaechti :
-http://www.burningsheep.ch/finished.html
-https://forums.uooutlands.com/index.php?threads/gaechtis-ultima-online-patches-tree-stump-better-reags-and-more.838/
+- http://www.burningsheep.ch/finished.html
+- http://www.burningsheep.ch/howtoUOP.html
 
 # Modding Tools / Notes
 - [MODDING NOTES and TOOLS]( https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_Tools#Modding-Notes) 
