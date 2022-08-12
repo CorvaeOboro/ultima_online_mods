@@ -1,7 +1,7 @@
 # ULTIMA ONLINE ART MODS 
 fan art modifications in ultima online classic 
 
-[DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220812/UO_ART_MODS_20220812.zip)  | [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching ) |  [DOWNLOAD SOURCE]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) 
+[DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220812/UO_ART_MODS_20220812.zip)    |   [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching )   |    [DOWNLOAD SOURCE]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) 
 
 | <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-scrolls"> <img src="/ART/ART_MagicScrolls/ART_MagicScrolls_thumb.jpg?raw=true" width="140" height="140" /> </a>| <a href="https://github.com/CorvaeOboro/ultima_online_mods#reagents"> <img src="/ART/ART_BaseItemVariants_thumb.jpg?raw=true" width="140" height="140" />  </a>  |  <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-spells"> <img src="/UI/UI_MagicSpells/ui_spell_00_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#dark-scrolls"> <img src="/UI/ui_dark_scrolls_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#altered-lands"> <img src="/ENV/ENV_00_AlteredLands_thumb.jpg?raw=true" width="140" height="140" /> </a>|
 | :---: | :---: | :---: | :---: | :---: |
