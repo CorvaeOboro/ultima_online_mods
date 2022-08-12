@@ -253,3 +253,9 @@
 0xD40 ENV\ENV_ForestGrove\ART_S\item_plant_BrambleB_0xD40.bmp
 0x33EB ENV\ENV_ForestGrove\ART_S\item_plant_BrambleC_0x33EB.bmp
 0x33EC ENV\ENV_ForestGrove\ART_S\item_plant_BrambleD_0x33EC.bmp
+0x079D ENV\ENV_CaveDark\ART_S\env_cave_steps_0x079D.bmp
+0x079E ENV\ENV_CaveDark\ART_S\env_cave_steps_0x079E.bmp
+0x079F ENV\ENV_CaveDark\ART_S\env_cave_steps_0x079F.bmp
+0x07B0 ENV\ENV_CaveDark\ART_S\env_cave_steps_0x07B0.bmp
+0x07B1 ENV\ENV_CaveDark\ART_S\env_cave_steps_0x07B1.bmp
+0x07B2 ENV\ENV_CaveDark\ART_S\env_cave_steps_0x07B2.bmp
