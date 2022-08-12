@@ -1,7 +1,7 @@
 # ULTIMA ONLINE ART MODS 
 fan art modifications in ultima online classic 
 
-[DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220717/UO_ART_MODS_20220717.zip )  | [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching ) 
+[DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220812/UO_ART_MODS_20220812.zip)  | [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching ) |  [DOWNLOAD SOURCE]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) 
 
 | <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-scrolls"> <img src="/ART/ART_MagicScrolls/ART_MagicScrolls_thumb.jpg?raw=true" width="140" height="140" /> </a>| <a href="https://github.com/CorvaeOboro/ultima_online_mods#reagents"> <img src="/ART/ART_BaseItemVariants_thumb.jpg?raw=true" width="140" height="140" />  </a>  |  <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-spells"> <img src="/UI/UI_MagicSpells/ui_spell_00_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#dark-scrolls"> <img src="/UI/ui_dark_scrolls_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#altered-lands"> <img src="/ENV/ENV_00_AlteredLands_thumb.jpg?raw=true" width="140" height="140" /> </a>|
 | :---: | :---: | :---: | :---: | :---: |
@@ -73,7 +73,7 @@ fan art modifications in ultima online classic
 ![Dark Buffs](/UI/UI_Buffs/ui_buff_00_comp_names.jpg?raw=true "Dark Buffs")
 
 # Installation / Patching
-- download [UO_ART_MODS_20220717.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220717/UO_ART_MODS_20220717.zip ) . 
+- download [UO_ART_MODS_20220717.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220812/UO_ART_MODS_20220812.zip ) . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the mod TXT file and remove the line matching the item \ image name ( no empty lines )
 - using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > Art > set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .
 - Features > Autopatch > select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  > hit START . 
