@@ -6,3 +6,4 @@ colorsys
 random
 blend_modes
 pathlib
+psd-tools

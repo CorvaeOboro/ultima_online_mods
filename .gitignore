@@ -18,7 +18,6 @@
 **/ENV_LandTEST_TEX/**
 **/ENV_Land_M_Test/**
 **/UI_EquipSlots/**
-**/UI_Landfall/**
 **/UI_MartialArts/**
 **/Z_ZBackup/**
 *GUMP_00_OTHER.txt
@@ -28,3 +27,4 @@
 **/GumpOverridesOTHER/**
 *00_UI_OTHER_GUMP.txt
 **/completed/**
+**/Z_Tools/GumpOverrides**

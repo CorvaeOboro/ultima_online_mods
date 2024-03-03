@@ -41,16 +41,10 @@ TEX_debug
 - ![Debug TEX](ultima_env_debug_example_01.jpg?raw=true "Debug TEX")
 - located in Z_Tools/00_BATCH_image_number_and_border.py
 
-Substance Painter files for ENV textures :
+Substance Painter of ENV textures :
 - located in Z_Tools/*.spp 
-- ultima_art_mod_env_dirt_grass
-- ![ultima_art_mod_env_dirt_grass](ultima_art_mod_env_dirt_grass.jpg?raw=true "ultima_art_mod_env_dirt_grass")
-- ultima_art_mod_env_sand_grass
-- ![ultima_art_mod_env_sand_grass](ultima_art_mod_env_sand_grass.jpg?raw=true "ultima_art_mod_env_sand_grass")
-- ultima_art_mod_env_mountain
-- ![ultima_art_mod_env_mountain](ultima_art_mod_env_mountain.jpg?raw=true "ultima_art_mod_env_mountain")
-- ultima_art_mod_env_cave_mountain
-- ![ultima_art_mod_env_cave_mountain](ultima_art_mod_env_cave_mountain.jpg?raw=true "ultima_art_mod_env_cave_mountain")
+- env_dirt_grass , env_sand_grass , env_mountain , env_cave_mountain
+- ![ultima_art_mod_env_substancepainter](ultima_art_mod_env_substancepainter.jpg?raw=true "ultima_art_mod_env_substancepainter")
 
 # AUTOPATCH
 - ( "HEX imagename.bmp" example= "0xF88 item_reagent_NightShade_0xF88.bmp" )
@@ -60,6 +54,7 @@ Substance Painter files for ENV textures :
 
 # NAMING
 - exports from UOFiddler are HEX or Numbered 
+- 00_num_to_hex.py = batch rename files in target folder from number to HEX 
 - file list entered into spreadsheet and renamed based on this convention :
 - CATEGORY_Group_Name_NUM_HEX
 - batch renaming .bat may be generated from spreadsheet column 
