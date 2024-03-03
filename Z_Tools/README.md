@@ -2,7 +2,6 @@
 a collection of info for modding ultima online art .
 
 # MUL 
-
 art assets are compressed into .mul files . modding the art is handled by 'patching' the new art into the corresponding categorical mul file .
 - ART = Art_S ( items , placed objects ) , Art_M ( flat isometric landtiles ) 
 - GUMPS = user interface , menus , character sheet equipment
@@ -19,6 +18,9 @@ Mulpatcher by Varan
 - http://varan.uodev.de/
 - primary tool for patching , using the autopatching feature by txt file 
 - autopatch txt example ( "HEX imagename.bmp" example= "0xF88 item_reagent_NightShade_0xF88.bmp" )
+
+Export
+- 00_psd_to_bmp.py = Automatically export from psd source files into a GumpOverrides folder
 
 Image Magick
 - https://imagemagick.org/script/download.php

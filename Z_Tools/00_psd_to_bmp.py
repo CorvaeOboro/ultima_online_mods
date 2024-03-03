@@ -1,3 +1,5 @@
+#// PSD TO BMP BATCH 
+#// for each PSD name with a hexidecimal suffix , save a bmp copy named by HEX for GumpOverrides
 import os
 import tkinter as tk
 from tkinter import filedialog, ttk
@@ -8,16 +10,16 @@ import re
 
 # Global variables for default folder paths and groups
 DEFAULT_PATHS_AND_GROUPS = {
-    "UI_Buffs": ".././UI/UI_Buffs",
+    "Buffs": ".././UI/UI_Buffs",
     "Dark Scrolls": ".././UI/UI_DarkScrolls",
-    "Equip": ".././UI/UI_EquipStone",
-    "Magic": ".././UI/UI_MagicSpells",
-    "Magic_Effect": ".././UI/UI_MagicSpells/SpellEffects_Color",
-    "Magic_Summon": ".././UI/UI_MagicSpells/SpellEffects_Special",
-    "MISC": ".././UI/UI_MISC",
-    "Chiv": ".././UI/UI_SpellsChivalry",
-    "Necro": ".././UI/UI_SpellsNecromancy",
-    "UI_Profession": ".././UI/UI_Profession"
+    "Paperdoll": ".././UI/UI_EquipStone",
+    "Magic Spells": ".././UI/UI_MagicSpells",
+    "Magic Effect": ".././UI/UI_MagicSpells/SpellEffects_Color",
+    "Magic Summon": ".././UI/UI_MagicSpells/SpellEffects_Special",
+    "Backpack": ".././UI/UI_MISC",
+    "Chivalry": ".././UI/UI_SpellsChivalry",
+    "Necromancy": ".././UI/UI_SpellsNecromancy",
+    "Codex": ".././UI/UI_Profession"
 }
 
 DEFAULT_OUTPUT_PATH = "./GumpOverrides/"
@@ -80,6 +82,7 @@ class PSDtoBMPConverter:
 
         self.paths = []
         self.group_names = []
+        self.export_states = []
 
         # Default target folder for exporting BMP files
         self.target_folder = DEFAULT_OUTPUT_PATH
@@ -91,38 +94,39 @@ class PSDtoBMPConverter:
         self.frame = ttk.Frame(self.master, style='TFrame')
         self.frame.pack(padx=10, pady=10)
 
-        # Button to add a new folder path
-        self.add_path_button = ttk.Button(self.frame, text="Add Path", command=self.add_path, style='TButton')
-        self.add_path_button.grid(row=0, column=0, pady=(0, 10))
-
         # Button to export all groups
         self.export_all_button = ttk.Button(self.frame, text="Export All", command=self.export_all_groups, style='TButton')
-        self.export_all_button.grid(row=0, column=1, pady=(0, 10))
+        self.export_all_button.grid(row=0, column=0, pady=(0, 10))
 
         # Checkbox to export all BMP files to the target folder
-        self.export_all_to_same_folder = tk.BooleanVar()
+        self.export_all_to_same_folder = tk.BooleanVar(value=True)
         self.export_all_checkbox = ttk.Checkbutton(self.frame, text="Export all to target folder", variable=self.export_all_to_same_folder, style='TCheckbutton')
-        self.export_all_checkbox.grid(row=0, column=2, pady=(0, 10))
+        self.export_all_checkbox.grid(row=1, column=0, pady=(0, 10))
+
+        # Checkbox to override existing BMP files
+        self.override_existing_files = tk.BooleanVar(value=True)
+        self.override_checkbox = ttk.Checkbutton(self.frame, text="Override existing BMP files", variable=self.override_existing_files, style='TCheckbutton')
+        self.override_checkbox.grid(row=2, column=0, pady=(0, 10))
 
         # Entry for specifying the target folder path
         self.target_folder_entry = ttk.Entry(self.frame, width=30, style='TEntry')
         self.target_folder_entry.insert(0, self.target_folder)
-        self.target_folder_entry.grid(row=0, column=3, pady=(0, 10))
+        self.target_folder_entry.grid(row=3, column=0, pady=(0, 10))
 
-        # Checkbox to override existing BMP files
-        self.override_existing_files = tk.BooleanVar()
-        self.override_checkbox = ttk.Checkbutton(self.frame, text="Override existing BMP files", variable=self.override_existing_files, style='TCheckbutton')
-        self.override_checkbox.grid(row=0, column=4, pady=(0, 10))
+        # Button to add a new folder path
+        self.add_path_button = ttk.Button(self.frame, text="Add Path", command=self.add_path, style='TButton')
+        self.add_path_button.grid(row=4, column=0, pady=(0, 10))
 
         # Frame to display added folder paths and export buttons
         self.paths_frame = ttk.Frame(self.frame, style='TFrame')
-        self.paths_frame.grid(row=1, column=0, columnspan=5)
+        self.paths_frame.grid(row=5, column=0, columnspan=1)
 
     def load_default_paths(self):
         # Load the default paths and groups
         for group_name, folder_path in DEFAULT_PATHS_AND_GROUPS.items():
             self.paths.append(folder_path)
             self.group_names.append(group_name)
+            self.export_states.append(tk.BooleanVar(value=True))
         self.update_paths_ui()
 
     def add_path(self):
@@ -133,6 +137,7 @@ class PSDtoBMPConverter:
             group_name = os.path.basename(folder_path)
             self.paths.append(folder_path)
             self.group_names.append(group_name)
+            self.export_states.append(tk.BooleanVar(value=True))
             self.update_paths_ui()
 
     def update_paths_ui(self):
@@ -140,19 +145,28 @@ class PSDtoBMPConverter:
         for widget in self.paths_frame.winfo_children():
             widget.destroy()
 
-        # Create labels and export buttons for each added path
-        for i, (path, group_name) in enumerate(zip(self.paths, self.group_names)):
-            ttk.Label(self.paths_frame, text=f"{group_name}: {path}", style='TLabel').grid(row=i, column=0, sticky="w")
-            export_button = ttk.Button(self.paths_frame, text="Export", command=lambda p=path: self.export_group(p), style='TButton')
-            export_button.grid(row=i, column=1)
+        # Create labels, checkboxes, and export buttons for each added path
+        for i, (path, group_name, state) in enumerate(zip(self.paths, self.group_names, self.export_states)):
+            export_check = ttk.Checkbutton(self.paths_frame, variable=state, style='TCheckbutton')
+            export_check.grid(row=i, column=0, padx=(0, 10))
 
-    def export_group(self, folder_path):
-        export_psd_to_bmp(folder_path, self.target_folder if self.export_all_to_same_folder.get() else folder_path, self.override_existing_files.get())
+            group_label = ttk.Label(self.paths_frame, text=group_name, style='TLabel')
+            group_label.grid(row=i, column=1, padx=(0, 10))
+
+            path_label = ttk.Label(self.paths_frame, text=path, style='TLabel')
+            path_label.grid(row=i, column=2, padx=(0, 10))
+
+            export_button = ttk.Button(self.paths_frame, text="Export", command=lambda p=path, s=state: self.export_group(p, s), style='TButton')
+            export_button.grid(row=i, column=3, padx=(0, 10))
+
+    def export_group(self, folder_path, state):
+        if state.get():
+            export_psd_to_bmp(folder_path, self.target_folder if self.export_all_to_same_folder.get() else folder_path, self.override_existing_files.get())
 
     def export_all_groups(self):
         # Export all groups
-        for path in self.paths:
-            self.export_group(path)
+        for path, state in zip(self.paths, self.export_states):
+            self.export_group(path, state)
 
 if __name__ == "__main__":
     root = tk.Tk()
