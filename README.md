@@ -46,7 +46,7 @@ fan art modifications in ultima online classic
 
 # Chivalry and Necromancy Spells
 
-<img src="/UI/UI_SpellsChivalry/ui_spell_chivnecro_comp.jpg?raw=true"  />
+<img src="/UI/UI_SpellsChivalry/ui_spell_chivnecro_comp_wide.jpg?raw=true"  />
 
 # Dark Scrolls
 - ui enchanted with dark magic
@@ -70,7 +70,7 @@ fan art modifications in ultima online classic
 # Magic Buffs
 - buffs and debuffs stylized darker matching magic spells and outlands specific buffs
 
-![Dark Buffs](/UI/UI_Buffs/ui_buff_00_comp_names.jpg?raw=true "Dark Buffs")
+![Dark Buffs](/UI/UI_Buffs/ui_buff_00_comp_names_wide.jpg?raw=true "Dark Buffs")
 
 # Installation / Patching
 - download [UO_ART_MODS_20220717.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220812/UO_ART_MODS_20220812.zip ) . 

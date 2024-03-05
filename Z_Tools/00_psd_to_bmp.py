@@ -1,5 +1,5 @@
-#// PSD TO BMP BATCH 
-#// for each PSD name with a hexidecimal suffix , save a bmp copy named by HEX for GumpOverrides
+#// PSD TO PNG BATCH 
+#// for each PSD name with a hexidecimal suffix , save a PNG copy named by HEX for GumpOverrides
 import os
 import tkinter as tk
 from tkinter import filedialog, ttk
@@ -26,7 +26,7 @@ DEFAULT_OUTPUT_PATH = "./GumpOverrides/"
 
 #//==================================================================================================
 #// EXPORT
-def export_psd_to_bmp(folder_path, target_folder, override_existing_files):
+def export_psd_to_PNG(folder_path, target_folder, override_existing_files):
     # Suppress specific warnings from psd_tools
     warnings.filterwarnings("ignore", category=UserWarning, message="Unknown tagged block:.*")
     warnings.filterwarnings("ignore", category=UserWarning, message="Unknown key:.*")
@@ -45,23 +45,23 @@ def export_psd_to_bmp(folder_path, target_folder, override_existing_files):
             # Construct the full path to the PSD file
             psd_path = os.path.join(folder_path, filename)
 
-            # Generate the new BMP filename based on the regex match
-            bmp_filename = match.group(1) + ".bmp"
+            # Generate the new PNG filename based on the regex match
+            PNG_filename = match.group(1) + ".png"
 
-            # Determine the output path for the BMP file
-            bmp_path = os.path.join(target_folder, bmp_filename)
+            # Determine the output path for the PNG file
+            PNG_path = os.path.join(target_folder, PNG_filename)
 
-            # Check if the BMP file already exists and the override option is not selected
-            if os.path.exists(bmp_path) and not override_existing_files:
-                print(f"Skipping existing file: {bmp_path}")
+            # Check if the PNG file already exists and the override option is not selected
+            if os.path.exists(PNG_path) and not override_existing_files:
+                print(f"Skipping existing file: {PNG_path}")
                 continue
 
-            # Open the PSD file and save it as a BMP file
+            # Open the PSD file and save it as a PNG file
             try:
                 psd = PSDImage.open(psd_path)
                 merged_image = psd.composite()
-                merged_image.save(bmp_path, format='BMP')
-                print(f"Exported {psd_path} to {bmp_path}")
+                merged_image.save(PNG_path, format='PNG')
+                print(f"Exported {psd_path} to {PNG_path}")
             except Exception as e:
                 print(f"Error processing {psd_path}: {e}")
 
@@ -69,22 +69,22 @@ def export_psd_to_bmp(folder_path, target_folder, override_existing_files):
     warnings.filterwarnings("default", category=UserWarning, message="Unknown tagged block:.*")
     warnings.filterwarnings("default", category=UserWarning, message="Unknown key:.*")
 
-    print(f"Exported all PSD files from {folder_path} to BMP format.")
+    print(f"Exported all PSD files from {folder_path} to PNG format.")
 
 #//==================================================================================================
 #//   UI
 #//==================================================================================================
-class PSDtoBMPConverter:
+class PSDtoPNGConverter:
     def __init__(self, master):
         self.master = master
-        self.master.title("PSD to BMP Converter")
+        self.master.title("PSD to PNG Converter - Source Art to GumpOverrides")
         self.master.configure(bg='#2e2e2e')
 
         self.paths = []
         self.group_names = []
         self.export_states = []
 
-        # Default target folder for exporting BMP files
+        # Default target folder for exporting PNG files
         self.target_folder = DEFAULT_OUTPUT_PATH
 
         self.setup_ui()
@@ -98,14 +98,14 @@ class PSDtoBMPConverter:
         self.export_all_button = ttk.Button(self.frame, text="Export All", command=self.export_all_groups, style='TButton')
         self.export_all_button.grid(row=0, column=0, pady=(0, 10))
 
-        # Checkbox to export all BMP files to the target folder
+        # Checkbox to export all PNG files to the target folder
         self.export_all_to_same_folder = tk.BooleanVar(value=True)
         self.export_all_checkbox = ttk.Checkbutton(self.frame, text="Export all to target folder", variable=self.export_all_to_same_folder, style='TCheckbutton')
         self.export_all_checkbox.grid(row=1, column=0, pady=(0, 10))
 
-        # Checkbox to override existing BMP files
+        # Checkbox to override existing PNG files
         self.override_existing_files = tk.BooleanVar(value=True)
-        self.override_checkbox = ttk.Checkbutton(self.frame, text="Override existing BMP files", variable=self.override_existing_files, style='TCheckbutton')
+        self.override_checkbox = ttk.Checkbutton(self.frame, text="Override existing PNG files", variable=self.override_existing_files, style='TCheckbutton')
         self.override_checkbox.grid(row=2, column=0, pady=(0, 10))
 
         # Entry for specifying the target folder path
@@ -161,7 +161,7 @@ class PSDtoBMPConverter:
 
     def export_group(self, folder_path, state):
         if state.get():
-            export_psd_to_bmp(folder_path, self.target_folder if self.export_all_to_same_folder.get() else folder_path, self.override_existing_files.get())
+            export_psd_to_PNG(folder_path, self.target_folder if self.export_all_to_same_folder.get() else folder_path, self.override_existing_files.get())
 
     def export_all_groups(self):
         # Export all groups
@@ -178,5 +178,5 @@ if __name__ == "__main__":
     style.configure('TCheckbutton', background='#2e2e2e', foreground='white')
     style.configure('TLabel', background='#2e2e2e', foreground='white')
     style.configure('TEntry', fieldbackground='#3c3c3c', foreground='white')
-    app = PSDtoBMPConverter(root)
+    app = PSDtoPNGConverter(root)
     root.mainloop()
