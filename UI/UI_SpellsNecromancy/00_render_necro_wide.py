@@ -25,7 +25,7 @@ LEAF_PATTERN = re.compile(r'temp_spell_(\d+)_(0x[\dA-F]+)\.png')
 BOOK_PATTERN = re.compile(r'ui_necro_book_(0x[\dA-F]+)\.psd')
 
 # Rearrangement order for the images
-rearrangement_order = [4, 9, 1, 3, 2, 6, 8, 5, 10, 7]
+rearrangement_order = [9, 6, 3, 2, 8, 1, 4, 7,10, 5]
 
 def assemble_twig(twig_index, leaf_files):
     """Assemble spells into a twig."""
