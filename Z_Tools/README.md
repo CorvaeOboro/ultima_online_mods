@@ -20,7 +20,7 @@ Mulpatcher by Varan
 - autopatch txt example ( "HEX imagename.bmp" example= "0xF88 item_reagent_NightShade_0xF88.bmp" )
 
 Export
-- 00_psd_to_bmp.py = Automatically export from psd source files into a GumpOverrides folder
+- 00_psd_to_png.py = Automatically export from psd source files into a GumpOverrides folder
 
 Image Magick
 - https://imagemagick.org/script/download.php

@@ -1,6 +1,6 @@
 #=================================
-# IMAGE ROTATE 45 TEX to ART_M 
-# used with ultima online textures to convert textures to art_m flat land tiles 
+# IMAGE ROTATE 45degree for TEX to ART_M 
+# used with ultima online textures to convert "textures" to "art_m" flat land isometric tiles 
 # currently an imperfect method due to aliasing during rotation and resizing ( bicubic during final resize )
 # attempting to closer match the original's style by sharpening 5% , blending 1% noise , and darkening 12% 
 # requires ALPHA folder with bmp included to apply the original opacity
@@ -25,7 +25,7 @@ alpha_texture_filepath = './ALPHA/00_LAND_ART_M_ALPHA.bmp'
 ARTM_folderpath = '/ART_M'  # sub directory of the generated art_m bmps
 
 noise_amount = 1.0
-noise_blend_amount = 0.01 # 0.1
+noise_blend_amount = 0.01 # 1% noise
 brightness_amount =  0.88 # darken 12%
 sharpen_blend_amount = 0.05 # sharpen by 5%
 

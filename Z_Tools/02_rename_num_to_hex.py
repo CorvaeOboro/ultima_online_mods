@@ -9,7 +9,7 @@ def number_to_hex(number_str):
     """Convert a number in string format to its hexadecimal representation."""
     return f"0x{int(number_str):X}"
 
-def rename_files_in_folder(folder_path):
+def rename_files_in_folder_to_hex(folder_path):
     """Rename files in the given folder, converting numbers in filenames to hexadecimal."""
     files = os.listdir(folder_path)
     print(f"Found {len(files)} files in the folder.")
@@ -19,7 +19,7 @@ def rename_files_in_folder(folder_path):
         match = re.search(r'\d+', filename)
         if match:
             number_str = match.group()
-            hex_number = number_to_hex(number_str)
+            hex_number = number_to_hex(number_str) 
             # Replace the filename with its hexadecimal representation
             #new_filename = re.sub(r'\d+', hex_number, filename, 1)
             new_filename = str(hex_number) + ".bmp"
@@ -39,7 +39,7 @@ def start_renaming():
     """Start the renaming process using the folder path from the entry widget."""
     folder_path = folder_path_entry.get()
     if os.path.isdir(folder_path):
-        rename_files_in_folder(folder_path)
+        rename_files_in_folder_to_hex(folder_path)
         status_label.config(text="Renaming completed successfully.")
     else:
         status_label.config(text="Invalid folder path.")

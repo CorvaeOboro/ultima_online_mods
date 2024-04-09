@@ -8,6 +8,5 @@ set  _nameFIXB=!_nameFIXA:.png=.jpg!
 set  _finalname=!_nameFIXB:.webp=.jpg!
 echo !_finalname!
 echo !_nameFIXApsd!
-::magick convert "!_nameFIXApsd!" -background black -flatten +matte -colorspace sRGB -type palette TrueColorAlpha  BMP3:"!_finalname!"
 magick convert "!_nameFIXApsd!" -background black -flatten +matte -colorspace sRGB "!_finalname!"
 )
