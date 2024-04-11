@@ -1,20 +1,16 @@
 #// PSD TO PNG BATCH EXPORTER
-#// for each PSD name with a hexidecimal suffix , save a PNG copy named by HEX for GumpOverrides
+#// for each PSD name with a hexidecimal suffix , save a PNG copy named by HEX for GumpOverrides . example =
 #// Mod group visualization and export ui for selection by folder paths
 import os # folders filepaths
 import tkinter as tk # ui
 from tkinter import filedialog, ttk, messagebox
 from PIL import Image, ImageTk
-from psd_tools import PSDImage # exporting flattened psd images
-import warnings # psd_tools warning suppression
+from psd_tools import PSDImage # exporting flattened psd images 
 import re # regex regular expression string parsing
 from tqdm import tqdm # progress vis , renmoved
-from contextlib import contextmanager # psd_tools warning suppression
 
 #//==================================================================================================
 DEFAULT_OUTPUT_PATH = "./GumpOverrides/" # create a new local GumpOverrides folder for exporting to , to be copied into the Outlands Folder .
-UI_IMAGE_WIDTH = 660
-UI_IMAGE_HEIGHT = 300
 
 # Mod Group and Source Art (PSDs) filepath 
 GROUPS_LEFT = {
@@ -82,70 +78,63 @@ GROUPS_UPSCALE = {
     }
 }
 
-DESCALE_PIXEL_SIZE = 44 # 44 pixel spells icon
+DESCALE_PIXEL_SIZE = 44 # 44 pixel spells icon , original 
 CHECKBOX_ON_IMAGE_PATH = "./images/checkbox_on_image.png"
 CHECKBOX_OFF_IMAGE_PATH = "./images/checkbox_off_image.png"
+REGEX_HEXIDECIMAL = re.compile(r'(0x[0-9A-Fa-f]+)\.psd$') # find hexideciaml suffix on a psd file , example = "ui_necro_spell_1_0x500E.psd" finds "0x500E"
+UI_IMAGE_WIDTH = 660
+UI_IMAGE_HEIGHT = 300
 
 #//==================================================================================================
-#// PSD TOOLS warning messages uneeded 
-@contextmanager
-def suppress_psd_tools_warnings():
-    warnings.filterwarnings("ignore", category=UserWarning, module="psd_tools")
-    yield
-    warnings.filterwarnings("default", category=UserWarning, module="psd_tools")
-
-
-#//==================================================================================================
-#// EXPORT
+#// EXPORT from PSD folder to PNG then rename to hexidecimal suffix
 def export_psd_to_PNG(folder_path, target_folder, override_existing_files, resize=None):
-    hex_pattern = re.compile(r'(0x[0-9A-Fa-f]+)\.psd$')
 
     if not os.path.exists(target_folder):
         os.makedirs(target_folder)
 
-    psd_files = [f for f in os.listdir(folder_path) if hex_pattern.search(f)]
-    with suppress_psd_tools_warnings():
-        for filename in tqdm(psd_files, desc=f"Processing {os.path.basename(folder_path)}"):
-            match = hex_pattern.search(filename)
-            if match:
-                psd_path = os.path.join(folder_path, filename)
-                PNG_filename = match.group(1) + ".png"
-                PNG_path = os.path.join(target_folder, PNG_filename)
+    psd_files = [f for f in os.listdir(folder_path) if REGEX_HEXIDECIMAL.search(f)]
 
-                if os.path.exists(PNG_path) and not override_existing_files:
-                    continue
+    for filename in tqdm(psd_files, desc=f"Processing {os.path.basename(folder_path)}"):
+        match = REGEX_HEXIDECIMAL.search(filename)
+        if match:
+            psd_path = os.path.join(folder_path, filename)
+            PNG_filename = match.group(1) + ".png"
+            PNG_path = os.path.join(target_folder, PNG_filename)
 
-                try:
-                    psd = PSDImage.open(psd_path)
-                    merged_image = psd.composite()
-                    if resize:
-                        merged_image = merged_image.resize((resize, resize), Image.Resampling.LANCZOS)
-                    merged_image.save(PNG_path, format='PNG')
-                except Exception as e:
-                    print(f"Error processing {psd_path}: {e}")
+            if os.path.exists(PNG_path) and not override_existing_files:
+                continue
+
+            try:
+                psd = PSDImage.open(psd_path)
+                merged_image = psd.composite()
+                if resize:
+                    merged_image = merged_image.resize((resize, resize), Image.Resampling.LANCZOS)
+                merged_image.save(PNG_path, format='PNG')
+            except Exception as e:
+                print(f"Error processing {psd_path}: {e}")
 
     print(f"Exported all PSD files from {folder_path} to PNG format.")
 
 #//==================================================================================================
-#// CHECKBOX
+#// CHECKBOX image toggle
 class ImageCheckbox(tk.Frame):
     def __init__(self, master, text, variable, on_image_path, off_image_path, **kwargs):
-        super().__init__(master, bg='#3c3c3c', **kwargs)  # Set background color to dark grey
+        super().__init__(master, bg='#3c3c3c', **kwargs)  
 
         self.variable = variable
         self.on_image = ImageTk.PhotoImage(Image.open(on_image_path))
         self.off_image = ImageTk.PhotoImage(Image.open(off_image_path))
 
-        self.checkbox_image = tk.Label(self, bg='#3c3c3c')  # Ensure label background matches frame
+        self.checkbox_image = tk.Label(self, bg='#3c3c3c') 
         self.checkbox_image.pack(side=tk.LEFT)
         self.checkbox_image.bind("<Button-1>", self.toggle)
 
-        self.label = tk.Label(self, text=text, bg='#222222', fg='white')  # Ensure label matches frame style
+        self.label = tk.Label(self, text=text, bg='#222222', fg='white') 
         self.label.pack(side=tk.LEFT)
         self.label.bind("<Button-1>", self.toggle)
 
         self.variable.trace("w", self.update_image)
-        self.update_image()  # Call update_image to set the initial image correctly
+        self.update_image()  
 
     def toggle(self, event=None):
         self.variable.set(not self.variable.get())
@@ -156,7 +145,6 @@ class ImageCheckbox(tk.Frame):
         else:
             self.checkbox_image.config(image=self.off_image)
 
-
 #//==================================================================================================
 #// UI
 class PSDtoPNGConverter:
@@ -164,11 +152,11 @@ class PSDtoPNGConverter:
         self.master = master
         self.master.title("PSD to PNG Converter - Source Art to GumpOverrides")
         self.master.configure(bg='#111111')
-        self.target_folder = DEFAULT_OUTPUT_PATH
-        self.export_states = []  # Initialize export_states here
-        self.checkbox_states = {}  # Dictionary to store checkbox states
-        self.paths = []  # Initialize paths here
-        self.group_names = []  # Initialize group_names here
+        self.target_folder = DEFAULT_OUTPUT_PATH # default is local gump overrides
+        self.export_states = []  # group is currently checked on or off for export
+        self.checkbox_states = {}  # the default setting on off for each group
+        self.paths = []  # source art paths
+        self.group_names = []  # group names 
         self.setup_ui()
 
     def setup_ui(self):
@@ -214,14 +202,11 @@ class PSDtoPNGConverter:
         self.load_groups(self.upscale_area, GROUPS_UPSCALE)
         print("Groups loaded.")
 
-
-
     def load_groups(self, parent, groups):
         print(f"Loading groups into {parent}...")
         for group_name, group_info in groups.items():
             print(f"Adding group section: {group_name}")
             self.add_group_section(parent, group_name, group_info)
-
 
     def add_group_section(self, parent, group_name, group_info):
         print(f"Adding group section for {group_name}...")
@@ -252,7 +237,6 @@ class PSDtoPNGConverter:
         default_state = subgroup_info.get("default_state", True)
         state = tk.BooleanVar(value=default_state)
         self.export_states.append(state)
-        # Store the state variable in the checkbox_states dictionary
         self.checkbox_states[(subgroup_info["path"])] = state
 
         export_check = ImageCheckbox(subgroup_frame, text="", variable=state, on_image_path=CHECKBOX_ON_IMAGE_PATH, off_image_path=CHECKBOX_OFF_IMAGE_PATH)
@@ -320,14 +304,13 @@ class PSDtoPNGConverter:
             messagebox.showerror("Invalid Input", "Please enter a valid integer for export size.")
 
 #//==================================================================================================
-#// MAIN 
+#// MAIN ui 
 if __name__ == "__main__":
     root = tk.Tk()
     root.geometry("1400x810")  #  14x8 aspect ratio
 
     style = ttk.Style()
     style.theme_use('clam')
-    # Update the style configurations to remove white borders or set them to black
     style.configure('TFrame', background='#111111', bordercolor='#000000', borderwidth=0)
     style.configure('Large.TButton', background='#3c3c3c', foreground='white', borderwidth=0, font=('Helvetica', 12), bordercolor='#000000')
     style.configure('Large.TCheckbutton', background='#111111', foreground='white', font=('Helvetica', 12), bordercolor='#000000', borderwidth=0)
