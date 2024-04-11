@@ -46,7 +46,7 @@ fan art modifications in ultima online classic
 
 # Chivalry and Necromancy Spells
 
-<img src="/UI/UI_SpellsChivalry/ui_spell_chivnecro_comp_wide.jpg?raw=true"  />
+<img src="/UI/UI_SpellsChivalry/ui_chiv_00_render_wide_combined.jpg?raw=true"  />
 
 # Dark Scrolls
 - ui enchanted with dark magic
@@ -71,6 +71,11 @@ fan art modifications in ultima online classic
 - buffs and debuffs stylized darker matching magic spells and outlands specific buffs
 
 ![Dark Buffs](/UI/UI_Buffs/ui_buff_00_comp_names_wide.jpg?raw=true "Dark Buffs")
+
+# Arch Stone
+- an archway of the avatar crafted from stone
+
+![Arch Stone](/UI/UI_ArchStone/ui_archstone_backpack_comp.jpg?raw=true "Arch Stone")
 
 # Installation / Patching
 - download [UO_ART_MODS_20240409.zip]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) . 
