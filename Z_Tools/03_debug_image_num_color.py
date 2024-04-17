@@ -1,109 +1,171 @@
 #=================================
-# FOR EACH BMP IN FOLDER , composite NUMBER , BORDER AND randomly COLORIZE for visual debug testing 
+# FOR EACH BMP IN FOLDER, composite NUMBER, BORDER AND randomly COLORIZE for visual debug testing 
+# updated for ui and art gumps now write the filename repeating at smallest size possible
 #=================================
-from PIL import Image, ImageDraw, ImageFont
-from PIL import Image, ImageDraw, ImageFont ,ImageEnhance,ImageFilter , ImageChops , ImageOps
-import PIL
-import glob, os
-import os.path
+import os
 import re
 import numpy as np
-import colorsys
 import random
-import blend_modes
-from pathlib import Path
-#import Image
+import glob
+# Image libraries
+from PIL import Image, ImageDraw, ImageFont , ImageEnhance
+import colorsys
+#UI
+import tkinter as tk
+from tkinter import filedialog
+from tqdm import tqdm  # Import tqdm for progress bar functionality
 
-#//====================================================
-noise_amount = 1.0
-noise_blend_amount = 0.01 # 0.1
-brightness_amount =  0.88 # 0.95 darken originallly
-sharpen_blend_amount = 0.05 # 0.4 sharpen
+class ImageProcessorUI(tk.Frame):
+    def __init__(self, master=None):
+        super().__init__(master)
+        self.master = master
+        self.pack()
+        self.create_widgets()
 
-# REGEX TO PARSE ID NUMBER FROM FILE ===============================
-# regex finds string of numbers between underscores or starting with underscore and ending with dot 
-# important this doesnt find hexidecimal ( 0x0987 )  
-# example name to parse = landtile_01912_grass_W_0x0972.bmp , landtile_null_203.bmp
-regex_numbers_no_letters = re.compile('_[0-9]*_|_[0-9]*\.')
-regex_underscore = re.compile('_')
-regex_dot = re.compile('\.')
+    def create_widgets(self):
+        # File path entry
+        self.filepath_label = tk.Label(self, text="Directory Path:")
+        self.filepath_label.pack(side="top")
 
-# SHIFT HUE TO DIFFENTIATE  / COLORIZE  ===============================
-rgb_to_hsv = np.vectorize(colorsys.rgb_to_hsv)
-hsv_to_rgb = np.vectorize(colorsys.hsv_to_rgb)
+        self.filepath_entry = tk.Entry(self, width=50)
+        self.filepath_entry.insert(0, "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_DEBUG")
+        self.filepath_entry.pack(side="top")
 
-def shift_hue(arr, hout):
-    r, g, b, a = np.rollaxis(arr, axis=-1)
-    h, s, v = rgb_to_hsv(r, g, b)
-    h = hout
-    r, g, b = hsv_to_rgb(h, s, v)
-    arr = np.dstack((r, g, b, a))
-    return arr
+        # Font size entry
+        self.font_size_label = tk.Label(self, text="Font Size:")
+        self.font_size_label.pack(side="top")
 
-def colorize(image, hue):
-    # Colorize PIL image `original` with the given
-    # `hue` (hue within 0-360); returns another PIL image.
-    img = image.convert('RGBA')
-    arr = np.array(np.asarray(img).astype('float'))
-    new_img = Image.fromarray(shift_hue(arr, hue/360.).astype('uint8'), 'RGBA')
+        self.font_size_entry = tk.Entry(self, width=10)
+        self.font_size_entry.insert(0, "10")
+        self.font_size_entry.pack(side="top")
 
-    return new_img
+        # Padding entry
+        self.padding_label = tk.Label(self, text="Padding:")
+        self.padding_label.pack(side="top")
 
-def number_and_border(target_directory):
-  seed = 0
-  for infile in glob.glob(os.path.join(target_directory, "*.bmp")):
-    image = Image.open(infile)
-    width, height = image.size 
-    draw = ImageDraw.Draw(image)
+        self.padding_entry = tk.Entry(self, width=10)
+        self.padding_entry.insert(0, "1")
+        self.padding_entry.pack(side="top")
 
-    # WRITE NUMBER IF FOUND ===============================
-    text_found = re.findall(regex_numbers_no_letters, str(infile)) 
-    if (text_found):
-      text_outputA = text_found[0].strip()
-      text_outputB = re.sub(regex_underscore,'',text_outputA,);
-      text_outputC = re.sub(regex_dot,'',text_outputB,);
-      text_final_number = text_outputC.lstrip('0')
+        # Prefix entry
+        self.prefix_label = tk.Label(self, text="Prefix:")
+        self.prefix_label.pack(side="top")
 
-      textsize_relative_percent = 0.4
-      textsize_final = round( ((width+height)/2) * textsize_relative_percent ) 
-      print("image width = " + str(width) + "   >>>>>  " + " text relative size =  " + str(textsize_final) )
-      textwidth = round(textsize_final/2)
-      textheight = round(textsize_final/2)
-      #textwidth, textheight = draw.textsize(text_final_number)
+        self.prefix_entry = tk.Entry(self, width=20)
+        self.prefix_entry.insert(0, "<")
+        self.prefix_entry.pack(side="top")
 
-      margin = 2
-      x = (width/2) - margin - textwidth
-      y = (height/2) - margin - textheight
-      textsize_relative_percent = 0.4
-      textsize_final = round( ((width+height)/2) * textsize_relative_percent ) 
-      print("image width = " + str(width) + "   >>>>>  " + " text relative size =  " + str(textsize_final) )
+        # Suffix entry
+        self.suffix_label = tk.Label(self, text="Suffix:")
+        self.suffix_label.pack(side="top")
 
-      font_path = ImageFont.truetype(r'C:/FONTS/Roboto-Bold.ttf', textsize_final) 
-      draw.text((x+1, y), text_final_number , fill ="white", font=font_path, align ="left")
-      draw.text((x-1, y), text_final_number , fill ="white", font=font_path, align ="left")
-      draw.text((x, y+1), text_final_number , fill ="white", font=font_path, align ="left")
-      draw.text((x, y-1), text_final_number , fill ="white", font=font_path, align ="left")
+        self.suffix_entry = tk.Entry(self, width=20)
+        self.suffix_entry.insert(0, ">")
+        self.suffix_entry.pack(side="top")
 
-      draw.text((x, y), text_final_number , fill ="black", font=font_path, align ="center")
+        # Browse button
+        self.browse_button = tk.Button(self, text="Browse", command=self.browse)
+        self.browse_button.pack(side="top")
 
-    # BORDER DRAW 4 LINES ON EDGES ===============================
-    border = 3
-    border_width = 5
-    draw.line((border,border, width-border, border), fill=20, width=border_width)
-    draw.line((border,height-border, width-border, height-border), fill=20, width=border_width)
-    draw.line((border,border, border, height-border), fill=20, width=border_width)
-    draw.line((width-border,height-border, width-border, border), fill=20, width=border_width)
+        # Include border checkbox
+        self.include_border = tk.BooleanVar()
+        self.border_check = tk.Checkbutton(self, text="Include Border", variable=self.include_border)
+        self.border_check.pack(side="top")
 
-    # RANDOM COLOR HUE SHIFT ===============================
-    seed = seed+1 
-    random.seed(seed)
-    rand_hue = random.randrange(360) 
-    image = colorize(image,rand_hue)
+        # Process images button
+        self.process_button = tk.Button(self, text="Process Images", command=self.process_images)
+        self.process_button.pack(side="top")
 
-    # SAVE IMAGE ===============================
-    image.save(infile)
+        # Quit button
+        self.quit_button = tk.Button(self, text="QUIT", fg="red", command=self.master.destroy)
+        self.quit_button.pack(side="bottom")
 
-# MAIN for windows ===============================
+    def browse(self):
+        directory = filedialog.askdirectory()
+        self.filepath_entry.delete(0, tk.END)
+        self.filepath_entry.insert(0, directory)
+
+    def process_images(self):
+        directory = self.filepath_entry.get()
+        include_border = self.include_border.get()
+        font_size = int(self.font_size_entry.get())
+        padding = int(self.padding_entry.get())
+        prefix = self.prefix_entry.get()
+        suffix = self.suffix_entry.get()
+        processor = ImageProcessor(font_size, padding, prefix, suffix)
+        processor.process_directory(directory, include_border)
+
+class ImageProcessor:
+    def __init__(self, font_size, padding, prefix, suffix):
+        self.regex = re.compile(r'([^\\/:*?"<>|\r\n]+)\.bmp$')
+        self.font_size = font_size
+        self.padding = padding
+        self.prefix = prefix
+        self.suffix = suffix
+        self.font_path = "arial.ttf"  # Adjust to your font path
+
+    def process_directory(self, target_directory, include_border):
+        files = glob.glob(os.path.join(target_directory, "*.bmp"))
+        for infile in tqdm(files, desc="Processing Images"):
+            self.process_file(infile, include_border)
+
+    def process_file(self, filepath, include_border):
+        image = Image.open(filepath)
+        # Apply hue shift
+        hue = random.randint(0, 360)
+        image = self.colorize(image, hue)
+        # Darken the image
+        enhancer = ImageEnhance.Brightness(image)
+        image = enhancer.enhance(0.8)
+        draw = ImageDraw.Draw(image)
+
+        font = ImageFont.truetype(self.font_path, self.font_size)
+        match = self.regex.search(filepath)
+        if match:
+            filename = match.group(1)
+            text = f"{self.prefix}{filename}{self.suffix}"
+            bbox = draw.textbbox((0, 0), text, font=font)
+            text_width = bbox[2] - bbox[0] + self.padding
+            text_height = bbox[3] - bbox[1] + self.padding
+
+            for y in range(0, image.height, text_height):
+                for x in range(0, image.width, text_width):
+                    # Draw text outline
+                    draw.text((x-1, y), text, font=font, fill="black")
+                    draw.text((x+1, y), text, font=font, fill="black")
+                    draw.text((x, y-1), text, font=font, fill="black")
+                    draw.text((x, y+1), text, font=font, fill="black")
+                    # Draw main text
+                    draw.text((x, y), text, font=font, fill="white")
+
+        if include_border:
+            border_width = 5
+            draw.rectangle([border_width, border_width, image.width - border_width, image.height - border_width], outline="black", width=border_width)
+
+        image.save(filepath)
+        print(f"Image {filepath} processed and saved.")
+
+    def colorize(self, image, hue):
+        """ Apply a color shift to an image. """
+        img = image.convert('RGBA')
+        arr = np.array(img)
+        new_img = Image.fromarray(self.shift_hue(arr, hue).astype('uint8'), 'RGBA')
+        return new_img
+
+    def shift_hue(self, arr, hue):
+        """ Shift the hue of an image. """
+        r, g, b, a = np.rollaxis(arr, axis=-1)
+        hsv = np.vectorize(lambda r, g, b: colorsys.rgb_to_hsv(r/255., g/255., b/255.))
+        h, s, v = hsv(r, g, b)
+        rgb = np.vectorize(lambda h, s, v: colorsys.hsv_to_rgb((h + hue/360.0) % 1.0, s, v))
+        r, g, b = rgb(h, s, v)
+        return np.dstack((r*255, g*255, b*255, a))
+
+def main():
+    root = tk.Tk()
+    root.title("Image Processing Tool")
+    app = ImageProcessorUI(master=root)
+    app.mainloop()
+
 if __name__ == '__main__':
-  directory = os.path.dirname(os.path.abspath(__file__))  #// directory of current py file
-  number_and_border(directory)
+    main()

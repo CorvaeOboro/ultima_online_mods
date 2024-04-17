@@ -11,7 +11,7 @@ art assets are compressed into .mul files . modding the art is handled by 'patch
 UO Fiddler
 - https://github.com/polserver/UOFiddler
 - tool to explore and export the art in the mul files .
-- Searchable by name or ID ( ids can be found in game saying ">info" ) 
+- Searchable by name or ID ( ids can be found in game saying ">info" or "-info" ) 
 - can Batch export all by category  
 
 Mulpatcher by Varan
@@ -20,12 +20,12 @@ Mulpatcher by Varan
 - autopatch txt example ( "HEX imagename.bmp" example= "0xF88 item_reagent_NightShade_0xF88.bmp" )
 
 Export
-- 00_psd_to_png.py = Automatically export from psd source files into a GumpOverrides folder
+- [00_psd_to_GumpOverrides.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py ) = Automatically export from psd source files into a GumpOverrides folder
 
 Image Magick
 - https://imagemagick.org/script/download.php
 - command line image operations
-- in this project currently using .bat to batch convert psd to bmp and set BMP3 format 
+- in this project currently using imagemagick by a .bat to batch convert psd to bmp and set BMP3 format 
 
 # ENVIRONMENT TEXTURES
 Textures -  mapped to 3d terrain 
@@ -36,12 +36,12 @@ for each envrionment texture there is a corresponding art_m landtile , and addit
 TEX_to_ART_M
 - this python script will batch convert Textures to ART_M , however isnt perfect and recommend additional adjustments
 - ![TEX to ART_M](ultima_TEX_convert_to_ART_M.jpg?raw=true "TEX to ART_M")
-- located in Z_Tools/00_BATCH_images_rotate_to_ART_M.py and in each ENV mod folder
+- located in Z_Tools/[01_image_rotate_to_isometric.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py) 
 
 TEX_debug
 - this python script useful for visual debug , composites numbers onto each texture 
 - ![Debug TEX](ultima_env_debug_example_01.jpg?raw=true "Debug TEX")
-- located in Z_Tools/00_BATCH_image_number_and_border.py
+- located in Z_Tools/[03_debug_image_num_color.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_debug_image_num_color.py ) 
 
 Substance Painter of ENV textures :
 - located in Z_Tools/*.spp 
