@@ -3,7 +3,7 @@ import subprocess
 from PIL import Image
 from psd_tools import PSDImage
 
-def convert_psd_to_png(psd_path):
+def convert_psd_to_dds(psd_path):
     try:
         img = Image.open(psd_path).convert("RGB")
     except IOError:
@@ -20,13 +20,13 @@ def convert_psd_to_png(psd_path):
     except IOError as e:
         print(f"Error during conversion process for {os.path.basename(psd_path)}: {e}")
 
-def batch_convert_psd_to_png():
+def batch_convert_psd_to_dds():
     current_folder = os.getcwd()
     for filename in os.listdir(current_folder):
         if filename.lower().endswith('.psd'):
             file_path = os.path.join(current_folder, filename)
             print(f"Converting {filename} to PNG...")
-            convert_psd_to_png(file_path)
+            convert_psd_to_dds(file_path)
 
 if __name__ == "__main__":
-    batch_convert_psd_to_png()
+    batch_convert_psd_to_dds()
