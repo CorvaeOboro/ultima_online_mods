@@ -1,0 +1,11 @@
+0xC728 ui_equip_Spellbook_0xC728.bmp
+0xEE38 ui_equip_Spellbook_0xEE38.bmp
+0x8C1 ui_spell_1_CreateFood_0x8C1.bmp
+0x8C4 ui_spell_1_MagicArrow_0x8C4.bmp
+0x8D1 ui_spell_3_Fireball_0x8D1.bmp
+0x8DB ui_spell_4_FireField_0x8DB.bmp
+0x8E9 ui_spell_6_EnergyBolt_0x8E9.bmp
+0x8EA ui_spell_6_Explosion_0x8EA.bmp
+0x8F2 ui_spell_7_Flamestrike_0x8F2.bmp
+0x8F6 ui_spell_7_MeteorSwarm_0x8F6.bmp
+0x8F9 ui_spell_8_EnergyVortex_0x8F9.bmp

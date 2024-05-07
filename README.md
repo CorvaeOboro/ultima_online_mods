@@ -78,6 +78,8 @@ fan art modifications in ultima online classic
 ![Arch Stone](/UI/UI_ArchStone/ui_archstone_backpack_comp.jpg?raw=true "Arch Stone")
 
 # Installation / Patching
+- UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240409_GumpOverrides/UO_ART_MODS_20240409_GumpOverrides.zip) , unzip into a GumpOverrides folder in Outlands folder
+- CLassic Shards =
 - download [UO_ART_MODS_20240409.zip]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the mod TXT file and remove the line matching the item \ image name ( no empty lines )
 - using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > Art > set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .
