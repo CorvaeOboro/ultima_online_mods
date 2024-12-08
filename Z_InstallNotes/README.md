@@ -11,7 +11,7 @@
 
 1. Client Launcher Settings 
 - Update to Latest ( click verify ) 
-- Disable auotpatching andor autoupdates ( gear > settings > uncheck both ) 
+- Disable autopatching and autoupdates ( gear > settings > uncheck both ) 
 
 
 2. Mulpatcher 
