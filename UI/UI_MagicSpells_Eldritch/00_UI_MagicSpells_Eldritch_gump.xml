@@ -1,0 +1,13 @@
+<MassImport>
+  <gump index="50984" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells_Eldritch\ui_equip_Spellbook_0xC728.bmp" remove="False" />
+  <gump index="60984" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells_Eldritch\ui_equip_Spellbook_0xEE38.bmp" remove="False" />
+  <gump index="2241" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells_Eldritch\ui_spell_1_CreateFood_0x08C1.bmp" remove="False" />
+  <gump index="2244" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells_Eldritch\ui_spell_1_MagicArrow_0x08C4.bmp" remove="False" />
+  <gump index="2257" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells_Eldritch\ui_spell_3_Fireball_0x08D1.bmp" remove="False" />
+  <gump index="2267" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells_Eldritch\ui_spell_4_FireField_0x08DB.bmp" remove="False" />
+  <gump index="2281" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells_Eldritch\ui_spell_6_EnergyBolt_0x08E9.bmp" remove="False" />
+  <gump index="2282" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells_Eldritch\ui_spell_6_Explosion_0x08EA.bmp" remove="False" />
+  <gump index="2290" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells_Eldritch\ui_spell_7_Flamestrike_0x08F2.bmp" remove="False" />
+  <gump index="2294" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells_Eldritch\ui_spell_7_MeteorSwarm_0x08F6.bmp" remove="False" />
+  <gump index="2297" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells_Eldritch\ui_spell_8_EnergyVortex_0x08F9.bmp" remove="False" />
+</MassImport>
