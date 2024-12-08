@@ -1,0 +1,215 @@
+{
+    "canvas_width": 289,
+    "canvas_height": 115,
+    "layers": [
+        {
+            "name": "Color Fill 1",
+            "external_file_path": null,
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\Color Fill 1.png",
+            "position": {
+                "composite_left": 0,
+                "composite_top": 0,
+                "width": 289,
+                "height": 115
+            }
+        },
+        {
+            "name": "Item 0x3193",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\backup\\Item 0x3193.png",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\Item 0x3193.png",
+            "position": {
+                "composite_left": 207,
+                "composite_top": 65,
+                "width": 9,
+                "height": 9
+            }
+        },
+        {
+            "name": "Item 0x3194",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\backup\\Item 0x3194.png",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\Item 0x3194.png",
+            "position": {
+                "composite_left": 177,
+                "composite_top": 68,
+                "width": 11,
+                "height": 5
+            }
+        },
+        {
+            "name": "Item 0x3195",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\backup\\Item 0x3195.png",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\Item 0x3195.png",
+            "position": {
+                "composite_left": 50,
+                "composite_top": 65,
+                "width": 9,
+                "height": 9
+            }
+        },
+        {
+            "name": "Item 0x3196",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\backup\\Item 0x3196.png",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\Item 0x3196.png",
+            "position": {
+                "composite_left": 145,
+                "composite_top": 64,
+                "width": 9,
+                "height": 9
+            }
+        },
+        {
+            "name": "Item 0x3197",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\backup\\Item 0x3197.png",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\Item 0x3197.png",
+            "position": {
+                "composite_left": 18,
+                "composite_top": 65,
+                "width": 9,
+                "height": 9
+            }
+        },
+        {
+            "name": "Item 0x3198",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\backup\\Item 0x3198.png",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\Item 0x3198.png",
+            "position": {
+                "composite_left": 114,
+                "composite_top": 65,
+                "width": 9,
+                "height": 9
+            }
+        },
+        {
+            "name": "Item 0x3199",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\backup\\Item 0x3199.png",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\Item 0x3199.png",
+            "position": {
+                "composite_left": 83,
+                "composite_top": 65,
+                "width": 9,
+                "height": 9
+            }
+        },
+        {
+            "name": "Item 0x0F28",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\backup\\Item 0x0F28.png",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\Item 0x0F28.png",
+            "position": {
+                "composite_left": 269,
+                "composite_top": 67,
+                "width": 5,
+                "height": 6
+            }
+        },
+        {
+            "name": "Item 0x3192",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\backup\\Item 0x3192.png",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\Item 0x3192.png",
+            "position": {
+                "composite_left": 238,
+                "composite_top": 66,
+                "width": 9,
+                "height": 9
+            }
+        },
+        {
+            "name": "item_gemRare_FireRuby_0x3197",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\item_gemRare_FireRuby_0x3197.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\item_gemRare_FireRuby_0x3197.png",
+            "position": {
+                "composite_left": 0,
+                "composite_top": 81,
+                "width": 44,
+                "height": 27
+            }
+        },
+        {
+            "name": "item_gemRare_EcruCitrine_0x3195",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\item_gemRare_EcruCitrine_0x3195.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\item_gemRare_EcruCitrine_0x3195.png",
+            "position": {
+                "composite_left": 64,
+                "composite_top": 84,
+                "width": 44,
+                "height": 27
+            }
+        },
+        {
+            "name": "item_gemRare_PerfectEmerald_0x3194",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\item_gemRare_PerfectEmerald_0x3194.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\item_gemRare_PerfectEmerald_0x3194.png",
+            "position": {
+                "composite_left": 160,
+                "composite_top": 86,
+                "width": 44,
+                "height": 25
+            }
+        },
+        {
+            "name": "item_gemRare_BlueDiamond_0x3198",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\item_gemRare_BlueDiamond_0x3198.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\item_gemRare_BlueDiamond_0x3198.png",
+            "position": {
+                "composite_left": 189,
+                "composite_top": 81,
+                "width": 44,
+                "height": 27
+            }
+        },
+        {
+            "name": "item_gemRare_Turquoise_0x3193",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\item_gemRare_Turquoise_0x3193.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\item_gemRare_Turquoise_0x3193.png",
+            "position": {
+                "composite_left": 96,
+                "composite_top": 84,
+                "width": 44,
+                "height": 27
+            }
+        },
+        {
+            "name": "item_gemRare_WhitePearl_0x3196",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\item_gemRare_WhitePearl_0x3196.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\item_gemRare_WhitePearl_0x3196.png",
+            "position": {
+                "composite_left": 128,
+                "composite_top": 87,
+                "width": 44,
+                "height": 26
+            }
+        },
+        {
+            "name": "item_gemRare_BrilliantAmber_0x3199",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\item_gemRare_BrilliantAmber_0x3199.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\item_gemRare_BrilliantAmber_0x3199.png",
+            "position": {
+                "composite_left": 33,
+                "composite_top": 81,
+                "width": 44,
+                "height": 27
+            }
+        },
+        {
+            "name": "item_gemRare_DarkSapphire_0x3192",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\item_gemRare_DarkSapphire_0x3192.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\item_gemRare_DarkSapphire_0x3192.png",
+            "position": {
+                "composite_left": 220,
+                "composite_top": 84,
+                "width": 44,
+                "height": 27
+            }
+        },
+        {
+            "name": "item_gemRare_BlackRockSmall_0x0F28",
+            "external_file_path": "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\item_gemRare_BlackRockSmall_0x0F28.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gem_00_compB_exported_layers\\item_gemRare_BlackRockSmall_0x0F28.png",
+            "position": {
+                "composite_left": 254,
+                "composite_top": 87,
+                "width": 44,
+                "height": 19
+            }
+        }
+    ]
+}

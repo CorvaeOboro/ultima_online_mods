@@ -1,0 +1,72 @@
+{
+    "canvas_width": 155,
+    "canvas_height": 36,
+    "layers": [
+        {
+            "name": "Color Fill 1",
+            "external_file_path": null,
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\00_item_gemRare_comp_exported_layers\\Color Fill 1.png",
+            "position": {
+                "composite_left": 0,
+                "composite_top": 0,
+                "width": 155,
+                "height": 36
+            }
+        },
+        {
+            "name": "item_gemRare_ArcaneGem_0x1EA7",
+            "external_file_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gemRare_ArcaneGem_0x1EA7.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\00_item_gemRare_comp_exported_layers\\item_gemRare_ArcaneGem_0x1EA7.png",
+            "position": {
+                "composite_left": 97,
+                "composite_top": 4,
+                "width": 50,
+                "height": 38
+            }
+        },
+        {
+            "name": "item_gemRare_MoonStone_0x0F8B",
+            "external_file_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gemRare_MoonStone_0x0F8B.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\00_item_gemRare_comp_exported_layers\\item_gemRare_MoonStone_0x0F8B.png",
+            "position": {
+                "composite_left": 73,
+                "composite_top": 12,
+                "width": 44,
+                "height": 32
+            }
+        },
+        {
+            "name": "item_gemRare_MysticHealStone_x4078",
+            "external_file_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gemRare_MysticHealStone_x4078.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\00_item_gemRare_comp_exported_layers\\item_gemRare_MysticHealStone_x4078.png",
+            "position": {
+                "composite_left": 34,
+                "composite_top": 8,
+                "width": 43,
+                "height": 36
+            }
+        },
+        {
+            "name": "item_gemRare_SpellweaveArcaneFocus_0x3155",
+            "external_file_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gemRare_SpellweaveArcaneFocus_0x3155.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\00_item_gemRare_comp_exported_layers\\item_gemRare_SpellweaveArcaneFocus_0x3155.png",
+            "position": {
+                "composite_left": 57,
+                "composite_top": 5,
+                "width": 44,
+                "height": 43
+            }
+        },
+        {
+            "name": "item_gemRare_MysticSpellStone_0x4079",
+            "external_file_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\item_gemRare_MysticSpellStone_0x4079.bmp",
+            "exported_layer_path": "D:/ULTIMA/MODS/ultima_online_mods/ART/ART_GemRare\\00_item_gemRare_comp_exported_layers\\item_gemRare_MysticSpellStone_0x4079.png",
+            "position": {
+                "composite_left": 10,
+                "composite_top": 8,
+                "width": 43,
+                "height": 36
+            }
+        }
+    ]
+}
