@@ -1,8 +1,0 @@
-0x1085 item_jewelry_necklace_0x1085.bmp
-0x1086 item_jewelry_braclet_0x1086.bmp
-0x1087 item_jewelry_earring_0x1087.bmp
-0x1088 item_jewelry_necklace_0x1088.bmp
-0x1089 item_jewelry_necklace_0x1089.bmp
-0x108A item_jewelry_ring_0x108A.bmp
-0x1F09 item_jewelry_ring_0x1F09.bmp
-0x1F06 item_jewelry_bracelet_0x1F06.bmp
