@@ -1,0 +1,4 @@
+0x0D3F item_plant_BrambleA_0x0D3F.bmp
+0x0D40 item_plant_BrambleB_0x0D40.bmp
+0x33EB item_plant_BrambleC_0x33EB.bmp
+0x33EC item_plant_BrambleD_0x33EC.bmp
