@@ -1,0 +1,31 @@
+<MassImport>
+  <gump index="11015" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_bushido_0x2B07.bmp" remove="False" />
+  <gump index="11009" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_chivalry_0x2B01.bmp" remove="False" />
+  <gump index="2225" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_circle_num_0x08B1.bmp" remove="False" />
+  <gump index="2226" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_circle_num_0x08B2.bmp" remove="False" />
+  <gump index="2227" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_circle_num_0x08B3.bmp" remove="False" />
+  <gump index="2228" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_circle_num_0x08B4.bmp" remove="False" />
+  <gump index="2229" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_circle_num_0x08B5.bmp" remove="False" />
+  <gump index="2230" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_circle_num_0x08B6.bmp" remove="False" />
+  <gump index="2231" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_circle_num_0x08B7.bmp" remove="False" />
+  <gump index="2232" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_circle_num_0x08B8.bmp" remove="False" />
+  <gump index="11010" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_combat_0x2B02.bmp" remove="False" />
+  <gump index="11058" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_compass_0x2B32.bmp" remove="False" />
+  <gump index="2205" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_corner_0x089D.bmp" remove="False" />
+  <gump index="2206" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_corner_0x089E.bmp" remove="False" />
+  <gump index="2235" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_corner_0x08BB.bmp" remove="False" />
+  <gump index="2236" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_corner_0x08BC.bmp" remove="False" />
+  <gump index="2203" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_lavender_0x089B.bmp" remove="False" />
+  <gump index="2219" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_magic_0x08AB.bmp" remove="False" />
+  <gump index="2220" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_magic_0x08AC.bmp" remove="False" />
+  <gump index="2716" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_magic_big_0x0A9C.bmp" remove="False" />
+  <gump index="11058" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_mysticism_0x2B32.bmp" remove="False" />
+  <gump index="11008" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_necromancy_0x2B00.bmp" remove="False" />
+  <gump index="11014" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_ninjitsu_0x2B06.bmp" remove="False" />
+  <gump index="2201" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_pearl_0x0899.bmp" remove="False" />
+  <gump index="11049" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_racial_0x2B29.bmp" remove="False" />
+  <gump index="39923" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_runeAtlas_0x9BF3.bmp" remove="False" />
+  <gump index="2200" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_runebook_0x0898.bmp" remove="False" />
+  <gump index="11055" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_spellweaver_0x2B2F.bmp" remove="False" />
+  <gump index="2202" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkBook\ui_book_white_0x089A.bmp" remove="False" />
+</MassImport>
