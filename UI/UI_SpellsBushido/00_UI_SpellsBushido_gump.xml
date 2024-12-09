@@ -1,0 +1,14 @@
+<MassImport>
+  <gump index="21505" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_Confidence_0x5401.bmp" remove="False" />
+  <gump index="21537" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_Confidence_0x5421.bmp" remove="False" />
+  <gump index="21507" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_CounterAttack_0x5403.bmp" remove="False" />
+  <gump index="21539" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_CounterAttack_0x5423.bmp" remove="False" />
+  <gump index="21506" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_Evasion_0x5402.bmp" remove="False" />
+  <gump index="21538" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_Evasion_0x5422.bmp" remove="False" />
+  <gump index="21504" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_HonorableExecution_0x5400.bmp" remove="False" />
+  <gump index="21536" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_HonorableExecution_0x5420.bmp" remove="False" />
+  <gump index="21508" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_LightningStrike_0x5404.bmp" remove="False" />
+  <gump index="21540" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_LightningStrike_0x5424.bmp" remove="False" />
+  <gump index="21509" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_MomentumStrike_0x5405.bmp" remove="False" />
+  <gump index="21541" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsBushido\ui_spell_bushido_MomentumStrike_0x5425.bmp" remove="False" />
+</MassImport>
