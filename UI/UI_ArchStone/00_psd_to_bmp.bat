@@ -1,5 +1,5 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
-for /r %%f in (*.psd) do (
+for %%f in (*.psd) do (
 set  _nameINPUT=%%f
 set  _nameINPUTpsd=%%f
 set  _finalname=!_nameINPUT:.psd=.bmp!

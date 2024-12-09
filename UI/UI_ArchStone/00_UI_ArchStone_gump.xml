@@ -1,0 +1,35 @@
+<MassImport>
+  <gump index="9811" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_backpack_0x2653.bmp" remove="False" />
+  <gump index="50422" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_backpack_0xC4F6.bmp" remove="False" />
+  <gump index="11060" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_book_combat_0x2B34.bmp" remove="False" />
+  <gump index="11048" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_book_racial_0x2B28.bmp" remove="False" />
+  <gump index="22450" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_guild_0x57B2.bmp" remove="False" />
+  <gump index="22451" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_guild_0x57B3.bmp" remove="False" />
+  <gump index="22452" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_guild_0x57B4.bmp" remove="False" />
+  <gump index="2031" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_help_0x07EF.bmp" remove="False" />
+  <gump index="2032" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_help_0x07F0.bmp" remove="False" />
+  <gump index="2033" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_help_0x07F1.bmp" remove="False" />
+  <gump index="2009" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_logout_0x07D9.bmp" remove="False" />
+  <gump index="2010" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_logout_0x07DA.bmp" remove="False" />
+  <gump index="2011" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_logout_0x07DB.bmp" remove="False" />
+  <gump index="2001" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_main_other_0x07D1.bmp" remove="False" />
+  <gump index="2000" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_main_self_0x07D0.bmp" remove="False" />
+  <gump index="2006" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_options_0x07D6.bmp" remove="False" />
+  <gump index="2007" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_options_0x07D7.bmp" remove="False" />
+  <gump index="2008" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_options_0x07D8.bmp" remove="False" />
+  <gump index="2021" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_peace_0x07E5.bmp" remove="False" />
+  <gump index="2022" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_peace_0x07E6.bmp" remove="False" />
+  <gump index="2023" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_peace_0x07E7.bmp" remove="False" />
+  <gump index="22453" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_quests_0x57B5.bmp" remove="False" />
+  <gump index="22454" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_quests_0x57B6.bmp" remove="False" />
+  <gump index="22455" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_quests_0x57B7.bmp" remove="False" />
+  <gump index="2015" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_skills_0x07DF.bmp" remove="False" />
+  <gump index="2016" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_skills_0x07E0.bmp" remove="False" />
+  <gump index="2017" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_skills_0x07E1.bmp" remove="False" />
+  <gump index="2027" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_status_0x07EB.bmp" remove="False" />
+  <gump index="2028" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_status_0x07EC.bmp" remove="False" />
+  <gump index="2029" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_status_0x07ED.bmp" remove="False" />
+  <gump index="2024" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_war_0x07E8.bmp" remove="False" />
+  <gump index="2025" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_war_0x07E9.bmp" remove="False" />
+  <gump index="2026" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_ArchStone\ui_equip_war_0x07EA.bmp" remove="False" />
+</MassImport>
