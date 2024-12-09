@@ -1,0 +1,12 @@
+<MassImport>
+  <gump index="334" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu\ui_menu_bg_0x014E.bmp" remove="False" />
+  <gump index="1487" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu\ui_menu_creditsD_0x05CF.bmp" remove="False" />
+  <gump index="1486" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu\ui_menu_creditsH_0x05CE.bmp" remove="False" />
+  <gump index="1488" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu\ui_menu_creditsU_0x05D0.bmp" remove="False" />
+  <gump index="1484" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu\ui_menu_loginD_0x05CC.bmp" remove="False" />
+  <gump index="1483" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu\ui_menu_loginH_0x05CB.bmp" remove="False" />
+  <gump index="1485" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu\ui_menu_loginU_0x05CD.bmp" remove="False" />
+  <gump index="1481" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu\ui_menu_quitD_0x05C9.bmp" remove="False" />
+  <gump index="1480" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu\ui_menu_quitH_0x05C8.bmp" remove="False" />
+  <gump index="1482" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu\ui_menu_quitU_0x05CA.bmp" remove="False" />
+</MassImport>
