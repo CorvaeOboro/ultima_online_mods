@@ -1,0 +1,18 @@
+<MassImport>
+  <gump index="23000" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_ArcaneCircle_0x59D8.bmp" remove="False" />
+  <gump index="23015" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_ArcaneEmpowerment_0x59E7.bmp" remove="False" />
+  <gump index="23003" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_Attunement_0x59DB.bmp" remove="False" />
+  <gump index="23011" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_DryadAllure_0x59E3.bmp" remove="False" />
+  <gump index="23010" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_EssenceOfWind_0x59E2.bmp" remove="False" />
+  <gump index="23012" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_EtherealVoyage_0x59E4.bmp" remove="False" />
+  <gump index="23014" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_GiftOfLife_0x59E6.bmp" remove="False" />
+  <gump index="23001" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_GiftOfRenewal_0x59D9.bmp" remove="False" />
+  <gump index="23002" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_ImmolatingWeapon_0x59DA.bmp" remove="False" />
+  <gump index="23005" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_NaturesFury_0x59DD.bmp" remove="False" />
+  <gump index="23008" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_ReaperForm_0x59E0.bmp" remove="False" />
+  <gump index="23006" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_SummonFey_0x59DE.bmp" remove="False" />
+  <gump index="23007" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_SummonFiend_0x59DF.bmp" remove="False" />
+  <gump index="23004" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_Thunderstorm_0x59DC.bmp" remove="False" />
+  <gump index="23009" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_Wildfire_0x59E1.bmp" remove="False" />
+  <gump index="23013" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsWeaving\ui_spell_weaving_WordOfDeath_0x59E5.bmp" remove="False" />
+</MassImport>

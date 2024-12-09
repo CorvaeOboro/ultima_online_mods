@@ -1,0 +1,18 @@
+<MassImport>
+  <gump index="24006" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_AnimatedWeapon_0x5DC6.bmp" remove="False" />
+  <gump index="24011" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_Bombard_0x5DCB.bmp" remove="False" />
+  <gump index="24010" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_CleansingWinds_0x5DCA.bmp" remove="False" />
+  <gump index="24005" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_EagleStrike_0x5DC5.bmp" remove="False" />
+  <gump index="24003" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_Enchant_0x5DC3.bmp" remove="False" />
+  <gump index="24013" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_HailStorm_0x5DCD.bmp" remove="False" />
+  <gump index="24001" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_HealingStone_0x5DC1.bmp" remove="False" />
+  <gump index="24009" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_MassSleep_0x5DC9.bmp" remove="False" />
+  <gump index="24000" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_NetherBolt_0x5DC0.bmp" remove="False" />
+  <gump index="24014" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_NetherCyclone_0x5DCE.bmp" remove="False" />
+  <gump index="24002" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_PurgeMagic_0x5DC2.bmp" remove="False" />
+  <gump index="24015" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_RisingColossus_0x5DCF.bmp" remove="False" />
+  <gump index="24004" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_Sleep_0x5DC4.bmp" remove="False" />
+  <gump index="24012" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_SpellPlague_0x5DCC.bmp" remove="False" />
+  <gump index="24008" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_SpellTrigger_0x5DC8.bmp" remove="False" />
+  <gump index="24007" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsMysticism\ui_spell_mysticism_StoneForm_0x5DC7.bmp" remove="False" />
+</MassImport>
