@@ -1,0 +1,64 @@
+{
+    "images": [
+        {
+            "filename": "item_heartwood_tree_15022_0x3AAE.png",
+            "x": 66,
+            "y": 14,
+            "width": 44,
+            "height": 197
+        },
+        {
+            "filename": "item_heartwood_tree_15023_0x3AAF.png",
+            "x": 44,
+            "y": 19,
+            "width": 44,
+            "height": 170
+        },
+        {
+            "filename": "item_heartwood_tree_15024_0x3AB0.png",
+            "x": 22,
+            "y": 25,
+            "width": 44,
+            "height": 142
+        },
+        {
+            "filename": "item_heartwood_tree_15025_0x3AB1.png",
+            "x": 0,
+            "y": 38,
+            "width": 44,
+            "height": 107
+        },
+        {
+            "filename": "item_heartwood_tree_15026_0x3AB2.png",
+            "x": 88,
+            "y": 0,
+            "width": 44,
+            "height": 189
+        },
+        {
+            "filename": "item_heartwood_tree_15027_0x3AB3.png",
+            "x": 110,
+            "y": 0,
+            "width": 44,
+            "height": 167
+        },
+        {
+            "filename": "item_heartwood_tree_15028_0x3AB4.png",
+            "x": 132,
+            "y": 11,
+            "width": 44,
+            "height": 134
+        },
+        {
+            "filename": "item_heartwood_tree_15029_0x3AB5.png",
+            "x": 154,
+            "y": 48,
+            "width": 44,
+            "height": 75
+        }
+    ],
+    "composite_size": [
+        198,
+        211
+    ]
+}

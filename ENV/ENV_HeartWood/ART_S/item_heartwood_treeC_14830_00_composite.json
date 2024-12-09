@@ -1,0 +1,30 @@
+{
+    "group_name": "Group1",
+    "images": [
+        {
+            "filename": "item_heartwood_treeC_14830_0x39EE.png",
+            "x": 0,
+            "y": 6,
+            "width": 44,
+            "height": 167
+        },
+        {
+            "filename": "item_heartwood_treeC_14831_0x39EF.png",
+            "x": 44,
+            "y": 0,
+            "width": 44,
+            "height": 173
+        },
+        {
+            "filename": "item_heartwood_treeC_14832_0x39F0.png",
+            "x": 88,
+            "y": 11,
+            "width": 44,
+            "height": 162
+        }
+    ],
+    "composite_size": [
+        132,
+        173
+    ]
+}

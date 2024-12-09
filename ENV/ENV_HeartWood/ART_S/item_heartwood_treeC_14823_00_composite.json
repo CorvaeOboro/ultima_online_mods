@@ -1,0 +1,37 @@
+{
+    "group_name": "Group1",
+    "images": [
+        {
+            "filename": "item_heartwood_treeC_14823_0x39E7.png",
+            "x": 0,
+            "y": 32,
+            "width": 44,
+            "height": 115
+        },
+        {
+            "filename": "item_heartwood_treeC_14824_0x39E8.png",
+            "x": 44,
+            "y": 0,
+            "width": 44,
+            "height": 148
+        },
+        {
+            "filename": "item_heartwood_treeC_14825_0x39E9.png",
+            "x": 88,
+            "y": 0,
+            "width": 44,
+            "height": 147
+        },
+        {
+            "filename": "item_heartwood_treeC_14826_0x39EA.png",
+            "x": 132,
+            "y": 11,
+            "width": 44,
+            "height": 136
+        }
+    ],
+    "composite_size": [
+        176,
+        148
+    ]
+}

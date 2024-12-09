@@ -1,0 +1,99 @@
+{
+    "images": [
+        {
+            "filename": "item_heartwood_treeC_14755_0x39A3.png",
+            "x": 110,
+            "y": 34,
+            "width": 44,
+            "height": 353
+        },
+        {
+            "filename": "item_heartwood_treeC_14756_0x39A4.png",
+            "x": 88,
+            "y": 37,
+            "width": 44,
+            "height": 328
+        },
+        {
+            "filename": "item_heartwood_treeC_14757_0x39A5.png",
+            "x": 66,
+            "y": 65,
+            "width": 44,
+            "height": 278
+        },
+        {
+            "filename": "item_heartwood_treeC_14758_0x39A6.png",
+            "x": 44,
+            "y": 82,
+            "width": 44,
+            "height": 239
+        },
+        {
+            "filename": "item_heartwood_treeC_14759_0x39A7.png",
+            "x": 0,
+            "y": 134,
+            "width": 66,
+            "height": 165
+        },
+        {
+            "filename": "item_heartwood_treeC_14760_0x39A8.png",
+            "x": 132,
+            "y": 34,
+            "width": 44,
+            "height": 331
+        },
+        {
+            "filename": "item_heartwood_treeC_14761_0x39A9.png",
+            "x": 154,
+            "y": 9,
+            "width": 44,
+            "height": 334
+        },
+        {
+            "filename": "item_heartwood_treeC_14762_0x39AA.png",
+            "x": 176,
+            "y": 0,
+            "width": 44,
+            "height": 321
+        },
+        {
+            "filename": "item_heartwood_treeC_14763_0x39AB.png",
+            "x": 198,
+            "y": 0,
+            "width": 44,
+            "height": 299
+        },
+        {
+            "filename": "item_heartwood_treeC_14764_0x39AC.png",
+            "x": 220,
+            "y": 2,
+            "width": 44,
+            "height": 275
+        },
+        {
+            "filename": "item_heartwood_treeC_14765_0x39AD.png",
+            "x": 242,
+            "y": 29,
+            "width": 44,
+            "height": 226
+        },
+        {
+            "filename": "item_heartwood_treeC_14766_0x39AE.png",
+            "x": 264,
+            "y": 29,
+            "width": 44,
+            "height": 204
+        },
+        {
+            "filename": "item_heartwood_treeC_14767_0x39AF.png",
+            "x": 286,
+            "y": 27,
+            "width": 44,
+            "height": 184
+        }
+    ],
+    "composite_size": [
+        330,
+        387
+    ]
+}
