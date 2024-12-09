@@ -1,0 +1,20 @@
+<MassImport>
+  <gump index="11011" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_book_0x2B03.bmp" remove="False" />
+  <gump index="20480" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_AnimateDead_0x5000.bmp" remove="False" />
+  <gump index="20481" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_BloodOath_0x5001.bmp" remove="False" />
+  <gump index="20482" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_CorpseSkin_0x5002.bmp" remove="False" />
+  <gump index="20483" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_CurseWeapon_0x5003.bmp" remove="False" />
+  <gump index="20484" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_EvilOmen_0x5004.bmp" remove="False" />
+  <gump index="20496" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_Exorcism_0x5010.bmp" remove="False" />
+  <gump index="20485" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_HorrificBeast_0x5005.bmp" remove="False" />
+  <gump index="20486" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_LichForm_0x5006.bmp" remove="False" />
+  <gump index="20487" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_MindRot_0x5007.bmp" remove="False" />
+  <gump index="20488" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_PainSpike_0x5008.bmp" remove="False" />
+  <gump index="20489" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_PoisonStrike_0x5009.bmp" remove="False" />
+  <gump index="20490" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_Strangle_0x500A.bmp" remove="False" />
+  <gump index="20491" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_SummonFamiliar_0x500B.bmp" remove="False" />
+  <gump index="20492" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_VampiricEmbrace_0x500C.bmp" remove="False" />
+  <gump index="20493" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_VengefulSpirit_0x500D.bmp" remove="False" />
+  <gump index="20494" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_Wither_0x500E.bmp" remove="False" />
+  <gump index="20495" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsNecromancy\ui_necro_spell_WraithForm_0x500F.bmp" remove="False" />
+</MassImport>

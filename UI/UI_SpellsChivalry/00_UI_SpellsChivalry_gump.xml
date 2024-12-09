@@ -1,0 +1,13 @@
+<MassImport>
+  <gump index="11012" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsChivalry\ui_chivalry_book_0x2B04.bmp" remove="False" />
+  <gump index="20736" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsChivalry\ui_chivalry_spell_CleansebyFire_0x5100.bmp" remove="False" />
+  <gump index="20737" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsChivalry\ui_chivalry_spell_CloseWounds_0x5101.bmp" remove="False" />
+  <gump index="20738" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsChivalry\ui_chivalry_spell_ConsecrateWeapon_0x5102.bmp" remove="False" />
+  <gump index="20744" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsChivalry\ui_chivalry_spell_DispelEvil_0x5108.bmp" remove="False" />
+  <gump index="20740" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsChivalry\ui_chivalry_spell_DivineFury_0x5104.bmp" remove="False" />
+  <gump index="20741" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsChivalry\ui_chivalry_spell_EnemyofOne_0x5105.bmp" remove="False" />
+  <gump index="20742" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsChivalry\ui_chivalry_spell_HolyLight_0x5106.bmp" remove="False" />
+  <gump index="20743" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsChivalry\ui_chivalry_spell_NobleSacrifice_0x5107.bmp" remove="False" />
+  <gump index="20739" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsChivalry\ui_chivalry_spell_RemoveCurse_0x5103.bmp" remove="False" />
+  <gump index="20745" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsChivalry\ui_chivalry_spell_SacredJourney_0x5109.bmp" remove="False" />
+</MassImport>

@@ -1,2 +1,0 @@
-python 00_render_necro_wide.py
-pause
