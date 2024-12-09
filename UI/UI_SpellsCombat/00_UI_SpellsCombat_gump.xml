@@ -1,0 +1,33 @@
+<MassImport>
+  <gump index="20992" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_ArmorIgnore_0x5200.bmp" remove="False" />
+  <gump index="21014" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_ArmorPierce_0x5216.bmp" remove="False" />
+  <gump index="21015" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_Bladeweave_0x5217.bmp" remove="False" />
+  <gump index="20993" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_BleedAttack_0x5201.bmp" remove="False" />
+  <gump index="21007" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_Block_0x520F.bmp" remove="False" />
+  <gump index="20994" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_ConcussionBlow_0x5202.bmp" remove="False" />
+  <gump index="20995" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_CrushingBlow_0x5203.bmp" remove="False" />
+  <gump index="21008" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_DefenseMastery_0x5210.bmp" remove="False" />
+  <gump index="20996" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_Disarm_0x5204.bmp" remove="False" />
+  <gump index="20997" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_Dismount_0x5205.bmp" remove="False" />
+  <gump index="21013" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_DoubleShot_0x5215.bmp" remove="False" />
+  <gump index="20998" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_DoubleStrike_0x5206.bmp" remove="False" />
+  <gump index="21012" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_DualWield_0x5214.bmp" remove="False" />
+  <gump index="21011" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_Feint_0x5213.bmp" remove="False" />
+  <gump index="21016" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_ForceArrow_0x5218.bmp" remove="False" />
+  <gump index="21020" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_ForceOfNature_0x521C.bmp" remove="False" />
+  <gump index="21006" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_FrenziedWhirlwind_0x520E.bmp" remove="False" />
+  <gump index="20999" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_Infecting_0x5207.bmp" remove="False" />
+  <gump index="21021" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_InfusedThrow_0x521D.bmp" remove="False" />
+  <gump index="21017" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_LightningArrow_0x5219.bmp" remove="False" />
+  <gump index="21000" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_MortalStrike_0x5208.bmp" remove="False" />
+  <gump index="21001" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_MovingShot_0x5209.bmp" remove="False" />
+  <gump index="21022" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_MysticArc_0x521E.bmp" remove="False" />
+  <gump index="21009" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_NerveStrike_0x5211.bmp" remove="False" />
+  <gump index="21002" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_ParalyzingBlow_0x520A.bmp" remove="False" />
+  <gump index="21018" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_PsychicAttack_0x521A.bmp" remove="False" />
+  <gump index="21005" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_RidingSwipe_0x520D.bmp" remove="False" />
+  <gump index="21019" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_SerpentArrow_0x521B.bmp" remove="False" />
+  <gump index="21003" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_ShadowStrike_0x520B.bmp" remove="False" />
+  <gump index="21010" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_TalonStrike_0x5212.bmp" remove="False" />
+  <gump index="21004" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsCombat\ui_spell_combat_WhirlwindAttack_0x520C.bmp" remove="False" />
+</MassImport>

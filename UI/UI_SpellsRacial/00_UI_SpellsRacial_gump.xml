@@ -1,0 +1,17 @@
+<MassImport>
+  <gump index="24023" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_elf_DifficultToTrack_0x5DD7.bmp" remove="False" />
+  <gump index="24021" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_elf_Infused_0x5DD5.bmp" remove="False" />
+  <gump index="24022" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_elf_Knowledge_0x5DD6.bmp" remove="False" />
+  <gump index="24020" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_elf_NightSight_0x5DD4.bmp" remove="False" />
+  <gump index="24024" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_elf_Perception_0x5DD8.bmp" remove="False" />
+  <gump index="24025" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_elf_Wisdom_0x5DD9.bmp" remove="False" />
+  <gump index="24027" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_gargoyle_Berserk_0x5DDB.bmp" remove="False" />
+  <gump index="24029" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_gargoyle_DeadlyAim_0x5DDD.bmp" remove="False" />
+  <gump index="24026" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_gargoyle_Flying_0x5DDA.bmp" remove="False" />
+  <gump index="24028" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_gargoyle_MasterArtisan_0x5DDC.bmp" remove="False" />
+  <gump index="24030" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_gargoyle_MysticInsight_0x5DDE.bmp" remove="False" />
+  <gump index="24019" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_human_JackOfAllTrades_0x5DD3.bmp" remove="False" />
+  <gump index="24016" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_human_StrongBack_0x5DD0.bmp" remove="False" />
+  <gump index="24017" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_human_Tough_0x5DD1.bmp" remove="False" />
+  <gump index="24018" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_SpellsRacial\ui_spell_racial_human_WorkHorse_0x5DD2.bmp" remove="False" />
+</MassImport>
