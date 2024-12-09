@@ -1,0 +1,5 @@
+0x2F59 item_talisman_dragon_0x2F59.bmp
+0x1096 item_talisman_ManaPhasingOrb_0x1096.bmp
+0x2F58 item_talisman_shield_0x2F58.bmp
+0x2F5B item_talisman_trophy_0x2F5B.bmp
+0x2F5A item_talisman_winged_0x2F5A.bmp
