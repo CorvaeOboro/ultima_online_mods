@@ -81,10 +81,28 @@ Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_onlin
 
 # Installation / Patching
 - UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240409_GumpOverrides/UO_ART_MODS_20240409_GumpOverrides.zip) , unzip into a GumpOverrides folder in Outlands folder
-- CLassic Shards =
+- Classic Shards =
 - download [UO_ART_MODS_20240409.zip]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) . 
-- extract downloaded zip , if there are any modded items you dont care for feel free to edit the mod TXT file and remove the line matching the item \ image name ( no empty lines )
-- using [Mulpatcher]( http://varan.uodev.de/ ) > Settings > Art > set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .
+- extract downloaded zip to a new folder anywhere
+- UOFiddler is now the reccomend tool for complete install process , old mulpatcher instructions below
+- create a backup of your Ultima Online Client folder
+
+## Install using UOFiddler
+- using [UOFiddler](https://github.com/polserver/UOFiddler)
+- Settings > Path Settings > paste your Ultima folder path then click "Reload paths" ( list should populate with .mul .idx and .uop files )
+- Setting > Options > Output Path > set to a new local OUTPUT folder ( this is where the mul and uop will output )
+- Plugins > Manage > turn on MassImportPlugin ( restart uofiddler if needed )
+- Plugins > MassImport > Load XML > select the xml file in downloaded MOD folder 00_ART_MODS_MassImport.xml ( loads replacement art files)
+- checkbox ON "DirectSave" , click "Start" ( may take 1 minute )
+- the OUTPUT folder now contains the modded .mul files 
+- if your Ultima uses UOP files ( search for artLegacyMUL.uop ) , then in UOFiddler there is a UOP Packer tab
+- UOP Packer > paste the OUTPUT folder path that contains the modded .mul files > turn ON "Pack MUL to UOP" > Start 
+- close UOFiddler , then copy the .mul .idx and .uop files in the OUTPUT folder into your Ultima folder , overwriting
+- Install is complete , play Ultima Online
+
+## or Install using Varan Mulpatcher 
+- alternatively can install using [Mulpatcher]( http://varan.uodev.de/ ) or [Alternate Download]( https://downloads.runuo.net/Mul/Mulpatcher.zip ) 
+- Settings > Art > set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .
 - Features > Autopatch > select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  > hit START . 
 - Repeat Autopatch process for the following mod txt files :
 - 00_UI_ALL_GUMP.txt ( Gumps ) , 00_ENV_ALL_TEX.txt ( Textures ) , 00_ENV_ALL_ART_M.txt ( Art (M) ) , 00_ENV_ALL_ART_S.txt ( Art (S) ) 
@@ -99,10 +117,11 @@ Additional Guides and Mods hosted by Gaechti :
 # Modding Tools / Notes
 - [MODDING NOTES and TOOLS]( https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_Tools#Modding-Notes) 
 - located in Z_Tools , includes :
+- [00_mod_selector.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py ) = generates a custom MassImport list from selected mod folders 
+- [00_psd_to_GumpOverrides.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py ) = exports source art to GumpOverrides for Ultima Outlands
 - [01_image_rotate_to_isometric.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py) = TEX_to_ART_M convert square textre to isometric 45 degree tile
-- [00_psd_to_GumpOverrides.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py ) = exports source art to GumpOverrides
+- [02_image_composite_multi.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py) = composites adjacent or overlaping images to assemble sliced tree images
 - substance painter files for ENV textures 
-- spreadsheets of modded art names and autopatch txt generator
 
 # UO Outlands
 https://uooutlands.com/
@@ -113,7 +132,7 @@ https://uooutlands.com/
 
 # Thanks
 - many thanks to ultima community creating shards , guides , tools , and content !
-- Varan - Mulpatcher tools - http://varan.uodev.de/
+- Varan - Mulpatcher tools - http://varan.uodev.de/ [Mulpatcher Download Alt](https://rose-uo.de/projects/varan/Mulpatcher.zip)
 - Polserver - UOFiddler art tools - https://github.com/polserver/UOFiddler , http://uofiddler.polserver.com/
 - Gaechti - Art mods + Guides - http://www.burningsheep.ch/finished.html
 - ServUO Resources - https://www.servuo.com/archive/

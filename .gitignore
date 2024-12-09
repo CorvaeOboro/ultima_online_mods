@@ -17,7 +17,6 @@
 **/rocks/**
 **/ENV_LandTEST_TEX/**
 **/ENV_Land_M_Test/**
-**/UI_EquipSlots/**
 **/UI_MartialArts/**
 **/Z_ZBackup/**
 *GUMP_00_OTHER.txt
@@ -28,8 +27,18 @@
 *00_UI_OTHER_GUMP.txt
 **/completed/**
 **/Z_Tools/GumpOverrides**
-**/UI_Profession/**
 **/UI_DEBUG/**
-**/Upscale/*.psd
+
 **/UI_MagicSpells/Upscale/upscale/**
 **/UI_MagicSpells/Upscale/small/**
+# UPSCALE
+# Allow files directly within any "Upscale" folder recursively
+!**/Upscale/*
+# Ignore all files in subfolders of any "Upscale" folder recursively
+**/Upscale/*/
+**/Upscale/*.psd
+**/Upscale/*.py
+**/temp/**
+**/remove/**
+**/UI_SpellsNecromancy_Green/**
+**/UI_SpellsChivalry_Gold/**
