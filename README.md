@@ -67,8 +67,6 @@ NINJITSU
 
 ![Magic Scrolls](/ART/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
 
-<img src="/UI/UI_MagicSpells_Eldritch/ui_spell_comp_eldritch_magic.jpg">
-
 # Dark UI
 <img src="/UI/UI_DarkStatsLong/00_ui_scroll_stats_long_render.png">
 
@@ -117,7 +115,7 @@ DARK FRAME
 # Arch Stone
 - an archway of the avatar crafted from stone
 
-![Arch Stone](/UI/UI_ArchStone_Multi/00_ui_archstone_multi_equipslots_comp.jpg?raw=true "Arch Stone")
+![Arch Stone](/UI/UI_ArchStone/ui_archstone_backpack_comp.jpg?raw=true "Arch Stone")
 
 # Installation / Patching
 - UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240409_GumpOverrides/UO_ART_MODS_20240409_GumpOverrides.zip) , unzip into a GumpOverrides folder in Outlands folder
