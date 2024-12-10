@@ -1,7 +1,7 @@
 # ULTIMA ONLINE ART MODS 
 fan art modifications in ultima online classic 
 
-[DOWNLOAD LATEST]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip )    |   [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching )   |    [DOWNLOAD SOURCE]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) 
+[DOWNLOAD]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip )    |   [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching )   |    [VIEW IMAGES]( https://corvaeoboro.github.io/ultima_online_mods/ ) 
 
 | <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-scrolls"> <img src="/ART/ART_MagicScrolls/ART_MagicScrolls_thumb.jpg?raw=true" width="140" height="140" /> </a>| <a href="https://github.com/CorvaeOboro/ultima_online_mods#reagents"> <img src="/ART/ART_BaseItemVariants_thumb.jpg?raw=true" width="140" height="140" />  </a>  |  <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-spells"> <img src="/UI/UI_MagicSpells/ui_spell_00_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#dark-scrolls"> <img src="/UI/ui_dark_scrolls_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#altered-lands"> <img src="/ENV/ENV_00_AlteredLands_thumb.jpg?raw=true" width="140" height="140" /> </a>|
 | :---: | :---: | :---: | :---: | :---: |
@@ -22,40 +22,31 @@ Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_onlin
 # MAGIC SPELLS 
 
 <img src="/UI/UI_SpellsChivalry/00_ui_spells_chivalry_comp.png?raw=true"  />
-
 Chivalry
 
 <img src="/UI/UI_SpellsNecromancy/00_ui_spells_necromancy_comp.png?raw=true"  />
-
 Necromancy
 
 <img src="/UI/UI_MagicSpells_Eldritch/ui_spell_comp_eldritch_magic.jpg">
-
-ELDRITCH MAGIC
+Eldritch Magic
 
 <img src="/UI/UI_SpellsMysticism/00_ui_spell_mysticism_comp.png">
-
-MYSTICISM
+Mysticism
 
 <img src="/UI/UI_SpellsWeaving/00_ui_spell_weaving_comp.png">
-
-SPELLWEAVING
+SpellWeaving
 
 <img src="/UI/UI_SpellsMastery/00_ui_spell_mastery_comp.png">
-
-MASTERY
+Mastery
 
 <img src="/UI/UI_SpellsCombat/00_ui_spell_combat_comp.png">
-
-COMBAT
+Combat
 
 <img src="/UI/UI_SpellsBushido/00_ui_spell_bushido_comp.png">
-
-BUSHIDO
+Bushido
 
 <img src="/UI/UI_SpellsNinjitsu/00_ui_spell_ninjitsu_comp.png">
-
-NINJITSU
+Ninjitsu
 
 # Magic Scrolls
 ![Magic Scrolls Backpack](/ART/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
@@ -69,16 +60,13 @@ NINJITSU
 
 # Dark UI
 <img src="/UI/UI_DarkStatsLong/00_ui_scroll_stats_long_render.png">
-
-DARK STATS LONG
+Dark Stats
 
 <img src="/UI/UI_DarkBook/00_ui_dark_book_comp.png">
-
-DARK BOOK
+Dark Book
 
 <img src="/UI/UI_DarkFrame/00_ui_dark_frame_comp.png">
-
-DARK FRAME
+Dark Frame
 
 # Dark Scrolls
 - ui enchanted with dark magic
@@ -99,9 +87,8 @@ DARK FRAME
 - Snow Ridge : Smoothed snow slopes
 - Sand Dunes : Blended embankments , darkened and desaturated
 
-![HeartWood](/ENV/ENV_HeartWood/00_env_HeartWood_title.png?raw=true "HeartWood")
-
-![Paroxysmus](/ENV/ENV_Paroxysmus/00_env_Paroxysmus_title.png?raw=true "Paroxysmus")
+ <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.htm#HeartWood"> <img src="/ENV/ENV_HeartWood/00_env_HeartWood_title.png?raw=true?raw=true"/>
+  <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.htm#Paroxysmus"> <img src="/ENV/ENV_Paroxysmus/00_env_Paroxysmus_title.png?raw=true?raw=true"/>
 
 # Magic Buffs
 - buffs and debuffs stylized darker matching magic spells and outlands specific buffs
