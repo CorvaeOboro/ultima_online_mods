@@ -1,0 +1,109 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ultima_online_art_mods</title>
+<style type="text/css">
+<!--
+body {
+	background-color: #000000;
+	font-family: Verdana ,  Arial ,  Helvetica ,  sans-serif;
+	color: #666666;
+}
+-->
+</style></head>
+<body>
+
+	<h2>Install using UOFiddler</h2>
+<ul>
+<li>using <a href="https://github.com/polserver/UOFiddler">UOFiddler</a></li>
+<li>Settings &gt; Path Settings &gt; paste your Ultima folder path then click "Reload paths" ( list should populate with .mul .idx and .uop files )</li>
+<li>Setting &gt; Options &gt; Output Path &gt; set to a new local OUTPUT folder ( this is where the mul and uop will output )</li>
+<li>Plugins &gt; Manage &gt; turn on MassImportPlugin ( restart uofiddler if needed )</li>
+<li>Plugins &gt; MassImport &gt; Load XML &gt; select the xml file in downloaded MOD folder 00_ART_MODS_MassImport.xml ( loads replacement art files)</li>
+<li>checkbox ON "DirectSave" , click "Start" ( may take 1 minute )</li>
+<li>the OUTPUT folder now contains the modded .mul files </li>
+<li>if your Ultima uses UOP files ( search for artLegacyMUL.uop ) , then in UOFiddler there is a UOP Packer tab</li>
+<li>UOP Packer &gt; paste the OUTPUT folder path that contains the modded .mul files &gt; turn ON "Pack MUL to UOP" &gt; Start </li>
+<li>close UOFiddler , then copy the .mul .idx and .uop files in the OUTPUT folder into your Ultima folder , overwriting</li>
+<li>Install is complete , play Ultima Online</li>
+</ul>
+<h2>or Install using Varan Mulpatcher</h2>
+<ul>
+<li>alternatively can install using <a href="http://varan.uodev.de/">Mulpatcher</a> or <a href="https://downloads.runuo.net/Mul/Mulpatcher.zip">Alternate Download</a> </li>
+<li>Settings &gt; Art &gt; set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .</li>
+<li>Features &gt; Autopatch &gt; select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  &gt; hit START . </li>
+<li>Repeat Autopatch process for the following mod txt files :</li>
+<li>00_UI_ALL_GUMP.txt ( Gumps ) , 00_ENV_ALL_TEX.txt ( Textures ) , 00_ENV_ALL_ART_M.txt ( Art (M) ) , 00_ENV_ALL_ART_S.txt ( Art (S) ) </li>
+<li>Settings &gt; Save the Art mul to the Ultima directory ( Ultima directory ) . repeat for Gumps and Textures .</li>
+</ul>
+<p><a href="https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_InstallNotes#installation--patching---expanded">INSTALL NOTES EXPANDED</a> </p>
+<p>Additional Guides and Mods hosted by Gaechti :
+- http://www.burningsheep.ch/finished.html
+- http://www.burningsheep.ch/howtoUOP.html</p>
+
+<br>
+	<h1>Quick Installation / Patching</h1>
+<ul>
+<li>download <a href="https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220413/UO_ART_MODS_20220413.zip">UO_ART_MODS_20220413.zip</a> . </li>
+<li>extract downloaded zip , if there are any modded items you dont care for feel free to edit the mod TXT file and remove the line matching the item \ image name ( no empty lines )</li>
+<li>using <a href="http://varan.uodev.de/">Mulpatcher</a> &gt; Settings &gt; Art &gt; set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .</li>
+<li>Features &gt; Autopatch &gt; select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  &gt; hit START . </li>
+<li>Repeat Autopatch process for the following mod txt files :</li>
+<li>00_UI_ALL_GUMP.txt ( Gumps ) , 00_ENV_ALL_TEX.txt ( Textures ) , 00_ENV_ALL_ART_M.txt ( Art (M) ) , 00_ENV_ALL_ART_S.txt ( Art (S) ) </li>
+<li>Settings &gt; Save the Art mul to the Ultima directory ( Ultima directory ) . repeat for Gumps and Textures .</li>
+</ul>
+<h1>Installation / Patching - Expanded</h1>
+<ol>
+<li>Client Launcher Settings </li>
+<li>Update to Latest ( click verify ) </li>
+<li>
+<p>Disable autopatching and autoupdates ( gear &gt; settings &gt; uncheck both ) </p>
+</li>
+<li>
+<p>Mulpatcher </p>
+</li>
+<li>download <a href="http://varan.uodev.de/">Mulpatcher</a></li>
+<li>open Mulpatcher and expand the lower right corner to visibly see the tabs at the bot .</li>
+</ol>
+<p><img alt="Mulpatcher_Expand" src="../Z_InstallNotes/z_install_mulpatcher_expand_01.jpg?raw=true" title="Mulpatcher_Expand" /></p>
+<ul>
+<li>in Settings tab , set the paths of the Art and Gumps to Ultima Online client ( example= C:\Program Files (x86)\Ultima Online Outlands\ )  </li>
+</ul>
+<p><img alt="Mulpatcher_Settings" src="../Z_InstallNotes/z_install_mulpatcher_settings_01.jpg?raw=true" title="Mulpatcher_Settings" /></p>
+<ul>
+<li>for Art and Gumps click Load . ( this will freeze for a few seconds )</li>
+<li>switch to the Features tab , in the upper left Autopatch , set the file path to the TXT file included in the mod ( example= C:\ultima_online_mods\ART_00_ALL.txt ) </li>
+<li>set the drop down to match the category ( Art (S) = item art , Gumps = ui ) </li>
+<li>click the Apply button ( this will show progress and ok when completed ) </li>
+</ul>
+<p><img alt="Mulpatcher_Autopatch" src="../Z_InstallNotes/z_install_mulpatcher_patch_01.jpg?raw=true" title="Mulpatcher_Autopatch" /></p>
+<ul>
+<li>switch back to the Settings tab , in the Art area click SAVE , set the path to Ultima Online client ( example= C:\Program Files (x86)\Ultima Online Outlands\ ) and save the corresponding artidx.mul art.mul .</li>
+</ul>
+<p><img alt="Mulpatcher_Save" src="../Z_InstallNotes/z_install_save_art_01.jpg?raw=true" title="Mulpatcher_Save" /></p>
+<ul>
+<li>Repeat Autopatch process for the following mod txt files :</li>
+<li>00_UI_ALL_GUMP.txt ( Gumps ) , 00_ENV_ALL_TEX.txt ( Textures ) , 00_ENV_ALL_ART_M.txt ( Art (M) ) , 00_ENV_ALL_ART_S.txt ( Art (S) ) </li>
+</ul>
+<p>Launch Client and play !</p>
+<ul>
+<li>follow your Servers news for updates and patches .</li>
+<li>when a new patch occurs , in the launcher click the verify button which will get latest</li>
+<li>then reapply art mods using the process above.</li>
+</ul>
+<h1>Additional Notes</h1>
+<ol>
+<li>Autopatch txt files</li>
+<li>above is the general workflow to apply modifications , and may be repeated for each category type ( Art , Gumps , Textures , etc. )</li>
+<li>included in this mod are TXT files that applies and includes everything ( ART_00_ALL.txt , GUMP_00_ALL.txt ) </li>
+<li>optionally in addition each mod folder has TXT file that can be used to autopatch ( UI_MagicSpells\UI_MagicSpells.txt )</li>
+<li>feel free to edit the TXT file to remove any modded item by remove the line matching the item image name ( no empty lines )</li>
+</ol>
+<h1>Additional Guides</h1>
+<p>Gaechti :</p>
+<p>http://www.burningsheep.ch/finished.html</p>
+<p>https://forums.uooutlands.com/index.php?threads/gaechtis-ultima-online-patches-tree-stump-better-reags-and-more.838/</p>
+
+</body>
+</html>

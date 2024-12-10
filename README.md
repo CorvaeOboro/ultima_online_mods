@@ -8,6 +8,55 @@ fan art modifications in ultima online classic
 
 Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240409_GumpOverrides/UO_ART_MODS_20240409_GumpOverrides.zip ) | [DOWNLOAD GumpOverrides without DarkScrolls]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240521_GumpOverrides_NoDarkScrolls/UO_ART_MODS_20240521_GumpOverrides_NoDarkScrolls.zip )  
 
+<img src="/UI/00_ui_comp_spells_gif_anim.gif?raw=true"  />
+
+# Magic Spells
+- Colorized paintover on icons of the classic linework  .
+- [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/UI/UI_MagicSpells#complete-list)
+
+![Magic Spells Icons](/UI/UI_MagicSpells/ui_spell_00_comp.jpg?raw=true "Magic Spells Icons")
+
+# Items
+![Items](/ART/00_ART_item_00_comp.png?raw=true "ART")
+
+# MAGIC SPELLS 
+
+<img src="/UI/UI_SpellsChivalry/00_ui_spells_chivalry_comp.png?raw=true"  />
+
+Chivalry
+
+<img src="/UI/UI_SpellsNecromancy/00_ui_spells_necromancy_comp.png?raw=true"  />
+
+Necromancy
+
+<img src="/UI/UI_MagicSpells_Eldritch/ui_spell_comp_eldritch_magic.jpg">
+
+ELDRITCH MAGIC
+
+<img src="/UI/UI_SpellsMysticism/00_ui_spell_mysticism_comp.png">
+
+MYSTICISM
+
+<img src="/UI/UI_SpellsWeaving/00_ui_spell_weaving_comp.png">
+
+SPELLWEAVING
+
+<img src="/UI/UI_SpellsMastery/00_ui_spell_mastery_comp.png">
+
+MASTERY
+
+<img src="/UI/UI_SpellsCombat/00_ui_spell_combat_comp.png">
+
+COMBAT
+
+<img src="/UI/UI_SpellsBushido/00_ui_spell_bushido_comp.png">
+
+BUSHIDO
+
+<img src="/UI/UI_SpellsNinjitsu/00_ui_spell_ninjitsu_comp.png">
+
+NINJITSU
+
 # Magic Scrolls
 ![Magic Scrolls Backpack](/ART/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
 - Aims to quickly convey the use and importance of certain scrolls .
@@ -18,37 +67,20 @@ Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_onlin
 
 ![Magic Scrolls](/ART/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
 
-# Magic Spells
-- Colorized paintover on icons of the classic linework  .
-- [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/UI/UI_MagicSpells#complete-list)
+<img src="/UI/UI_MagicSpells_Eldritch/ui_spell_comp_eldritch_magic.jpg">
 
-![Magic Spells Icons](/UI/UI_MagicSpells/ui_spell_00_comp.jpg?raw=true "Magic Spells Icons")
+# Dark UI
+<img src="/UI/UI_DarkStatsLong/00_ui_scroll_stats_long_render.png">
 
-# Aspect Rares
-- large variants of items specific to Outlands .
-- [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ART/ART_AspectRares#complete-list)
+DARK STATS LONG
 
-![Aspect Rares](/ART/ART_AspectRares/item_00_comp_A.jpg?raw=true "Aspect Rares")
+<img src="/UI/UI_DarkBook/00_ui_dark_book_comp.png">
 
-# Gems
-![Gems](/ART/ART_Gems/item_gem_00_comp.jpg?raw=true "Gems")
+DARK BOOK
 
-# Reagents
-![Reagents](/ART/ART_Reagents/item_reagent_00_comp.jpg?raw=true "Reagents")
+<img src="/UI/UI_DarkFrame/00_ui_dark_frame_comp.png">
 
-# Tools
-- [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ART/ART_Tools#complete-list)
-
-![Tools](/ART/ART_Tools/item_tool_00_comp.jpg?raw=true "Tools")
-
-# Potions
-![Potions](/ART/ART_Potions/item_potion_00_comp.jpg?raw=true "Potions")
-
-![Potions](/ART/ART_Potions/item_potion_00_comp_B.jpg?raw=true "Potions")
-
-# Chivalry and Necromancy Spells
-
-<img src="/UI/UI_SpellsChivalry/ui_chiv_00_render_wide_combined.jpg?raw=true"  />
+DARK FRAME
 
 # Dark Scrolls
 - ui enchanted with dark magic
@@ -69,15 +101,23 @@ Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_onlin
 - Snow Ridge : Smoothed snow slopes
 - Sand Dunes : Blended embankments , darkened and desaturated
 
+![HeartWood](/ENV/ENV_HeartWood/00_env_HeartWood_title.png?raw=true "HeartWood")
+
+![Paroxysmus](/ENV/ENV_Paroxysmus/00_env_Paroxysmus_title.png?raw=true "Paroxysmus")
+
 # Magic Buffs
 - buffs and debuffs stylized darker matching magic spells and outlands specific buffs
 
 ![Dark Buffs](/UI/UI_Buffs/ui_buff_00_comp_names_wide.jpg?raw=true "Dark Buffs")
 
+
+<h2>MAIN MENU</h2>
+<img src="/UI/UI_MainMenu/00_ui_menu_comp.png">
+
 # Arch Stone
 - an archway of the avatar crafted from stone
 
-![Arch Stone](/UI/UI_ArchStone/ui_archstone_backpack_comp.jpg?raw=true "Arch Stone")
+![Arch Stone](/UI/UI_ArchStone_Multi/00_ui_archstone_multi_equipslots_comp.jpg?raw=true "Arch Stone")
 
 # Installation / Patching
 - UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240409_GumpOverrides/UO_ART_MODS_20240409_GumpOverrides.zip) , unzip into a GumpOverrides folder in Outlands folder
@@ -121,6 +161,7 @@ Additional Guides and Mods hosted by Gaechti :
 - [00_psd_to_GumpOverrides.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py ) = exports source art to GumpOverrides for Ultima Outlands
 - [01_image_rotate_to_isometric.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py) = TEX_to_ART_M convert square textre to isometric 45 degree tile
 - [02_image_composite_multi.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py) = composites adjacent or overlaping images to assemble sliced tree images
+- [02_extract_map_mul.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_extract_map_mul.py) = loads map mul and exports land tile data from region , then can be loaded in blender addon [z_blender_GEN_ultima_landtiles.py](https://github.com/CorvaeOboro/zenv_blender/blob/main/addon/z_blender_GEN_ultima_landtiles.py ) 
 - substance painter files for ENV textures 
 
 # UO Outlands
