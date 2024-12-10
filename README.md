@@ -112,7 +112,7 @@ Dark Frame
 # Installation / Patching
 - UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240409_GumpOverrides/UO_ART_MODS_20240409_GumpOverrides.zip) , unzip into a GumpOverrides folder in Outlands folder
 - Classic Shards =
-- download [UO_ART_MODS_20240409.zip]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) . 
+- download [UO_ART_MODS.zip]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) . 
 - extract downloaded zip to a new folder anywhere
 - UOFiddler is now the reccomend tool for complete install process , old mulpatcher instructions below
 - create a backup of your Ultima Online Client folder

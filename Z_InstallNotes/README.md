@@ -1,3 +1,32 @@
+# Installation / Patching
+- UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240409_GumpOverrides/UO_ART_MODS_20240409_GumpOverrides.zip) , unzip into a GumpOverrides folder in Outlands folder
+- Classic Shards =
+- download [UO_ART_MODS.zip]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) . 
+- extract downloaded zip to a new folder anywhere
+- UOFiddler is now the reccomend tool for complete install process , old mulpatcher instructions below
+- create a backup of your Ultima Online Client folder
+
+## Install using UOFiddler
+- using [UOFiddler](https://github.com/polserver/UOFiddler)
+- Settings > Path Settings > paste your Ultima folder path then click "Reload paths" ( list should populate with .mul .idx and .uop files )
+- Setting > Options > Output Path > set to a new local OUTPUT folder ( this is where the mul and uop will output )
+- Plugins > Manage > turn on MassImportPlugin ( restart uofiddler if needed )
+- Plugins > MassImport > Load XML > select the xml file in downloaded MOD folder 00_ART_MODS_MassImport.xml ( loads replacement art files)
+- checkbox ON "DirectSave" , click "Start" ( may take 1 minute )
+- the OUTPUT folder now contains the modded .mul files 
+- if your Ultima uses UOP files ( search for artLegacyMUL.uop ) , then in UOFiddler there is a UOP Packer tab
+- UOP Packer > paste the OUTPUT folder path that contains the modded .mul files > turn ON "Pack MUL to UOP" > Start 
+- close UOFiddler , then copy the .mul .idx and .uop files in the OUTPUT folder into your Ultima folder , overwriting
+- Install is complete , play Ultima Online
+
+## or Install using Varan Mulpatcher 
+- alternatively can install using [Mulpatcher]( http://varan.uodev.de/ ) or [Alternate Download]( https://downloads.runuo.net/Mul/Mulpatcher.zip ) 
+- Settings > Art > set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .
+- Features > Autopatch > select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  > hit START . 
+- Repeat Autopatch process for the following mod txt files :
+- 00_UI_ALL_GUMP.txt ( Gumps ) , 00_ENV_ALL_TEX.txt ( Textures ) , 00_ENV_ALL_ART_M.txt ( Art (M) ) , 00_ENV_ALL_ART_S.txt ( Art (S) ) 
+- Settings > Save the Art mul to the Ultima directory ( Ultima directory ) . repeat for Gumps and Textures .
+
 # Quick Installation / Patching
 - download [UO_ART_MODS_20220413.zip]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20220413/UO_ART_MODS_20220413.zip ) . 
 - extract downloaded zip , if there are any modded items you dont care for feel free to edit the mod TXT file and remove the line matching the item \ image name ( no empty lines )
