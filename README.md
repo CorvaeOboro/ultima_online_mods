@@ -107,7 +107,7 @@ Dark Frame
 ![Arch Stone Multi](/UI/UI_ArchStone_Multi/00_ui_archstone_multi_equipslots_comp.png?raw=true "Arch Stone Multi")
 
 # Installation / Patching
-- UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240409_GumpOverrides/UO_ART_MODS_20240409_GumpOverrides.zip) , unzip into a GumpOverrides folder in Outlands folder
+- UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip) , unzip into a GumpOverrides folder in Outlands folder
 - Classic Shards =
 - download [UO_ART_MODS.zip]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) . 
 - extract downloaded zip to a new folder anywhere
