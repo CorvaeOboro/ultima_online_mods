@@ -6,7 +6,7 @@ fan art modifications in ultima online classic
 | <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-scrolls"> <img src="/ART/ART_MagicScrolls/ART_MagicScrolls_thumb.jpg?raw=true" width="140" height="140" /> </a>| <a href="https://github.com/CorvaeOboro/ultima_online_mods#reagents"> <img src="/ART/ART_BaseItemVariants_thumb.jpg?raw=true" width="140" height="140" />  </a>  |  <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-spells"> <img src="/UI/UI_MagicSpells/ui_spell_00_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#dark-scrolls"> <img src="/UI/ui_dark_scrolls_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#altered-lands"> <img src="/ENV/ENV_00_AlteredLands_thumb.jpg?raw=true" width="140" height="140" /> </a>|
 | :---: | :---: | :---: | :---: | :---: |
 
-Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240409_GumpOverrides/UO_ART_MODS_20240409_GumpOverrides.zip ) | [DOWNLOAD GumpOverrides without DarkScrolls]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240521_GumpOverrides_NoDarkScrolls/UO_ART_MODS_20240521_GumpOverrides_NoDarkScrolls.zip )  
+Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip ) | [DOWNLOAD GumpOverrides without DarkScrolls]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides_NoDarkScrolls/GumpOverrides_NoDarkScrolls_20241210.zip )  
 
 <img src="/UI/00_ui_comp_spells_gif_anim.gif?raw=true"  />
 
@@ -48,7 +48,6 @@ Ninjitsu
 
 <img src="/UI/UI_SpellsNinjitsu/00_ui_spell_ninjitsu_comp.png">
 
-
 # Magic Scrolls
 ![Magic Scrolls Backpack](/ART/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
 - Aims to quickly convey the use and importance of certain scrolls .
@@ -69,7 +68,6 @@ Dark Book
 Dark Frame
 
 <img src="/UI/UI_DarkFrame/00_ui_dark_frame_comp.png">
-
 
 # Dark Scrolls
 - ui enchanted with dark magic
@@ -97,7 +95,6 @@ Dark Frame
 - buffs and debuffs stylized darker matching magic spells and outlands specific buffs
 
 ![Dark Buffs](/UI/UI_Buffs/ui_buff_00_comp_names_wide.jpg?raw=true "Dark Buffs")
-
 
 <h2>MAIN MENU</h2>
 <img src="/UI/UI_MainMenu/00_ui_menu_comp.png">
@@ -133,7 +130,7 @@ https://github.com/user-attachments/assets/e8cc7671-414f-475d-8246-ace18b2a2cf1
 - Install is complete , play Ultima Online
 
 ## or Install using Varan Mulpatcher 
-- alternatively can install using [Mulpatcher]( http://varan.uodev.de/ ) or [Alternate Download]( https://downloads.runuo.net/Mul/Mulpatcher.zip ) 
+- alternatively can install using [Mulpatcher]( http://varan.uodev.de/ ) [Alternate Download]( https://downloads.runuo.net/Mul/Mulpatcher.zip ) 
 - Settings > Art > set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .
 - Features > Autopatch > select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  > hit START . 
 - Repeat Autopatch process for the following mod txt files :
@@ -149,17 +146,19 @@ Additional Guides and Mods hosted by Gaechti :
 # Modding Tools / Notes
 - [MODDING NOTES and TOOLS]( https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_Tools#Modding-Notes) 
 - located in Z_Tools , includes :
-- [00_mod_selector.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py ) = generates a custom MassImport list from selected mod folders 
-- [00_psd_to_GumpOverrides.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py ) = exports source art to GumpOverrides for Ultima Outlands
-- [01_image_rotate_to_isometric.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py) = TEX_to_ART_M convert square textre to isometric 45 degree tile
-- [02_image_composite_multi.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py) = composites adjacent or overlaping images to assemble sliced tree images
-- [02_extract_map_mul.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_extract_map_mul.py) = loads map mul and exports land tile data from region , then can be loaded in blender addon [z_blender_GEN_ultima_landtiles.py](https://github.com/CorvaeOboro/zenv_blender/blob/main/addon/z_blender_GEN_ultima_landtiles.py ) 
+- [00_mod_selector.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py ) = art mod selector , generates a custom MassImport list from selected mod folders 
+- ![00_mod_selector](/Z_Tools/00_mod_selector.png?raw=true "00_mod_selector")
+- [00_psd_to_GumpOverrides.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py ) = art mod selector for  Ultima Outlands , exports source art to GumpOverrides
+- ![00_psd_to_GumpOverrides](/Z_Tools/00_psd_to_GumpOverrides.png?raw=true "00_psd_to_GumpOverrides")
+- [01_image_rotate_to_isometric.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py) = convert square textre to isometric 45 degree land tile ( ART_M )
+- [02_image_composite_multi.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py) = composites adjacent or overlaping images to assemble sliced tree images , saves arrangment as json for disassembly later 
+- [02_extract_map_mul.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_extract_map_mul.py) = loads map mul and exports land tile data from region to csv , to be loaded in blender addon [z_blender_GEN_ultima_landtiles.py](https://github.com/CorvaeOboro/zenv_blender/blob/main/addon/z_blender_GEN_ultima_landtiles.py ) 
 - substance painter files for ENV textures 
 
 # UO Outlands
 https://uooutlands.com/
 - fantastic shard , highly recommend ! some notes for using art mods in outlands :
-- [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20240409_GumpOverrides/UO_ART_MODS_20240409_GumpOverrides.zip)  
+- [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip)  
 - copy UI/GumpOverrides folder into game directory [https://uooutlands.com/wiki/Gump_Overrides]( https://uooutlands.com/wiki/Gump_Overrides )  
 - currently only UI art moddable 
 
