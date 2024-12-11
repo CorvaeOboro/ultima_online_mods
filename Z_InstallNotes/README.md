@@ -6,6 +6,8 @@
 - UOFiddler is now the reccomend tool for complete install process , old mulpatcher instructions below
 - create a backup of your Ultima Online Client folder
 
+https://github.com/user-attachments/assets/703af701-7adb-4580-8d80-bace4f5df622
+
 ## Install using UOFiddler
 - using [UOFiddler](https://github.com/polserver/UOFiddler)
 - Settings > Path Settings > paste your Ultima folder path then click "Reload paths" ( list should populate with .mul .idx and .uop files )
