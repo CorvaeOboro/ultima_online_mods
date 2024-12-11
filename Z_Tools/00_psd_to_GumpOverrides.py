@@ -45,7 +45,7 @@ GROUPS_RIGHT = {
     "ArchStone & Backpack": {
         "image": ".././UI/UI_ArchStone/ui_archstone_backpack_comp.jpg",
         "subgroups": {
-            "ArchStone": {"path": ".././UI/UI_ArchStone", "thumbnail": "None", "default_state": True},
+            "ArchStone": {"path": ".././UI/UI_ArchStone", "thumbnail": "None", "default_state": False},
             "Backpack": {"path": ".././UI/UI_BackPack", "thumbnail": "None", "default_state": True},
             "BackpackStrapless": {"path": ".././UI/UI_BackPackStrapless", "thumbnail": "None", "default_state": False}
         }
@@ -79,8 +79,8 @@ GROUPS_RIGHT = {
     "ArchStoneMulti ": {
         "image": ".././UI/UI_ArchStone_Multi/00_ui_archstone_multi_equipslots_comp.png",
         "subgroups": {
-            "ArchStone Multi": {"path": ".././UI/UI_ArchStone_Multi", "thumbnail": "None", "default_state": False},
-            "Equip Slots": {"path": ".././UI/UI_EquipSlots", "thumbnail": "None", "default_state": False}
+            "ArchStone Multi": {"path": ".././UI/UI_ArchStone_Multi", "thumbnail": "None", "default_state": True},
+            "Equip Slots": {"path": ".././UI/UI_EquipSlots", "thumbnail": "None", "default_state": True}
         }
     },
     "Profession": {
