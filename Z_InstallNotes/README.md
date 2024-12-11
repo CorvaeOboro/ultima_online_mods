@@ -6,11 +6,7 @@
 - UOFiddler is now the reccomend tool for complete install process , old mulpatcher instructions below
 - create a backup of your Ultima Online Client folder
 
-
-
-https://github.com/user-attachments/assets/01587bd2-9dca-4d0e-8963-a5c3f55e6c7c
-
-
+https://github.com/user-attachments/assets/703af701-7adb-4580-8d80-bace4f5df622
 
 ## Install using UOFiddler
 - using [UOFiddler](https://github.com/polserver/UOFiddler)
