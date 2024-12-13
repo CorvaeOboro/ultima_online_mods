@@ -16,61 +16,77 @@ body {
 
 	<h1>Modding Tools / Notes</h1>
 <ul>
-<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_Tools#Modding-Notes">MODDING NOTES and TOOLS</a> </li>
+<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_Tools#Modding-Notes" target="main_ultima">MODDING NOTES and TOOLS</a> </li>
 <li>located in Z_Tools , includes :</li>
-<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py">00_mod_selector.py</a> = generates a custom MassImport list from selected mod folders </li>
+<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py" target="main_ultima">00_mod_selector.py</a> = generates a custom MassImport list from selected mod folders </li>
 <li> <img src= "https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.png?raw=true"></li>
-<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py">00_psd_to_GumpOverrides.py</a> = exports source art to GumpOverrides for Ultima Outlands</li>
+<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py" target="main_ultima">00_psd_to_GumpOverrides.py</a> = exports source art to GumpOverrides for Ultima Outlands</li>
 <li> <img src= "https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.png?raw=true"></li>
-<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py">01_image_rotate_to_isometric.py</a> = TEX_to_ART_M convert square textre to isometric 45 degree tile</li>
-<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py">02_image_composite_multi.py</a> = composites adjacent or overlaping images to assemble sliced tree images</li>
-<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_extract_map_mul.py">02_extract_map_mul.py</a> = loads map mul and exports land tile data from region , then can be loaded in blender addon <a href="https://github.com/CorvaeOboro/zenv_blender/blob/main/addon/z_blender_GEN_ultima_landtiles.py">z_blender_GEN_ultima_landtiles.py</a> </li>
+<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py" target="main_ultima">01_image_rotate_to_isometric.py</a> = TEX_to_ART_M convert square textre to isometric 45 degree tile</li>
+<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py" target="main_ultima">02_image_composite_multi.py</a> = composites adjacent or overlaping images to assemble sliced tree images</li>
+<li><a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_extract_map_mul.py" target="main_ultima">02_extract_map_mul.py</a> = loads map mul and exports land tile data from region , then can be loaded in blender addon <a href="https://github.com/CorvaeOboro/zenv_blender/blob/main/addon/z_blender_GEN_ultima_landtiles.py">z_blender_GEN_ultima_landtiles.py</a> </li>
 <li>substance painter files for ENV textures </li>
 
 	<h1>Modding Notes</h1>
 <p>a collection of info for modding ultima online art .</p>
 <h1>MUL</h1>
-<p>art assets are compressed into .mul files . modding the art is handled by 'patching' the new art into the corresponding categorical mul file .
-- ART = Art_S ( items , placed objects ) , Art_M ( flat isometric landtiles ) 
-- GUMPS = user interface , menus , character sheet equipment
-- TEXTURES = land textures used on the terrain </p>
+<ul>
+<p>art assets are compressed into .mul files . modding the art is handled by 'patching' the new art into the corresponding categorical mul file .</li>
+	<li> ART = Art_S ( items , placed objects ) , Art_M ( flat isometric landtiles ) </li>
+		<li> GUMPS = user interface , menus , character sheet equipment</li>
+			<li> TEXTURES = land textures used on the terrain </p></li>
+			</ul>
 <h1>TOOLS</h1>
+<ul>
 <p>UO Fiddler
-- https://github.com/polserver/UOFiddler
-- tool to explore and export the art in the mul files .
-- Searchable by name or ID ( ids can be found in game saying "&gt;info" or "-info" ) 
-- can Batch export all by category  </p>
+	<ul>
+	<li> <a href="https://github.com/polserver/UOFiddler" target="main_ultima">https://github.com/polserver/UOFiddler</a></li>
+		<li> tool to explore and export the art in the mul files .</li>
+			<li> Searchable by name or ID ( ids can be found in game saying "&gt;info" or "-info" ) </li>
+				<li> can Batch export all by category  </p></li>
+				</ul>
 <p>Mulpatcher by Varan
-- http://varan.uodev.de/
-- primary tool for patching , using the autopatching feature by txt file 
-- autopatch txt example ( "HEX imagename.bmp" example= "0xF88 item_reagent_NightShade_0xF88.bmp" )</p>
+	<ul>
+	<li> <a href="http://varan.uodev.de/" target="main_ultima">http://varan.uodev.de/</a></li>
+		<li> primary tool for patching , using the autopatching feature by txt file </li>
+			<li> autopatch txt example ( "HEX imagename.bmp" example= "0xF88 item_reagent_NightShade_0xF88.bmp" )</p></li>
+			</ul>
 <p>Export
-- <a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py">00_psd_to_GumpOverrides.py</a> = Automatically export from psd source files into a GumpOverrides folder</p>
+	<ul>
+	<li> <a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py" target="main_ultima">00_psd_to_GumpOverrides.py</a> = Automatically export from psd source files into a GumpOverrides folder</p>
 <p>Image Magick
-- https://imagemagick.org/script/download.php
-- command line image operations
-- in this project currently using imagemagick by a .bat to batch convert psd to bmp and set BMP3 format </p>
+	<ul>
+	<li> <a href="https://imagemagick.org/script/download.php" target="main_ultima">https://imagemagick.org/script/download.php</a></li>
+		<li> command line image operations</li>
+			<li> in this project currently using imagemagick by a .bat to batch convert psd to bmp and set BMP3 format </p></li>
+			</ul>
 <h1>ENVIRONMENT TEXTURES</h1>
-<p>Textures -  mapped to 3d terrain </p>
-<p>Landtiles ( Art_M ) - isometric tiles , placed in world mixed with 3d textures on flat areas .
-for each envrionment texture there is a corresponding art_m landtile , and additional art after that .</p>
+<ul>
+<li></li><p>Textures -  mapped to 3d terrain </p></li>
+<li></li><p>Landtiles ( Art_M ) - isometric tiles , placed in world mixed with 3d textures on flat areas .</li>
+	<li>for each envrionment texture there is a corresponding art_m landtile , and additional art after that .</p></li>
+</ul>
 <p>TEX_to_ART_M
-- this python script will batch convert Textures to ART_M , however isnt perfect and recommend additional adjustments
-- <img alt="TEX to ART_M" src="../Z_Tools/ultima_TEX_convert_to_ART_M.jpg?raw=true" title="TEX to ART_M" />
-- located in Z_Tools/<a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py">01_image_rotate_to_isometric.py</a> </p>
+	<ul>
+	<li> this python script will batch convert Textures to ART_M , however isnt perfect and recommend additional adjustments</li>
+		<li> <img alt="TEX to ART_M" src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/ultima_TEX_convert_to_ART_M.jpg?raw=true" title="TEX to ART_M" /></li>
+			<li> located in Z_Tools/<a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py" target="main_ultima">01_image_rotate_to_isometric.py</a> </p></li>
+		</ul>
 <p>TEX_debug
-- this python script useful for visual debug , composites numbers onto each texture 
-- <img alt="Debug TEX" src="../Z_Tools/ultima_env_debug_example_01.jpg?raw=true" title="Debug TEX" />
-- located in Z_Tools/<a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_debug_image_num_color.py">03_debug_image_num_color.py</a> </p>
+	<ul>
+	<li> this python script useful for visual debug , composites numbers onto each texture </li>
+		<li> <img alt="Debug TEX" src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/ultima_env_debug_example_01.jpg?raw=true" title="Debug TEX" /></li>
+			<li> located in Z_Tools/<a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_debug_image_num_color.py" target="main_ultima">03_debug_image_num_color.py</a> </p></li>
+		</ul>
 <p>Substance Painter of ENV textures :
-- located in Z_Tools/*.spp 
-- env_dirt_grass , env_sand_grass , env_mountain , env_cave_mountain
-- <img alt="ultima_art_mod_env_substancepainter" src="../Z_Tools/ultima_art_mod_env_substancepainter.jpg?raw=true" title="ultima_art_mod_env_substancepainter" /></p>
+	<li> located in Z_Tools/*.spp </li>
+<li> env_dirt_grass , env_sand_grass , env_mountain , env_cave_mountain</li>
+<li> <img alt="ultima_art_mod_env_substancepainter" src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/ultima_art_mod_env_substancepainter.jpg?raw=true" title="ultima_art_mod_env_substancepainter" /></p></li>
 <h1>AUTOPATCH</h1>
 <ul>
 <li>( "HEX imagename.bmp" example= "0xF88 item_reagent_NightShade_0xF88.bmp" )</li>
 <li>generated from spreadsheet </li>
-<li><img alt="ultima_mods_spreadsheet" src="../Z_Tools/ultima_mods_spreadsheet.jpg?raw=true" title="ultima_mods_spreadsheet" /></li>
+<li><img alt="ultima_mods_spreadsheet" src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/ultima_mods_spreadsheet.jpg?raw=true" title="ultima_mods_spreadsheet" /></li>
 <li>located in Z_Tools/ultima_mods_ART.xlsx  , ultima_mods_ENV.xlsx , ultima_mods_UI.xlsx</li>
 </ul>
 <h1>NAMING</h1>
@@ -91,8 +107,8 @@ for each envrionment texture there is a corresponding art_m landtile , and addit
 </ul>
 <h1>LINKS</h1>
 <ul>
-<li>servuo - https://www.servuo.com/</li>
-<li>gaechti - http://www.burningsheep.ch/</li>
+<li>servuo - <a href="https://www.servuo.com/" target="main_ultima"> https://www.servuo.com/ </a></li>
+<li>gaechti - <a href="http://www.burningsheep.ch/" target="main_ultima"> http://www.burningsheep.ch/ </a> </li>
 </ul>
 
 </body>
