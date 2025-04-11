@@ -1,3 +1,16 @@
+# Modding Tools / Notes
+- [MODDING NOTES and TOOLS]( https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_Tools#Modding-Notes) 
+- located in Z_Tools , includes :
+- [00_mod_selector.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py ) = art mod selector , generates a custom MassImport list from selected mod folders 
+- ![00_mod_selector](/Z_Tools/00_mod_selector.png?raw=true "00_mod_selector")
+- [00_psd_to_GumpOverrides.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py ) = art mod selector for  Ultima Outlands , exports source art to GumpOverrides
+- ![00_psd_to_GumpOverrides](/Z_Tools/00_psd_to_GumpOverrides.png?raw=true "00_psd_to_GumpOverrides")
+- [01_image_rotate_to_isometric.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py) = convert square textre to isometric 45 degree land tile ( ART_M )
+- [02_image_composite_multi.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py) = composites adjacent or overlaping images to assemble sliced tree images , saves arrangment as json for disassembly later 
+- [02_extract_map_mul.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_extract_map_mul.py) = loads map mul and exports land tile data from region to csv , to be loaded in blender addon [z_blender_GEN_ultima_landtiles.py](https://github.com/CorvaeOboro/zenv_blender/blob/main/addon/z_blender_GEN_ultima_landtiles.py ) 
+- substance painter files for ENV textures 
+
+
 # Modding Notes
 a collection of info for modding ultima online art .
 
@@ -15,7 +28,8 @@ UO Fiddler
 - can Batch export all by category  
 
 Mulpatcher by Varan
-- http://varan.uodev.de/
+- http://varan.uodev.de/ 
+- [Mulpatcher Download Alternate Link](https://rose-uo.de/projects/varan/Mulpatcher.zip)
 - primary tool for patching , using the autopatching feature by txt file 
 - autopatch txt example ( "HEX imagename.bmp" example= "0xF88 item_reagent_NightShade_0xF88.bmp" )
 
@@ -49,17 +63,19 @@ Substance Painter of ENV textures :
 - ![ultima_art_mod_env_substancepainter](ultima_art_mod_env_substancepainter.jpg?raw=true "ultima_art_mod_env_substancepainter")
 
 # AUTOPATCH
+-  the varan autopatch tools reads a textfile as input , the hexidecimalID and the image filepath that will replace it 
 - ( "HEX imagename.bmp" example= "0xF88 item_reagent_NightShade_0xF88.bmp" )
-- generated from spreadsheet 
+- this is now generated using [00_mod_selector.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py ) 
+- previously generated from the spreadsheets 
 - ![ultima_mods_spreadsheet](ultima_mods_spreadsheet.jpg?raw=true "ultima_mods_spreadsheet")
 - located in Z_Tools/ultima_mods_ART.xlsx  , ultima_mods_ENV.xlsx , ultima_mods_UI.xlsx
 
 # NAMING
-- exports from UOFiddler are HEX or Numbered 
+- exports from UOFiddler are Hexidecimal HEX or Numbered 
 - 00_num_to_hex.py = batch rename files in target folder from number to HEX 
 - file list entered into spreadsheet and renamed based on this convention :
 - CATEGORY_Group_Name_NUM_HEX
-- batch renaming .bat may be generated from spreadsheet column 
+- a batch renaming .bat may be generated from spreadsheet column 
 
 # HUES
 - generaly the color gradients are mapped 0 to 1 greyscale values of the art .
@@ -71,3 +87,7 @@ Substance Painter of ENV textures :
 # LINKS
 - servuo - https://www.servuo.com/
 - gaechti - http://www.burningsheep.ch/
+
+Archive Format 
+MUL
+UOP - UOFiddler can convert 
