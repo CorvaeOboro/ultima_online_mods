@@ -1,4 +1,4 @@
-PIL
+pillow
 glob
 re
 numpy

@@ -11,6 +11,10 @@ import re
 
 # GLOBAL
 REGEX_HEXIDECIMAL = re.compile(r'(0x[0-9A-Fa-f]+)\.bmp$')
+UI_IMAGE_WIDTH_MIN = 100
+UI_IMAGE_WIDTH_MAX = 350
+UI_IMAGE_HEIGHT_MIN = 30
+UI_IMAGE_HEIGHT_MAX = 80
 UI_IMAGE_WIDTH = 350
 UI_IMAGE_HEIGHT = 80
 CHECKBOX_ON_IMAGE_PATH = "./images/checkbox_on_image.png"
@@ -455,59 +459,97 @@ class BMPtoXMLConverter:
         self.groups_area.rowconfigure(0, weight=1)
 
         # Create frames for each group area
-        self.left_frame = ttk.Frame(self.groups_area, style='TFrame')
-        self.middle_frame = ttk.Frame(self.groups_area, style='TFrame')
-        self.right_frame = ttk.Frame(self.groups_area, style='TFrame')
+        self.left_frame = ttk.Frame(self.groups_area, style='TFrame', borderwidth=0, relief='flat')
+        self.middle_frame = ttk.Frame(self.groups_area, style='TFrame', borderwidth=0, relief='flat')
+        self.right_frame = ttk.Frame(self.groups_area, style='TFrame', borderwidth=0, relief='flat')
 
         # Use grid to arrange the frames
         self.left_frame.grid(row=0, column=0, sticky='nsew')
         self.middle_frame.grid(row=0, column=1, sticky='nsew')
         self.right_frame.grid(row=0, column=2, sticky='nsew')
 
-        # Left group area with scrollbar
-        self.left_canvas = tk.Canvas(self.left_frame, bg='#111111')
+        # --- Add horizontal scrollbars ---
+        # Left group area with scrollbars
+        self.left_canvas = tk.Canvas(self.left_frame, bg='#111111', highlightthickness=0)
         self.left_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-
         self.left_scrollbar = ttk.Scrollbar(
             self.left_frame, orient='vertical', command=self.left_canvas.yview
         )
         self.left_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        self.left_canvas.configure(yscrollcommand=self.left_scrollbar.set)
-
-        self.left_scrollable_frame = ttk.Frame(self.left_canvas, style='TFrame')
-        self.left_canvas.create_window(
-            (0, 0), window=self.left_scrollable_frame, anchor='nw'
+        self.left_hscrollbar = ttk.Scrollbar(
+            self.left_frame, orient='horizontal', command=self.left_canvas.xview
         )
+        self.left_hscrollbar.pack(side=tk.BOTTOM, fill=tk.X)
+        self.left_canvas.configure(yscrollcommand=self.left_scrollbar.set, xscrollcommand=self.left_hscrollbar.set)
+        self.left_scrollable_frame = ttk.Frame(self.left_canvas, style='TFrame', borderwidth=0, relief='flat')
+        left_window = self.left_canvas.create_window((0, 0), window=self.left_scrollable_frame, anchor='nw')
 
-        # Middle group area with scrollbar
-        self.middle_canvas = tk.Canvas(self.middle_frame, bg='#111111')
+        def _left_configure(event):
+            self.left_canvas.configure(scrollregion=self.left_canvas.bbox("all"))
+            # Set the window width to max of canvas or frame reqwidth
+            req_width = self.left_scrollable_frame.winfo_reqwidth()
+            canvas_width = self.left_canvas.winfo_width()
+            self.left_canvas.itemconfig(left_window, width=max(req_width, canvas_width))
+        self.left_scrollable_frame.bind("<Configure>", _left_configure)
+        self.left_canvas.bind("<Configure>", _left_configure)
+
+        # Middle group area with scrollbars
+        self.middle_canvas = tk.Canvas(self.middle_frame, bg='#111111', highlightthickness=0)
         self.middle_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-
         self.middle_scrollbar = ttk.Scrollbar(
             self.middle_frame, orient='vertical', command=self.middle_canvas.yview
         )
         self.middle_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        self.middle_canvas.configure(yscrollcommand=self.middle_scrollbar.set)
-
-        self.middle_scrollable_frame = ttk.Frame(self.middle_canvas, style='TFrame')
-        self.middle_canvas.create_window(
-            (0, 0), window=self.middle_scrollable_frame, anchor='nw'
+        self.middle_hscrollbar = ttk.Scrollbar(
+            self.middle_frame, orient='horizontal', command=self.middle_canvas.xview
         )
+        self.middle_hscrollbar.pack(side=tk.BOTTOM, fill=tk.X)
+        self.middle_canvas.configure(yscrollcommand=self.middle_scrollbar.set, xscrollcommand=self.middle_hscrollbar.set)
+        self.middle_scrollable_frame = ttk.Frame(self.middle_canvas, style='TFrame', borderwidth=0, relief='flat')
+        middle_window = self.middle_canvas.create_window((0, 0), window=self.middle_scrollable_frame, anchor='nw')
 
-        # Right group area with scrollbar
-        self.right_canvas = tk.Canvas(self.right_frame, bg='#111111')
+        def _middle_configure(event):
+            self.middle_canvas.configure(scrollregion=self.middle_canvas.bbox("all"))
+            req_width = self.middle_scrollable_frame.winfo_reqwidth()
+            canvas_width = self.middle_canvas.winfo_width()
+            self.middle_canvas.itemconfig(middle_window, width=max(req_width, canvas_width))
+        self.middle_scrollable_frame.bind("<Configure>", _middle_configure)
+        self.middle_canvas.bind("<Configure>", _middle_configure)
+
+        # Right group area with scrollbars
+        self.right_canvas = tk.Canvas(self.right_frame, bg='#111111', highlightthickness=0)
         self.right_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-
         self.right_scrollbar = ttk.Scrollbar(
             self.right_frame, orient='vertical', command=self.right_canvas.yview
         )
         self.right_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        self.right_canvas.configure(yscrollcommand=self.right_scrollbar.set)
-
-        self.right_scrollable_frame = ttk.Frame(self.right_canvas, style='TFrame')
-        self.right_canvas.create_window(
-            (0, 0), window=self.right_scrollable_frame, anchor='nw'
+        self.right_hscrollbar = ttk.Scrollbar(
+            self.right_frame, orient='horizontal', command=self.right_canvas.xview
         )
+        self.right_hscrollbar.pack(side=tk.BOTTOM, fill=tk.X)
+        self.right_canvas.configure(yscrollcommand=self.right_scrollbar.set, xscrollcommand=self.right_hscrollbar.set)
+        self.right_scrollable_frame = ttk.Frame(self.right_canvas, style='TFrame', borderwidth=0, relief='flat')
+        right_window = self.right_canvas.create_window((0, 0), window=self.right_scrollable_frame, anchor='nw')
+
+        def _right_configure(event):
+            self.right_canvas.configure(scrollregion=self.right_canvas.bbox("all"))
+            req_width = self.right_scrollable_frame.winfo_reqwidth()
+            canvas_width = self.right_canvas.winfo_width()
+            self.right_canvas.itemconfig(right_window, width=max(req_width, canvas_width))
+        self.right_scrollable_frame.bind("<Configure>", _right_configure)
+        self.right_canvas.bind("<Configure>", _right_configure)
+
+        # --- Helper for mousewheel binding ---
+        def _bind_mousewheel(canvas):
+            def _on_mousewheel(event):
+                canvas.yview_scroll(int(-1 * (event.delta / 120)), 'units')
+                return "break"
+            canvas.bind('<Enter>', lambda e: canvas.bind_all('<MouseWheel>', _on_mousewheel))
+            canvas.bind('<Leave>', lambda e: canvas.unbind_all('<MouseWheel>'))
+
+        _bind_mousewheel(self.left_canvas)
+        _bind_mousewheel(self.middle_canvas)
+        _bind_mousewheel(self.right_canvas)
 
         # Bind the scrollable frames to the canvases
         self.left_scrollable_frame.bind(
@@ -537,67 +579,67 @@ class BMPtoXMLConverter:
 
     def add_group_section(self, parent, group_name, group_info):
         print(f"Adding group section for {group_name}...")
-        section_frame = ttk.Frame(parent, style='TFrame')
-        section_frame.pack(fill=tk.X, padx=PADX, pady=PADY)
+        section_frame = ttk.Frame(parent, style='TFrame', borderwidth=0, relief='flat')
+        section_frame.pack(fill=tk.BOTH, padx=PADX, pady=PADY)
 
-        # Get layout option, default is 'right'
         layout = group_info.get("layout", "right").lower()
-
-        # Load images (support multiple images)
         images = group_info.get("images", [])
 
         image_labels = []
+        image_paths = []
         for image_path in images:
             if image_path and os.path.exists(image_path):
                 print(f"Loading image for {group_name}: {image_path}")
+                # Initial thumbnail, will be resized later
                 img = Image.open(image_path)
                 img.thumbnail((UI_IMAGE_WIDTH, UI_IMAGE_HEIGHT), Image.Resampling.LANCZOS)
                 section_image = ImageTk.PhotoImage(img)
-                image_label = ttk.Label(section_frame, image=section_image)
+                image_label = ttk.Label(section_frame, image=section_image, style='NoBorder.TLabel')
                 image_label.image = section_image
                 image_labels.append(image_label)
+                image_paths.append(image_path)
             else:
                 print(f"Image not found: {image_path}")
 
-        # Use grid within section_frame
         if layout == "below":
-            # Place images on top
             row = 0
             for img_label in image_labels:
-                img_label.grid(row=row, column=0, columnspan=2, pady=PADY)
+                img_label.grid(row=row, column=0, columnspan=20, pady=PADY, sticky='n')
                 row += 1
-
-            # Subgroups below images, arranged horizontally
             subgroups = group_info.get("subgroups", {})
+            num_subgroups = len(subgroups)
+            canvas = section_frame.master.master  # the canvas
+            try:
+                available_width = canvas.winfo_width()
+            except:
+                available_width = 800
+            min_entry_width = 120
+            max_cols = max(1, min(6, available_width // min_entry_width))
+            if max_cols < 1:
+                max_cols = 6
             col = 0
-            for subgroup_name, subgroup_info in subgroups.items():
+            subgroup_widgets = []
+            for i, (subgroup_name, subgroup_info) in enumerate(subgroups.items()):
                 subgroup_widget = self.add_subgroup_entry(
                     section_frame, subgroup_name, subgroup_info,
                     layout=layout
                 )
-                subgroup_widget.grid(row=row, column=col, padx=PADX, pady=PADY)
+                subgroup_widgets.append(subgroup_widget)
+                subgroup_widget.grid(row=row + (col // max_cols), column=col % max_cols, padx=PADX, pady=PADY, sticky='ew')
                 col += 1
-            # Adjust columns weight
-            for i in range(col):
+            for i in range(max_cols):
                 section_frame.columnconfigure(i, weight=1)
-        else:  # layout == 'right'
-            # Configure grid
-            section_frame.columnconfigure(0, weight=0)
-            section_frame.columnconfigure(1, weight=1)
-
-            # Place images on the left
-            image_frame = ttk.Frame(section_frame, style='TFrame')
-            image_frame.grid(row=0, column=0, padx=PADX, pady=PADY, sticky='n')
-
-            for idx, img_label in enumerate(image_labels):
-                img_label.grid(row=idx, column=0, pady=PADY)
-
-            # Subgroups to the right of images
-            subgroup_frame = ttk.Frame(section_frame, style='TFrame')
-            subgroup_frame.grid(row=0, column=1, padx=PADX, pady=PADY, sticky='nsew')
+        else:
+            # Only image column gets weight, label/button column does not expand
+            section_frame.configure(borderwidth=0, relief='flat')
+            section_frame.columnconfigure(0, weight=1)
+            section_frame.columnconfigure(1, weight=0)
+            image_frame = ttk.Frame(section_frame, style='TFrame', borderwidth=0, relief='flat')
+            image_frame.grid(row=0, column=0, padx=(PADX, 6), pady=PADY, sticky='ns')
+            subgroup_frame = ttk.Frame(section_frame, style='TFrame', borderwidth=0, relief='flat')
+            subgroup_frame.grid(row=0, column=1, padx=(6, PADX), pady=PADY, sticky='ns')
             section_frame.rowconfigure(0, weight=1)
-            section_frame.columnconfigure(1, weight=1)
-
+            # Add subgroup entries (label/button area)
             subgroups = group_info.get("subgroups", {})
             row = 0
             for subgroup_name, subgroup_info in subgroups.items():
@@ -605,9 +647,38 @@ class BMPtoXMLConverter:
                     subgroup_frame, subgroup_name, subgroup_info,
                     layout=layout
                 )
-                subgroup_widget.grid(row=row, column=0, padx=PADX, pady=PADY, sticky='w')
+                subgroup_widget.grid(row=row, column=0, padx=PADX, pady=PADY, sticky='n')
                 row += 1
-            subgroup_frame.columnconfigure(0, weight=1)
+            # Calculate section width for 3-column layout
+            window_width = self.master.winfo_width() if hasattr(self, 'master') else 1200
+            section_width = max(300, window_width // 3)
+            # Estimate minimum label/button width
+            subgroup_frame.update_idletasks()
+            min_label_width = max(160, subgroup_frame.winfo_reqwidth())
+            # Leave some padding between image and label/button area
+            available_img_width = max(80, section_width - min_label_width - 2*PADX)
+            # Debounced image resizing based on section_frame height and available_img_width
+            def _resize_image_on_section(event=None):
+                h = section_frame.winfo_height()
+                if not hasattr(section_frame, '_last_img_height') or section_frame._last_img_height != h:
+                    if h and h > 8:
+                        for i, img_label in enumerate(image_labels):
+                            img_path = image_paths[i]
+                            if os.path.exists(img_path):
+                                img = Image.open(img_path)
+                                img.thumbnail((available_img_width, min(h, UI_IMAGE_HEIGHT_MAX)), Image.Resampling.LANCZOS)
+                                section_image = ImageTk.PhotoImage(img)
+                                img_label.configure(image=section_image)
+                                img_label.image = section_image
+                        section_frame._last_img_height = h
+            section_frame.bind("<Configure>", _resize_image_on_section)
+            for i, img_label in enumerate(image_labels):
+                img_label.grid(row=i, column=0, pady=PADY, sticky='ns')
+            for idx in range(len(image_labels)):
+                image_frame.rowconfigure(idx, weight=1)
+            # Ensure label/button area is always at least min_label_width
+            subgroup_frame.grid_propagate(True)
+            subgroup_frame.config(width=min_label_width)
 
     def add_subgroup_entry(self, parent, subgroup_name, subgroup_info, layout):
         print(f"Adding subgroup entry for {subgroup_name}...")
@@ -617,47 +688,35 @@ class BMPtoXMLConverter:
         self.checkbox_states[(subgroup_info["path"])] = state
 
         # Frame to hold the subgroup elements
-        subgroup_frame = ttk.Frame(parent, style='TFrame', borderwidth=1, relief="ridge")
+        subgroup_frame = ttk.Frame(parent, style='NoBorder.TFrame', borderwidth=0, relief="flat")
 
         if layout == 'right':
-            # Stack export button below the checkbox
-            # Use grid to place elements
             subgroup_frame.columnconfigure(0, weight=1)
-
-            # Checkbox and label
             export_check = ImageCheckbox(
                 subgroup_frame, text=subgroup_name, variable=state,
                 on_image_path=CHECKBOX_ON_IMAGE_PATH, off_image_path=CHECKBOX_OFF_IMAGE_PATH
             )
-            export_check.grid(row=0, column=0, sticky='w')
-
-            # Export button below
+            export_check.grid(row=0, column=0, sticky='ew')
             export_button = ttk.Button(
                 subgroup_frame, text="Export",
                 command=lambda p=subgroup_info["path"], s=state: self.export_individual_group(p, s),
-                style='Large.TButton'
+                style='Flat.TButton'
             )
-            export_button.grid(row=1, column=0, padx=PADX, pady=PADY, sticky='w')
+            export_button.grid(row=1, column=0, padx=PADX, pady=PADY, sticky='ew')
         else:
-            # For 'below' layout, arrange elements horizontally
-            # Use grid to place elements
             subgroup_frame.columnconfigure(0, weight=1)
             subgroup_frame.columnconfigure(1, weight=0)
-
-            # Checkbox and label
             export_check = ImageCheckbox(
                 subgroup_frame, text=subgroup_name, variable=state,
                 on_image_path=CHECKBOX_ON_IMAGE_PATH, off_image_path=CHECKBOX_OFF_IMAGE_PATH
             )
-            export_check.grid(row=0, column=0, sticky='w')
-
-            # Export button
+            export_check.grid(row=0, column=0, sticky='ew')
             export_button = ttk.Button(
                 subgroup_frame, text="Export",
                 command=lambda p=subgroup_info["path"], s=state: self.export_individual_group(p, s),
-                style='Large.TButton'
+                style='Flat.TButton'
             )
-            export_button.grid(row=0, column=1, padx=PADX, sticky='e')
+            export_button.grid(row=0, column=1, padx=PADX, sticky='ew')
 
         return subgroup_frame
 
@@ -763,12 +822,10 @@ class BMPtoXMLConverter:
 
         group_folder_name = os.path.basename(folder_path)
 
-        # Initialize lists to hold XML entries and txt lines
         xml_entries = []
         txt_lines_subgroup = []
         txt_lines_master = []
 
-        # Only process files in the specified folder (non-recursive)
         try:
             files = os.listdir(folder_path)
         except Exception as e:
@@ -778,7 +835,6 @@ class BMPtoXMLConverter:
         for filename in files:
             file_path = os.path.join(folder_path, filename)
             if os.path.isdir(file_path):
-                # Skip directories
                 continue
             if REGEX_HEXIDECIMAL.search(filename):
                 match = REGEX_HEXIDECIMAL.search(filename)
@@ -790,19 +846,15 @@ class BMPtoXMLConverter:
                     print(f"Invalid item ID in filename {filename}")
                     continue
 
-                # Build the new file path by adding the prefix
                 relative_bmp_path = os.path.relpath(bmp_path, self.prefix)
                 new_file_path = os.path.join(self.prefix, relative_bmp_path)
 
-                # Build the XML entry
                 xml_entry = f'  <{category} index="{item_id}" file="{new_file_path}" remove="False" />\n'
                 xml_entries.append(xml_entry)
 
-                # Build the txt line for subgroup (only filename)
                 txt_line_subgroup = f"{item_id_str} {filename}"
                 txt_lines_subgroup.append(txt_line_subgroup)
 
-                # Build the txt line for master (relative path)
                 txt_line_master = f"{item_id_str} {relative_bmp_path}"
                 txt_lines_master.append(txt_line_master)
 
@@ -810,19 +862,16 @@ class BMPtoXMLConverter:
             print(f"No BMP files found with hexadecimal suffix in {folder_path}.")
             return None
 
-        # Build the XML content
         xml_content = "<MassImport>\n"
         xml_content += ''.join(xml_entries)
         xml_content += "</MassImport>\n"
 
-        # Write the XML content to the MassImport XML file
         xml_filename = f"00_{group_folder_name}_{category}.xml"
         xml_output_path = os.path.join(folder_path, xml_filename)
         with open(xml_output_path, 'w') as xml_file:
             xml_file.write(xml_content)
         print(f"Created XML file: {xml_output_path}")
 
-        # Write the txt content to the subgroup .txt file
         txt_suffix = CATEGORY_TO_TXT_SUFFIX.get(category, category.upper())
         txt_filename = f"00_{group_folder_name}_{txt_suffix}.txt"
         txt_output_path = os.path.join(folder_path, txt_filename)
@@ -839,17 +888,21 @@ class BMPtoXMLConverter:
  # Main UI
 if __name__ == "__main__":
     root = tk.Tk()
-    root.geometry("1400x830")  # 14x8 aspect ratio
-
+    root.minsize(600, 400)  # Allow resizing, but set a reasonable minimum
+    
     style = ttk.Style()
     style.theme_use('clam')
     style.configure('TFrame', background='#111111', bordercolor='#000000', borderwidth=0)
+    style.configure('NoBorder.TFrame', background='#111111', borderwidth=0, relief='flat')
     style.configure('Large.TButton', background='#3c3c3c', foreground='white', borderwidth=0,
                     font=('Helvetica', 12), bordercolor='#000000')
+    style.configure('Flat.TButton', background='#3c3c3c', foreground='white', borderwidth=0, relief='flat',
+                    font=('Helvetica', 12), bordercolor='#000000', highlightthickness=0)
     style.configure('Large.TCheckbutton', background='#111111', foreground='white',
                     font=('Helvetica', 12), bordercolor='#000000', borderwidth=0)
     style.configure('TLabel', background='#000000', foreground='white',
                     font=('Helvetica', 12), bordercolor='#000000', borderwidth=0)
+    style.configure('NoBorder.TLabel', background='#000000', foreground='white', borderwidth=0, relief='flat')
     style.configure('DarkGrey.TLabel', background='#000000', foreground='grey',
                     font=('Helvetica', 12), bordercolor='#000000', borderwidth=0)
     style.configure('TEntry', fieldbackground='#3c3c3c', foreground='gray',
