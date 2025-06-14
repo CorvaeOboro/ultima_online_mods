@@ -23,7 +23,8 @@ from PIL import Image, ImageTk
 import numpy as np
 
 class GumpMulLoader:
-    def __init__(self, folder):
+    def __init__(self, folder, debug=True):
+        self.debug = debug
         self.folder = folder
         self.idx_path = os.path.join(folder, 'gumpidx.mul')
         self.art_path = os.path.join(folder, 'gumpart.mul')
@@ -34,11 +35,13 @@ class GumpMulLoader:
         self._load_index()
 
     def _load_index(self):
-        print("\n--- GumpMulLoader: Loading folder structure ---")
-        print(f"Looking for: {self.idx_path}")
-        print(f"Looking for: {self.art_path}")
+        if self.debug:
+            print("\n--- GumpMulLoader: Loading folder structure ---")
+            print(f"Looking for: {self.idx_path}")
+            print(f"Looking for: {self.art_path}")
         if not (os.path.exists(self.idx_path) and os.path.exists(self.art_path)):
-            print("gumpidx.mul or gumpart.mul not found!")
+            if self.debug:
+                print("gumpidx.mul or gumpart.mul not found!")
             self.entries = []
             self.valid_ids = []
             return
@@ -49,7 +52,8 @@ class GumpMulLoader:
         self.idx_file.seek(0, os.SEEK_END)
         size = self.idx_file.tell()
         count = size // 12
-        print(f"Found {count} entries in gumpidx.mul.")
+        if self.debug:
+            print(f"Found {count} entries in gumpidx.mul.")
         self.idx_file.seek(0)
         for idx in range(count):
             data = self.idx_file.read(12)
@@ -60,10 +64,11 @@ class GumpMulLoader:
             height = extra & 0xFFFF
             if offset >= 0 and length > 0 and extra != -1 and width > 0 and height > 0:
                 self.valid_ids.append(idx)
-        print(f"Valid gump IDs: {len(self.valid_ids)}")
-        if self.valid_ids:
-            print(f"Sample available Gump IDs: {self.valid_ids[:10]} ... {self.valid_ids[-10:]}")
-        print("--------------------------------------------\n")
+        if self.debug:
+            print(f"Valid gump IDs: {len(self.valid_ids)}")
+            if self.valid_ids:
+                print(f"Sample available Gump IDs: {self.valid_ids[:10]} ... {self.valid_ids[-10:]}")
+            print("--------------------------------------------\n")
 
     def get_count(self):
         return len(self.entries)
@@ -86,14 +91,16 @@ class GumpMulLoader:
         height = extra & 0xFFFF
         if width <= 0 or height <= 0:
             return None, 0, 0
-        print(f"Gumpart.mul entry offset: {offset}, length: {length}")
+        if self.debug:
+            print(f"Gumpart.mul entry offset: {offset}, length: {length}")
         self.art_file.seek(offset)
         raw = self.art_file.read(length)
         try:
-            img = self.decode_gump(raw, width, height, gump_id=index)
+            img = self.decode_gump(raw, width, height, gump_id=index, debug=self.debug)
             return img, width, height
         except Exception as e:
-            print(f"Error decoding gump {index}: {e}")
+            if self.debug:
+                print(f"Error decoding gump {index}: {e}")
             return None, width, height
 
     @staticmethod
@@ -273,6 +280,7 @@ class GumpViewerApp(tk.Tk):
         self.gump_img = None
         self.tk_img = None
         self.valid_ids = []
+        self.debug_var = tk.BooleanVar(value=True)  # Default: debug prints ON
         self._build_ui()
 
     def _build_ui(self):
@@ -302,6 +310,9 @@ class GumpViewerApp(tk.Tk):
         tk.Entry(top, textvariable=self.folder_var, width=40, **entry_style).pack(side=tk.LEFT, padx=2)
         tk.Button(top, text="Browse", command=self.browse_folder, **btn_style).pack(side=tk.LEFT)
         tk.Button(top, text="Load", command=self.load_folder, **btn_style).pack(side=tk.LEFT)
+        # Debug prints checkbox
+        self.debug_checkbox = tk.Checkbutton(top, text="Enable Debug Prints", variable=self.debug_var, bg=self.DARK_BG, fg=self.ACCENT_BLUE, selectcolor=self.DARK_BG, activebackground=self.DARK_BG, activeforeground=self.ACCENT_BLUE)
+        self.debug_checkbox.pack(side=tk.RIGHT, padx=8)
 
         mid = tk.Frame(self, bg=self.DARK_BG)
         mid.pack(side=tk.TOP, fill=tk.X, padx=5, pady=5)
@@ -364,12 +375,14 @@ class GumpViewerApp(tk.Tk):
         folder = self.folder_var.get()
         if not (os.path.exists(os.path.join(folder, 'gumpidx.mul')) and os.path.exists(os.path.join(folder, 'gumpart.mul'))):
             self.log_message(f"ERROR: gumpidx.mul or gumpart.mul not found in {folder}")
-            print(f"ERROR: gumpidx.mul or gumpart.mul not found in {folder}")
+            if self.debug_var.get():
+                print(f"ERROR: gumpidx.mul or gumpart.mul not found in {folder}")
             return
         if self.gump_loader:
             self.gump_loader.close()
-        print(f"\nLoading gump art from: {folder}")
-        self.gump_loader = GumpMulLoader(folder)
+        if self.debug_var.get():
+            print(f"\nLoading gump art from: {folder}")
+        self.gump_loader = GumpMulLoader(folder, debug=self.debug_var.get())
         self.current_folder = folder
         self.valid_ids = self.gump_loader.get_valid_ids()
         self.count_label.config(text=f"Total gumps: {self.gump_loader.get_count()} | Valid: {len(self.valid_ids)}")
@@ -378,7 +391,8 @@ class GumpViewerApp(tk.Tk):
         self.gumpid_listbox.delete(0, tk.END)
         for gid in self.valid_ids:
             self.gumpid_listbox.insert(tk.END, gid)
-        print(f"Available Gump IDs: {self.valid_ids[:10]} ... {self.valid_ids[-10:]}")
+        if self.debug_var.get():
+            print(f"Available Gump IDs: {self.valid_ids[:10]} ... {self.valid_ids[-10:]}")
 
     def load_gump_by_id_or_filename(self):
         raw = self.id_entry.get().strip()
