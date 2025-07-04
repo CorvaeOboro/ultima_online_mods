@@ -155,19 +155,33 @@ Additional Guides and Mods hosted by Gaechti :
 # Modding Tools / Notes
 - [MODDING NOTES and TOOLS]( https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_Tools#Modding-Notes) 
 - located in Z_Tools , includes :
+
 - [00_mod_selector.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py ) = art mod selector , generates a custom MassImport list from selected mod folders 
-- ![00_mod_selector](/Z_Tools/00_mod_selector.png?raw=true "00_mod_selector")
+- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.png?raw=true "/>
+
 - [00_psd_to_GumpOverrides.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py ) = art mod selector for  Ultima Outlands , exports source art to GumpOverrides
-- ![00_psd_to_GumpOverrides](/Z_Tools/00_psd_to_GumpOverrides.png?raw=true "00_psd_to_GumpOverrides")
-- [01_image_rotate_to_isometric.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py) = convert square textre to isometric 45 degree land tile ( ART_M ) <img src="/Z_Tools/ultima_TEX_convert_to_ART_M.png?raw=true?raw=true"/>
-- [02_image_composite_multi.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py) = composites adjacent or overlaping images to assemble sliced tree images , saves arrangment as json for disassembly later  <img src="/ENV/ENV_HeartWood/ART_S/00_item_heartwood_tree_tools.png?raw=true?raw=true"/>
+- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.png?raw=true "/>
+
+- [01_image_rotate_to_isometric.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py) = convert square textre to isometric 45 degree land tile ( ART_M ) 
+- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/ultima_TEX_convert_to_ART_M.jpg?raw=true?raw=true"/>
+
+- [02_image_composite_multi.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py) = composites adjacent or overlaping images to assemble sliced tree images , saves arrangment as json for disassembly later 
+- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/ENV/ENV_HeartWood/ART_S/00_item_heartwood_tree_tools.png?raw=true?raw=true"/>
 
 - [02_extract_map_mul.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_extract_map_mul.py) = loads map mul and exports land tile data from region to csv , to be loaded in blender addon [z_blender_GEN_ultima_landtiles.py](https://github.com/CorvaeOboro/zenv_blender/blob/main/addon/z_blender_GEN_ultima_landtiles.py ) 
 - substance painter files for ENV textures 
-- [03_hotkeys_to_diagram.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_hotkeys_to_diagram.py) = visualize hotkeys from razor <img src="/Z_Tools/ultima_hotkeys_to_diagram.png?raw=true?raw=true"/>
-- [02_font_import_mul_edit.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_font_import_mul_edit.py) = visualize and edit font glyphs from .mul file <img src="/Z_Tools/ultima_font_import_mul_edit.png?raw=true?raw=true"/>
-- [03_image_comparison_compositor.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_image_comparison_compositor.py) = creates composite image of before and after item art <img src="/Z_Tools/ultima_image_comparison_compositor.png?raw=true?raw=true"/>
-- [04_ui_gump_composite_loader.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_ui_gump_composite_loader.py) = visualize gump composites for debug <img src="/Z_Tools/ultima_ui_gump_composite_loader.png?raw=true?raw=true"/>
+
+- [03_hotkeys_to_diagram.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_hotkeys_to_diagram.py) = visualize hotkeys from razor
+- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_hotkeys_to_diagram.png?raw=true?raw=true"/>
+
+- [02_font_import_mul_edit.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_font_import_mul_edit.py) = visualize and edit font glyphs from .mul file
+- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_font_import_mul_edit.png?raw=true?raw=true"/>
+
+- [03_image_comparison_compositor.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_image_comparison_compositor.py) = creates composite image of before and after item art
+- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_image_comparison_compositor.png?raw=true?raw=true"/>
+
+- [04_ui_gump_composite_loader.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_ui_gump_composite_loader.py) = visualize gump composites for debug
+- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_ui_gump_composite_loader.png?raw=true"/>
 
 # UO Outlands
 https://uooutlands.com/
