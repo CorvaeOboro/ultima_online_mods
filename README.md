@@ -10,6 +10,11 @@ Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_onlin
 
 <img src="/UI/00_ui_comp_spells_gif_anim.gif?raw=true"  />
 
+- ART items = MagicScrolls , Reagents , Potions , Gems , Tools , Books , Fish , Food , Rare Gems , Jewelry , Keys , Rare Potions , Power Rares , Talismans , Pagan Reagents , Resources
+- UI colorized spell icons = MagicSpells , Necromancy and Chivalry , Mysticism , SpellWeaving , Mastery , Combat , Bushido , Ninjitsu
+- UI gumps = ArchStone with EquipSlots , DarkScrolls , DarkStats , DarkBook , DarkFrame , Magic Buffs , Professions , Main Menu
+- ENV = Altered Lands , HeartWood trees , Paroxysmus poison
+
 # Magic Spells
 - Colorized paintover on icons of the classic linework  .
 - [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/UI/UI_MagicSpells#complete-list)
@@ -19,16 +24,13 @@ Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_onlin
 # Items
 ![Items](/ART/00_ART_item_00_comp.png?raw=true "ART")
 
-# Spells
+# Spells Alternative
 Chivalry
 
 <img src="/UI/UI_SpellsChivalry/00_ui_spells_chivalry_comp.png?raw=true"  />
 Necromancy
 
 <img src="/UI/UI_SpellsNecromancy/00_ui_spells_necromancy_comp.png?raw=true"  />
-Eldritch Magic
-
-<img src="/UI/UI_MagicSpells_Eldritch/ui_spell_comp_eldritch_magic.jpg">
 Mysticism
 
 <img src="/UI/UI_SpellsMysticism/00_ui_spell_mysticism_comp.png">
@@ -47,6 +49,9 @@ Bushido
 Ninjitsu
 
 <img src="/UI/UI_SpellsNinjitsu/00_ui_spell_ninjitsu_comp.png">
+Eldritch Magic
+
+<img src="/UI/UI_MagicSpells_Eldritch/ui_spell_comp_eldritch_magic.jpg">
 
 # Magic Scrolls
 ![Magic Scrolls Backpack](/ART/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
@@ -58,6 +63,18 @@ Ninjitsu
 
 ![Magic Scrolls](/ART/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
 
+# Dark Scrolls
+- ui enchanted with dark magic
+
+![Dark Scrolls](/UI/UI_DarkScrolls/00_dark_scrolls_comp_01.jpg?raw=true "Dark Scrolls")
+
+# Arch Stone
+- an archway of the avatar crafted from stone
+
+![Arch Stone](/UI/UI_ArchStone/ui_archstone_backpack_comp.jpg?raw=true "Arch Stone")
+
+![Arch Stone Multi](/UI/UI_ArchStone_Multi/00_ui_archstone_multi_equipslots_comp.png?raw=true "Arch Stone Multi")
+
 # Dark UI
 Dark Stats
 
@@ -68,11 +85,6 @@ Dark Book
 Dark Frame
 
 <img src="/UI/UI_DarkFrame/00_ui_dark_frame_comp.png">
-
-# Dark Scrolls
-- ui enchanted with dark magic
-
-![Dark Scrolls](/UI/UI_DarkScrolls/00_dark_scrolls_comp_01.jpg?raw=true "Dark Scrolls")
 
 # Altered Lands
 - a collection of land texture modifications 
@@ -88,7 +100,10 @@ Dark Frame
 - Snow Ridge : Smoothed snow slopes
 - Sand Dunes : Blended embankments , darkened and desaturated
 
- <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.htm#HeartWood"> <img src="/ENV/ENV_HeartWood/00_env_HeartWood_title.png?raw=true?raw=true"/>
+  <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.htm#HeartWood"> <img src="/ENV/ENV_HeartWood/00_env_HeartWood_title.png?raw=true?raw=true"/>
+
+ <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.htm#HeartWood"> <img src="/ENV/ENV_HeartWood/ART_S/00_item_heartwood_tree_comp.png?raw=true?raw=true"/>
+
   <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.htm#Paroxysmus"> <img src="/ENV/ENV_Paroxysmus/00_env_Paroxysmus_title.png?raw=true?raw=true"/>
 
 # Magic Buffs
@@ -99,20 +114,14 @@ Dark Frame
 <h2>MAIN MENU</h2>
 <img src="/UI/UI_MainMenu/00_ui_menu_comp.png">
 
-# Arch Stone
-- an archway of the avatar crafted from stone
-
-![Arch Stone](/UI/UI_ArchStone/ui_archstone_backpack_comp.jpg?raw=true "Arch Stone")
-
-![Arch Stone Multi](/UI/UI_ArchStone_Multi/00_ui_archstone_multi_equipslots_comp.png?raw=true "Arch Stone Multi")
-
 # Installation / Patching
-- UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip) , unzip into a GumpOverrides folder in Outlands folder
-- Classic Shards =
+- for UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip) , unzip into a GumpOverrides folder in Outlands folder
+- for Classic Shards =
 - download [UO_ART_MODS.zip]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip ) . 
 - extract downloaded zip to a new folder anywhere
-- UOFiddler is now the reccomend tool for complete install process , old mulpatcher instructions below
+- UOFiddler is now the reccomended tool for complete mod install process by using its MassImport plugin 
 - create a backup of your Ultima Online Client folder
+- unmute and watch video below , or [download install guide video]( https://github.com/CorvaeOboro/ultima_online_mods/Z_InstallNotes/ultima_online_art_mods_install.mp4 )  
 
 https://github.com/user-attachments/assets/e8cc7671-414f-475d-8246-ace18b2a2cf1
 
@@ -150,10 +159,15 @@ Additional Guides and Mods hosted by Gaechti :
 - ![00_mod_selector](/Z_Tools/00_mod_selector.png?raw=true "00_mod_selector")
 - [00_psd_to_GumpOverrides.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py ) = art mod selector for  Ultima Outlands , exports source art to GumpOverrides
 - ![00_psd_to_GumpOverrides](/Z_Tools/00_psd_to_GumpOverrides.png?raw=true "00_psd_to_GumpOverrides")
-- [01_image_rotate_to_isometric.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py) = convert square textre to isometric 45 degree land tile ( ART_M )
-- [02_image_composite_multi.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py) = composites adjacent or overlaping images to assemble sliced tree images , saves arrangment as json for disassembly later 
+- [01_image_rotate_to_isometric.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py) = convert square textre to isometric 45 degree land tile ( ART_M ) <img src="/Z_Tools/ultima_TEX_convert_to_ART_M.png?raw=true?raw=true"/>
+- [02_image_composite_multi.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py) = composites adjacent or overlaping images to assemble sliced tree images , saves arrangment as json for disassembly later  <img src="/ENV/ENV_HeartWood/ART_S/00_item_heartwood_tree_tools.png?raw=true?raw=true"/>
+
 - [02_extract_map_mul.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_extract_map_mul.py) = loads map mul and exports land tile data from region to csv , to be loaded in blender addon [z_blender_GEN_ultima_landtiles.py](https://github.com/CorvaeOboro/zenv_blender/blob/main/addon/z_blender_GEN_ultima_landtiles.py ) 
 - substance painter files for ENV textures 
+- [03_hotkeys_to_diagram.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_hotkeys_to_diagram.py) = visualize hotkeys from razor <img src="/Z_Tools/ultima_hotkeys_to_diagram.png?raw=true?raw=true"/>
+- [02_font_import_mul_edit.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_font_import_mul_edit.py) = visualize and edit font glyphs from .mul file <img src="/Z_Tools/ultima_font_import_mul_edit.png?raw=true?raw=true"/>
+- [03_image_comparison_compositor.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_image_comparison_compositor.py) = creates composite image of before and after item art <img src="/Z_Tools/ultima_image_comparison_compositor.png?raw=true?raw=true"/>
+- [04_ui_gump_composite_loader.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_ui_gump_composite_loader.py) = visualize gump composites for debug <img src="/Z_Tools/ultima_ui_gump_composite_loader.png?raw=true?raw=true"/>
 
 # UO Outlands
 https://uooutlands.com/
@@ -164,11 +178,11 @@ https://uooutlands.com/
 
 # Thanks
 - many thanks to ultima community creating shards , guides , tools , and content !
-- Varan - Mulpatcher tools - http://varan.uodev.de/ [Mulpatcher Download Alt](https://rose-uo.de/projects/varan/Mulpatcher.zip)
 - Polserver - UOFiddler art tools - https://github.com/polserver/UOFiddler , http://uofiddler.polserver.com/
-- Gaechti - Art mods + Guides - http://www.burningsheep.ch/finished.html
 - ServUO Resources - https://www.servuo.com/archive/
+- Varan - Mulpatcher tools - http://varan.uodev.de/ [Mulpatcher Download Alt](https://rose-uo.de/projects/varan/Mulpatcher.zip)
+- Gaechti - Art mods + Guides - http://www.burningsheep.ch/finished.html
 - UO-pixel.de  = https://www.uo-pixel.de/
 
 # Creative Commons Zero
-free to all , [creative commons CC0](https://creativecommons.org/publicdomain/zero/1.0/) , free to re-distribute , attribution not required
+free to all , [creative commons zero CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) , free to re-distribute , attribution not required

@@ -1,11 +1,14 @@
 """
 HOTKEY TO DIAGRAM - an Ultima Online display of hotkeys from Razor or RazorEnhanced
-color coded groups of hotkeys ( attack , defense , pet  ) - current default 
-display as keyboard with color coded variants , and below an organized list of hotkeys
+color coded groups of hotkeys ( attack , defense , pet  ) - currently  
+display as keyboard with color coded variants , and to the right an organized list of hotkeys
 
 TODO: 
 add custom "short names" for display 
 add custom images for hotkeys , for example spell icons or item icons like potions , display the images in the keyboard layout
+hotkey list should be sorted by numbers , then by qwerty , not alphabetical 
+add shift , control , alt modifiers as tabs or filter , including the combinations
+show the currently opened profile name at the top 
 """
 import os
 import sys
@@ -63,9 +66,9 @@ KEY_ALIASES = {
 #  dictionary for key conversion.
 key_conversion = {
     # Mouse buttons (example)
-    1: "Left Mouse Button",
-    2: "Right Mouse Button",
-    500: "Middle Mouse Button",
+    1: "Left Mouse",
+    2: "Right Mouse",
+    500: "Middle Mouse",
     
     # Control keys
     8: "Backspace",
@@ -74,16 +77,16 @@ key_conversion = {
     16: "Shift",
     17: "Control",
     18: "Alt",
-    19: "Pause/Break",
+    19: "PauseBreak",
     20: "Caps Lock",
     27: "Escape",
     32: "Spacebar",
     
     # Arrow keys (Windows virtual-key codes)
-    37: "Left Arrow",
-    38: "Up Arrow",
-    39: "Right Arrow",
-    40: "Down Arrow",
+    37: "Left",
+    38: "Up",
+    39: "Right",
+    40: "Down",
     
     # Function keys
     112: "F1",
@@ -99,33 +102,9 @@ key_conversion = {
     122: "F11",
     123: "F12",
     
-    # Explicit overrides based on provided examples.
-    51: "3",    # ASCII 51 is '3'
-    67: "c",    # ASCII 67 is 'C', force to lowercase.
-    70: "f",    # ASCII 70 is 'F', force to lowercase.
-    73: "i",    # ASCII 73 is 'I', force to lowercase.
-    87: "w"     # ASCII 87 is 'W', force to lowercase.
 }
 
-
-#//==============================================================
-
-def get_key_id(key_code):
-    """Convert a numeric key_code to a friendly string.
-    
-    Uses our conversion dictionary. If a key code isn’t explicitly mapped,
-    it falls back to Python's chr() conversion and lowercases letters.
-    """
-    if key_code in key_conversion:
-        return key_conversion[key_code]
-    try:
-        # For ASCII codes (letters, digits, punctuation)
-        char = chr(key_code)
-    except Exception:
-        return "Unknown"
-    return char.lower() if char.isalpha() else char
-
-
+# UI style
 DARK_QSS = """
 QWidget {
     background-color: #23272b;
@@ -176,6 +155,22 @@ QTableWidget {
 }
 """
 
+#//==============================================================
+
+def get_key_id(key_code):
+    """Convert a numeric key_code to a friendly string.
+    
+    Uses our conversion dictionary. If a key code isn’t explicitly mapped,
+    it falls back to Python's chr() conversion and lowercases letters.
+    """
+    if key_code in key_conversion:
+        return key_conversion[key_code]
+    try:
+        # For ASCII codes (letters, digits, punctuation)
+        char = chr(key_code)
+    except Exception:
+        return "Unknown"
+    return char.lower() if char.isalpha() else char
 
 def blend_with_dark(hex_color, alpha=0.55):
     hex_color = hex_color.lstrip('#')

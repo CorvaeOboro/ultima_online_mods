@@ -572,8 +572,94 @@ class CompositeArrangementUI:
         self.rows = {}  # Dictionary to store row assignments
         self.next_row_id = 0
         
+        # State mapping: hex_id -> 'IN_COMPOSITION', 'ON_CANVAS_ONLY', 'HIDDEN'
+        self.triplet_states = {}
+        self.unused_triplet_widgets = {}
         self.create_ui()
         
+    def clear_unused_panel(self):
+        for widget in self.unused_items_container.winfo_children():
+            widget.destroy()
+
+    def add_unused_triplet_widget(self, triplet, hex_id):
+        # Create a thumbnail for the unused panel
+        from PIL import ImageTk, Image
+        img_path = triplet[2]
+        try:
+            img = Image.open(img_path)
+            img.thumbnail((80, 80))
+            photo = ImageTk.PhotoImage(img)
+            frame = tk.Frame(self.unused_items_container, bg=LIGHTER_GRAY, bd=2, relief=tk.RIDGE)
+            label = tk.Label(frame, image=photo, bg=LIGHTER_GRAY)
+            label.image = photo
+            label.pack()
+            text = tk.Label(frame, text=f"0x{hex_id:X}", bg=LIGHTER_GRAY, fg=WHITE, font=("Arial", 8))
+            text.pack()
+            frame.pack(pady=4, padx=2)
+            # Right-click menu
+            menu = tk.Menu(frame, tearoff=0, bg=LIGHTER_GRAY, fg=WHITE)
+            menu.add_command(label="Show on Canvas (not in composition)", command=lambda: self.show_on_canvas_only(triplet, hex_id))
+            menu.add_command(label="Hide", command=lambda: self.hide_triplet(hex_id))
+            def popup(event):
+                menu.tk_popup(event.x_root, event.y_root)
+            frame.bind("<Button-3>", popup)
+            label.bind("<Button-3>", popup)
+            text.bind("<Button-3>", popup)
+            self.unused_triplet_widgets[hex_id] = frame
+        except Exception as e:
+            pass  # Ignore image load errors
+
+    def show_on_canvas_only(self, triplet, hex_id):
+        # Add to canvas but not in composition
+        x, y = 30, 30 + 30 * len(self.draggable_images)
+        img = DraggableImage(self.canvas, x, y, triplet[2], hex_id)
+        self.draggable_images.append(img)
+        self.triplet_states[hex_id] = 'ON_CANVAS_ONLY'
+        self.add_canvas_context_menu(img, hex_id)
+        # Remove from unused panel
+        widget = self.unused_triplet_widgets.get(hex_id)
+        if widget:
+            widget.destroy()
+            del self.unused_triplet_widgets[hex_id]
+
+    def hide_triplet(self, hex_id):
+        # Remove from both canvas and unused panel
+        self.triplet_states[hex_id] = 'HIDDEN'
+        widget = self.unused_triplet_widgets.get(hex_id)
+        if widget:
+            widget.destroy()
+            del self.unused_triplet_widgets[hex_id]
+        # Also remove from canvas if present
+        for img in list(self.draggable_images):
+            if img.hex_id == hex_id:
+                self.canvas.delete(img.image_item)
+                self.canvas.delete(img.text_item)
+                self.draggable_images.remove(img)
+
+    def add_canvas_context_menu(self, draggable_img, hex_id):
+        # Add right-click menu for images on canvas
+        menu = tk.Menu(self.canvas, tearoff=0, bg=LIGHTER_GRAY, fg=WHITE)
+        if self.triplet_states.get(hex_id) == 'IN_COMPOSITION':
+            menu.add_command(label="Set as 'On Canvas Only' (exclude from composition)", command=lambda: self.set_on_canvas_only(draggable_img, hex_id))
+        else:
+            menu.add_command(label="Set as 'In Composition' (include in composition)", command=lambda: self.set_in_composition(draggable_img, hex_id))
+        menu.add_command(label="Hide", command=lambda: self.hide_triplet(hex_id))
+        def popup(event):
+            menu.tk_popup(event.x_root, event.y_root)
+        self.canvas.tag_bind(draggable_img.image_item, '<Button-3>', popup)
+        self.canvas.tag_bind(draggable_img.text_item, '<Button-3>', popup)
+
+    def set_on_canvas_only(self, draggable_img, hex_id):
+        self.triplet_states[hex_id] = 'ON_CANVAS_ONLY'
+        # Visually distinguish (e.g., dim)
+        self.canvas.itemconfig(draggable_img.image_item, stipple="gray50")
+        self.add_canvas_context_menu(draggable_img, hex_id)
+
+    def set_in_composition(self, draggable_img, hex_id):
+        self.triplet_states[hex_id] = 'IN_COMPOSITION'
+        self.canvas.itemconfig(draggable_img.image_item, stipple="")
+        self.add_canvas_context_menu(draggable_img, hex_id)
+
     def create_ui(self):
         # Main container
         main_container = tk.Frame(self.root, bg=DARK_GRAY)
@@ -621,20 +707,26 @@ class CompositeArrangementUI:
         self.json_frame = tk.Frame(main_container, bg=DARK_GRAY)
         self.json_frame.pack(fill=tk.X, pady=(0, 10))
         
-        # Canvas frame
-        canvas_frame = tk.Frame(main_container, bg=DARK_GRAY)
-        canvas_frame.pack(fill=tk.BOTH, expand=True)
-        
-        # Create canvas with scrollbars
-        self.canvas = tk.Canvas(canvas_frame, bg=DARKER_GRAY, highlightthickness=0)
-        scrollbar_y = tk.Scrollbar(canvas_frame, orient=tk.VERTICAL, command=self.canvas.yview)
-        scrollbar_x = tk.Scrollbar(canvas_frame, orient=tk.HORIZONTAL, command=self.canvas.xview)
-        
+        # Canvas and Unused Items frame
+        canvas_and_unused = tk.Frame(main_container, bg=DARK_GRAY)
+        canvas_and_unused.pack(fill=tk.BOTH, expand=True)
+
+        # Canvas
+        self.canvas = tk.Canvas(canvas_and_unused, bg=DARKER_GRAY, highlightthickness=0)
+        scrollbar_y = tk.Scrollbar(canvas_and_unused, orient=tk.VERTICAL, command=self.canvas.yview)
+        scrollbar_x = tk.Scrollbar(canvas_and_unused, orient=tk.HORIZONTAL, command=self.canvas.xview)
         self.canvas.configure(yscrollcommand=scrollbar_y.set, xscrollcommand=scrollbar_x.set)
-        
         scrollbar_y.pack(side=tk.RIGHT, fill=tk.Y)
         scrollbar_x.pack(side=tk.BOTTOM, fill=tk.X)
         self.canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        # Unused items panel
+        self.unused_panel = tk.Frame(canvas_and_unused, bg=LIGHTER_GRAY, width=140)
+        self.unused_panel.pack(side=tk.RIGHT, fill=tk.Y, padx=(10,0))
+        unused_label = tk.Label(self.unused_panel, text="Unused Items", bg=LIGHTER_GRAY, fg=WHITE)
+        unused_label.pack(pady=(5,2))
+        self.unused_items_container = tk.Frame(self.unused_panel, bg=LIGHTER_GRAY)
+        self.unused_items_container.pack(fill=tk.BOTH, expand=True)
         
         # Button frame
         button_frame = tk.Frame(main_container, bg=DARK_GRAY)
@@ -745,51 +837,56 @@ class CompositeArrangementUI:
         try:
             with open(json_file, 'r') as f:
                 config = json.load(f)
-            
             if not config.get("rows"):
                 raise ValueError("Invalid layout file: no rows defined")
-            
+
             # Clear current layout
             self.canvas.delete("all")
             self.draggable_images = []
-            
+            self.triplet_states = {}
+            self.clear_unused_panel()
+            self.unused_triplet_widgets = {}
+
             # Create dictionary mapping hex IDs to triplets
             hex_to_triplet = {extract_hex_id(after_path): triplet 
-                            for triplet in self.triplets 
-                            for _, _, after_path in [triplet]}
-            
+                              for triplet in self.triplets 
+                              for _, _, after_path in [triplet]}
+
+            # Mark all as HIDDEN by default
+            for hex_id in hex_to_triplet.keys():
+                self.triplet_states[hex_id] = 'HIDDEN'
+
             # Process each row in the configuration
             row_height = 150  # Height for each row including padding
             for row_idx, row in enumerate(config["rows"]):
                 base_y = row_idx * row_height + 20
-                
-                # Calculate total width of images in this row for centering
                 num_images = len(row["items"])
                 total_width = num_images * 100 + (num_images - 1) * 20  # image width + padding
                 start_x = (self.canvas.winfo_width() - total_width) // 2
-                
                 for idx, item in enumerate(row["items"]):
-                    # Convert hex string to integer, handling both "0x" prefix and raw hex string
                     hex_str = item["hex_id"].replace("0x", "")
                     hex_id = int(hex_str, 16)
-                    
                     if hex_id in hex_to_triplet:
-                        x = start_x + idx * (100 + 20)  # image width + padding
+                        x = start_x + idx * (100 + 20)
                         y = base_y + (row.get("y_offset", 0))
-                        
-                        # Create draggable image
                         triplet = hex_to_triplet[hex_id]
                         img = DraggableImage(self.canvas, x, y, triplet[2], hex_id)
                         self.draggable_images.append(img)
-            
+                        self.triplet_states[hex_id] = 'IN_COMPOSITION'
+                        self.add_canvas_context_menu(img, hex_id)
+
+            # Add unused triplets to unused panel
+            for hex_id, triplet in hex_to_triplet.items():
+                if self.triplet_states[hex_id] == 'HIDDEN':
+                    # Add to unused panel as thumbnail
+                    self.add_unused_triplet_widget(triplet, hex_id)
+                    self.triplet_states[hex_id] = 'HIDDEN'  # Explicit
+
             # Update row visualization
             self.rows = self.detect_rows()
             self.update_row_visualization()
-            
-            # Update canvas scroll region
             self.canvas.update_idletasks()
             self.canvas.configure(scrollregion=self.canvas.bbox("all"))
-            
         except Exception as e:
             messagebox.showerror("Error", f"Failed to load layout: {str(e)}")
 
@@ -798,6 +895,18 @@ class CompositeArrangementUI:
         self.canvas.delete("all")
         self.draggable_images = []
         self.rows = {}
+        self.triplet_states = {}
+        self.clear_unused_panel()
+        self.unused_triplet_widgets = {}
+        # Optionally repopulate unused panel if triplets are available
+        if hasattr(self, 'triplets'):
+            hex_to_triplet = {extract_hex_id(after_path): triplet 
+                              for triplet in self.triplets 
+                              for _, _, after_path in [triplet]}
+            for hex_id, triplet in hex_to_triplet.items():
+                self.triplet_states[hex_id] = 'HIDDEN'
+                self.add_unused_triplet_widget(triplet, hex_id)
+
         
         if not self.triplets:
             return

@@ -12,7 +12,7 @@
 **/removed/**
 **/dupes/**
 **/psd/**
-**/ref/**
+# **/ref/**
 **/maybe/**
 **/rocks/**
 **/ENV_LandTEST_TEX/**
@@ -28,7 +28,6 @@
 **/completed/**
 **/Z_Tools/GumpOverrides**
 **/UI_DEBUG/**
-
 **/UI_MagicSpells/Upscale/upscale/**
 **/UI_MagicSpells/Upscale/small/**
 # UPSCALE
@@ -42,3 +41,7 @@
 **/remove/**
 **/UI_SpellsNecromancy_Green/**
 **/UI_SpellsChivalry_Gold/**
+Z_Tools/03_image_compare_composite.bat
+Z_Tools/00_project_dashboard.bat
+Z_Tools/03_md_to_html.bat
+Z_Tools/09_massimport_xml_convert.bat

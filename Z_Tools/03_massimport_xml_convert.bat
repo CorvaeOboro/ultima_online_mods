@@ -1,6 +1,0 @@
-python 03_massimport_xml_convert.py -c "item" -i "D:\ULTIMA\MODS\ultima_online_mods\00_ART_ALL_ART_S.txt" -o "D:\ULTIMA\MODS\ultima_online_mods\00_ART_ALL_ART_S.xml" -p "D:\\ULTIMA\\MODS\\ultima_online_mods\\" 
-python 03_massimport_xml_convert.py -c "gump" -i "D:\ULTIMA\MODS\ultima_online_mods\00_UI_ALL_GUMP.txt" -o "D:\ULTIMA\MODS\ultima_online_mods\00_UI_ALL_GUMP.xml" -p "D:\\ULTIMA\\MODS\\ultima_online_mods\\" 
-python 03_massimport_xml_convert.py -c "landtile" -i "D:\ULTIMA\MODS\ultima_online_mods\00_ENV_ALL_ART_M.txt" -o "D:\ULTIMA\MODS\ultima_online_mods\00_ENV_ALL_ART_M.xml" -p "D:\\ULTIMA\\MODS\\ultima_online_mods\\" 
-python 03_massimport_xml_convert.py -c "texture" -i "D:\ULTIMA\MODS\ultima_online_mods\00_ENV_ALL_TEX.txt" -o "D:\ULTIMA\MODS\ultima_online_mods\00_ENV_ALL_TEX.xml" -p "D:\\ULTIMA\\MODS\\ultima_online_mods\\" 
-python 03_massimport_xml_convert.py -c "item" -i "D:\ULTIMA\MODS\ultima_online_mods\00_ENV_ALL_ART_S.txt" -o "D:\ULTIMA\MODS\ultima_online_mods\00_ENV_ALL_ART_S.xml" -p "D:\\ULTIMA\\MODS\\ultima_online_mods\\" 
-pause
