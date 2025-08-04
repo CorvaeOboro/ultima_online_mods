@@ -1,3 +1,5 @@
+0x71AF item_book_Ankh_0x71AF.bmp
+0xC0C0 item_book_Bard_0xC0C0.bmp
 0x238C item_book_Bushido_0x238C.bmp
 0x2252 item_book_Chivalry_0x2252.bmp
 0x0EFA item_book_Magery_0x0EFA.bmp
@@ -7,3 +9,5 @@
 0x23A0 item_book_Ninjitsu_0x23A0.bmp
 0x9C16 item_book_RunicAtlas_0x9C16.bmp
 0x2D50 item_book_SpellWeaving_0x2D50.bmp
+0x2254 item_book_Sword_0x2254.bmp
+0xC0C1 item_book_Weapon_0xC0C1.bmp

@@ -3,8 +3,12 @@
   <item index="8771" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_AncientPottery_0x2243.bmp" remove="False" />
   <item index="571" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_Bauble_0x023B.bmp" remove="False" />
   <item index="22322" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_BlackrockCrystaline_0x5732.bmp" remove="False" />
+  <item index="22323" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_BlackrockCrystaline_0x5733.bmp" remove="False" />
+  <item index="22324" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_BlackrockCrystaline_0x5734.bmp" remove="False" />
+  <item index="22325" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_BlackrockCrystaline_0x5735.bmp" remove="False" />
   <item index="22344" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_BottleOfIchor_0x5748.bmp" remove="False" />
   <item index="22338" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CongealedSlugAcid_0x5742.bmp" remove="False" />
+  <item index="22331" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CrushedGlass_0x573B.bmp" remove="False" />
   <item index="16395" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CrystalOfShame_0x400B.bmp" remove="False" />
   <item index="22328" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CrystalShards_0x5738.bmp" remove="False" />
   <item index="8776" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CrystalShattered_0x2248.bmp" remove="False" />
@@ -12,6 +16,7 @@
   <item index="9908" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_DragonScale_0x26B4.bmp" remove="False" />
   <item index="12591" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_EarHuman_0x312F.bmp" remove="False" />
   <item index="12592" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_EarHuman_0x3130.bmp" remove="False" />
+  <item index="22327" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_ElvenFletching_0x5737.bmp" remove="False" />
   <item index="22341" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_FaeryDust_0x5745.bmp" remove="False" />
   <item index="7121" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_Feather_0x1BD1.bmp" remove="False" />
   <item index="12128" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_FellowshipCoin_0x2F60.bmp" remove="False" />
@@ -39,13 +44,20 @@
   <item index="22345" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_SlithEye_0x5749.bmp" remove="False" />
   <item index="22342" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_SlithTongue_0x5746.bmp" remove="False" />
   <item index="10248" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_SmokeBomb_0x2808.bmp" remove="False" />
+  <item index="22321" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_UndyingFlesh_0x5731.bmp" remove="False" />
   <item index="22306" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VialOfVitriol_0x5722.bmp" remove="False" />
+  <item index="22307" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VialOfVitriol_0x5723.bmp" remove="False" />
+  <item index="22308" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VialOfVitriol_0x5724.bmp" remove="False" />
+  <item index="22309" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VialOfVitriol_0x5725.bmp" remove="False" />
   <item index="22312" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidCore_0x5728.bmp" remove="False" />
   <item index="7961" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidCrystal_0x1F19.bmp" remove="False" />
   <item index="7962" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidCrystal_0x1F1A.bmp" remove="False" />
   <item index="7963" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidCrystal_0x1F1B.bmp" remove="False" />
   <item index="16391" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidEssence_0x4007.bmp" remove="False" />
   <item index="22334" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidOrb_0x573E.bmp" remove="False" />
+  <item index="22335" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidOrb_0x573F.bmp" remove="False" />
+  <item index="22336" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidOrb_0x5740.bmp" remove="False" />
+  <item index="22337" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidOrb_0x5741.bmp" remove="False" />
   <item index="12687" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_WoodBarkFragment_0x318F.bmp" remove="False" />
   <item index="7133" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_WoodLogs_0x1BDD.bmp" remove="False" />
   <item index="12127" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_WoodSwitch_0x2F5F.bmp" remove="False" />

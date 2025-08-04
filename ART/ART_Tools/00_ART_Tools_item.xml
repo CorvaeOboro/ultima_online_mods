@@ -3,8 +3,6 @@
   <item index="3705" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_container_Pouch_0x0E79.bmp" remove="False" />
   <item index="3617" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_resource_Bandages_0x0E21.bmp" remove="False" />
   <item index="3722" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_BlowPipe_0x0E8A.bmp" remove="False" />
-  <item index="3714" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_CrookL_0x0E82.bmp" remove="False" />
-  <item index="3713" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_CrookR_0x0E81.bmp" remove="False" />
   <item index="3921" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_DaggerL_0x0F51.bmp" remove="False" />
   <item index="3922" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_DaggerR_0x0F52.bmp" remove="False" />
   <item index="3740" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_Drum_0x0E9C.bmp" remove="False" />
@@ -29,12 +27,8 @@
   <item index="5092" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_SmithHammerR_0x13E4.bmp" remove="False" />
   <item index="3741" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_TambourineA_0x0E9D.bmp" remove="False" />
   <item index="3742" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_TambourineB_0x0E9E.bmp" remove="False" />
+  <item index="7868" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_TinkerTools_0x1EBC.bmp" remove="False" />
   <item index="4027" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_TongL_0x0FBB.bmp" remove="False" />
   <item index="4028" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_TongR_0x0FBC.bmp" remove="False" />
-  <item index="3906" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_ArrowProjectile_0x0F42.bmp" remove="False" />
-  <item index="3903" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_ArrowSingle_0x0F3F.bmp" remove="False" />
-  <item index="3568" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_BlackStaffL_0x0DF0.bmp" remove="False" />
-  <item index="3569" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_BlackStaffR_0x0DF1.bmp" remove="False" />
-  <item index="7166" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_BoltProjectile_0x1BFE.bmp" remove="False" />
-  <item index="7163" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_BoltSingle_0x1BFB.bmp" remove="False" />
+  <item index="7864" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_ToolKit_0x1EB8.bmp" remove="False" />
 </MassImport>

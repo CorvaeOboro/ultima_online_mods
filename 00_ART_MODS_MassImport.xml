@@ -40,8 +40,13 @@
   <item index="7889" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_GemRare\item_gemRare_SpiritStone_0x1ED1.bmp" remove="False" />
   <item index="7890" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_GemRare\item_gemRare_SpiritStone_0x1ED2.bmp" remove="False" />
   <item index="12691" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_GemRare\item_gemRare_Turquoise_0x3193.bmp" remove="False" />
+  <item index="6250" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_GemRare\item_gemRare_VirtueStoneBlue_0x186A.bmp" remove="False" />
+  <item index="6251" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_GemRare\item_gemRare_VirtueStoneGreen_0x186B.bmp" remove="False" />
   <item index="6252" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_GemRare\item_gemRare_VirtueStoneOrange_0x186C.bmp" remove="False" />
+  <item index="6253" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_GemRare\item_gemRare_VirtueStonePurple_0x186D.bmp" remove="False" />
   <item index="6254" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_GemRare\item_gemRare_VirtueStoneRed_0x186E.bmp" remove="False" />
+  <item index="6255" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_GemRare\item_gemRare_VirtueStoneWhite_0x186F.bmp" remove="False" />
+  <item index="6256" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_GemRare\item_gemRare_VirtueStoneYellow_0x1870.bmp" remove="False" />
   <item index="12694" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_GemRare\item_gemRare_WhitePearl_0x3196.bmp" remove="False" />
   <item index="3838" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_BottleSquare_0x0EFE.bmp" remove="False" />
   <item index="3842" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_BottleTallRect_0x0F02.bmp" remove="False" />
@@ -51,6 +56,8 @@
   <item index="17686" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_Distillation_0x4516.bmp" remove="False" />
   <item index="3836" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_Extract_0x0EFC.bmp" remove="False" />
   <item index="29030" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_PlantChemicals_0x7166.bmp" remove="False" />
+  <item index="29103" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Ankh_0x71AF.bmp" remove="False" />
+  <item index="49344" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Bard_0xC0C0.bmp" remove="False" />
   <item index="9100" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Bushido_0x238C.bmp" remove="False" />
   <item index="8786" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Chivalry_0x2252.bmp" remove="False" />
   <item index="3834" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Magery_0x0EFA.bmp" remove="False" />
@@ -60,15 +67,21 @@
   <item index="9120" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Ninjitsu_0x23A0.bmp" remove="False" />
   <item index="39958" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_RunicAtlas_0x9C16.bmp" remove="False" />
   <item index="11600" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_SpellWeaving_0x2D50.bmp" remove="False" />
+  <item index="8788" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Sword_0x2254.bmp" remove="False" />
+  <item index="49345" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Weapon_0xC0C1.bmp" remove="False" />
   <item index="2463" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_Ale_0x099F.bmp" remove="False" />
   <item index="2512" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_apple_0x09D0.bmp" remove="False" />
+  <item index="2425" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_Bacon_0x0979.bmp" remove="False" />
   <item index="5919" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_Banana_0x171F.bmp" remove="False" />
   <item index="5154" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_BeesWax_0x1422.bmp" remove="False" />
+  <item index="5157" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_BeeWaxDouble_0x1425.bmp" remove="False" />
   <item index="10294" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_BentoLunchBox_0x2836.bmp" remove="False" />
   <item index="4155" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_BreadLoaf_0x103B.bmp" remove="False" />
   <item index="2429" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_cheese_0x097D.bmp" remove="False" />
   <item index="5640" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_ChickenLeg_0x1608.bmp" remove="False" />
   <item index="2487" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_CookedBird_0x09B7.bmp" remove="False" />
+  <item index="17617" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_Crab_0x44D1.bmp" remove="False" />
+  <item index="17618" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_Crab_0x44D2.bmp" remove="False" />
   <item index="2546" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_CutOfRibs_0x09F2.bmp" remove="False" />
   <item index="4157" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_Dough_0x103D.bmp" remove="False" />
   <item index="2485" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_Eggs_0x09B5.bmp" remove="False" />
@@ -82,6 +95,8 @@
   <item index="2540" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_HoneyJar_0x09EC.bmp" remove="False" />
   <item index="5642" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_LegOfLamb_0x160A.bmp" remove="False" />
   <item index="2459" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_Liquor_0x099B.bmp" remove="False" />
+  <item index="17619" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_Lobster_0x44D3.bmp" remove="False" />
+  <item index="17620" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_Lobster_0x44D4.bmp" remove="False" />
   <item index="2539" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_muffins_0x09EB.bmp" remove="False" />
   <item index="2514" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_peach_0x09D2.bmp" remove="False" />
   <item index="2452" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Food\item_food_Pear_0x0994.bmp" remove="False" />
@@ -184,6 +199,9 @@
   <item index="8042" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_MagicScrolls\item_scroll_8_SummonEarthElemental_0x1F6A.bmp" remove="False" />
   <item index="8043" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_MagicScrolls\item_scroll_8_SummonFireElemental_0x1F6B.bmp" remove="False" />
   <item index="8044" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_MagicScrolls\item_scroll_8_SummonWaterElemental_0x1F6C.bmp" remove="False" />
+  <item index="5360" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PowerRare\item_rare_PowerScroll_0x14F0.bmp" remove="False" />
+  <item index="5359" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PowerRare\item_rare_ScrollDeed_0x14EF.bmp" remove="False" />
+  <item index="6881" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PowerRare\item_rare_skull_0x1AE1.bmp" remove="False" />
   <item index="3962" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Reagents\item_reagent_BlackPearl_0x0F7A.bmp" remove="False" />
   <item index="3963" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Reagents\item_reagent_BloodMoss_0x0F7B.bmp" remove="False" />
   <item index="3972" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Reagents\item_reagent_Garlic_0x0F84.bmp" remove="False" />
@@ -196,18 +214,26 @@
   <item index="3966" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_Bone_0x0F7E.bmp" remove="False" />
   <item index="3965" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_DaemonBlood_0x0F7D.bmp" remove="False" />
   <item index="3968" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_DaemonBone_0x0F80.bmp" remove="False" />
+  <item index="3984" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_DeadWood_0x0F90.bmp" remove="False" />
   <item index="3970" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_DragonsBlood_0x0F82.bmp" remove="False" />
   <item index="3971" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_ExecutionersCap_0x0F83.bmp" remove="False" />
+  <item index="3975" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_EyeOfNewt_0x0F87.bmp" remove="False" />
   <item index="3969" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_FertileDirt_0x0F81.bmp" remove="False" />
   <item index="3983" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_GraveDust_0x0F8F.bmp" remove="False" />
   <item index="3982" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_NoxCrystal_0x0F8E.bmp" remove="False" />
+  <item index="3977" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_Obsidian_0x0F89.bmp" remove="False" />
   <item index="3978" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_PigIron_0x0F8A.bmp" remove="False" />
+  <item index="3985" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_ReagentPagan\item_reagentPagan_WyrmsHeart_0x0F91.bmp" remove="False" />
   <item index="3175" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_AcidSac_0x0C67.bmp" remove="False" />
   <item index="8771" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_AncientPottery_0x2243.bmp" remove="False" />
   <item index="571" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_Bauble_0x023B.bmp" remove="False" />
   <item index="22322" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_BlackrockCrystaline_0x5732.bmp" remove="False" />
+  <item index="22323" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_BlackrockCrystaline_0x5733.bmp" remove="False" />
+  <item index="22324" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_BlackrockCrystaline_0x5734.bmp" remove="False" />
+  <item index="22325" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_BlackrockCrystaline_0x5735.bmp" remove="False" />
   <item index="22344" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_BottleOfIchor_0x5748.bmp" remove="False" />
   <item index="22338" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CongealedSlugAcid_0x5742.bmp" remove="False" />
+  <item index="22331" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CrushedGlass_0x573B.bmp" remove="False" />
   <item index="16395" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CrystalOfShame_0x400B.bmp" remove="False" />
   <item index="22328" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CrystalShards_0x5738.bmp" remove="False" />
   <item index="8776" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CrystalShattered_0x2248.bmp" remove="False" />
@@ -215,6 +241,7 @@
   <item index="9908" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_DragonScale_0x26B4.bmp" remove="False" />
   <item index="12591" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_EarHuman_0x312F.bmp" remove="False" />
   <item index="12592" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_EarHuman_0x3130.bmp" remove="False" />
+  <item index="22327" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_ElvenFletching_0x5737.bmp" remove="False" />
   <item index="22341" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_FaeryDust_0x5745.bmp" remove="False" />
   <item index="7121" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_Feather_0x1BD1.bmp" remove="False" />
   <item index="12128" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_FellowshipCoin_0x2F60.bmp" remove="False" />
@@ -242,13 +269,20 @@
   <item index="22345" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_SlithEye_0x5749.bmp" remove="False" />
   <item index="22342" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_SlithTongue_0x5746.bmp" remove="False" />
   <item index="10248" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_SmokeBomb_0x2808.bmp" remove="False" />
+  <item index="22321" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_UndyingFlesh_0x5731.bmp" remove="False" />
   <item index="22306" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VialOfVitriol_0x5722.bmp" remove="False" />
+  <item index="22307" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VialOfVitriol_0x5723.bmp" remove="False" />
+  <item index="22308" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VialOfVitriol_0x5724.bmp" remove="False" />
+  <item index="22309" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VialOfVitriol_0x5725.bmp" remove="False" />
   <item index="22312" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidCore_0x5728.bmp" remove="False" />
   <item index="7961" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidCrystal_0x1F19.bmp" remove="False" />
   <item index="7962" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidCrystal_0x1F1A.bmp" remove="False" />
   <item index="7963" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidCrystal_0x1F1B.bmp" remove="False" />
   <item index="16391" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidEssence_0x4007.bmp" remove="False" />
   <item index="22334" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidOrb_0x573E.bmp" remove="False" />
+  <item index="22335" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidOrb_0x573F.bmp" remove="False" />
+  <item index="22336" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidOrb_0x5740.bmp" remove="False" />
+  <item index="22337" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidOrb_0x5741.bmp" remove="False" />
   <item index="12687" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_WoodBarkFragment_0x318F.bmp" remove="False" />
   <item index="7133" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_WoodLogs_0x1BDD.bmp" remove="False" />
   <item index="12127" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_WoodSwitch_0x2F5F.bmp" remove="False" />
@@ -261,8 +295,6 @@
   <item index="3705" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_container_Pouch_0x0E79.bmp" remove="False" />
   <item index="3617" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_resource_Bandages_0x0E21.bmp" remove="False" />
   <item index="3722" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_BlowPipe_0x0E8A.bmp" remove="False" />
-  <item index="3714" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_CrookL_0x0E82.bmp" remove="False" />
-  <item index="3713" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_CrookR_0x0E81.bmp" remove="False" />
   <item index="3921" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_DaggerL_0x0F51.bmp" remove="False" />
   <item index="3922" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_DaggerR_0x0F52.bmp" remove="False" />
   <item index="3740" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_Drum_0x0E9C.bmp" remove="False" />
@@ -287,14 +319,171 @@
   <item index="5092" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_SmithHammerR_0x13E4.bmp" remove="False" />
   <item index="3741" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_TambourineA_0x0E9D.bmp" remove="False" />
   <item index="3742" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_TambourineB_0x0E9E.bmp" remove="False" />
+  <item index="7868" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_TinkerTools_0x1EBC.bmp" remove="False" />
   <item index="4027" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_TongL_0x0FBB.bmp" remove="False" />
   <item index="4028" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_TongR_0x0FBC.bmp" remove="False" />
-  <item index="3906" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_ArrowProjectile_0x0F42.bmp" remove="False" />
-  <item index="3903" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_ArrowSingle_0x0F3F.bmp" remove="False" />
-  <item index="3568" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_BlackStaffL_0x0DF0.bmp" remove="False" />
-  <item index="3569" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_BlackStaffR_0x0DF1.bmp" remove="False" />
-  <item index="7166" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_BoltProjectile_0x1BFE.bmp" remove="False" />
-  <item index="7163" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_weapon_BoltSingle_0x1BFB.bmp" remove="False" />
+  <item index="7864" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Tools\item_tool_ToolKit_0x1EB8.bmp" remove="False" />
+  <item index="3714" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_tool_CrookL_0x0E82.bmp" remove="False" />
+  <item index="3713" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_tool_CrookR_0x0E81.bmp" remove="False" />
+  <item index="3906" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_ArrowProjectile_0x0F42.bmp" remove="False" />
+  <item index="3903" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_ArrowSingle_0x0F3F.bmp" remove="False" />
+  <item index="3913" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_Axe_0x0F49.bmp" remove="False" />
+  <item index="3911" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_BattleAxe_0x0F47.bmp" remove="False" />
+  <item index="3568" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_BlackStaffL_0x0DF0.bmp" remove="False" />
+  <item index="3569" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_BlackStaffR_0x0DF1.bmp" remove="False" />
+  <item index="7166" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_BoltProjectile_0x1BFE.bmp" remove="False" />
+  <item index="7163" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_BoltSingle_0x1BFB.bmp" remove="False" />
+  <item index="3934" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_BroadSword_0x0F5E.bmp" remove="False" />
+  <item index="5110" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_ButcherKnife_0x13F6.bmp" remove="False" />
+  <item index="3779" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_Cleaver_0x0EC3.bmp" remove="False" />
+  <item index="5044" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_Club_0x13B4.bmp" remove="False" />
+  <item index="5185" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_Cutlass_0x1441.bmp" remove="False" />
+  <item index="3915" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_DoubleAxe_0x0F4B.bmp" remove="False" />
+  <item index="3909" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_ExecutionerAxe_0x0F45.bmp" remove="False" />
+  <item index="5112" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_GnarledStaff_0x13F8.bmp" remove="False" />
+  <item index="5181" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_HammerPick_0x143D.bmp" remove="False" />
+  <item index="3907" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_Hatchet_0x0F43.bmp" remove="False" />
+  <item index="5119" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_Katana_0x13FF.bmp" remove="False" />
+  <item index="5121" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_Kryss_0x1401.bmp" remove="False" />
+  <item index="3937" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_LongSwordBig_0x0F61.bmp" remove="False" />
+  <item index="5048" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_LongSword_0x13B8.bmp" remove="False" />
+  <item index="3932" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_Mace_0x0F5C.bmp" remove="False" />
+  <item index="5179" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_Maul_0x143B.bmp" remove="False" />
+  <item index="3721" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_QuarterStaff_0x0E89.bmp" remove="False" />
+  <item index="5046" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_Scimatar_0x13B6.bmp" remove="False" />
+  <item index="3780" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_SkinningKnife_0x0EC4.bmp" remove="False" />
+  <item index="5187" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_TwoHandedAxe_0x1443.bmp" remove="False" />
+  <item index="5049" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_VikingSword_0x13B9.bmp" remove="False" />
+  <item index="5040" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_WarAxe_0x13B0.bmp" remove="False" />
+  <item index="5177" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_WarHammer_0x1439.bmp" remove="False" />
+  <item index="5127" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Weapon\item_weapon_WarMace_0x1407.bmp" remove="False" />
+  <item index="47157" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Vase\item_vase_large_0xB835.bmp" remove="False" />
+  <item index="47158" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Vase\item_vase_large_0xB836.bmp" remove="False" />
+  <item index="47159" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Vase\item_vase_large_0xB837.bmp" remove="False" />
+  <item index="47160" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Vase\item_vase_large_0xB838.bmp" remove="False" />
+  <item index="47161" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Vase\item_vase_large_0xB839.bmp" remove="False" />
+  <item index="44252" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Creature\item_creature_CuSidheYoung_0xACDC.bmp" remove="False" />
+  <item index="3570" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandA_0x0DF2.bmp" remove="False" />
+  <item index="3573" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandD_0x0DF5.bmp" remove="False" />
+  <item index="20496" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandFireball_0x5010.bmp" remove="False" />
+  <item index="20495" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandGreaterHeal_0x500F.bmp" remove="False" />
+  <item index="3571" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandHarm_0x0DF3.bmp" remove="False" />
+  <item index="3572" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandHeal_0x0DF4.bmp" remove="False" />
+  <item index="20497" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandLightning_0x5011.bmp" remove="False" />
+  <item index="20494" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandManaDrain_0x500E.bmp" remove="False" />
+  <item index="9916" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandTribal_0x26BC.bmp" remove="False" />
+  <item index="47568" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47568_mushroom_0xB9D0.bmp" remove="False" />
+  <item index="47569" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47569_SummonFey_0xB9D1.bmp" remove="False" />
+  <item index="47570" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47570_bear_0xB9D2.bmp" remove="False" />
+  <item index="47571" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47571_EssenceOfWind_0xB9D3.bmp" remove="False" />
+  <item index="47572" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47572_SummonFiend_0xB9D4.bmp" remove="False" />
+  <item index="47573" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47573_spiderweb_0xB9D5.bmp" remove="False" />
+  <item index="47574" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47574_HeightenedSenses_0xB9D6.bmp" remove="False" />
+  <item index="47575" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47575_ManaShield_0xB9D7.bmp" remove="False" />
+  <item index="47576" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47576_Onslaught_0xB9D8.bmp" remove="False" />
+  <item index="48413" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48413_DeathRay_0xBD1D.bmp" remove="False" />
+  <item index="48414" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48414_EtherealBlast_0xBD1E.bmp" remove="False" />
+  <item index="48415" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48415_NetherBlast_0xBD1F.bmp" remove="False" />
+  <item index="48416" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48416_MysticWeapon_0xBD20.bmp" remove="False" />
+  <item index="48417" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48417_CommandUndead_0xBD21.bmp" remove="False" />
+  <item index="48418" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48418_FlamingShot_0xBD22.bmp" remove="False" />
+  <item index="48419" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48419_PlayingTheOdds_0xBD23.bmp" remove="False" />
+  <item index="48420" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48420_Thrust_0xBD24.bmp" remove="False" />
+  <item index="48421" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48421_Pierce_0xBD25.bmp" remove="False" />
+  <item index="48422" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48422_Stagger_0xBD26.bmp" remove="False" />
+  <item index="48423" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48423_Conduit_0xBD27.bmp" remove="False" />
+  <item index="48424" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48424_SummonReaper_0xBD28.bmp" remove="False" />
+  <item index="48425" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48425_EnchantedSummoning_0xBD29.bmp" remove="False" />
+  <item index="48426" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48426_AnticipateHit_0xBD2A.bmp" remove="False" />
+  <item index="48427" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48427_Warcry_0xBD2B.bmp" remove="False" />
+  <item index="48428" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48428_Intuition_0xBD2C.bmp" remove="False" />
+  <item index="48429" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48429_Rejuvinate_0xBD2D.bmp" remove="False" />
+  <item index="48430" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48430_HolyFist_0xBD2E.bmp" remove="False" />
+  <item index="48431" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48431_Shadow_0xBD2F.bmp" remove="False" />
+  <item index="48432" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48432_Toughness_0xBD30.bmp" remove="False" />
+  <item index="48433" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48433_FocusedEye_0xBD31.bmp" remove="False" />
+  <item index="48434" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48434_ElementalFury_0xBD32.bmp" remove="False" />
+  <item index="48435" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48435_CalledShot_0xBD33.bmp" remove="False" />
+  <item index="48436" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48436_Bodyguard_0xBD34.bmp" remove="False" />
+  <item index="48437" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48437_ShieldBash_0xBD35.bmp" remove="False" />
+  <item index="48438" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48438_Tolerance_0xBD36.bmp" remove="False" />
+  <item index="48439" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48439_InjectedStrike_0xBD37.bmp" remove="False" />
+  <item index="48440" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48440_Potency_0xBD38.bmp" remove="False" />
+  <item index="48441" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48441_Rampage_0xBD39.bmp" remove="False" />
+  <item index="48442" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48442_FistsOfFury_0xBD3A.bmp" remove="False" />
+  <item index="48443" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_48443_Whispering_0xBD3B.bmp" remove="False" />
+  <item index="8320" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8320_Clumsy_0x2080.bmp" remove="False" />
+  <item index="8321" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8321_CreateFood_0x2081.bmp" remove="False" />
+  <item index="8322" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8322_Feeblemind_0x2082.bmp" remove="False" />
+  <item index="8323" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8323_Heal_0x2083.bmp" remove="False" />
+  <item index="8324" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8324_MagicArrow_0x2084.bmp" remove="False" />
+  <item index="8325" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8325_NightSight_0x2085.bmp" remove="False" />
+  <item index="8326" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8326_ReactiveArmor_0x2086.bmp" remove="False" />
+  <item index="8327" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8327_Weaken_0x2087.bmp" remove="False" />
+  <item index="8328" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8328_Agility_0x2088.bmp" remove="False" />
+  <item index="8329" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8329_Cunning_0x2089.bmp" remove="False" />
+  <item index="8330" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8330_Cure_0x208A.bmp" remove="False" />
+  <item index="8331" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8331_Harm_0x208B.bmp" remove="False" />
+  <item index="8332" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8332_MagicTrap_0x208C.bmp" remove="False" />
+  <item index="8333" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8333_MagicUnTrap_0x208D.bmp" remove="False" />
+  <item index="8334" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8334_Protection_0x208E.bmp" remove="False" />
+  <item index="8335" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8335_Strength_0x208F.bmp" remove="False" />
+  <item index="8336" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8336_Bless_0x2090.bmp" remove="False" />
+  <item index="8337" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8337_Fireball_0x2091.bmp" remove="False" />
+  <item index="8338" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8338_MagicLock_0x2092.bmp" remove="False" />
+  <item index="8339" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8339_Poison_0x2093.bmp" remove="False" />
+  <item index="8340" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8340_Telekinisis_0x2094.bmp" remove="False" />
+  <item index="8341" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8341_Teleport_0x2095.bmp" remove="False" />
+  <item index="8342" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8342_Unlock_0x2096.bmp" remove="False" />
+  <item index="8343" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8343_WallOfStone_0x2097.bmp" remove="False" />
+  <item index="8344" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8344_ArchCure_0x2098.bmp" remove="False" />
+  <item index="8345" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8345_ArchProtection_0x2099.bmp" remove="False" />
+  <item index="8346" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8346_Curse_0x209A.bmp" remove="False" />
+  <item index="8347" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8347_FireField_0x209B.bmp" remove="False" />
+  <item index="8348" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8348_GreaterHeal_0x209C.bmp" remove="False" />
+  <item index="8349" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8349_Lightning_0x209D.bmp" remove="False" />
+  <item index="8350" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8350_ManaDrain_0x209E.bmp" remove="False" />
+  <item index="8351" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8351_Recall_0x209F.bmp" remove="False" />
+  <item index="8352" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8352_BladeSpirits_0x20A0.bmp" remove="False" />
+  <item index="8353" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8353_DispelField_0x20A1.bmp" remove="False" />
+  <item index="8354" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8354_Incognito_0x20A2.bmp" remove="False" />
+  <item index="8355" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8355_MagicReflect_0x20A3.bmp" remove="False" />
+  <item index="8356" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8356_MindBlast_0x20A4.bmp" remove="False" />
+  <item index="8357" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8357_Paralyze_0x20A5.bmp" remove="False" />
+  <item index="8358" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8358_PoisonField_0x20A6.bmp" remove="False" />
+  <item index="8359" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8359_SummonCreature_0x20A7.bmp" remove="False" />
+  <item index="8360" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8360_Dispel_0x20A8.bmp" remove="False" />
+  <item index="8361" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8361_EnergyBolt_0x20A9.bmp" remove="False" />
+  <item index="8362" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8362_Explosion_0x20AA.bmp" remove="False" />
+  <item index="8363" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8363_Invisibility_0x20AB.bmp" remove="False" />
+  <item index="8364" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8364_Mark_0x20AC.bmp" remove="False" />
+  <item index="8365" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8365_MassCurse_0x20AD.bmp" remove="False" />
+  <item index="8366" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8366_ParalyzeField_0x20AE.bmp" remove="False" />
+  <item index="8367" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8367_Reveal_0x20AF.bmp" remove="False" />
+  <item index="8368" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8368_ChainLightning_0x20B0.bmp" remove="False" />
+  <item index="8369" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8369_EnergyField_0x20B1.bmp" remove="False" />
+  <item index="8370" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8370_Flamestrike_0x20B2.bmp" remove="False" />
+  <item index="8371" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8371_GateTravel_0x20B3.bmp" remove="False" />
+  <item index="8372" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8372_ManaVampire_0x20B4.bmp" remove="False" />
+  <item index="8373" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8373_MassDispel_0x20B5.bmp" remove="False" />
+  <item index="8374" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8374_MeteorSwarm_0x20B6.bmp" remove="False" />
+  <item index="8375" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8375_Polymorph_0x20B7.bmp" remove="False" />
+  <item index="8376" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8376_Earthquake_0x20B8.bmp" remove="False" />
+  <item index="8377" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8377_EnergyVortex_0x20B9.bmp" remove="False" />
+  <item index="8378" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8378_Resurrection_0x20BA.bmp" remove="False" />
+  <item index="8379" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8379_SummonAirElemental_0x20BB.bmp" remove="False" />
+  <item index="8380" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8380_SummonDaemon_0x20BC.bmp" remove="False" />
+  <item index="8381" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8381_SummonEarthElemental_0x20BD.bmp" remove="False" />
+  <item index="8382" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8382_SummonFireElemental_0x20BE.bmp" remove="False" />
+  <item index="8383" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8383_SummonWaterElemental_0x20BF.bmp" remove="False" />
+  <item index="8384" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8384_Circle1_0x20C0.bmp" remove="False" />
+  <item index="8385" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8385_Circle2_0x20C1.bmp" remove="False" />
+  <item index="8386" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8386_Circle3_0x20C2.bmp" remove="False" />
+  <item index="8387" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8387_Circle4_0x20C3.bmp" remove="False" />
+  <item index="8388" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8388_Circle5_0x20C4.bmp" remove="False" />
+  <item index="8389" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8389_Circle6_0x20C5.bmp" remove="False" />
+  <item index="8390" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8390_Circle7_0x20C6.bmp" remove="False" />
+  <item index="8391" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMagicSpell\item_icon_8391_Circle8_0x20C7.bmp" remove="False" />
   <gump index="2240" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells\ui_spell_1_Clumsy_0x08C0.bmp" remove="False" />
   <gump index="2241" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells\ui_spell_1_CreateFood_0x08C1.bmp" remove="False" />
   <gump index="2242" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MagicSpells\ui_spell_1_Feeblemind_0x08C2.bmp" remove="False" />
@@ -804,6 +993,7 @@
   <gump index="51236" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_DragonHead_0xC824.bmp" remove="False" />
   <gump index="51234" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_ShieldA_0xC822.bmp" remove="False" />
   <gump index="51235" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_ShieldB_0xC823.bmp" remove="False" />
+  <gump index="61235" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_ShieldC_0xEF33.bmp" remove="False" />
   <gump index="51238" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_Trophy_0xC826.bmp" remove="False" />
   <gump index="51237" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_Winged_0xC825.bmp" remove="False" />
   <gump index="334" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu\ui_menu_bg_0x014E.bmp" remove="False" />

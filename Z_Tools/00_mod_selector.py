@@ -1,8 +1,11 @@
-# ART MOD SELECTOR - BMP data to XML Converter for use with UOFiddler MassImport plugin 
-# For each BMP file name with a hexadecimal suffix, write the data to XML and a TXT file.
-# scans project folders by specific groups "ART" , "UI" , and "ENV" 
-# to be sorted into the corresponding asset types "item art_s" , "gump" , "texture" , "landtile art_m"  
-
+"""
+ART MOD SELECTOR 
+a UI for selecting art mods for ultima online classic 
+an Image file to XML list processor for use with UOFiddler MassImport plugin 
+For each BMP file name with a hexadecimal suffix, this tool writes the data to XML used to MassImport and a TXT file for the alternative method using Mulpatcher
+by scanning the mod project folders for specific groups = "ART" , "UI" , and "ENV" 
+to be sorted into the corresponding types = "item art_s" , "gump" , "texture" , "landtile art_m"  
+"""
 import os
 import tkinter as tk
 from tkinter import filedialog, ttk, messagebox
@@ -25,7 +28,7 @@ SKIP_FOLDERS = ['backup', 'ref', 'Upscale', 'original', 'remove', 'removed', 'te
 PADX = 1
 PADY = 1
 
-# Mapping from category to TXT asset type for mulpatcher
+# Mapping from category to TXT type for mulpatcher
 CATEGORY_TO_TXT_SUFFIX = {
     "item": "ART_S",
     "landtile": "ART_M",
@@ -109,7 +112,7 @@ GROUPS_LEFT = {
         "images": [".././ART/ART_PowerRare/00_art_PowerRare_comp.png"],
         "layout": "right",
         "subgroups": {
-            "PowerRare": {"path": ".././ART/ART_PowerRare/SpellEffcts_Color", "default_state": True}
+            "PowerRare": {"path": ".././ART/ART_PowerRare", "default_state": True}
         }
     },
     "Reagent": {
@@ -147,6 +150,48 @@ GROUPS_LEFT = {
             "Tools": {"path": ".././ART/ART_Tools", "default_state": True}
         }
     },
+    "Weapon": {
+        "images": [".././ART/ART_Weapon/00_item_weapon_comp.png"],
+        "layout": "right",
+        "subgroups": {
+            "Weapons": {"path": ".././ART/ART_Weapon", "default_state": True}
+        }
+    },
+    "Vase": {
+        "images": [".././ART/ART_Vase/00_item_vase_comp.png"],
+        "layout": "right",
+        "subgroups": {
+            "Vase": {"path": ".././ART/ART_Vase", "default_state": True}
+        }
+    },
+    "Creature": {
+        "images": [".././ART/ART_Creature/00_item_creature_comp.png"],
+        "layout": "right",
+        "subgroups": {
+            "Creature": {"path": ".././ART/ART_Creature", "default_state": True}
+        }
+    },
+    "Wand": {
+        "images": [".././ART/ART_Wand/00_item_wand_comp.png"],
+        "layout": "right",
+        "subgroups": {
+            "Wand": {"path": ".././ART/ART_Wand", "default_state": True}
+        }
+    },
+    "IconMastery": {
+        "images": [".././UI/UI_Spellsmastery/00_ui_spell_mastery_comp.png"],
+        "layout": "right",
+        "subgroups": {
+            "IconMastery": {"path": ".././ART/ART_IconMastery", "default_state": True}
+        }
+    },
+    "IconMagicSpell": {
+        "images": [".././UI/UI_MagicSpells/ui_spell_00_comp_nospace_wide.png"],
+        "layout": "right",
+        "subgroups": {
+            "IconMagicSpell": {"path": ".././ART/ART_IconMagicSpell", "default_state": True}
+        }
+    }
 }
 
 # UI
@@ -912,4 +957,6 @@ if __name__ == "__main__":
 
     app = BMPtoXMLConverter(root)
     print("start")
+    # Maximize window after all UI setup
+    root.state('zoomed')
     root.mainloop()

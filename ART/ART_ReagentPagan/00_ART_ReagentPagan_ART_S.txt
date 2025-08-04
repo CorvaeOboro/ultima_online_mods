@@ -2,9 +2,13 @@
 0x0F7E item_reagentPagan_Bone_0x0F7E.bmp
 0x0F7D item_reagentPagan_DaemonBlood_0x0F7D.bmp
 0x0F80 item_reagentPagan_DaemonBone_0x0F80.bmp
+0x0F90 item_reagentPagan_DeadWood_0x0F90.bmp
 0x0F82 item_reagentPagan_DragonsBlood_0x0F82.bmp
 0x0F83 item_reagentPagan_ExecutionersCap_0x0F83.bmp
+0x0F87 item_reagentPagan_EyeOfNewt_0x0F87.bmp
 0x0F81 item_reagentPagan_FertileDirt_0x0F81.bmp
 0x0F8F item_reagentPagan_GraveDust_0x0F8F.bmp
 0x0F8E item_reagentPagan_NoxCrystal_0x0F8E.bmp
+0x0F89 item_reagentPagan_Obsidian_0x0F89.bmp
 0x0F8A item_reagentPagan_PigIron_0x0F8A.bmp
+0x0F91 item_reagentPagan_WyrmsHeart_0x0F91.bmp

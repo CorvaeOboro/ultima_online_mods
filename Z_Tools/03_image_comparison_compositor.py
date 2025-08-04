@@ -3,6 +3,9 @@ Image Comparison Compositor
 a UI for comparing and compositing the original images with the altered images for ultima online classic
 utilizes the hexadecimal id to match the original and altered images as a suffix (0x1234.png and item_apple_0x1234.bmp)
 a canvas to arrange the images in rows to group for visualization , such as weapon type , or food group
+
+TODO:
+add a global parameter to also center images vertically by their vertical bounds within their row group . in this way the row height is determined by the tallest image in the row . 
 """
 import os
 import re
@@ -17,6 +20,9 @@ from tkinter import filedialog, messagebox
 VERTICAL_PADDING = 10
 HORIZONTAL_PADDING = 20
 
+# Center images vertically within their row group
+CENTER_VERTICALLY_IN_ROW = True  # Set to True to enable vertical centering by bounds within row
+
 # UI Colors
 DARK_GRAY = "#1E1E1E"
 DARKER_GRAY = "#252526"
@@ -24,6 +30,11 @@ LIGHTER_GRAY = "#333333"
 BUTTON_BLACK = "#000000"
 WHITE = "#FFFFFF"
 ROW_COLORS = ["#3C4C7C", "#4C3C7C", "#7C3C4C", "#3C7C4C"]  # Row highlight colors
+
+# Muted button colors
+MUTED_GREEN = "#3C7C5C"
+MUTED_BLUE = "#3C5C7C"
+MUTED_PURPLE = "#6C4C7C"
 
 def get_content_bbox(image):
     """
@@ -238,10 +249,11 @@ def create_vertical_composite(before_img, after_img, alternate_before_img=None, 
     print(f"DEBUG: Vertical composite created successfully: {composite.size}")
     return composite
 
-def create_final_composite(triplets, vertical_padding=VERTICAL_PADDING, horizontal_padding=HORIZONTAL_PADDING, composite_config=None):
+def create_final_composite(triplets, vertical_padding=VERTICAL_PADDING, horizontal_padding=HORIZONTAL_PADDING, composite_config=None, include_originals=True, matte_black=False, outer_padding=False, scale2x=False, outer_pad_amt=32, alternate_spacing=False):
     """
     Create the final composite image from the given triplets.
     If composite_config is provided, it will be used to arrange the triplets in rows.
+    If include_originals is False, BEFORE images will be skipped (replaced with blank).
     """
     print(f"\nDEBUG: Creating final composite from {len(triplets)} triplets")
     print(f"DEBUG: Using padding - Vertical: {vertical_padding}px, Horizontal: {horizontal_padding}px")
@@ -292,12 +304,17 @@ def create_final_composite(triplets, vertical_padding=VERTICAL_PADDING, horizont
                 print(f"  Processing: {os.path.basename(after_path)} (hex_id: 0x{extract_hex_id(after_path):X})")
                 
                 try:
-                    before_img = Image.open(before_path).convert('RGBA')
-                    after_img = Image.open(after_path).convert('RGBA')
-                    alt_before_img = Image.open(alt_before_path).convert('RGBA') if alt_before_path else None
+                    # If not including originals, use a blank image for BEFORE
+                    if not include_originals:
+                        before_img = Image.new("RGBA", (1, 1), (0,0,0,0))
+                    else:
+                        before_img = Image.open(before_path) if before_path and os.path.exists(before_path) else None
+                    after_img = Image.open(after_path) if after_path and os.path.exists(after_path) else None
+                    alternate_before_img = Image.open(alt_before_path) if alt_before_path and os.path.exists(alt_before_path) else None
                     
-                    vertical = create_vertical_composite(before_img, after_img, alt_before_img, vertical_padding)
+                    vertical = create_vertical_composite(before_img, after_img, alternate_before_img, vertical_padding)
                     print(f"    Created vertical composite: {vertical.size}")
+                    
                     row_verticals.append(vertical)
                     
                 except Exception as e:
@@ -306,26 +323,68 @@ def create_final_composite(triplets, vertical_padding=VERTICAL_PADDING, horizont
             
             if not row_verticals:
                 continue
-                
-            # Create row composite
-            row_width = sum(v.width for v in row_verticals) + horizontal_padding * (len(row_verticals) + 1)
-            row_height = max(v.height for v in row_verticals)
-            
-            print(f"  Creating row image: {row_width}x{row_height}")
-            row_image = Image.new('RGBA', (row_width, row_height), (0, 0, 0, 0))
-            
-            # Paste verticals into row
-            x_offset = horizontal_padding
-            for vertical in row_verticals:
-                y_offset = (row_height - vertical.height) // 2
-                print(f"    Pasting vertical at ({x_offset}, {y_offset})")
-                row_image.paste(vertical, (x_offset, y_offset), vertical)
-                x_offset += vertical.width + horizontal_padding
-            
-            row_images.append(row_image)
-            max_width = max(max_width, row_width)
-            total_height += row_height + vertical_padding
-            
+
+            # --- Alternate spacing algorithm ---
+            if alternate_spacing:
+                # First pass: calculate row width with minimum padding
+                n = len(row_verticals)
+                if n > 1:
+                    row_width = sum(img.width for img in row_verticals) + horizontal_padding * (n-1)
+                else:
+                    row_width = sum(img.width for img in row_verticals)
+                row_height = max(img.height for img in row_verticals)
+                row_images.append((row_verticals, row_width, row_height, n))
+            else:
+                # Standard: fixed horizontal padding
+                row_width = sum(img.width for img in row_verticals) + horizontal_padding * (len(row_verticals) - 1)
+                row_height = max(img.height for img in row_verticals)
+                row_img = Image.new("RGBA", (row_width, row_height), (0,0,0,0))
+                x = 0
+                for img in row_verticals:
+                    row_img.paste(img, (x, (row_height - img.height)//2), img)
+                    x += img.width + horizontal_padding
+                row_images.append(row_img)
+                max_width = max(max_width, row_width)
+                total_height += row_height + vertical_padding
+
+        # If alternate_spacing, do second pass to build rows with even fill
+        if alternate_spacing and row_images:
+            # Find max width (using minimum padding)
+            max_row_width = max(w for _,w,_,_ in row_images)
+            print(f"DEBUG: Alternate spacing: max row width = {max_row_width}")
+            row_imgs_final = []
+            total_height = -vertical_padding
+            for row_verticals, row_width, row_height, n in row_images:
+                if n == 1:
+                    # Only one item, center it
+                    paddings = [ (max_row_width - row_verticals[0].width)//2 ]
+                else:
+                    total_imgs_width = sum(img.width for img in row_verticals)
+                    min_total_pad = horizontal_padding * (n-1)
+                    extra_space = max_row_width - (total_imgs_width + min_total_pad)
+                    # Distribute extra_space evenly, but always at least horizontal_padding between items
+                    if n > 1:
+                        hpad = horizontal_padding + (extra_space // (n-1)) if extra_space > 0 else horizontal_padding
+                    else:
+                        hpad = horizontal_padding
+                    paddings = [0] + [hpad]*(n-1)
+                # Build row image
+                row_img = Image.new("RGBA", (max_row_width, row_height), (0,0,0,0))
+                x = 0
+                for idx, img in enumerate(row_verticals):
+                    row_img.paste(img, (x, (row_height - img.height)//2), img)
+                    if idx < len(row_verticals)-1:
+                        x += img.width + paddings[idx+1]
+                    else:
+                        x += img.width
+                row_imgs_final.append(row_img)
+                total_height += row_height + vertical_padding
+            row_images = row_imgs_final
+            max_width = max_row_width
+        elif not alternate_spacing:
+            # row_images already built
+            pass
+
         if not row_images:
             print("ERROR: No row images were created")
             return None
@@ -341,7 +400,29 @@ def create_final_composite(triplets, vertical_padding=VERTICAL_PADDING, horizont
             print(f"  Pasting row {idx} at ({x_offset}, {y_offset})")
             final_composite.paste(row_image, (x_offset, y_offset), row_image)
             y_offset += row_image.height + vertical_padding
-        
+
+        # --- Apply output options ---
+        # 1. Outer Padding (expand canvas)
+        if outer_padding:
+            pad_amt = outer_pad_amt
+            w, h = final_composite.size
+            padded = Image.new('RGBA', (w + pad_amt*2, h + pad_amt*2), (0,0,0,0))
+            padded.paste(final_composite, (pad_amt, pad_amt), final_composite)
+            final_composite = padded
+            print(f"DEBUG: Added outer padding of {pad_amt}px")
+        # 2. Matte onto black background
+        if matte_black:
+            w, h = final_composite.size
+            matted = Image.new('RGB', (w, h), (0,0,0))
+            matted.paste(final_composite, (0,0), final_composite)
+            final_composite = matted
+            print("DEBUG: Matted onto black background")
+        # 3. Scale by 2x (nearest neighbor)
+        if scale2x:
+            w, h = final_composite.size
+            final_composite = final_composite.resize((w*2, h*2), resample=Image.NEAREST)
+            print(f"DEBUG: Scaled output by 2x to {(w*2, h*2)}")
+
         print("\nDEBUG: Final composite created successfully")
         return final_composite
         
@@ -437,7 +518,7 @@ def load_composite_json(json_path):
         print(f"DEBUG: Error loading composite.json: {e}")
     return None
 
-def process_target_folder(target_folder, custom_before_folder=None, alternate_before_folder=None, composite_config=None):
+def process_target_folder(target_folder, custom_before_folder=None, alternate_before_folder=None, composite_config=None, include_originals=True, vertical_padding=VERTICAL_PADDING, horizontal_padding=HORIZONTAL_PADDING, matte_black=False, outer_padding=False, scale2x=False, outer_pad_amt=32, alternate_spacing=False):
     """
     Process the given target folder by finding matching image triplets,
     creating the composite image, and saving it in the target folder.
@@ -474,7 +555,12 @@ def process_target_folder(target_folder, custom_before_folder=None, alternate_be
         triplets = ordered_triplets + remaining_triplets
     
     print(f"DEBUG: Creating composite from {len(triplets)} triplets")
-    final_image = create_final_composite(triplets, composite_config=composite_config)
+    final_image = create_final_composite(
+        triplets, vertical_padding=vertical_padding, horizontal_padding=horizontal_padding,
+        composite_config=composite_config, include_originals=include_originals,
+        matte_black=matte_black, outer_padding=outer_padding, scale2x=scale2x, outer_pad_amt=outer_pad_amt,
+        alternate_spacing=alternate_spacing
+    )
     if final_image:
         output_path = os.path.join(target_folder, "composite.png")
         final_image.save(output_path)
@@ -703,6 +789,75 @@ class CompositeArrangementUI:
                  bg=BUTTON_BLACK, fg=WHITE, activebackground=BUTTON_BLACK,
                  activeforeground=WHITE).grid(row=2, column=2)
         
+        # --- New: Output option checkboxes row ---
+        options_frame = tk.Frame(main_container, bg=DARK_GRAY)
+        options_frame.pack(fill=tk.X, pady=(0, 0))
+
+        self.include_originals = tk.BooleanVar(value=True)
+        include_chk = tk.Checkbutton(options_frame, text="Include Originals in Composite", variable=self.include_originals,
+                                    bg=DARK_GRAY, fg=WHITE, selectcolor=BUTTON_BLACK,
+                                    activebackground=DARK_GRAY, activeforeground=WHITE)
+        include_chk.pack(side=tk.LEFT, padx=5)
+
+        # Set default True for all three output options
+        self.matte_black_var = tk.BooleanVar(value=True)
+        self.outer_padding_var = tk.BooleanVar(value=True)
+        self.scale2x_var = tk.BooleanVar(value=True)
+        self.alternate_spacing_var = tk.BooleanVar(value=False)
+        matte_chk = tk.Checkbutton(options_frame, text="Matte onto Black Background", variable=self.matte_black_var,
+                                   bg=DARK_GRAY, fg=WHITE, selectcolor=BUTTON_BLACK,
+                                   activebackground=DARK_GRAY, activeforeground=WHITE)
+        matte_chk.pack(side=tk.LEFT, padx=5)
+        pad_chk = tk.Checkbutton(options_frame, text="Add Outer Padding", variable=self.outer_padding_var,
+                                 bg=DARK_GRAY, fg=WHITE, selectcolor=BUTTON_BLACK,
+                                 activebackground=DARK_GRAY, activeforeground=WHITE)
+        pad_chk.pack(side=tk.LEFT, padx=5)
+        scale_chk = tk.Checkbutton(options_frame, text="Scale Output by 2x (Nearest)", variable=self.scale2x_var,
+                                   bg=DARK_GRAY, fg=WHITE, selectcolor=BUTTON_BLACK,
+                                   activebackground=DARK_GRAY, activeforeground=WHITE)
+        scale_chk.pack(side=tk.LEFT, padx=5)
+        alt_spacing_chk = tk.Checkbutton(options_frame, text="Evenly Space Row Items to Fill Row", variable=self.alternate_spacing_var,
+                                   bg=DARK_GRAY, fg=WHITE, selectcolor=BUTTON_BLACK,
+                                   activebackground=DARK_GRAY, activeforeground=WHITE)
+        alt_spacing_chk.pack(side=tk.LEFT, padx=5)
+
+        # --- New: Padding controls row ---
+        padding_frame = tk.Frame(main_container, bg=DARK_GRAY)
+        padding_frame.pack(fill=tk.X, pady=(0, 8))
+        self.vert_pad_var = tk.StringVar(value=str(VERTICAL_PADDING))
+        self.horiz_pad_var = tk.StringVar(value=str(HORIZONTAL_PADDING))
+        self.outer_pad_amt_var = tk.StringVar(value="32")
+        tk.Label(padding_frame, text="Row Padding:", bg=DARK_GRAY, fg=WHITE).pack(side=tk.LEFT, padx=(5,2))
+        self.vert_pad_entry = tk.Entry(padding_frame, width=4, textvariable=self.vert_pad_var, bg=DARKER_GRAY, fg=WHITE)
+        self.vert_pad_entry.pack(side=tk.LEFT)
+        tk.Label(padding_frame, text="Item Padding:", bg=DARK_GRAY, fg=WHITE).pack(side=tk.LEFT, padx=(10,2))
+        self.horiz_pad_entry = tk.Entry(padding_frame, width=4, textvariable=self.horiz_pad_var, bg=DARKER_GRAY, fg=WHITE)
+        self.horiz_pad_entry.pack(side=tk.LEFT)
+        tk.Label(padding_frame, text="Outer Padding(px):", bg=DARK_GRAY, fg=WHITE).pack(side=tk.LEFT, padx=(10,2))
+        self.outer_pad_amt_entry = tk.Entry(padding_frame, width=4, textvariable=self.outer_pad_amt_var, bg=DARKER_GRAY, fg=WHITE)
+        self.outer_pad_amt_entry.pack(side=tk.LEFT)
+
+        # --- New: Buttons row ---
+        buttons_frame = tk.Frame(main_container, bg=DARK_GRAY)
+        buttons_frame.pack(fill=tk.X, pady=(0, 10))
+        tk.Button(buttons_frame, text="Reset Layout", command=self.reset_layout,
+                 bg=MUTED_GREEN, fg=WHITE, activebackground=MUTED_GREEN, 
+                 activeforeground=WHITE).pack(side=tk.LEFT, padx=5)
+        tk.Button(buttons_frame, text="Save Arrangement", command=self.save_arrangement,
+                 bg=MUTED_BLUE, fg=WHITE, activebackground=MUTED_BLUE,
+                 activeforeground=WHITE).pack(side=tk.LEFT, padx=5)
+        generate_btn = tk.Button(buttons_frame, text="Generate Composite", command=self.generate_composite,
+                             bg=MUTED_PURPLE, fg=WHITE, activebackground=MUTED_PURPLE,
+                             activeforeground=WHITE)
+        generate_btn.pack(side=tk.LEFT, padx=5)
+        generate_btn.configure(relief=tk.RAISED, borderwidth=2)
+        # ---------------------------------------------------------------------------
+
+        # Bind <Return> event so pressing Enter in the Target Folder entry refreshes the UI
+        self.target_entry.bind("<Return>", self.on_target_changed)
+        # Existing binding for <FocusOut> is kept
+        self.target_entry.bind("<FocusOut>", self.on_target_changed)
+        
         # JSON files frame
         self.json_frame = tk.Frame(main_container, bg=DARK_GRAY)
         self.json_frame.pack(fill=tk.X, pady=(0, 10))
@@ -727,23 +882,6 @@ class CompositeArrangementUI:
         unused_label.pack(pady=(5,2))
         self.unused_items_container = tk.Frame(self.unused_panel, bg=LIGHTER_GRAY)
         self.unused_items_container.pack(fill=tk.BOTH, expand=True)
-        
-        # Button frame
-        button_frame = tk.Frame(main_container, bg=DARK_GRAY)
-        button_frame.pack(fill=tk.X, pady=(10, 0))
-        
-        # Use tk.Button instead of ttk.Button for better color control
-        tk.Button(button_frame, text="Reset Layout", command=self.reset_layout,
-                 bg=BUTTON_BLACK, fg=WHITE, activebackground=BUTTON_BLACK, 
-                 activeforeground=WHITE).pack(side=tk.LEFT, padx=5)
-        tk.Button(button_frame, text="Save Arrangement", command=self.save_arrangement,
-                 bg=BUTTON_BLACK, fg=WHITE, activebackground=BUTTON_BLACK,
-                 activeforeground=WHITE).pack(side=tk.LEFT, padx=5)
-        generate_btn = tk.Button(button_frame, text="Generate Composite", command=self.generate_composite,
-                             bg=BUTTON_BLACK, fg=WHITE, activebackground=BUTTON_BLACK,
-                             activeforeground=WHITE)
-        generate_btn.pack(side=tk.LEFT, padx=5)
-        generate_btn.configure(relief=tk.RAISED, borderwidth=2)  # Make the generate button more prominent
         
         # Bind events
         self.canvas.bind("<<ArrangementChanged>>", self.on_arrangement_changed)
@@ -1131,18 +1269,51 @@ class CompositeArrangementUI:
         if not self.triplets:
             messagebox.showerror("Error", "No images to arrange")
             return
-        
         config = self.generate_composite_config()
         target = self.target_entry.get().strip()
         custom_before = self.custom_before_entry.get().strip() if self.use_custom_before.get() else None
         alt_before = self.alt_before_entry.get().strip() if self.use_alternate_before.get() else None
-        
-        output = process_target_folder(target, custom_before, alt_before, composite_config=config)
+        include_originals = self.include_originals.get()
+
+        # Get paddings from UI
+        try:
+            vertical_padding = int(self.vert_pad_var.get())
+        except Exception:
+            vertical_padding = VERTICAL_PADDING
+        try:
+            horizontal_padding = int(self.horiz_pad_var.get())
+        except Exception:
+            horizontal_padding = HORIZONTAL_PADDING
+
+        # If originals are excluded and paddings are still at default, use smaller paddings
+        if not include_originals:
+            if self.vert_pad_var.get() == str(VERTICAL_PADDING):
+                vertical_padding = 4
+                self.vert_pad_var.set(str(vertical_padding))
+            if self.horiz_pad_var.get() == str(HORIZONTAL_PADDING):
+                horizontal_padding = 8
+                self.horiz_pad_var.set(str(horizontal_padding))
+
+        # --- Pass new output options to process_target_folder ---
+        matte_black = self.matte_black_var.get()
+        outer_padding = self.outer_padding_var.get()
+        scale2x = self.scale2x_var.get()
+        try:
+            outer_pad_amt = int(self.outer_pad_amt_var.get())
+        except Exception:
+            outer_pad_amt = 32
+        alternate_spacing = self.alternate_spacing_var.get()
+
+        output = process_target_folder(
+            target, custom_before, alt_before, composite_config=config, include_originals=include_originals,
+            vertical_padding=vertical_padding, horizontal_padding=horizontal_padding,
+            matte_black=matte_black, outer_padding=outer_padding, scale2x=scale2x, outer_pad_amt=outer_pad_amt,
+            alternate_spacing=alternate_spacing
+        )
         if output:
             messagebox.showinfo("Success", f"Composite image created at:\n{output}")
         else:
             messagebox.showerror("Error", "Failed to create composite image")
-
 def main():
     root = tk.Tk()
     app = CompositeArrangementUI(root)

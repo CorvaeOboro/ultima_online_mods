@@ -24,6 +24,9 @@ Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_onlin
 # Items
 ![Items](/ART/00_ART_item_00_comp.png?raw=true "ART")
 
+# Weapons
+![Weapons](/ART/ART_Weapon/00_item_weapon_comp.png?raw=true "ART")
+
 # Spells Alternative
 Chivalry
 

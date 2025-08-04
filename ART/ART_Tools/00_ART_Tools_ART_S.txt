@@ -2,8 +2,6 @@
 0x0E79 item_container_Pouch_0x0E79.bmp
 0x0E21 item_resource_Bandages_0x0E21.bmp
 0x0E8A item_tool_BlowPipe_0x0E8A.bmp
-0x0E82 item_tool_CrookL_0x0E82.bmp
-0x0E81 item_tool_CrookR_0x0E81.bmp
 0x0F51 item_tool_DaggerL_0x0F51.bmp
 0x0F52 item_tool_DaggerR_0x0F52.bmp
 0x0E9C item_tool_Drum_0x0E9C.bmp
@@ -28,11 +26,7 @@
 0x13E4 item_tool_SmithHammerR_0x13E4.bmp
 0x0E9D item_tool_TambourineA_0x0E9D.bmp
 0x0E9E item_tool_TambourineB_0x0E9E.bmp
+0x1EBC item_tool_TinkerTools_0x1EBC.bmp
 0x0FBB item_tool_TongL_0x0FBB.bmp
 0x0FBC item_tool_TongR_0x0FBC.bmp
-0x0F42 item_weapon_ArrowProjectile_0x0F42.bmp
-0x0F3F item_weapon_ArrowSingle_0x0F3F.bmp
-0x0DF0 item_weapon_BlackStaffL_0x0DF0.bmp
-0x0DF1 item_weapon_BlackStaffR_0x0DF1.bmp
-0x1BFE item_weapon_BoltProjectile_0x1BFE.bmp
-0x1BFB item_weapon_BoltSingle_0x1BFB.bmp
+0x1EB8 item_tool_ToolKit_0x1EB8.bmp

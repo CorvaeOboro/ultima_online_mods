@@ -507,6 +507,7 @@
 0xC824 UI\UI_EquipTalisman\ui_equip_talisman_DragonHead_0xC824.bmp
 0xC822 UI\UI_EquipTalisman\ui_equip_talisman_ShieldA_0xC822.bmp
 0xC823 UI\UI_EquipTalisman\ui_equip_talisman_ShieldB_0xC823.bmp
+0xEF33 UI\UI_EquipTalisman\ui_equip_talisman_ShieldC_0xEF33.bmp
 0xC826 UI\UI_EquipTalisman\ui_equip_talisman_Trophy_0xC826.bmp
 0xC825 UI\UI_EquipTalisman\ui_equip_talisman_Winged_0xC825.bmp
 0x014E UI\UI_MainMenu\ui_menu_bg_0x014E.bmp

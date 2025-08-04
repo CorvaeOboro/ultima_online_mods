@@ -17,6 +17,11 @@
 0x1ED1 item_gemRare_SpiritStone_0x1ED1.bmp
 0x1ED2 item_gemRare_SpiritStone_0x1ED2.bmp
 0x3193 item_gemRare_Turquoise_0x3193.bmp
+0x186A item_gemRare_VirtueStoneBlue_0x186A.bmp
+0x186B item_gemRare_VirtueStoneGreen_0x186B.bmp
 0x186C item_gemRare_VirtueStoneOrange_0x186C.bmp
+0x186D item_gemRare_VirtueStonePurple_0x186D.bmp
 0x186E item_gemRare_VirtueStoneRed_0x186E.bmp
+0x186F item_gemRare_VirtueStoneWhite_0x186F.bmp
+0x1870 item_gemRare_VirtueStoneYellow_0x1870.bmp
 0x3196 item_gemRare_WhitePearl_0x3196.bmp

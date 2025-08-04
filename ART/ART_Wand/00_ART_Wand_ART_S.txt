@@ -1,0 +1,9 @@
+0x0DF2 item_wand_WandA_0x0DF2.bmp
+0x0DF5 item_wand_WandD_0x0DF5.bmp
+0x5010 item_wand_WandFireball_0x5010.bmp
+0x500F item_wand_WandGreaterHeal_0x500F.bmp
+0x0DF3 item_wand_WandHarm_0x0DF3.bmp
+0x0DF4 item_wand_WandHeal_0x0DF4.bmp
+0x5011 item_wand_WandLightning_0x5011.bmp
+0x500E item_wand_WandManaDrain_0x500E.bmp
+0x26BC item_wand_WandTribal_0x26BC.bmp

@@ -1,2 +1,0 @@
-python 00_psd_reconstruct.py
-pause

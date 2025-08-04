@@ -1,4 +1,6 @@
 <MassImport>
+  <item index="29103" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Ankh_0x71AF.bmp" remove="False" />
+  <item index="49344" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Bard_0xC0C0.bmp" remove="False" />
   <item index="9100" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Bushido_0x238C.bmp" remove="False" />
   <item index="8786" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Chivalry_0x2252.bmp" remove="False" />
   <item index="3834" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Magery_0x0EFA.bmp" remove="False" />
@@ -8,4 +10,6 @@
   <item index="9120" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Ninjitsu_0x23A0.bmp" remove="False" />
   <item index="39958" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_RunicAtlas_0x9C16.bmp" remove="False" />
   <item index="11600" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_SpellWeaving_0x2D50.bmp" remove="False" />
+  <item index="8788" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Sword_0x2254.bmp" remove="False" />
+  <item index="49345" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Book\item_book_Weapon_0xC0C1.bmp" remove="False" />
 </MassImport>
