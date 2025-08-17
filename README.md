@@ -128,21 +128,29 @@ Dark Frame
 
 https://github.com/user-attachments/assets/e8cc7671-414f-475d-8246-ace18b2a2cf1
 
-## Install using UOFiddler
-- using [UOFiddler](https://github.com/polserver/UOFiddler)
+## Setting up UOFiddler
+- download the latest release of [UOFiddler](https://github.com/polserver/UOFiddler)
 - Settings > Path Settings > paste your Ultima folder path then click "Reload paths" ( list should populate with .mul .idx and .uop files )
 - Setting > Options > Output Path > set to a new local OUTPUT folder ( this is where the mul and uop will output )
-- Plugins > Manage > turn on MassImportPlugin ( restart uofiddler if needed )
+- Plugins > Manage > turn on MassImportPlugin
+- Plugins > Manage > turn on UOPpacker  
+
+## Patching using UOFiddler
+- the ultima_online_mods folder contains a 00_ART_MODS_MassImport.xml file , ( this xml is a list of item ids and where the modded art files are located ) , edit the filepaths in the XML with "replace all" to match your own , or create a custom XML file using the [00_mod_selector.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py) tool
 - Plugins > MassImport > Load XML > select the xml file in downloaded MOD folder 00_ART_MODS_MassImport.xml ( loads replacement art files)
 - checkbox ON "DirectSave" , click "Start" ( may take 1 minute )
 - the OUTPUT folder now contains the modded .mul files 
-- if your Ultima uses UOP files ( search for artLegacyMUL.uop ) , then in UOFiddler there is a UOP Packer tab
-- UOP Packer > paste the OUTPUT folder path that contains the modded .mul files > turn ON "Pack MUL to UOP" > Start 
-- close UOFiddler , then copy the .mul .idx and .uop files in the OUTPUT folder into your Ultima folder , overwriting
+- UOFiddler Tabs >UOP Packer > paste the OUTPUT folder path that contains the modded .mul files > turn ON "Pack MUL to UOP" > Start 
+- close UOFiddler , then copy the .mul , .idx , and .uop files , in the OUTPUT folder into your Ultima folder , overwriting
 - Install is complete , play Ultima Online
+- if your shard updates , then patch using their updater ( verify ), and repeat the MassImport process using UOFiddler  after
 
-## or Install using Varan Mulpatcher 
-- alternatively can install using [Mulpatcher]( http://varan.uodev.de/ ) [Alternate Download]( https://downloads.runuo.net/Mul/Mulpatcher.zip ) 
+## Patching Troubleshooting 
+- if Terrain textures are incorrect in-game showing mismatch random texture = this is typically a shard patch update applied on top of the modded , mod textures should be applied by MassImport AFTER updating to your shards latest
+- if MassImport crashes/freezes ( longer then 2min ) = the source .mul may be corrupted , restore backup .mul files or remove them and verify your shards latest patch ( so it downloads unmodded versions ) . this may happen after patching latest in a shard updater 
+
+## or OLD Install using Varan Mulpatcher 
+- alternatively can install using [Mulpatcher]( http://varan.uodev.de/ ) [Alternate Download]( https://downloads.runuo.net/Mul/Mulpatcher.zip ) , this is an older method , may run out of memory 
 - Settings > Art > set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .
 - Features > Autopatch > select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  > hit START . 
 - Repeat Autopatch process for the following mod txt files :
