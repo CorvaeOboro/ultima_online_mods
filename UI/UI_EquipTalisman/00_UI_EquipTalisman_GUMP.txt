@@ -1,5 +1,6 @@
 0xC824 ui_equip_talisman_DragonHead_0xC824.bmp
 0xC822 ui_equip_talisman_ShieldA_0xC822.bmp
 0xC823 ui_equip_talisman_ShieldB_0xC823.bmp
+0xEF33 ui_equip_talisman_ShieldC_0xEF33.bmp
 0xC826 ui_equip_talisman_Trophy_0xC826.bmp
 0xC825 ui_equip_talisman_Winged_0xC825.bmp

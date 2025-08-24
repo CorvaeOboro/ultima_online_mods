@@ -10,7 +10,6 @@
 0x0F21 ART\ART_Gems\item_gem_StarSapphire_0x0F21.bmp
 0x0F18 ART\ART_Gems\item_gem_Tourlamine_0x0F18.bmp
 0x0F2D ART\ART_Gems\item_gem_Tourlamine_0x0F2D.bmp
-0x0000 ART\ART_Potions\item_potion_00_0x0000.bmp
 0x0F06 ART\ART_Potions\item_potion_Black_0x0F06.bmp
 0x0F08 ART\ART_Potions\item_potion_Blue_0x0F08.bmp
 0x0F0E ART\ART_Potions\item_potion_Empty_0x0F0E.bmp
@@ -371,6 +370,13 @@
 0x5011 ART\ART_Wand\item_wand_WandLightning_0x5011.bmp
 0x500E ART\ART_Wand\item_wand_WandManaDrain_0x500E.bmp
 0x26BC ART\ART_Wand\item_wand_WandTribal_0x26BC.bmp
+0xA7AD ART\ART_Eggs\item_egg_Large_0xA7AD.bmp
+0xA7AC ART\ART_Eggs\item_egg_Medium_0xA7AC.bmp
+0xA7A9 ART\ART_Eggs\item_egg_NestEmpty_0xA7A9.bmp
+0xA7A8 ART\ART_Eggs\item_egg_NestThree_0xA7A8.bmp
+0xA7AB ART\ART_Eggs\item_egg_Small_0xA7AB.bmp
+0x10D9 ART\ART_Eggs\item_egg_SpiderWeb_0x10D9.bmp
+0xA7AA ART\ART_Eggs\item_egg_Three_0xA7AA.bmp
 0xB9D0 ART\ART_IconMastery\item_icon_47568_mushroom_0xB9D0.bmp
 0xB9D1 ART\ART_IconMastery\item_icon_47569_SummonFey_0xB9D1.bmp
 0xB9D2 ART\ART_IconMastery\item_icon_47570_bear_0xB9D2.bmp

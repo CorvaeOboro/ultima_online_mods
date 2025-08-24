@@ -371,6 +371,13 @@
   <item index="20497" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandLightning_0x5011.bmp" remove="False" />
   <item index="20494" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandManaDrain_0x500E.bmp" remove="False" />
   <item index="9916" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Wand\item_wand_WandTribal_0x26BC.bmp" remove="False" />
+  <item index="42925" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Large_0xA7AD.bmp" remove="False" />
+  <item index="42924" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Medium_0xA7AC.bmp" remove="False" />
+  <item index="42921" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_NestEmpty_0xA7A9.bmp" remove="False" />
+  <item index="42920" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_NestThree_0xA7A8.bmp" remove="False" />
+  <item index="42923" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Small_0xA7AB.bmp" remove="False" />
+  <item index="4313" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_SpiderWeb_0x10D9.bmp" remove="False" />
+  <item index="42922" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Three_0xA7AA.bmp" remove="False" />
   <item index="47568" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47568_mushroom_0xB9D0.bmp" remove="False" />
   <item index="47569" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47569_SummonFey_0xB9D1.bmp" remove="False" />
   <item index="47570" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_IconMastery\item_icon_47570_bear_0xB9D2.bmp" remove="False" />
@@ -881,7 +888,7 @@
   <gump index="50549" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipSlots\ui_equip_LegsRingmailM_0xC575.bmp" remove="False" />
   <gump index="60522" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipSlots\ui_equip_LegsStuddedF_0xEC6A.bmp" remove="False" />
   <gump index="50522" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipSlots\ui_equip_LegsStuddedM_0xC55A.bmp" remove="False" />
-  <gump index="10860" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkStatsLong\ui_scroll_stats_long_0x2A6C.bmp" remove="False" />
+  <gump index="10860" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkStatsMedium\ui_scroll_stats_medium_0x2A6C.bmp" remove="False" />
   <gump index="2086" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkScrolls\ui_scroll_arrow_down_0x0826.bmp" remove="False" />
   <gump index="2437" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkScrolls\ui_scroll_arrow_down_0x0985.bmp" remove="False" />
   <gump index="2438" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_DarkScrolls\ui_scroll_arrow_down_0x0986.bmp" remove="False" />

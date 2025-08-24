@@ -1,4 +1,3 @@
-0x0000 item_potion_00_0x0000.bmp
 0x0F06 item_potion_Black_0x0F06.bmp
 0x0F08 item_potion_Blue_0x0F08.bmp
 0x0F0E item_potion_Empty_0x0F0E.bmp

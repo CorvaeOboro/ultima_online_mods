@@ -396,7 +396,7 @@
 0xC575 UI\UI_EquipSlots\ui_equip_LegsRingmailM_0xC575.bmp
 0xEC6A UI\UI_EquipSlots\ui_equip_LegsStuddedF_0xEC6A.bmp
 0xC55A UI\UI_EquipSlots\ui_equip_LegsStuddedM_0xC55A.bmp
-0x2A6C UI\UI_DarkStatsLong\ui_scroll_stats_long_0x2A6C.bmp
+0x2A6C UI\UI_DarkStatsMedium\ui_scroll_stats_medium_0x2A6C.bmp
 0x0826 UI\UI_DarkScrolls\ui_scroll_arrow_down_0x0826.bmp
 0x0985 UI\UI_DarkScrolls\ui_scroll_arrow_down_0x0985.bmp
 0x0986 UI\UI_DarkScrolls\ui_scroll_arrow_down_0x0986.bmp

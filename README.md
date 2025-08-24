@@ -148,6 +148,7 @@ https://github.com/user-attachments/assets/e8cc7671-414f-475d-8246-ace18b2a2cf1
 ## Patching Troubleshooting 
 - if Terrain textures are incorrect in-game showing mismatch random texture = this is typically a shard patch update applied on top of the modded , mod textures should be applied by MassImport AFTER updating to your shards latest
 - if MassImport crashes/freezes ( longer then 2min ) = the source .mul may be corrupted , restore backup .mul files or remove them and verify your shards latest patch ( so it downloads unmodded versions ) . this may happen after patching latest in a shard updater 
+- if after a Shard Update the client crashes with "System.OutOfMemoryException: Array dimensions exceeded supported range." referencing the ArtLoader. this is likely a failed diff update , delete the .mul or .uop files in the client directly that were recently updated , then verify again with your shard's launcher to download a fresh copy. test that the client loads , then may MassImport ontop using UOFiddler
 
 ## or OLD Install using Varan Mulpatcher 
 - alternatively can install using [Mulpatcher]( http://varan.uodev.de/ ) [Alternate Download]( https://downloads.runuo.net/Mul/Mulpatcher.zip ) , this is an older method , may run out of memory 

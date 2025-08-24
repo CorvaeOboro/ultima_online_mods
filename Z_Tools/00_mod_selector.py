@@ -178,6 +178,13 @@ GROUPS_LEFT = {
             "Wand": {"path": ".././ART/ART_Wand", "default_state": True}
         }
     },
+    "Eggs": {
+        "images": [".././ART/ART_Eggs/00_item_egg_render.png"],
+        "layout": "right",
+        "subgroups": {
+            "Eggs": {"path": ".././ART/ART_Eggs", "default_state": True}
+        }
+    },
     "IconMastery": {
         "images": [".././UI/UI_Spellsmastery/00_ui_spell_mastery_comp.png"],
         "layout": "right",
@@ -281,7 +288,14 @@ GROUPS_MIDDLE = {
         "layout": "below",
         "subgroups": {
             "Dark Stats": {"path": ".././UI/UI_DarkStats", "default_state": False},
-            "Dark Stats Long": {"path": ".././UI/UI_DarkStatsLong", "default_state": True},
+            "Dark Stats Long": {"path": ".././UI/UI_DarkStatsLong", "default_state": False},
+            "Dark Stats Medium": {"path": ".././UI/UI_DarkStatsMedium", "default_state": True}
+        }
+    },
+    "Dark Scrolls": {
+        "images": [".././UI/UI_DarkScrolls/00_dark_scrolls_comp_wide.jpg"],
+        "layout": "below",
+        "subgroups": {
             "Dark Scrolls": {"path": ".././UI/UI_DarkScrolls", "default_state": True}
         }
     },
@@ -352,7 +366,7 @@ GROUPS_MIDDLE = {
         "subgroups": {
             "Eldritch Magic": {"path": ".././UI/UI_MagicSpells_Eldritch", "default_state": False}
         }
-    },
+    }
 }
 
 # ENV

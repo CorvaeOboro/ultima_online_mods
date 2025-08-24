@@ -2,6 +2,7 @@
   <gump index="51236" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_DragonHead_0xC824.bmp" remove="False" />
   <gump index="51234" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_ShieldA_0xC822.bmp" remove="False" />
   <gump index="51235" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_ShieldB_0xC823.bmp" remove="False" />
+  <gump index="61235" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_ShieldC_0xEF33.bmp" remove="False" />
   <gump index="51238" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_Trophy_0xC826.bmp" remove="False" />
   <gump index="51237" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_EquipTalisman\ui_equip_talisman_Winged_0xC825.bmp" remove="False" />
 </MassImport>
