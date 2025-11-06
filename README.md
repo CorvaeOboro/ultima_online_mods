@@ -27,7 +27,33 @@ Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_onlin
 # Weapons
 ![Weapons](/ART/ART_Weapon/00_item_weapon_comp.png?raw=true "ART")
 
-# Spells Alternative
+# Arch Stone
+- an archway of the avatar crafted from stone
+
+![Arch Stone Multi](/UI/UI_ArchStone_Multi/00_ui_archstone_multi_equipslots_comp.png?raw=true "Arch Stone Multi")
+
+# Stats
+Dark Stats 
+
+<img src="/UI/UI_DarkStats/00_ui_scroll_stats_render.png">
+Dark Stats Medium
+
+<img src="/UI/UI_DarkStatsMedium/00_ui_scroll_stats_medium.png">
+Dark Stats Long
+
+<img src="/UI/UI_DarkStatsLong/00_ui_scroll_stats_long_render.png">
+
+# Magic Scrolls
+![Magic Scrolls Backpack](/ART/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
+- Aims to quickly convey the use and importance of certain scrolls .
+- Simpler scroll with ribbon colourized by harmful \ beneficial \ utility . 
+- Low circle spell scrolls are desaturated and rough looking in contrast to higher 6+ circle spells glowing and resembling the spell they contain .
+- Useful spell scrolls like Recall are shown glowing and easily distinguishable even when they are lower circle .
+- [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ART/ART_MagicScrolls#complete-list)
+
+![Magic Scrolls](/ART/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
+
+# Spells Additional
 Chivalry
 
 <img src="/UI/UI_SpellsChivalry/00_ui_spells_chivalry_comp.png?raw=true"  />
@@ -56,32 +82,12 @@ Eldritch Magic
 
 <img src="/UI/UI_MagicSpells_Eldritch/ui_spell_comp_eldritch_magic.jpg">
 
-# Magic Scrolls
-![Magic Scrolls Backpack](/ART/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
-- Aims to quickly convey the use and importance of certain scrolls .
-- Simpler scroll with ribbon colourized by harmful \ beneficial \ utility . 
-- Low circle spell scrolls are desaturated and rough looking in contrast to higher 6+ circle spells glowing and resembling the spell they contain .
-- Useful spell scrolls like Recall are shown glowing and easily distinguishable even when they are lower circle .
-- [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ART/ART_MagicScrolls#complete-list)
-
-![Magic Scrolls](/ART/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
-
 # Dark Scrolls
 - ui enchanted with dark magic
 
 ![Dark Scrolls](/UI/UI_DarkScrolls/00_dark_scrolls_comp_01.jpg?raw=true "Dark Scrolls")
 
-# Arch Stone
-- an archway of the avatar crafted from stone
-
-![Arch Stone](/UI/UI_ArchStone/ui_archstone_backpack_comp.jpg?raw=true "Arch Stone")
-
-![Arch Stone Multi](/UI/UI_ArchStone_Multi/00_ui_archstone_multi_equipslots_comp.png?raw=true "Arch Stone Multi")
-
 # Dark UI
-Dark Stats
-
-<img src="/UI/UI_DarkStatsLong/00_ui_scroll_stats_long_render.png">
 Dark Book
 
 <img src="/UI/UI_DarkBook/00_ui_dark_book_comp.png">
