@@ -12,7 +12,7 @@ ART/ART_Food/Upscale/item_food_apple/gen/01/apple_gen_a.png     # generated imag
 
 ITEMs can be determined by finding any bmp psd pair in the base folder or png psd pair in upscale folder , if one but not the other exists show the available preview image with a special color coded border around it 
 
-for each ITEM it will be displayed with 
+for each ITEM it will be displayed with =
 a button to open psd with photoshop ,
 a button to open file explorer to the location 
 a button to open file explorer to the location to its gen 01 folder ( the best selected generated images )
@@ -22,7 +22,7 @@ TODO:
 hover over item to display the full path  in upper right of up , 
 optionally the display of only items that contain a suffix using hex id as a  filter , example item_apple_0x0294.png the 0x indicates hexidecimal id .
 
-
+VERSION::20251129
 """
 
 import os
@@ -253,6 +253,9 @@ class ImageDashboard:
         self.show_names = BooleanVar(value=True)
         self.show_upscale = BooleanVar(value=True)  # New: toggle for upscale/original
         self.sort_outdated_first = BooleanVar(value=False)  # Toggle to sort items needing merge to top
+        self.spreadsheet_mode = BooleanVar(value=False)  # Toggle for spreadsheet view mode
+        self.hide_approved = BooleanVar(value=False)  # Toggle to hide approved items
+        self.preview_base_bmp = BooleanVar(value=False)  # Toggle to show base BMP instead of upscale PNG
 
         # Background preview generation
         self.preview_task_queue: Queue = Queue()
@@ -264,6 +267,8 @@ class ImageDashboard:
         # Map item key to widgets to enable lightweight updates without full redraw
         # key = (category, group, name)
         self.item_widgets = {}
+        # Spreadsheet mode: map item key to (approved_label, approve_button)
+        self.spreadsheet_widgets = {}
 
         # Top bar container (frozen area): holds controls and filter bar
         top_bar = Frame(root, bg=DARK_GRAY)
@@ -314,6 +319,33 @@ class ImageDashboard:
             bg=DARK_GRAY, fg=WHITE, selectcolor=ACCENT,
             activebackground=DARK_GRAY, activeforeground=WHITE
         ).pack(side=LEFT, padx=8, pady=4)
+        # Spreadsheet mode toggle
+        Checkbutton(
+            controls,
+            text="Spreadsheet Mode",
+            variable=self.spreadsheet_mode,
+            command=self.redraw_items,
+            bg=DARK_GRAY, fg=WHITE, selectcolor=ACCENT,
+            activebackground=DARK_GRAY, activeforeground=WHITE
+        ).pack(side=LEFT, padx=8, pady=4)
+        # Hide approved items toggle
+        Checkbutton(
+            controls,
+            text="Hide Approved",
+            variable=self.hide_approved,
+            command=self.redraw_items,
+            bg=DARK_GRAY, fg=WHITE, selectcolor=ACCENT,
+            activebackground=DARK_GRAY, activeforeground=WHITE
+        ).pack(side=LEFT, padx=8, pady=4)
+        # Preview base BMP toggle
+        Checkbutton(
+            controls,
+            text="Preview Base BMP",
+            variable=self.preview_base_bmp,
+            command=self.redraw_items,
+            bg=DARK_GRAY, fg=WHITE, selectcolor=ACCENT,
+            activebackground=DARK_GRAY, activeforeground=WHITE
+        ).pack(side=LEFT, padx=8, pady=4)
 
         # --- Filter bar (frozen at top): parent row + group row ---
         # Excluded sets; buttons toggle membership
@@ -343,6 +375,10 @@ class ImageDashboard:
         self.group_button_order = []  # preserve order for wrapping
         self.build_category_filters()
 
+        # Frozen spreadsheet header (only visible in spreadsheet mode)
+        self.spreadsheet_header_frame = Frame(root, bg=LIGHTER_GRAY)
+        # Don't pack it yet - will be shown/hidden based on mode
+        
         # Scrollable content container
         content = Frame(root, bg=DARKER_GRAY)
         content.pack(side=TOP, fill=BOTH, expand=True)
@@ -581,6 +617,166 @@ class ImageDashboard:
         )
         mb.showinfo("Project Info", info_text)
 
+    def draw_spreadsheet_view(self):
+        """Render items in a spreadsheet/table format showing name, group, and status properties."""
+        # Show frozen header frame
+        self.spreadsheet_header_frame.pack(side=TOP, fill=X, padx=0, pady=0, after=self.group_filter_frame.master)
+        
+        # Clear and rebuild frozen header
+        for widget in self.spreadsheet_header_frame.winfo_children():
+            widget.destroy()
+        
+        # Filter items based on approval status
+        filtered_items = self.items
+        if self.hide_approved.get():
+            filtered_items = [item for item in self.items if self.read_item_metadata(item).get('APPROVED', 'False') != 'True']
+        
+        # Sort items
+        if self.sort_outdated_first.get():
+            def needs_merge_key(it):
+                return (not self.item_needs_merge(it), it['group'], it['name'])
+            sorted_items = sorted(filtered_items, key=needs_merge_key)
+        else:
+            sorted_items = sorted(filtered_items, key=lambda x: (x['group'], x['name']))
+        
+        # Calculate optimal column widths based on content
+        headers = ["Item Name", "Group", "Category", "UP_PNG", "UP_PSD", "BASE_BMP", "BASE_PSD", "GEN01", "Needs Merge", "Approved", "Actions"]
+        
+        # Start with header lengths
+        col_widths = [len(h) for h in headers]
+        
+        # Sample items to find max widths (limit to first 100 for performance)
+        sample_items = sorted_items[:min(100, len(sorted_items))]
+        for item in sample_items:
+            col_widths[0] = max(col_widths[0], len(item.get('name', '')))
+            col_widths[1] = max(col_widths[1], len(item.get('group', '')))
+            col_widths[2] = max(col_widths[2], len(item.get('category', '')))
+        
+        # Fixed widths for status columns (just need space for block characters)
+        col_widths[3] = 8   # UP_PNG
+        col_widths[4] = 8   # UP_PSD
+        col_widths[5] = 10  # BASE_BMP
+        col_widths[6] = 10  # BASE_PSD
+        col_widths[7] = 8   # GEN01
+        col_widths[8] = 12  # Needs Merge
+        col_widths[9] = 10  # Approved
+        col_widths[10] = 10 # Actions
+        
+        # Create header labels
+        for col_idx, (header, width) in enumerate(zip(headers, col_widths)):
+            Label(
+                self.spreadsheet_header_frame,
+                text=header,
+                bg=LIGHTER_GRAY,
+                fg=WHITE,
+                font=("Segoe UI", 9, "bold"),
+                anchor="w",
+                width=width,
+                padx=4
+            ).grid(row=0, column=col_idx, sticky="w", padx=2, pady=4)
+        
+        # Create data rows (no header row in scrollable area now)
+        for row_idx, item in enumerate(sorted_items, start=0):
+            status = self.get_item_status_properties(item)
+            
+            row_frame = Frame(self.frame, bg=DARKER_GRAY, relief=FLAT, bd=1)
+            row_frame.grid(row=row_idx, column=0, sticky="ew", padx=2, pady=1)
+            
+            # Alternate row colors for readability
+            row_bg = DARKER_GRAY if row_idx % 2 == 0 else DARK_GRAY
+            row_frame.configure(bg=row_bg)
+            
+            # Item name
+            Label(
+                row_frame,
+                text=item['name'],
+                bg=row_bg,
+                fg=WHITE,
+                font=("Segoe UI", 8),
+                anchor="w",
+                width=col_widths[0],
+                padx=4
+            ).grid(row=0, column=0, sticky="w", padx=2)
+            
+            # Group
+            Label(
+                row_frame,
+                text=item['group'],
+                bg=row_bg,
+                fg=WHITE,
+                font=("Segoe UI", 8),
+                anchor="w",
+                width=col_widths[1],
+                padx=4
+            ).grid(row=0, column=1, sticky="w", padx=2)
+            
+            # Category
+            Label(
+                row_frame,
+                text=item['category'],
+                bg=row_bg,
+                fg=WHITE,
+                font=("Segoe UI", 8),
+                anchor="w",
+                width=col_widths[2],
+                padx=4
+            ).grid(row=0, column=2, sticky="w", padx=2)
+            
+            # Status columns (colored unicode blocks - much more efficient!)
+            status_keys = ['has_up_png', 'has_up_psd', 'has_base_bmp', 'has_base_psd', 'has_gen01', 'needs_merge']
+            for col_idx, key in enumerate(status_keys, start=3):
+                value = status.get(key, False)
+                block_color = "#5fa077" if value else "#d19a66"
+                # Use unicode block character instead of Frame widget
+                Label(
+                    row_frame,
+                    text="█████",  # Unicode full block character repeated
+                    bg=row_bg,
+                    fg=block_color,
+                    font=("Segoe UI", 10),
+                    anchor="center",
+                    width=col_widths[col_idx]
+                ).grid(row=0, column=col_idx, sticky="w", padx=2)
+            
+            # Approved status
+            approved_text = status.get('approved', 'False')
+            approved_color = "#5fa077" if approved_text == "True" else WHITE
+            approved_label = Label(
+                row_frame,
+                text=approved_text,
+                bg=row_bg,
+                fg=approved_color,
+                font=("Segoe UI", 8),
+                anchor="center",
+                width=col_widths[9]
+            )
+            approved_label.grid(row=0, column=9, sticky="w", padx=2)
+            
+            # Actions: Approve button (directly in grid, no container)
+            approve_btn = Button(
+                row_frame,
+                text="Approve",
+                command=lambda it=item: self.approve_item(it),
+                bg=ACCENT,
+                fg=WHITE,
+                font=("Segoe UI", 7),
+                relief=FLAT,
+                padx=6,
+                pady=2,
+                activebackground=WHITE,
+                activeforeground=ACCENT,
+                width=8  # Character width for button
+            )
+            approve_btn.grid(row=0, column=10, sticky="w", padx=4)
+            
+            # Store widget references for fast updates
+            item_key = (item.get('category'), item.get('group'), item.get('name'))
+            self.spreadsheet_widgets[item_key] = {
+                'approved_label': approved_label,
+                'approve_button': approve_btn,
+                'row_bg': row_bg
+            }
+
     def redraw_items(self):
         # Remove all widgets in frame
         for widget in self.frame.winfo_children():
@@ -588,10 +784,19 @@ class ImageDashboard:
         # Reset thumbnails to allow GC of old images
         self.thumbs = []
         self.item_widgets = {}
+        self.spreadsheet_widgets = {}
         # Start batched rendering
         self.draw_items()
 
     def draw_items(self):
+        # Check if spreadsheet mode is enabled
+        if self.spreadsheet_mode.get():
+            self.draw_spreadsheet_view()
+            return
+        
+        # Hide frozen header in normal mode
+        self.spreadsheet_header_frame.pack_forget()
+        
         # Prepare render state
         try:
             self._thumb_width = int(self.max_width_var.get()) if hasattr(self, 'max_width_var') else THUMB_SIZE[0]
@@ -600,13 +805,17 @@ class ImageDashboard:
         self._thumb_height = int(self._thumb_width * 108 / 192)
         self._BUTTON_WIDTH = 48
         self._COLUMNS_PER_ROW = 8
+        # Filter items based on approval status
+        filtered_items = self.items
+        if self.hide_approved.get():
+            filtered_items = [item for item in self.items if self.read_item_metadata(item).get('APPROVED', 'False') != 'True']
         # Sorting
         if self.sort_outdated_first.get():
             def needs_merge_key(it):
                 return (not self.item_needs_merge(it), it['group'], it['name'])
-            self._render_sorted_items = sorted(self.items, key=needs_merge_key)
+            self._render_sorted_items = sorted(filtered_items, key=needs_merge_key)
         else:
-            self._render_sorted_items = sorted(self.items, key=lambda x: (x['group'], x['name']))
+            self._render_sorted_items = sorted(filtered_items, key=lambda x: (x['group'], x['name']))
         # Layout state
         self._render_idx = 0
         self._render_last_group = None
@@ -690,6 +899,31 @@ class ImageDashboard:
                     )
                     upscale_btn.pack(side=TOP, fill=X, pady=(2,2))
                     Frame(btn_frame, height=4, bg=DARKER_GRAY).pack(side=TOP, fill=X, pady=(0,2))
+                
+                # Approve button - color-coded based on approval status
+                metadata = self.read_item_metadata(item)
+                is_approved = metadata.get('APPROVED', 'False') == 'True'
+                approve_btn_color = "#5fa077" if is_approved else "#d19a66"
+                approve_btn = Button(
+                    btn_frame,
+                    text="Approve",
+                    command=lambda it=item: self.approve_item(it),
+                    font=("Segoe UI", 7),
+                    width=6,
+                    padx=0,
+                    pady=0,
+                    bg=approve_btn_color,
+                    fg=WHITE,
+                    relief=FLAT,
+                    bd=0,
+                    highlightthickness=0,
+                    activebackground=WHITE,
+                    activeforeground=approve_btn_color,
+                    anchor="w",
+                    height=1
+                )
+                approve_btn.pack(side=TOP, fill=X, pady=(2,2))
+                
                 if self.show_names.get():
                     Label(btn_frame, text=item["name"], bg=DARKER_GRAY, fg=WHITE, font=("Segoe UI", 8), anchor="w", wraplength=self._BUTTON_WIDTH-2, justify=LEFT).pack(side=TOP, fill=X, pady=(0,2))
 
@@ -704,6 +938,7 @@ class ImageDashboard:
                     key = (item.get("category"), item.get("group"), item.get("name"))
                     self.item_widgets[key] = {
                         "upscale_btn": upscale_btn,
+                        "approve_btn": approve_btn,
                         "btn_frame": btn_frame,
                     }
                 except Exception:
@@ -781,6 +1016,7 @@ class ImageDashboard:
         """
         Determine the appropriate source for preview (prefer Upscale PNG, else base BMP, else base PSD),
         then ensure a cached PNG exists and return its path.
+        Respects the preview_base_bmp toggle to show base BMP instead of upscale PNG.
         """
         try:
             group_folder = Path(item.get("folder", ""))
@@ -790,6 +1026,10 @@ class ImageDashboard:
             base_bmp = group_folder / f"{item_name}.bmp"
             base_psd = Path(item.get("psd", ""))
 
+            # Check if user wants to preview base BMP instead of upscale PNG
+            if self.preview_base_bmp.get() and base_bmp.exists():
+                return str(self._ensure_preview_cached(base_bmp))
+            
             if up_png.exists():
                 return str(self._ensure_preview_cached(up_png))
             if base_bmp.exists():
@@ -864,6 +1104,135 @@ class ImageDashboard:
             return latest_gen > psd_mtime
         except Exception:
             return False
+
+    def get_item_metadata_path(self, item) -> Path | None:
+        """Return the Path to the metadata .md file for this item in its ITEM subfolder."""
+        try:
+            group_folder = Path(item["folder"]) if item.get("folder") else None
+            if not group_folder:
+                return None
+            # Path: Upscale/<item_name>/<item_name>.md
+            upscale_folder = group_folder / "Upscale"
+            item_subfolder = upscale_folder / item['name']
+            return item_subfolder / f"{item['name']}.md"
+        except Exception:
+            return None
+
+    def read_item_metadata(self, item) -> dict:
+        """Read Obsidian dataview metadata from the item's .md file. Returns dict of key:value pairs."""
+        metadata = {}
+        try:
+            md_path = self.get_item_metadata_path(item)
+            if not md_path or not md_path.exists():
+                return metadata
+            with open(md_path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    # Parse Obsidian dataview format: KEY::VALUE
+                    if '::' in line:
+                        key, value = line.split('::', 1)
+                        metadata[key.strip()] = value.strip()
+        except Exception as e:
+            dprint(f"[ReadMetadata][ERROR] {e}")
+        return metadata
+
+    def write_item_metadata(self, item, key: str, value: str):
+        """
+        Write or update a metadata key in the item's .md file.
+        Preserves existing content and updates the key if it exists, or appends if new.
+        """
+        try:
+            md_path = self.get_item_metadata_path(item)
+            if not md_path:
+                return
+            
+            # Ensure ITEM subfolder exists (Upscale/<item_name>/)
+            md_path.parent.mkdir(parents=True, exist_ok=True)
+            
+            # Read existing content
+            existing_lines = []
+            key_found = False
+            if md_path.exists():
+                with open(md_path, 'r', encoding='utf-8') as f:
+                    existing_lines = f.readlines()
+            
+            # Update or append the key
+            new_lines = []
+            for line in existing_lines:
+                if '::' in line:
+                    existing_key = line.split('::', 1)[0].strip()
+                    if existing_key == key:
+                        new_lines.append(f"{key}::{value}\n")
+                        key_found = True
+                    else:
+                        new_lines.append(line)
+                else:
+                    new_lines.append(line)
+            
+            # If key wasn't found, append it
+            if not key_found:
+                new_lines.append(f"{key}::{value}\n")
+            
+            # Write back to file
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.writelines(new_lines)
+            
+            dprint(f"[WriteMetadata] Updated {md_path}: {key}::{value}")
+        except Exception as e:
+            dprint(f"[WriteMetadata][ERROR] {e}")
+
+    def get_item_status_properties(self, item) -> dict:
+        """Get status properties for an item including file existence and approval status."""
+        status = {
+            'has_up_png': item.get("has_up_png", False),
+            'has_up_psd': item.get("has_up_psd", False),
+            'has_base_bmp': item.get("has_base_bmp", False),
+            'has_base_psd': item.get("has_base_psd", False),
+            'has_gen01': self.folder_has_files(item.get("gen_folder", "")),
+            'needs_merge': self.item_needs_merge(item),
+        }
+        # Read approval status from metadata
+        metadata = self.read_item_metadata(item)
+        status['approved'] = metadata.get('APPROVED', 'False')
+        return status
+
+    def approve_item(self, item):
+        """Mark an item as approved by writing APPROVED::True to its metadata file."""
+        self.write_item_metadata(item, 'APPROVED', 'True')
+        
+        # Optimized update: only refresh the specific widget (works in both modes!)
+        self.update_approval_display(item)
+    
+    def update_approval_display(self, item):
+        """Update only the approval display for a specific item (works in both modes)."""
+        try:
+            item_key = (item.get('category'), item.get('group'), item.get('name'))
+            
+            if self.spreadsheet_mode.get():
+                # Spreadsheet mode: update the label
+                widgets = self.spreadsheet_widgets.get(item_key)
+                if not widgets:
+                    return
+                
+                approved_label = widgets.get('approved_label')
+                if approved_label:
+                    approved_label.config(text='True', fg='#5fa077')
+            else:
+                # Normal mode: update the button color
+                widgets = self.item_widgets.get(item_key)
+                if not widgets:
+                    return
+                
+                approve_btn = widgets.get('approve_btn')
+                if approve_btn:
+                    # Change button from red/orange to green
+                    approve_btn.config(
+                        bg='#5fa077',
+                        activeforeground='#5fa077'
+                    )
+            
+        except Exception as e:
+            dprint(f"[UpdateApprovalDisplay][ERROR] {e}")
 
     def create_upscale_psd(self, base_psd_path: str, item_name: str, group_folder_path: str):
         """
