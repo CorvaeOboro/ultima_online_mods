@@ -13,6 +13,7 @@
   <item index="22328" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CrystalShards_0x5738.bmp" remove="False" />
   <item index="8776" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_CrystalShattered_0x2248.bmp" remove="False" />
   <item index="22305" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_DaemonClaw_0x5721.bmp" remove="False" />
+  <item index="16503" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_DragonBlood_0x4077.bmp" remove="False" />
   <item index="9908" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_DragonScale_0x26B4.bmp" remove="False" />
   <item index="12591" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_EarHuman_0x312F.bmp" remove="False" />
   <item index="12592" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_EarHuman_0x3130.bmp" remove="False" />
@@ -26,6 +27,7 @@
   <item index="12689" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_FungusLuminescent_0x3191.bmp" remove="False" />
   <item index="29012" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_FungusMana_0x7154.bmp" remove="False" />
   <item index="9911" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_FungusZoogi_0x26B7.bmp" remove="False" />
+  <item index="4179" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_Gears_0x1053.bmp" remove="False" />
   <item index="6880" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_GelatinousSkull_0x1AE0.bmp" remove="False" />
   <item index="22316" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_GoblinBlood_0x572C.bmp" remove="False" />
   <item index="6009" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_Granite_0x1779.bmp" remove="False" />
@@ -33,8 +35,10 @@
   <item index="4217" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_hide_0x1079.bmp" remove="False" />
   <item index="11703" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_HornOfAbyssalInfernal_0x2DB7.bmp" remove="False" />
   <item index="22317" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_LavaSerpentCrust_0x572D.bmp" remove="False" />
+  <item index="9906" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_LizardScales_0x26B2.bmp" remove="False" />
   <item index="22329" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_Lodestone_0x5739.bmp" remove="False" />
   <item index="3975" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_LuckyCoin_0x0F87.bmp" remove="False" />
+  <item index="4129" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_Petals_0x1021.bmp" remove="False" />
   <item index="12688" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_PlantParasitic_0x3190.bmp" remove="False" />
   <item index="3535" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_PlantSeed_0x0DCF.bmp" remove="False" />
   <item index="22326" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_PlantSeed_0x5736.bmp" remove="False" />
@@ -60,5 +64,6 @@
   <item index="22337" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_VoidOrb_0x5741.bmp" remove="False" />
   <item index="12687" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_WoodBarkFragment_0x318F.bmp" remove="False" />
   <item index="7133" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_WoodLogs_0x1BDD.bmp" remove="False" />
+  <item index="7124" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_WoodShaft_0x1BD4.bmp" remove="False" />
   <item index="12127" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Resource\item_resource_WoodSwitch_0x2F5F.bmp" remove="False" />
 </MassImport>

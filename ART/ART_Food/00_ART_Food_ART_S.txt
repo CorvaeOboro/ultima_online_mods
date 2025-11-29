@@ -31,6 +31,7 @@
 0x0994 item_food_Pear_0x0994.bmp
 0x0E7A item_food_PicnicBasket_0x0E7A.bmp
 0x1041 item_food_PieApple_0x1041.bmp
+0x09F1 item_food_RibsRaw_0x09F1.bmp
 0x2DB9 item_food_RotWormSteak_0x2DB9.bmp
 0x2DBA item_food_RotWormStew_0x2DBA.bmp
 0x09C0 item_food_sausage_0x09C0.bmp

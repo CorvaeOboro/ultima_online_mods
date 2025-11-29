@@ -12,6 +12,7 @@
 0x5738 item_resource_CrystalShards_0x5738.bmp
 0x2248 item_resource_CrystalShattered_0x2248.bmp
 0x5721 item_resource_DaemonClaw_0x5721.bmp
+0x4077 item_resource_DragonBlood_0x4077.bmp
 0x26B4 item_resource_DragonScale_0x26B4.bmp
 0x312F item_resource_EarHuman_0x312F.bmp
 0x3130 item_resource_EarHuman_0x3130.bmp
@@ -25,6 +26,7 @@
 0x3191 item_resource_FungusLuminescent_0x3191.bmp
 0x7154 item_resource_FungusMana_0x7154.bmp
 0x26B7 item_resource_FungusZoogi_0x26B7.bmp
+0x1053 item_resource_Gears_0x1053.bmp
 0x1AE0 item_resource_GelatinousSkull_0x1AE0.bmp
 0x572C item_resource_GoblinBlood_0x572C.bmp
 0x1779 item_resource_Granite_0x1779.bmp
@@ -32,8 +34,10 @@
 0x1079 item_resource_hide_0x1079.bmp
 0x2DB7 item_resource_HornOfAbyssalInfernal_0x2DB7.bmp
 0x572D item_resource_LavaSerpentCrust_0x572D.bmp
+0x26B2 item_resource_LizardScales_0x26B2.bmp
 0x5739 item_resource_Lodestone_0x5739.bmp
 0x0F87 item_resource_LuckyCoin_0x0F87.bmp
+0x1021 item_resource_Petals_0x1021.bmp
 0x3190 item_resource_PlantParasitic_0x3190.bmp
 0x0DCF item_resource_PlantSeed_0x0DCF.bmp
 0x5736 item_resource_PlantSeed_0x5736.bmp
@@ -59,4 +63,5 @@
 0x5741 item_resource_VoidOrb_0x5741.bmp
 0x318F item_resource_WoodBarkFragment_0x318F.bmp
 0x1BDD item_resource_WoodLogs_0x1BDD.bmp
+0x1BD4 item_resource_WoodShaft_0x1BD4.bmp
 0x2F5F item_resource_WoodSwitch_0x2F5F.bmp

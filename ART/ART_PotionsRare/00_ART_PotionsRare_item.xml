@@ -1,10 +1,14 @@
 <MassImport>
+  <item index="3621" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_BottleSmall_0x0E25.bmp" remove="False" />
+  <item index="3626" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_BottleSmall_0x0E2A.bmp" remove="False" />
   <item index="3838" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_BottleSquare_0x0EFE.bmp" remove="False" />
   <item index="3842" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_BottleTallRect_0x0F02.bmp" remove="False" />
   <item index="3843" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_BottleTallRound_0x0F03.bmp" remove="False" />
+  <item index="3627" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_BottleTall_0x0E2B.bmp" remove="False" />
   <item index="3839" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_BottleWide_0x0EFF.bmp" remove="False" />
   <item index="29025" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_Bottle_0x7161.bmp" remove="False" />
   <item index="17686" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_Distillation_0x4516.bmp" remove="False" />
   <item index="3836" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_Extract_0x0EFC.bmp" remove="False" />
   <item index="29030" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_PlantChemicals_0x7166.bmp" remove="False" />
+  <item index="29027" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_PotionsRare\item_PotionRare_RoundFlaskTall_0x7163.bmp" remove="False" />
 </MassImport>

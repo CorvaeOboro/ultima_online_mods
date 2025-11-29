@@ -1,8 +1,12 @@
+0x0E25 item_PotionRare_BottleSmall_0x0E25.bmp
+0x0E2A item_PotionRare_BottleSmall_0x0E2A.bmp
 0x0EFE item_PotionRare_BottleSquare_0x0EFE.bmp
 0x0F02 item_PotionRare_BottleTallRect_0x0F02.bmp
 0x0F03 item_PotionRare_BottleTallRound_0x0F03.bmp
+0x0E2B item_PotionRare_BottleTall_0x0E2B.bmp
 0x0EFF item_PotionRare_BottleWide_0x0EFF.bmp
 0x7161 item_PotionRare_Bottle_0x7161.bmp
 0x4516 item_PotionRare_Distillation_0x4516.bmp
 0x0EFC item_PotionRare_Extract_0x0EFC.bmp
 0x7166 item_PotionRare_PlantChemicals_0x7166.bmp
+0x7163 item_PotionRare_RoundFlaskTall_0x7163.bmp

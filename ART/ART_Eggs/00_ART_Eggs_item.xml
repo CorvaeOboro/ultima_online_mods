@@ -1,8 +1,22 @@
 <MassImport>
+  <item index="16831" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_LargeB_0x41BF.bmp" remove="False" />
+  <item index="27603" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Large_0x6BD3.bmp" remove="False" />
+  <item index="27604" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Large_0x6BD4.bmp" remove="False" />
+  <item index="27605" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Large_0x6BD5.bmp" remove="False" />
   <item index="42925" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Large_0xA7AD.bmp" remove="False" />
+  <item index="16830" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_MediumB_0x41BE.bmp" remove="False" />
+  <item index="27600" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Medium_0x6BD0.bmp" remove="False" />
+  <item index="27601" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Medium_0x6BD1.bmp" remove="False" />
+  <item index="27602" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Medium_0x6BD2.bmp" remove="False" />
   <item index="42924" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Medium_0xA7AC.bmp" remove="False" />
   <item index="42921" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_NestEmpty_0xA7A9.bmp" remove="False" />
+  <item index="47699" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_NestLarge_0xBA53.bmp" remove="False" />
+  <item index="48353" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_NestLarge_0xBCE1.bmp" remove="False" />
   <item index="42920" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_NestThree_0xA7A8.bmp" remove="False" />
+  <item index="16829" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_SmallB_0x41BD.bmp" remove="False" />
+  <item index="27597" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Small_0x6BCD.bmp" remove="False" />
+  <item index="27598" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Small_0x6BCE.bmp" remove="False" />
+  <item index="27599" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Small_0x6BCF.bmp" remove="False" />
   <item index="42923" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Small_0xA7AB.bmp" remove="False" />
   <item index="4313" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_SpiderWeb_0x10D9.bmp" remove="False" />
   <item index="42922" file="D:\ULTIMA\MODS\ultima_online_mods\ART\ART_Eggs\item_egg_Three_0xA7AA.bmp" remove="False" />

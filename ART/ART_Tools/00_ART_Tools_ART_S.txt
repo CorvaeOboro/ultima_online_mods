@@ -1,4 +1,5 @@
 0x0E75 item_container_Backpack_0x0E75.bmp
+0x2257 item_container_Bag_0x2257.bmp
 0x0E79 item_container_Pouch_0x0E79.bmp
 0x0E21 item_resource_Bandages_0x0E21.bmp
 0x0E8A item_tool_BlowPipe_0x0E8A.bmp
