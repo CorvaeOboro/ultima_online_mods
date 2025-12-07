@@ -1,0 +1,32 @@
+{
+  "rows": [
+    {
+      "items": [
+        {
+          "hex_id": "B838",
+          "order_index": 0
+        },
+        {
+          "hex_id": "B837",
+          "order_index": 1
+        },
+        {
+          "hex_id": "B834",
+          "order_index": 2
+        },
+        {
+          "hex_id": "B835",
+          "order_index": 3
+        },
+        {
+          "hex_id": "B836",
+          "order_index": 4
+        },
+        {
+          "hex_id": "B839",
+          "order_index": 5
+        }
+      ]
+    }
+  ]
+}

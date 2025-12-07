@@ -1,0 +1,40 @@
+{
+  "rows": [
+    {
+      "items": [
+        {
+          "hex_id": "F7A",
+          "order_index": 0
+        },
+        {
+          "hex_id": "F7B",
+          "order_index": 1
+        },
+        {
+          "hex_id": "F84",
+          "order_index": 2
+        },
+        {
+          "hex_id": "F85",
+          "order_index": 3
+        },
+        {
+          "hex_id": "F86",
+          "order_index": 4
+        },
+        {
+          "hex_id": "F88",
+          "order_index": 5
+        },
+        {
+          "hex_id": "F8D",
+          "order_index": 6
+        },
+        {
+          "hex_id": "F8C",
+          "order_index": 7
+        }
+      ]
+    }
+  ]
+}

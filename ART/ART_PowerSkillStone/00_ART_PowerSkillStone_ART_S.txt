@@ -1,0 +1,5 @@
+0x2A93 item_rare_SkillStone_0x2A93.bmp
+0x2A94 item_rare_SkillStone_0x2A94.bmp
+0x2A95 item_rare_SkillStone_0x2A95.bmp
+0x2A96 item_rare_SkillStone_0x2A96.bmp
+0x2A97 item_rare_SkillStone_0x2A97.bmp

@@ -1,0 +1,165 @@
+{
+  "excluded_items": [
+    "item_tree_base_0x0DA8",
+    "item_tree_base_0x0DA4",
+    "item_tree_base_0x0D9C",
+    "item_tree_base_0x0DA0",
+    "item_tree_base_0x0D98",
+    "item_tree_base_0x0D94",
+    "item_tree_base_0x0CD8",
+    "item_tree_base_0x0CD6"
+  ],
+  "item_properties": {
+    "item_tree_base_0x0DA8_x580_y1300": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0DA4_x20_y1300": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0DA0_x580_y1140": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0D9C_x20_y1140": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0D98_x580_y980": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0D94_x20_y980": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CD8_x246_y463": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CD6_x50_y466": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CE0_x181_y17": {
+      "excluded": false,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CE6_x862_y18": {
+      "excluded": false,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CD0_x1237_y21": {
+      "excluded": false,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CE3_x501_y23": {
+      "excluded": false,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CCD_x971_y171": {
+      "excluded": false,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CD3_x580_y180": {
+      "excluded": false,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CDD_x149_y187": {
+      "excluded": false,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CDA_x1306_y190": {
+      "excluded": false,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CF8_x804_y456": {
+      "excluded": true,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CFB_x500_y490": {
+      "excluded": true,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0D01_x387_y630": {
+      "excluded": true,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CFE_x59_y633": {
+      "excluded": true,
+      "use_autumn": true,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CC8_x1384_y634": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_smallmulti_0x0C9E_x1223_y646": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CE9_x1497_y650": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CC9_x1122_y653": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CEA_x1566_y675": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_medium_gnarled_0x478A_x992_y780": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CCB_x1311_y798": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CCA_x1131_y800": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CCC_x1468_y819": {
+      "excluded": true,
+      "use_autumn": false,
+      "show_leaves": true
+    },
+    "item_tree_base_0x0CE0_x43_y18": {
+      "excluded": false,
+      "use_autumn": true,
+      "show_leaves": true
+    }
+  },
+  "global_original_folder": "D:\\ULTIMA\\MODS\\UOFiddler\\EXPORTS\\ART_Unchained"
+}

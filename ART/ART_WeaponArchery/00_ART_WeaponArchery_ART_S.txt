@@ -1,0 +1,6 @@
+0x26C2 item_weapon_BowComposite_0x26C2.bmp
+0x27A5 item_weapon_BowYumi_0x27A5.bmp
+0x13B2 item_weapon_Bow_0x13B2.bmp
+0x13FD item_weapon_CrossbowHeavy_0x13FD.bmp
+0x26C3 item_weapon_CrossbowRepeating_0x26C3.bmp
+0x0F50 item_weapon_Crossbow_0x0F50.bmp

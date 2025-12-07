@@ -1,0 +1,9 @@
+0x1F18 item_rare_HarrowerSkull_0x1F18.bmp
+0x1858 item_rare_SkullCandle_L_A_0x1858.bmp
+0x1859 item_rare_SkullCandle_L_B_0x1859.bmp
+0x185A item_rare_SkullCandle_L_C_0x185A.bmp
+0x1857 item_rare_SkullCandle_L_off_0x1857.bmp
+0x1854 item_rare_SkullCandle_R_A_0x1854.bmp
+0x1855 item_rare_SkullCandle_R_B_0x1855.bmp
+0x1856 item_rare_SkullCandle_R_C_0x1856.bmp
+0x1853 item_rare_SkullCandle_R_off_0x1853.bmp

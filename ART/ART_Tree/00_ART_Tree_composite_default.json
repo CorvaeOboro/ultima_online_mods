@@ -1,0 +1,499 @@
+{
+  "layout_name": "default",
+  "composites": [
+    {
+      "trunk_hex_id": "0xCCD",
+      "leaves_hex_id": "0xCCE",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CCD"
+    },
+    {
+      "trunk_hex_id": "0xCD0",
+      "leaves_hex_id": "0xCD1",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CD0"
+    },
+    {
+      "trunk_hex_id": "0xCD3",
+      "leaves_hex_id": "0xCD4",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CD3"
+    },
+    {
+      "trunk_hex_id": "0xCD6",
+      "leaves_hex_id": "0xCD7",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CD6"
+    },
+    {
+      "trunk_hex_id": "0xCD8",
+      "leaves_hex_id": "0xCD9",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CD8"
+    },
+    {
+      "trunk_hex_id": "0xCDA",
+      "leaves_hex_id": "0xCDB",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CDA"
+    },
+    {
+      "trunk_hex_id": "0xCDD",
+      "leaves_hex_id": "0xCDE",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CDD"
+    },
+    {
+      "trunk_hex_id": "0xCE0",
+      "leaves_hex_id": "0xCE1",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CE0"
+    },
+    {
+      "trunk_hex_id": "0xCE3",
+      "leaves_hex_id": "0xCE4",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CE3"
+    },
+    {
+      "trunk_hex_id": "0xCE6",
+      "leaves_hex_id": "0xCE7",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CE6"
+    },
+    {
+      "trunk_hex_id": "0xCF8",
+      "leaves_hex_id": "0xCF9",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CF8"
+    },
+    {
+      "trunk_hex_id": "0xCFB",
+      "leaves_hex_id": "0xCFC",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CFB"
+    },
+    {
+      "trunk_hex_id": "0xCFE",
+      "leaves_hex_id": "0xCFF",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0CFE"
+    },
+    {
+      "trunk_hex_id": "0xD01",
+      "leaves_hex_id": "0xD02",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0D01"
+    },
+    {
+      "trunk_hex_id": "0xD94",
+      "leaves_hex_id": "0xD96",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0D94"
+    },
+    {
+      "trunk_hex_id": "0xD98",
+      "leaves_hex_id": "0xD9A",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0D98"
+    },
+    {
+      "trunk_hex_id": "0xD9C",
+      "leaves_hex_id": "0xD9E",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0D9C"
+    },
+    {
+      "trunk_hex_id": "0xDA0",
+      "leaves_hex_id": "0xDA2",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0DA0"
+    },
+    {
+      "trunk_hex_id": "0xDA4",
+      "leaves_hex_id": "0xDA6",
+      "autumn_leaves_hex_id": null,
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0DA4"
+    },
+    {
+      "trunk_hex_id": "0xDA8",
+      "leaves_hex_id": "0xDA9",
+      "autumn_leaves_hex_id": "0xDAB",
+      "offset_x": 0,
+      "offset_y": 0,
+      "autumn_offset_x": 0,
+      "autumn_offset_y": 0,
+      "name": "tree_0DA8"
+    }
+  ],
+  "canvas_positions": {
+    "item_tree_smallmulti_0x0C9E": {
+      "x": 1223,
+      "y": 646
+    },
+    "item_tree_base_0x0CC8": {
+      "x": 1384,
+      "y": 634
+    },
+    "item_tree_base_0x0CC9": {
+      "x": 1122,
+      "y": 653
+    },
+    "item_tree_base_0x0CCA": {
+      "x": 1131,
+      "y": 800
+    },
+    "item_tree_base_0x0CCB": {
+      "x": 1311,
+      "y": 798
+    },
+    "item_tree_base_0x0CCC": {
+      "x": 1468,
+      "y": 819
+    },
+    "item_tree_base_0x0CCD": {
+      "x": 971,
+      "y": 171
+    },
+    "item_tree_base_0x0CCE": {
+      "x": 1089,
+      "y": 168
+    },
+    "item_tree_base_0x0CCF": {
+      "x": 1191,
+      "y": 171
+    },
+    "item_tree_base_0x0CD0": {
+      "x": 1237,
+      "y": 21
+    },
+    "item_tree_base_0x0CD1": {
+      "x": 1337,
+      "y": 22
+    },
+    "item_tree_base_0x0CD2": {
+      "x": 1441,
+      "y": 28
+    },
+    "item_tree_base_0x0CD3": {
+      "x": 580,
+      "y": 180
+    },
+    "item_tree_base_0x0CD4": {
+      "x": 720,
+      "y": 180
+    },
+    "item_tree_base_0x0CD5": {
+      "x": 860,
+      "y": 180
+    },
+    "item_tree_base_0x0CD6": {
+      "x": 50,
+      "y": 466
+    },
+    "item_tree_base_0x0CD7": {
+      "x": 140,
+      "y": 468
+    },
+    "item_tree_base_0x0CD8": {
+      "x": 246,
+      "y": 463
+    },
+    "item_tree_base_0x0CD9": {
+      "x": 336,
+      "y": 474
+    },
+    "item_tree_base_0x0CDA": {
+      "x": 1306,
+      "y": 190
+    },
+    "item_tree_base_0x0CDB": {
+      "x": 1415,
+      "y": 194
+    },
+    "item_tree_base_0x0CDC": {
+      "x": 1529,
+      "y": 187
+    },
+    "item_tree_base_0x0CDD": {
+      "x": 149,
+      "y": 187
+    },
+    "item_tree_base_0x0CDE": {
+      "x": 285,
+      "y": 195
+    },
+    "item_tree_base_0x0CDF": {
+      "x": 431,
+      "y": 197
+    },
+    "item_tree_base_0x0CE0": {
+      "x": 43,
+      "y": 18
+    },
+    "item_tree_base_0x0CE1": {
+      "x": 209,
+      "y": 21
+    },
+    "item_tree_base_0x0CE2": {
+      "x": 339,
+      "y": 7
+    },
+    "item_tree_base_0x0CE3": {
+      "x": 501,
+      "y": 23
+    },
+    "item_tree_base_0x0CE4": {
+      "x": 605,
+      "y": 26
+    },
+    "item_tree_base_0x0CE5": {
+      "x": 718,
+      "y": 20
+    },
+    "item_tree_base_0x0CE6": {
+      "x": 862,
+      "y": 18
+    },
+    "item_tree_base_0x0CE7": {
+      "x": 998,
+      "y": 9
+    },
+    "item_tree_base_0x0CE8": {
+      "x": 1127,
+      "y": 21
+    },
+    "item_tree_base_0x0CE9": {
+      "x": 1497,
+      "y": 650
+    },
+    "item_tree_base_0x0CEA": {
+      "x": 1566,
+      "y": 675
+    },
+    "item_tree_base_0x0CF8": {
+      "x": 804,
+      "y": 456
+    },
+    "item_tree_base_0x0CF9": {
+      "x": 910,
+      "y": 451
+    },
+    "item_tree_base_0x0CFA": {
+      "x": 997,
+      "y": 469
+    },
+    "item_tree_base_0x0CFB": {
+      "x": 500,
+      "y": 490
+    },
+    "item_tree_base_0x0CFC": {
+      "x": 583,
+      "y": 490
+    },
+    "item_tree_base_0x0CFD": {
+      "x": 683,
+      "y": 478
+    },
+    "item_tree_base_0x0CFE": {
+      "x": 59,
+      "y": 633
+    },
+    "item_tree_base_0x0CFF": {
+      "x": 153,
+      "y": 636
+    },
+    "item_tree_base_0x0D00": {
+      "x": 253,
+      "y": 635
+    },
+    "item_tree_base_0x0D01": {
+      "x": 387,
+      "y": 630
+    },
+    "item_tree_base_0x0D02": {
+      "x": 486,
+      "y": 626
+    },
+    "item_tree_base_0x0D03": {
+      "x": 580,
+      "y": 617
+    },
+    "item_tree_base_0x0D94": {
+      "x": 20,
+      "y": 980
+    },
+    "item_tree_base_0x0D95": {
+      "x": 160,
+      "y": 980
+    },
+    "item_tree_base_0x0D96": {
+      "x": 300,
+      "y": 980
+    },
+    "item_tree_base_0x0D97": {
+      "x": 440,
+      "y": 980
+    },
+    "item_tree_base_0x0D98": {
+      "x": 580,
+      "y": 980
+    },
+    "item_tree_base_0x0D99": {
+      "x": 720,
+      "y": 980
+    },
+    "item_tree_base_0x0D9A": {
+      "x": 860,
+      "y": 980
+    },
+    "item_tree_base_0x0D9B": {
+      "x": 1000,
+      "y": 980
+    },
+    "item_tree_base_0x0D9C": {
+      "x": 20,
+      "y": 1140
+    },
+    "item_tree_base_0x0D9D": {
+      "x": 160,
+      "y": 1140
+    },
+    "item_tree_base_0x0D9E": {
+      "x": 300,
+      "y": 1140
+    },
+    "item_tree_base_0x0D9F": {
+      "x": 440,
+      "y": 1140
+    },
+    "item_tree_base_0x0DA0": {
+      "x": 580,
+      "y": 1140
+    },
+    "item_tree_base_0x0DA1": {
+      "x": 720,
+      "y": 1140
+    },
+    "item_tree_base_0x0DA2": {
+      "x": 860,
+      "y": 1140
+    },
+    "item_tree_base_0x0DA3": {
+      "x": 1000,
+      "y": 1140
+    },
+    "item_tree_base_0x0DA4": {
+      "x": 20,
+      "y": 1300
+    },
+    "item_tree_base_0x0DA5": {
+      "x": 160,
+      "y": 1300
+    },
+    "item_tree_base_0x0DA6": {
+      "x": 300,
+      "y": 1300
+    },
+    "item_tree_base_0x0DA7": {
+      "x": 440,
+      "y": 1300
+    },
+    "item_tree_base_0x0DA8": {
+      "x": 580,
+      "y": 1300
+    },
+    "item_tree_base_0x0DA9": {
+      "x": 720,
+      "y": 1300
+    },
+    "item_tree_base_0x0DAA": {
+      "x": 860,
+      "y": 1300
+    },
+    "item_tree_base_0x0DAB": {
+      "x": 1000,
+      "y": 1300
+    },
+    "item_tree_medium_gnarled_0x478A": {
+      "x": 992,
+      "y": 780
+    }
+  }
+}

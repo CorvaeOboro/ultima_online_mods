@@ -1,3 +1,4 @@
 0x14F0 item_rare_PowerScroll_0x14F0.bmp
 0x14EF item_rare_ScrollDeed_0x14EF.bmp
+0xA9B5 item_rare_SkullBig_0xA9B5.bmp
 0x1AE1 item_rare_skull_0x1AE1.bmp

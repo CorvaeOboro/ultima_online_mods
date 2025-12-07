@@ -1,0 +1,12 @@
+0x2D28 item_weapon_AxeCurved_0x2D28.bmp
+0x0F4D item_weapon_Bardiche_0x0F4D.bmp
+0x26BD item_weapon_BladedStaff_0x26BD.bmp
+0x26BF item_weapon_DoubleBladedStaff_0x26BF.bmp
+0x143E item_weapon_Halbred_0x143E.bmp
+0x26BE item_weapon_Pike_0x26BE.bmp
+0x0E87 item_weapon_Pitchfork_0x0E87.bmp
+0x26BA item_weapon_Scythe_0x26BA.bmp
+0x26BB item_weapon_Sickle_0x26BB.bmp
+0x1403 item_weapon_SpearShort_0x1403.bmp
+0x0F62 item_weapon_Spear_0x0F62.bmp
+0x1405 item_weapon_WarFork_0x1405.bmp
