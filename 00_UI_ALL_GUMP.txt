@@ -571,6 +571,7 @@
 0x0709 UI\UI_DarkFrame\ui_frame_characterName_0x0709.bmp
 0x0906 UI\UI_DarkFrame\ui_frame_colordye_0x0906.bmp
 0x0708 UI\UI_DarkFrame\ui_frame_createArch_0x0708.bmp
+0x0A8E UI\UI_DarkFrame\ui_frame_darkBG_0x0A8E.bmp
 0x0707 UI\UI_DarkFrame\ui_frame_elfD_0x0707.bmp
 0x0706 UI\UI_DarkFrame\ui_frame_elfU_0x0706.bmp
 0x0705 UI\UI_DarkFrame\ui_frame_elf_0x0705.bmp
@@ -767,3 +768,9 @@
 0x15C1 UI\UI_Profession\ui_profession_wizard_0x15C1.bmp
 0x15C2 UI\UI_Profession\ui_profession_wizard_0x15C2.bmp
 0x003C UI\UI_BackPack\ui_container_backpack_0x003C.bmp
+0x9C4B UI\UI_MainMenu_Orbs\ui_menu_login_0x9C4B.bmp
+0x9C49 UI\UI_MainMenu_Orbs\ui_menu_orbs_0x9C49.bmp
+0x1589 UI\UI_MainMenu_Orbs\ui_menu_quitA_0x1589.bmp
+0x1589 UI\UI_MainMenu_Orbs\ui_menu_quitB_0x1589.bmp
+0x1589 UI\UI_MainMenu_Orbs\ui_menu_quitC_0x1589.bmp
+0xC6F4 UI\UI_EquipWeapon\ui_equip_staff_tribal_0xC6F4.bmp

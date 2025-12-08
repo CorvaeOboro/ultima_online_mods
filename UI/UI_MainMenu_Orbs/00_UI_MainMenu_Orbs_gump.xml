@@ -1,0 +1,7 @@
+<MassImport>
+  <gump index="40011" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu_Orbs\ui_menu_login_0x9C4B.bmp" remove="False" />
+  <gump index="40009" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu_Orbs\ui_menu_orbs_0x9C49.bmp" remove="False" />
+  <gump index="5513" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu_Orbs\ui_menu_quitA_0x1589.bmp" remove="False" />
+  <gump index="5513" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu_Orbs\ui_menu_quitB_0x1589.bmp" remove="False" />
+  <gump index="5513" file="D:\ULTIMA\MODS\ultima_online_mods\UI\UI_MainMenu_Orbs\ui_menu_quitC_0x1589.bmp" remove="False" />
+</MassImport>

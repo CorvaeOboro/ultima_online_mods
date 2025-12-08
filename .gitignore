@@ -12,7 +12,7 @@
 **/removed/**
 **/dupes/**
 **/psd/**
-# **/ref/**
+**/ref/**
 **/maybe/**
 **/rocks/**
 **/ENV_LandTEST_TEX/**
@@ -45,3 +45,7 @@ Z_Tools/03_image_compare_composite.bat
 Z_Tools/00_project_dashboard.bat
 Z_Tools/03_md_to_html.bat
 Z_Tools/09_massimport_xml_convert.bat
+*00_psd_list.txt
+Z_Tools/01_project_analysis.bat
+Z_Tools/01_psd_to_bmp_batch.bat
+Z_Tools/photoshop_layer_adder.log
