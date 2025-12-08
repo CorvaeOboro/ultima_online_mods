@@ -3,7 +3,7 @@ fan art modifications in ultima online classic
 
 [DOWNLOAD]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip )    |   [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching )   |    [VIEW IMAGES]( https://corvaeoboro.github.io/ultima_online_mods/ ) 
 
-| <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-scrolls"> <img src="/ART/ART_MagicScrolls/ART_MagicScrolls_thumb.jpg?raw=true" width="140" height="140" /> </a>| <a href="https://github.com/CorvaeOboro/ultima_online_mods#reagents"> <img src="/ART/ART_BaseItemVariants_thumb.jpg?raw=true" width="140" height="140" />  </a>  |  <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-spells"> <img src="/UI/UI_MagicSpells/ui_spell_00_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#dark-scrolls"> <img src="/UI/ui_dark_scrolls_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#altered-lands"> <img src="/ENV/ENV_00_AlteredLands_thumb.jpg?raw=true" width="140" height="140" /> </a>|
+| <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-scrolls"> <img src="/ART/ART_MagicScrolls/ART_MagicScrolls_thumb.jpg?raw=true" width="140" height="140" /> </a>| <a href="https://github.com/CorvaeOboro/ultima_online_mods#reagents"> <img src="/ART/ART_BaseItemVariants_thumb.jpg?raw=true" width="140" height="140" />  </a>  |  <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-spells"> <img src="/UI/UI_MagicSpells/ui_spell_00_comp_thumb.png?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#dark-scrolls"> <img src="/UI/ui_dark_scrolls_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#altered-lands"> <img src="/ENV/ENV_00_AlteredLands_thumb.jpg?raw=true" width="140" height="140" /> </a>|
 | :---: | :---: | :---: | :---: | :---: |
 
 Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip ) | [DOWNLOAD GumpOverrides without DarkScrolls]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides_NoDarkScrolls/GumpOverrides_NoDarkScrolls_20241210.zip )  
@@ -19,13 +19,17 @@ Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_onlin
 - Colorized paintover on icons of the classic linework  .
 - [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/UI/UI_MagicSpells#complete-list)
 
-![Magic Spells Icons](/UI/UI_MagicSpells/ui_spell_00_comp.jpg?raw=true "Magic Spells Icons")
+![Magic Spells Icons](/UI/UI_MagicSpells/00_ui_spell_comp.png?raw=true "Magic Spells Icons")
 
 # Items
 ![Items](/ART/00_ART_item_00_comp.png?raw=true "ART")
 
 # Weapons
 ![Weapons](/ART/ART_Weapon/00_item_weapon_comp.png?raw=true "ART")
+
+![Weapons Expand](/ART/ART_WeaponExpand/00_ART_WeaponExpand_render.png?raw=true "Weapons Expand")
+
+![Weapons Archery](/ART/ART_WeaponArchery/00_ART_WeaponArchery_render.png?raw=true "Weapons Archery")
 
 # Arch Stone
 - an archway of the avatar crafted from stone
@@ -80,7 +84,7 @@ Ninjitsu
 <img src="/UI/UI_SpellsNinjitsu/00_ui_spell_ninjitsu_comp.png">
 Eldritch Magic
 
-<img src="/UI/UI_MagicSpells_Eldritch/ui_spell_comp_eldritch_magic.jpg">
+<img src="/UI/UI_MagicSpells_Eldritch/00_ui_spell_comp_eldritch_magic.jpg">
 
 # Dark Scrolls
 - ui enchanted with dark magic
@@ -115,6 +119,13 @@ Dark Frame
 
   <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.htm#Paroxysmus"> <img src="/ENV/ENV_Paroxysmus/00_env_Paroxysmus_title.png?raw=true?raw=true"/>
 
+# Trees
+![Trees In-Game](/ART/ART_Tree/00_art_tree_ingame_A.png?raw=true "Trees")
+
+![Trees](/ART/ART_Tree/00_ART_Tree_render.png?raw=true "Trees In-Game")
+
+![Trees Autumn](/ART/ART_Tree/00_ART_Tree_autumn_render.png?raw=true "Trees Autumn")
+
 # Magic Buffs
 - buffs and debuffs stylized darker matching magic spells and outlands specific buffs
 
@@ -122,6 +133,8 @@ Dark Frame
 
 <h2>MAIN MENU</h2>
 <img src="/UI/UI_MainMenu/00_ui_menu_comp.png">
+
+<img src="/UI/UI_MainMenu_Orbs/00_ui_menu_orbs.png">
 
 # Installation / Patching
 - for UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip) , unzip into a GumpOverrides folder in Outlands folder
@@ -201,6 +214,9 @@ Additional Guides and Mods hosted by Gaechti :
 - [04_ui_gump_composite_loader.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_ui_gump_composite_loader.py) = visualize gump composites for debug
 - <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_ui_gump_composite_loader.png?raw=true"/>
 
+- [04_image_tree_compositor.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_image_tree_compositor.py) = visualize gump composites for debug
+- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_image_tree_compositor.png?raw=true"/>
+
 # UO Outlands
 https://uooutlands.com/
 - fantastic shard , highly recommend ! some notes for using art mods in outlands :
@@ -218,3 +234,4 @@ https://uooutlands.com/
 
 # Creative Commons Zero
 free to all , [creative commons zero CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) , free to re-distribute , attribution not required
+feel free to integrate into your own projects , mods , and texture packs 
