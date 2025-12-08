@@ -5,7 +5,15 @@ utilizes the hexadecimal id to match the original and altered images as a suffix
 a canvas to arrange the images in rows to group for visualization , such as weapon type , or food group
 
 TODO:
-add a global parameter to also center images vertically by their vertical bounds within their row group . in this way the row height is determined by the tallest image in the row . 
+- add a global parameter to also center images vertically by their vertical bounds within their row group . 
+in this way the row height is determined by the tallest image in the row .
+- clicking on an image should show details on the right , with buttons to move or exclude ( similar to the webpage generator tool )
+
+TOOLSGROUP::RENDER
+SORTGROUP::7
+SORTPRIORITY::72
+STATUS::wip
+VERSION::20251207
 """
 import os
 import re
@@ -103,12 +111,24 @@ def find_matching_triplets(target_folder, custom_before_folder=None, alternate_b
             print("DEBUG: No BEFORE folder (custom or backup/original) found.")
     
     # List AFTER images in target folder (BMP or PNG with hex id)
-    after_files = [
-        f for f in os.listdir(target_folder)
-        if os.path.isfile(os.path.join(target_folder, f))
-           and (f.lower().endswith(".png") or f.lower().endswith(".bmp"))
-           and re.search(r'0x[0-9a-fA-F]+', f)
-    ]
+    # Explicitly exclude backup/original subdirectories
+    after_files = []
+    excluded_subdirs = ["backup", "original"]
+    
+    for f in os.listdir(target_folder):
+        # Skip if this is a directory (especially backup/original)
+        full_path = os.path.join(target_folder, f)
+        if os.path.isdir(full_path):
+            continue
+        
+        # Only process files directly in target folder
+        if not os.path.isfile(full_path):
+            continue
+            
+        # Check file extension and hex id pattern
+        if (f.lower().endswith(".png") or f.lower().endswith(".bmp")) and re.search(r'0x[0-9a-fA-F]+', f):
+            after_files.append(f)
+            print(f"DEBUG: Found AFTER candidate in target folder: {f}")
     stats["after_count"] = len(after_files)
     print("DEBUG: Potential AFTER images found in target folder:")
     for af in after_files:
@@ -175,7 +195,22 @@ def find_matching_triplets(target_folder, custom_before_folder=None, alternate_b
             if alternate_before_dict and (hex_id in alternate_before_dict):
                 alternate_before_path = os.path.join(alternate_before_folder, alternate_before_dict[hex_id])
             if before_path:
+                # Construct AFTER path - ensure it's directly in target folder, not in subdirectories
                 after_path = os.path.join(target_folder, af)
+                # Normalize paths to ensure consistency
+                after_path = os.path.normpath(after_path)
+                before_path = os.path.normpath(before_path)
+                if alternate_before_path:
+                    alternate_before_path = os.path.normpath(alternate_before_path)
+                
+                # Verify the after_path exists and is actually in the target folder
+                if not os.path.exists(after_path):
+                    print(f"DEBUG: WARNING - AFTER path does not exist: {after_path}")
+                    continue
+                if not os.path.samefile(os.path.dirname(after_path), target_folder):
+                    print(f"DEBUG: WARNING - AFTER path is not in target folder: {after_path}")
+                    continue
+                    
                 triplets.append((before_path, alternate_before_path, after_path))
                 stats["matched_count"] += 1
                 print(f"DEBUG: Found match: BEFORE: {before_path} | ALTERNATE BEFORE: {alternate_before_path} | AFTER: {after_path}")
@@ -309,8 +344,18 @@ def create_final_composite(triplets, vertical_padding=VERTICAL_PADDING, horizont
                         before_img = Image.new("RGBA", (1, 1), (0,0,0,0))
                     else:
                         before_img = Image.open(before_path) if before_path and os.path.exists(before_path) else None
+                        if before_img:
+                            print(f"    Loaded BEFORE from: {before_path}")
+                    
                     after_img = Image.open(after_path) if after_path and os.path.exists(after_path) else None
+                    if after_img:
+                        print(f"    Loaded AFTER from: {after_path}")
+                    else:
+                        print(f"    ERROR: Could not load AFTER from: {after_path}")
+                        
                     alternate_before_img = Image.open(alt_before_path) if alt_before_path and os.path.exists(alt_before_path) else None
+                    if alternate_before_img:
+                        print(f"    Loaded ALTERNATE BEFORE from: {alt_before_path}")
                     
                     vertical = create_vertical_composite(before_img, after_img, alternate_before_img, vertical_padding)
                     print(f"    Created vertical composite: {vertical.size}")

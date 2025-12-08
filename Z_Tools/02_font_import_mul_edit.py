@@ -19,6 +19,12 @@ can save directly to font.mul files
 #    - Used for glyph extraction, editing, and saving.
 #
 # This tool can distinguish and process both types. See utility functions below for inspection and listing.
+
+TOOLSGROUP::UI
+SORTGROUP::5
+SORTPRIORITY::51
+STATUS::wip
+VERSION::20250606
 """
 
 import os

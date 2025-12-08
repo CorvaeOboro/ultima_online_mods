@@ -151,7 +151,10 @@ CLI Mode (Command Line):
 Output location: docs/ folder in project root
 Open: docs/index.html in web browser
 
-STATUS:: WIP
+TOOLSGROUP::RENDER
+SORTGROUP::7
+SORTPRIORITY::73
+STATUS::WIP
 VERSION::20251128
 """
 
@@ -318,42 +321,131 @@ class PageLayout:
         return self.add_section('button', text, url=url)
 
 def build_main_page_layout(structure):
-    """Build layout definition for main page"""
+    """Build layout definition for main page from README.md"""
     layout = PageLayout('main', 'Ultima Online Art Mods')
     
-    layout.add_header('Ultima Online Art Mods', level=1)
-    layout.add_text('Custom art modifications for Ultima Online including items, UI elements, and environment textures.')
-    
-    # Download buttons
-    layout.add_button('Download from GitHub', 'https://github.com/CorvaeOboro/ultima_online_mods')
-    
-    # Category summaries with preview images
-    for category, groups in sorted(structure.items()):
-        layout.add_header(f'{category} Mods', level=2)
+    # Read and convert README.md to HTML
+    if README_PATH.exists():
+        with open(README_PATH, 'r', encoding='utf-8') as f:
+            readme_content = f.read()
         
-        # Get composite images from first few groups as preview
-        preview_images = []
-        for group_name, items in list(groups.items())[:6]:
-            composites = [i for i in items if i['type'] == 'composite']
-            if composites:
-                preview_images.append({
-                    'path': composites[0]['path'],
-                    'name': group_name
-                })
+        # Convert markdown to HTML with GitHub URLs
+        readme_html = markdown_to_html(readme_content)
         
-        if preview_images:
-            layout.add_gallery(preview_images, columns=3)
+        # Add the converted README as raw HTML
+        layout.add_section('html', readme_html)
+    else:
+        # Fallback if README doesn't exist
+        layout.add_header('Ultima Online Art Mods', level=1)
+        layout.add_text('Custom art modifications for Ultima Online including items, UI elements, and environment textures.')
+        layout.add_button('Download from GitHub', 'https://github.com/CorvaeOboro/ultima_online_mods')
+        
+        # Category summaries with preview images
+        for category, groups in sorted(structure.items()):
+            layout.add_header(f'{category} Mods', level=2)
+            
+            # Get composite images from first few groups as preview
+            preview_images = []
+            for group_name, items in list(groups.items())[:6]:
+                if group_name == '_base':
+                    continue
+                composites = [i for i in items if i['type'] == 'composite']
+                if composites:
+                    preview_images.append({
+                        'path': composites[0]['path'],
+                        'name': group_name
+                    })
+            
+            if preview_images:
+                layout.add_gallery(preview_images, columns=3)
     
     return layout
 
-def build_category_page_layout(category, groups, structure):
-    """Build layout definition for category page"""
+def build_category_page_layout(category, groups, structure, group_metadata=None, image_metadata=None):
+    """Build layout definition for category page with priority sorting"""
     layout = PageLayout(category.lower(), f'{category} Mods')
+    group_metadata = group_metadata or {}
+    image_metadata = image_metadata or {}
     
     layout.add_header(f'{category} Modifications', level=1)
     
+    # Add base folder images first (if any)
+    base_items = groups.get('_base', [])
+    if base_items:
+        composites = [i for i in base_items if i['type'] == 'composite']
+        if composites:
+            layout.add_header(f'{category} Base Images', level=2)
+            
+            base_images = []
+            for comp in composites:
+                base_images.append({
+                    'path': comp['path'],
+                    'name': comp['name']
+                })
+            
+            # Sort base images by priority
+            def get_image_priority(img):
+                priority = image_metadata.get(str(img['path']), {}).get('priority', 0)
+                return 999 if priority == 0 else priority
+            
+            base_images.sort(key=get_image_priority)
+            layout.add_gallery(base_images, columns=3)
+    
+    # Sort groups by the minimum priority of their images (lower number = higher priority, appears first)
+    # This way groups are ordered by their highest priority image
+    def get_group_sort_priority(group_item):
+        group_name, items = group_item
+        # Skip the special '_base' key
+        if group_name == '_base':
+            return -1  # Put base at the very top (but we already handled it above)
+        composites = [i for i in items if i['type'] == 'composite']
+        if composites:
+            # Get minimum priority from all NON-EXCLUDED images in this group
+            priorities = []
+            for comp in composites:
+                comp_path = str(comp['path'])
+                meta = image_metadata.get(comp_path, {})
+                is_excluded = meta.get('excluded', False)
+                priority = meta.get('priority', 0)
+                
+                # Skip excluded images - they don't contribute to group sorting
+                if is_excluded:
+                    print(f"[DEBUG]   Image: {comp['path'].name} -> EXCLUDED (skipped)")
+                    continue
+                
+                # Treat 0 as "no priority set" (same as 999)
+                if priority == 0:
+                    priority = 999
+                
+                priorities.append(priority)
+                # Debug: show path and priority lookup
+                if priority != 999:
+                    print(f"[DEBUG]   Image: {comp['path'].name} -> priority: {priority}")
+            
+            min_priority = min(priorities) if priorities else 999
+            # Debug: print group sorting info
+            print(f"[DEBUG] Group '{group_name}' -> min priority: {min_priority}")
+            return min_priority
+        return 999
+    
+    sorted_groups = sorted(groups.items(), key=get_group_sort_priority)
+    
+    # Debug: Show final sorted order
+    print(f"\n[DEBUG] === FINAL SORTED ORDER for {category} ===")
+    for idx, (group_name, items) in enumerate(sorted_groups, 1):
+        composites = [i for i in items if i['type'] == 'composite']
+        if composites:
+            priorities = [image_metadata.get(str(comp['path']), {}).get('priority', 999) for comp in composites]
+            min_priority = min(priorities) if priorities else 999
+            print(f"[DEBUG] {idx}. {group_name} (priority: {min_priority})")
+    print(f"[DEBUG] =====================================\n")
+    
     # Add each group with its composite images
-    for group_name, items in sorted(groups.items()):
+    for group_name, items in sorted_groups:
+        # Skip the '_base' key as we already handled it
+        if group_name == '_base':
+            continue
+            
         composites = [i for i in items if i['type'] == 'composite']
         
         if composites:
@@ -367,6 +459,14 @@ def build_category_page_layout(category, groups, structure):
                     'path': comp['path'],
                     'name': comp['name']
                 })
+            
+            # Sort images by priority (lower number = higher priority, appears first)
+            # Treat 0 as "no priority set" (same as 999)
+            def get_image_priority(img):
+                priority = image_metadata.get(str(img['path']), {}).get('priority', 0)
+                return 999 if priority == 0 else priority
+            
+            group_images.sort(key=get_image_priority)
             
             # Add gallery of composite images
             layout.add_gallery(group_images, columns=3)
@@ -468,6 +568,11 @@ def render_layout_to_html(layout):
                 html_parts.append(f'    <p>{img_name}</p>\n')
                 html_parts.append(f'  </div>\n')
             html_parts.append('</div>\n')
+            
+        elif section_type == 'html':
+            # Raw HTML content (from README conversion)
+            html_parts.append(content)
+            html_parts.append('\n')
     
     # Footer
     html_parts.append("""
@@ -477,7 +582,7 @@ def render_layout_to_html(layout):
     
     return ''.join(html_parts)
 
-def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, image_metadata=None, group_metadata=None, show_excluded=False):
+def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, image_metadata=None, group_metadata=None, show_excluded=False, use_priority_sort=True):
     """
     Convert PageLayout to canvas visual representation
     Returns tuple: (PIL Image, image_bboxes dict, group_bboxes dict)
@@ -486,6 +591,7 @@ def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, i
     image_metadata: dict of image settings (excluded, priority, type)
     group_metadata: dict of group settings (excluded, priority)
     show_excluded: if False, skip excluded images and groups
+    use_priority_sort: if True, sort images by priority (lower number = appears first/at top)
     """
     from PIL import ImageDraw, ImageFont
     
@@ -509,7 +615,8 @@ def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, i
     
     # Create a taller image to accommodate full page content
     # Calculate approximate height based on sections (much larger to avoid clipping)
-    estimated_height = max(3000, len(layout.sections) * 200)
+    # Increased base height to handle pages with many large images
+    estimated_height = max(10000, len(layout.sections) * 500)
     img = Image.new('RGB', (width, estimated_height), color=bg_color)
     draw = ImageDraw.Draw(img)
     
@@ -615,6 +722,14 @@ def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, i
                 
                 filtered_images.append(img_data)
             
+            # Sort by priority if enabled (lower number = higher priority, appears first)
+            # Treat 0 as "no priority set" (same as 999)
+            if use_priority_sort:
+                def get_preview_priority(img):
+                    priority = image_metadata.get(str(img.get('path', '')), {}).get('priority', 0)
+                    return 999 if priority == 0 else priority
+                filtered_images.sort(key=get_preview_priority)
+            
             images_to_show = filtered_images[:12]  # Show more images
             
             # Track row heights for proper spacing
@@ -678,8 +793,15 @@ def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, i
             
     
     # Crop image to actual content height (add some padding at bottom)
-    actual_height = min(current_y + 20, estimated_height)
-    img = img.crop((0, 0, width, actual_height))
+    # Use actual content height, don't limit by estimated_height to avoid clipping
+    actual_height = current_y + 20
+    if actual_height > estimated_height:
+        # If content exceeds estimate, expand the image
+        new_img = Image.new('RGB', (width, actual_height), color=bg_color)
+        new_img.paste(img, (0, 0))
+        img = new_img
+    else:
+        img = img.crop((0, 0, width, actual_height))
     
     return img, image_bboxes, group_bboxes
 
@@ -693,7 +815,7 @@ def ensure_docs_dir():
 def scan_project_structure():
     """
     Scan project folders and return organized structure
-    Returns dict: {category: {group: [items]}}
+    Returns dict: {category: {group: [items], '_base': [base_items]}}
     """
     structure = {}
     
@@ -704,6 +826,35 @@ def scan_project_structure():
             
         structure[category] = {}
         
+        # Scan base category folder for images (not in subfolders)
+        base_items = []
+        for img_file in category_path.glob("00_*.png"):
+            if img_file.is_file():
+                base_items.append({
+                    "name": img_file.name,
+                    "path": img_file,
+                    "type": "composite"
+                })
+        for img_file in category_path.glob("00_*.jpg"):
+            if img_file.is_file():
+                base_items.append({
+                    "name": img_file.name,
+                    "path": img_file,
+                    "type": "composite"
+                })
+        for img_file in category_path.glob("00_*.gif"):
+            if img_file.is_file():
+                base_items.append({
+                    "name": img_file.name,
+                    "path": img_file,
+                    "type": "composite"
+                })
+        
+        # Store base folder images with special key
+        if base_items:
+            structure[category]['_base'] = base_items
+        
+        # Scan group subfolders
         for group_folder in sorted(category_path.iterdir()):
             if not group_folder.is_dir() or group_folder.name.startswith('.'):
                 continue
@@ -773,42 +924,135 @@ def parse_readme_section(section_name):
         return match.group(1).strip()
     return ""
 
+def convert_readme_urls_to_github(markdown_text):
+    """Convert local file paths in README to GitHub raw URLs"""
+    # Convert image src paths: /ART/... or /UI/... or /ENV/...
+    def replace_image_path(match):
+        path = match.group(1)
+        # Remove leading slash and ?raw=true if present
+        path = path.lstrip('/').replace('?raw=true', '')
+        return f'"{GITHUB_RAW_BASE}/{path}?raw=true"'
+    
+    # Replace src="/..." and src='/...'
+    markdown_text = re.sub(r'src=["\']([^"\']+)["\']', replace_image_path, markdown_text)
+    
+    # Replace markdown image syntax: ![alt](/path)
+    def replace_md_image(match):
+        alt = match.group(1)
+        path = match.group(2).lstrip('/').replace('?raw=true', '')
+        return f'![{alt}]({GITHUB_RAW_BASE}/{path}?raw=true)'
+    
+    markdown_text = re.sub(r'!\[([^\]]*)\]\((/[^\)]+)\)', replace_md_image, markdown_text)
+    
+    return markdown_text
+
 def markdown_to_html(markdown_text):
-    """Simple markdown to HTML converter"""
-    html = markdown_text
+    """Enhanced markdown to HTML converter with GitHub URL support"""
+    # First convert URLs to GitHub format
+    html = convert_readme_urls_to_github(markdown_text)
     
-    # Links: [text](url)
-    html = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', r'<a href="\2" target="_parent">\1</a>', html)
-    
-    # Bold: **text**
-    html = re.sub(r'\*\*([^\*]+)\*\*', r'<strong>\1</strong>', html)
-    
-    # Code: `text`
-    html = re.sub(r'`([^`]+)`', r'<code>\1</code>', html)
-    
-    # Lists: - item
     lines = html.split('\n')
-    in_list = False
     new_lines = []
+    in_list = False
+    in_table = False
     
     for line in lines:
-        if line.strip().startswith('- '):
+        stripped = line.strip()
+        
+        # Skip empty lines
+        if not stripped:
+            if in_list:
+                new_lines.append('</ul>')
+                in_list = False
+            new_lines.append('<br>')
+            continue
+        
+        # Headers: # Header
+        if stripped.startswith('#'):
+            if in_list:
+                new_lines.append('</ul>')
+                in_list = False
+            level = len(stripped) - len(stripped.lstrip('#'))
+            text = stripped.lstrip('#').strip()
+            new_lines.append(f'<h{level}>{text}</h{level}>')
+            continue
+        
+        # Tables (simple detection)
+        if '|' in stripped and (':---:' in stripped or stripped.startswith('|')):
+            if not in_table and ':---:' not in stripped:
+                # Table header row
+                cells = [c.strip() for c in stripped.split('|') if c.strip()]
+                new_lines.append('<table>')
+                new_lines.append('<tr>')
+                for cell in cells:
+                    new_lines.append(f'<th>{cell}</th>')
+                new_lines.append('</tr>')
+                in_table = True
+            elif ':---:' in stripped:
+                # Separator row, skip
+                continue
+            else:
+                # Table data row
+                cells = [c.strip() for c in stripped.split('|') if c.strip()]
+                new_lines.append('<tr>')
+                for cell in cells:
+                    new_lines.append(f'<td>{cell}</td>')
+                new_lines.append('</tr>')
+            continue
+        else:
+            if in_table:
+                new_lines.append('</table>')
+                in_table = False
+        
+        # Lists: - item
+        if stripped.startswith('- '):
             if not in_list:
                 new_lines.append('<ul>')
                 in_list = True
-            new_lines.append(f'<li>{line.strip()[2:]}</li>')
+            item_text = stripped[2:]
+            new_lines.append(f'<li>{item_text}</li>')
+            continue
         else:
             if in_list:
                 new_lines.append('</ul>')
                 in_list = False
-            if line.strip():
-                new_lines.append(f'<p>{line}</p>')
-            else:
-                new_lines.append('<br>')
-                
+        
+        # Images: ![alt](url)
+        if stripped.startswith('!'):
+            img_match = re.match(r'!\[([^\]]*)\]\(([^\)]+)\)', stripped)
+            if img_match:
+                alt = img_match.group(1)
+                url = img_match.group(2)
+                new_lines.append(f'<img src="{url}" alt="{alt}" />')
+                continue
+        
+        # HTML tags (pass through)
+        if stripped.startswith('<'):
+            new_lines.append(stripped)
+            continue
+        
+        # Video embeds (GitHub specific)
+        if 'github.com/user-attachments/assets/' in stripped:
+            new_lines.append(f'<p><em>[Video: {stripped}]</em></p>')
+            continue
+        
+        # Regular paragraph
+        # Apply inline formatting
+        text = stripped
+        # Links: [text](url)
+        text = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', r'<a href="\2" target="_parent">\1</a>', text)
+        # Bold: **text**
+        text = re.sub(r'\*\*([^\*]+)\*\*', r'<strong>\1</strong>', text)
+        # Code: `text`
+        text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+        
+        new_lines.append(f'<p>{text}</p>')
+    
     if in_list:
         new_lines.append('</ul>')
-        
+    if in_table:
+        new_lines.append('</table>')
+    
     return '\n'.join(new_lines)
 
 # ===== HTML GENERATION FUNCTIONS =====
@@ -1175,8 +1419,9 @@ class HTMLGeneratorGUI:
         self.selected_group = None
         self.image_metadata = {}  # path -> {excluded, priority, type, bbox}
         self.group_metadata = {}  # group_name -> {excluded, priority}
-        self.webpage_config_path = PROJECT_ROOT / 'Z_Tools' / 'webpage.json'
+        self.webpage_config_path = PROJECT_ROOT / 'Z_Tools' / '00_project_html_generator.json'
         self.show_excluded = False
+        self.use_priority_sort = True  # Sort by priority (on by default)
         self.load_webpage_config()
         
         # Colors
@@ -1279,10 +1524,42 @@ class HTMLGeneratorGUI:
         left_frame = tk.Frame(main_paned, bg=self.bg_dark)
         main_paned.add(left_frame, minsize=800)
         
-        # Show excluded checkbox (minimal header)
+        # Preview header with controls
         preview_header = tk.Frame(left_frame, bg=self.bg_dark)
         preview_header.pack(side=tk.TOP, fill=tk.X, padx=10, pady=(5, 2))
         
+        # Refresh button
+        self.refresh_preview_btn = tk.Button(
+            preview_header,
+            text="[REFRESH] Preview",
+            command=self.manual_refresh_preview,
+            bg=self.accent_color,
+            fg='white',
+            font=("Segoe UI", 9, "bold"),
+            padx=10,
+            pady=2,
+            relief=tk.FLAT,
+            cursor="hand2"
+        )
+        self.refresh_preview_btn.pack(side=tk.LEFT, padx=(0, 10))
+        
+        # Use priority sort checkbox
+        self.use_priority_var = tk.BooleanVar(value=True)
+        priority_sort_check = tk.Checkbutton(
+            preview_header,
+            text="Sort by Priority",
+            variable=self.use_priority_var,
+            command=self.toggle_priority_sort,
+            bg=self.bg_dark,
+            fg=self.fg_color,
+            selectcolor=self.bg_darker,
+            activebackground=self.bg_dark,
+            activeforeground=self.fg_color,
+            font=("Consolas", 8)
+        )
+        priority_sort_check.pack(side=tk.RIGHT, padx=(0, 10))
+        
+        # Show excluded checkbox
         self.show_excluded_var = tk.BooleanVar(value=False)
         show_excluded_check = tk.Checkbutton(
             preview_header,
@@ -1439,7 +1716,7 @@ class HTMLGeneratorGUI:
         tk.Label(
             priority_frame,
             text="Sort Priority:",
-            font=("Consolas", 7),
+            font=("Consolas", 9, "bold"),
             bg=self.bg_darker,
             fg=self.fg_color
         ).pack(side=tk.LEFT)
@@ -1448,14 +1725,17 @@ class HTMLGeneratorGUI:
         self.priority_entry = tk.Entry(
             priority_frame,
             textvariable=self.priority_var,
-            width=8,
-            font=("Consolas", 7),
+            width=6,
+            font=("Consolas", 12, "bold"),
             bg=self.bg_dark,
             fg=self.fg_color,
-            insertbackground=self.fg_color
+            insertbackground=self.fg_color,
+            justify='center'
         )
         self.priority_entry.pack(side=tk.LEFT, padx=5)
         self.priority_entry.bind('<Return>', lambda e: self.update_priority())
+        # Auto-update on key release (after typing)
+        self.priority_entry.bind('<KeyRelease>', self.on_priority_key_release)
         
         tk.Button(
             priority_frame,
@@ -1463,8 +1743,8 @@ class HTMLGeneratorGUI:
             command=self.update_priority,
             bg=self.accent_color,
             fg='white',
-            font=("Consolas", 7),
-            padx=5
+            font=("Consolas", 8),
+            padx=8
         ).pack(side=tk.LEFT)
         
         # Bind mouse events for pan, zoom, and selection
@@ -1556,7 +1836,11 @@ class HTMLGeneratorGUI:
             # Category pages
             for category, groups in sorted(self.structure.items()):
                 self.log(f"  - {category} page layout")
-                cat_layout = build_category_page_layout(category, groups, self.structure)
+                cat_layout = build_category_page_layout(
+                    category, groups, self.structure,
+                    group_metadata=self.group_metadata,
+                    image_metadata=self.image_metadata
+                )
                 self.page_layouts[category.lower()] = cat_layout
             
             # Tools page
@@ -1597,9 +1881,26 @@ class HTMLGeneratorGUI:
         try:
             self.generated_pages = {}
             
+            # Reload config to ensure we have latest priority settings
+            self.log("\n> Reloading configuration...")
+            self.load_webpage_config()
+            
+            # Rebuild category layouts with current priority settings
+            self.log("\n> Rebuilding category layouts with current priorities...")
+            self.log(f"  - Loaded {len(self.image_metadata)} image priorities")
+            self.log(f"  - Loaded {len(self.group_metadata)} group priorities")
+            for category, groups in sorted(self.structure.items()):
+                self.log(f"  - Rebuilding {category} page layout")
+                cat_layout = build_category_page_layout(
+                    category, groups, self.structure,
+                    group_metadata=self.group_metadata,
+                    image_metadata=self.image_metadata
+                )
+                self.page_layouts[category.lower()] = cat_layout
+            
             # Render layouts to HTML
             self.log("\n> Rendering layouts to HTML files...")
-            self.log(f"  - Using {len(self.page_layouts)} existing layouts")
+            self.log(f"  - Using {len(self.page_layouts)} layouts")
             
             for page_name, layout in self.page_layouts.items():
                 self.log(f"  - Rendering {page_name}")
@@ -1703,7 +2004,8 @@ class HTMLGeneratorGUI:
                     max_page_width,
                     image_metadata=self.image_metadata,
                     group_metadata=self.group_metadata,
-                    show_excluded=self.show_excluded
+                    show_excluded=self.show_excluded,
+                    use_priority_sort=self.use_priority_sort
                 )
                 # Add footer buffer to page height
                 page_with_footer = Image.new('RGBA', (page_img.width, page_img.height + footer_buffer), color=(0, 0, 0, 0))
@@ -1987,7 +2289,7 @@ class HTMLGeneratorGUI:
             }
             with open(self.webpage_config_path, 'w') as f:
                 json.dump(config, f, indent=2)
-            self.log(f"[CONFIG] Saved to webpage.json")
+            self.log(f"[CONFIG] Saved to 00_project_html_generator.json")
         except Exception as e:
             self.log(f"[CONFIG] Error saving: {e}")
     
@@ -2147,16 +2449,29 @@ class HTMLGeneratorGUI:
             self.save_webpage_config()
             
             status = "EXCLUDED" if excluded else "INCLUDED"
-            self.log(f"[EXCLUDE GROUP] {self.selected_group} -> {status}")
+            self.log(f"[EXCLUDE GROUP] {self.selected_group} -> {status} (refresh to apply)")
         else:
             return
         
-        # Refresh preview to show/hide excluded items
-        if hasattr(self, 'page_layouts'):
-            self.root.after(100, self.preview_pages)
+        # No auto-refresh - user must click refresh button
+    
+    def on_priority_key_release(self, event):
+        """Auto-update priority when user types a valid number"""
+        # Only auto-update if the value is a valid integer
+        try:
+            value = self.priority_var.get().strip()
+            if value and value.isdigit():
+                # Valid number typed, auto-update after a short delay
+                # Cancel any pending auto-update
+                if hasattr(self, '_priority_update_timer'):
+                    self.root.after_cancel(self._priority_update_timer)
+                # Schedule update after 500ms of no typing
+                self._priority_update_timer = self.root.after(500, self.update_priority)
+        except:
+            pass
     
     def update_priority(self):
-        """Update sort priority for selected image or group"""
+        """Update sort priority for selected image or group (no auto-refresh)"""
         try:
             priority = int(self.priority_var.get())
             
@@ -2165,18 +2480,16 @@ class HTMLGeneratorGUI:
                 self.save_webpage_config()
                 
                 img_name = Path(self.selected_image).name
-                self.log(f"[PRIORITY IMAGE] {img_name} -> {priority}")
+                self.log(f"[PRIORITY IMAGE] {img_name} -> {priority} (refresh to apply)")
             elif self.selected_group:
                 self.group_metadata[self.selected_group]['priority'] = priority
                 self.save_webpage_config()
                 
-                self.log(f"[PRIORITY GROUP] {self.selected_group} -> {priority}")
+                self.log(f"[PRIORITY GROUP] {self.selected_group} -> {priority} (refresh to apply)")
             else:
                 return
             
-            # Refresh preview with new sort order
-            if hasattr(self, 'page_layouts'):
-                self.root.after(100, self.preview_pages)
+            # No auto-refresh - user must click refresh button
         except ValueError:
             self.log(f"[ERROR] Invalid priority value")
     
@@ -2193,14 +2506,28 @@ class HTMLGeneratorGUI:
         self.log(f"[TYPE] {img_name} -> {img_type}")
     
     def toggle_show_excluded(self):
-        """Toggle showing excluded images in preview"""
+        """Toggle showing excluded images in preview (no auto-refresh)"""
         self.show_excluded = self.show_excluded_var.get()
         status = "ON" if self.show_excluded else "OFF"
-        self.log(f"[SHOW EXCLUDED] {status}")
+        self.log(f"[SHOW EXCLUDED] {status} (refresh to apply)")
         
-        # Refresh preview
+        # No auto-refresh - user must click refresh button
+    
+    def toggle_priority_sort(self):
+        """Toggle priority-based sorting (no auto-refresh)"""
+        self.use_priority_sort = self.use_priority_var.get()
+        status = "ON" if self.use_priority_sort else "OFF"
+        self.log(f"[PRIORITY SORT] {status} (refresh to apply)")
+        
+        # No auto-refresh - user must click refresh button
+    
+    def manual_refresh_preview(self):
+        """Manually refresh the preview with current settings"""
         if hasattr(self, 'page_layouts'):
-            self.root.after(100, self.preview_pages)
+            self.log("[REFRESH] Updating preview...")
+            self.root.after(10, self.preview_pages)
+        else:
+            self.log("[WARN] No layouts available - scan project first")
     
     def open_in_browser(self):
         """Open generated index.html in default browser"""

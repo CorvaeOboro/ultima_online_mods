@@ -13,6 +13,12 @@ TODO:
 - filter by a gump from verdata ( showing only the gumps that correspond )
 - filter by gump category such as character equipment
 - show a line diagram generator of the assembled gump and the parts , organized to not overlap and be relatively close in a generally outward radial aspect ratio
+
+TOOLSGROUP::UI
+SORTGROUP::5
+SORTPRIORITY::52
+STATUS::untested
+VERSION::20251207
 """
 
 import os

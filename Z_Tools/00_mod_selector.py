@@ -1,16 +1,26 @@
 """
 ART MOD SELECTOR 
 a UI for selecting art mods for ultima online classic 
-an Image file to XML list processor for use with UOFiddler MassImport plugin 
+an Image file to XML list generator for use with UOFiddler MassImport plugin 
 For each BMP file name with a hexadecimal suffix, this tool writes the data to XML used to MassImport and a TXT file for the alternative method using Mulpatcher
 by scanning the mod project folders for specific groups = "ART" , "UI" , and "ENV" 
-to be sorted into the corresponding types = "item art_s" , "gump" , "texture" , "landtile art_m"  
+to be sorted into the corresponding types = "item art_s" , "gump" , "texture" , "landtile art_m" 
+
+TODO:
+- fix the black line thru images form the components , add global variable to turn off display components to debug
+
+TOOLSGROUP::INSTALL
+SORTGROUP::1
+SORTPRIORITY::1
+STATUS::working
+VERSION::20251207
 """
 import os
 import tkinter as tk
-from tkinter import filedialog, ttk, messagebox
+from tkinter import filedialog, ttk
 from PIL import Image, ImageTk
 import re
+import json
 
 # GLOBAL
 REGEX_HEXIDECIMAL = re.compile(r'(0x[0-9A-Fa-f]+)\.bmp$')
@@ -157,6 +167,20 @@ GROUPS_LEFT = {
             "Weapons": {"path": ".././ART/ART_Weapon", "default_state": True}
         }
     },
+    "WeaponArchery": {
+        "images": [".././ART/ART_WeaponArchery/00_ART_WeaponArchery_render.png"],
+        "layout": "right",
+        "subgroups": {
+            "WeaponsArchery": {"path": ".././ART/ART_WeaponArchery", "default_state": True}
+        }
+    },
+    "WeaponExpand": {
+        "images": [".././ART/ART_WeaponExpand/00_ART_WeaponExpand_render.png"],
+        "layout": "right",
+        "subgroups": {
+            "WeaponsExpand": {"path": ".././ART/ART_WeaponExpand", "default_state": True}
+        }
+    },
     "Vase": {
         "images": [".././ART/ART_Vase/00_item_vase_comp.png"],
         "layout": "right",
@@ -183,6 +207,27 @@ GROUPS_LEFT = {
         "layout": "right",
         "subgroups": {
             "Eggs": {"path": ".././ART/ART_Eggs", "default_state": True}
+        }
+    },
+    "ART_PowerSkillStone": {
+        "images": [".././ART/ART_PowerSkillStone/00_ART_PowerSkillStone_render.png"],
+        "layout": "right",
+        "subgroups": {
+            "SkillStone": {"path": ".././ART/ART_PowerSkillStone", "default_state": True}
+        }
+    },
+    "ART_PowerChampionSpawn": {
+        "images": [".././ART/ART_PowerChampionSpawn/00_ART_PowerChampionSpawn_render.png"],
+        "layout": "right",
+        "subgroups": {
+            "ChampionSpawn": {"path": ".././ART/ART_PowerChampionSpawn", "default_state": True}
+        }
+    },
+    "ART_Tree": {
+        "images": [".././ART/ART_Tree/00_ART_Tree_render.png"],
+        "layout": "right",
+        "subgroups": {
+            "Tree": {"path": ".././ART/ART_Tree", "default_state": True}
         }
     },
     "IconMastery": {
@@ -366,6 +411,20 @@ GROUPS_MIDDLE = {
         "subgroups": {
             "Eldritch Magic": {"path": ".././UI/UI_MagicSpells_Eldritch", "default_state": False}
         }
+    },
+    "MainMenuOrbs": {
+        "images": [".././UI/UI_MainMenu_Orbs/00_ui_menu_orbs.jpg"],
+        "layout": "right",
+        "subgroups": {
+            "MainMenuOrbs": {"path": ".././UI/UI_MainMenu_Orbs", "default_state": True}
+        }
+    },
+    "TribalStaff": {
+        "images": [".././UI/UI_EquipWeapon/00_ui_menu_orbs.jpg"],
+        "layout": "right",
+        "subgroups": {
+            "TribalStaff": {"path": ".././UI/UI_EquipWeapon", "default_state": True}
+        }
     }
 }
 
@@ -488,6 +547,20 @@ class BMPtoXMLConverter:
         self.master.configure(bg='#111111')
         self.export_states = []
         self.checkbox_states = {}
+        self.json_group_paths = set()  # Track which paths come from JSON
+        self.include_json_groups = tk.BooleanVar(value=False)  # Default OFF
+        
+        # Separate storage for hardcoded vs JSON groups
+        self.groups_left_hardcoded = dict(GROUPS_LEFT)
+        self.groups_middle_hardcoded = dict(GROUPS_MIDDLE)
+        self.groups_right_hardcoded = dict(GROUPS_RIGHT)
+        self.groups_left_json = {}
+        self.groups_middle_json = {}
+        self.groups_right_json = {}
+        
+        # Load JSON groups into separate storage
+        self.load_json_groups()
+        
         self.setup_ui()
 
         # Automatically derive the prefix (one folder up from script directory)
@@ -500,12 +573,39 @@ class BMPtoXMLConverter:
         self.frame = ttk.Frame(self.master, style='TFrame')
         self.frame.pack(fill=tk.BOTH, expand=True)
 
+        # Top button area - Export button and JSON checkbox on same line
+        self.top_button_frame = ttk.Frame(self.frame, style='TFrame')
+        self.top_button_frame.pack(pady=(PADY, PADY))
+        
+        # Status label (to the left of the button)
+        self.status_label = tk.Label(
+            self.top_button_frame,
+            text="",
+            bg='#111111',
+            fg='#4ade80',  # Green color for success messages
+            font=('Helvetica', 11, 'bold')
+        )
+        self.status_label.pack(side=tk.LEFT, padx=(0, 15))
+        
         # Master Export Button
         self.master_export_button = ttk.Button(
-            self.frame, text="Export All to MassImport XML",
+            self.top_button_frame, text="Export All to MassImport XML",
             command=self.export_all_to_master_xml, style='Large.TButton'
         )
-        self.master_export_button.pack(pady=(PADY, PADY))
+        self.master_export_button.pack(side=tk.LEFT, padx=(0, 10))
+        
+        # Checkbox for including JSON groups in export (to the right of button)
+        self.json_groups_checkbox = ImageCheckbox(
+            self.top_button_frame,
+            text="Include Additional JSON Groups",
+            variable=self.include_json_groups,
+            on_image_path=CHECKBOX_ON_IMAGE_PATH,
+            off_image_path=CHECKBOX_OFF_IMAGE_PATH
+        )
+        self.json_groups_checkbox.pack(side=tk.LEFT)
+        
+        # Add callback to reload UI when checkbox changes
+        self.include_json_groups.trace('w', self.on_json_checkbox_changed)
 
         # Create the group areas using grid for better control
         self.groups_area = ttk.Frame(self.frame, style='TFrame')
@@ -522,79 +622,78 @@ class BMPtoXMLConverter:
         self.middle_frame = ttk.Frame(self.groups_area, style='TFrame', borderwidth=0, relief='flat')
         self.right_frame = ttk.Frame(self.groups_area, style='TFrame', borderwidth=0, relief='flat')
 
-        # Use grid to arrange the frames
-        self.left_frame.grid(row=0, column=0, sticky='nsew')
-        self.middle_frame.grid(row=0, column=1, sticky='nsew')
-        self.right_frame.grid(row=0, column=2, sticky='nsew')
+        # Use grid to arrange the frames with padding to prevent dark lines
+        self.left_frame.grid(row=0, column=0, sticky='nsew', padx=(0, 2))
+        self.middle_frame.grid(row=0, column=1, sticky='nsew', padx=2)
+        self.right_frame.grid(row=0, column=2, sticky='nsew', padx=(2, 0))
 
-        # --- Add horizontal scrollbars ---
-        # Left group area with scrollbars
-        self.left_canvas = tk.Canvas(self.left_frame, bg='#111111', highlightthickness=0)
-        self.left_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        # --- Vertical scrollbars only ---
+        # Left group area with scrollbar
         self.left_scrollbar = ttk.Scrollbar(
-            self.left_frame, orient='vertical', command=self.left_canvas.yview
+            self.left_frame, orient='vertical', style='Vertical.TScrollbar'
         )
         self.left_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        self.left_hscrollbar = ttk.Scrollbar(
-            self.left_frame, orient='horizontal', command=self.left_canvas.xview
-        )
-        self.left_hscrollbar.pack(side=tk.BOTTOM, fill=tk.X)
-        self.left_canvas.configure(yscrollcommand=self.left_scrollbar.set, xscrollcommand=self.left_hscrollbar.set)
+        
+        self.left_canvas = tk.Canvas(self.left_frame, bg='#111111', highlightthickness=0, bd=0, relief='flat',
+                                      yscrollcommand=self.left_scrollbar.set)
+        self.left_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.left_scrollbar.config(command=self.left_canvas.yview)
+        
         self.left_scrollable_frame = ttk.Frame(self.left_canvas, style='TFrame', borderwidth=0, relief='flat')
         left_window = self.left_canvas.create_window((0, 0), window=self.left_scrollable_frame, anchor='nw')
 
         def _left_configure(event):
             self.left_canvas.configure(scrollregion=self.left_canvas.bbox("all"))
-            # Set the window width to max of canvas or frame reqwidth
-            req_width = self.left_scrollable_frame.winfo_reqwidth()
+            # Set the window width to canvas width
             canvas_width = self.left_canvas.winfo_width()
-            self.left_canvas.itemconfig(left_window, width=max(req_width, canvas_width))
+            if canvas_width > 1:
+                self.left_canvas.itemconfig(left_window, width=canvas_width)
         self.left_scrollable_frame.bind("<Configure>", _left_configure)
         self.left_canvas.bind("<Configure>", _left_configure)
 
-        # Middle group area with scrollbars
-        self.middle_canvas = tk.Canvas(self.middle_frame, bg='#111111', highlightthickness=0)
-        self.middle_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        # Middle group area with scrollbar
         self.middle_scrollbar = ttk.Scrollbar(
-            self.middle_frame, orient='vertical', command=self.middle_canvas.yview
+            self.middle_frame, orient='vertical', style='Vertical.TScrollbar'
         )
         self.middle_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        self.middle_hscrollbar = ttk.Scrollbar(
-            self.middle_frame, orient='horizontal', command=self.middle_canvas.xview
-        )
-        self.middle_hscrollbar.pack(side=tk.BOTTOM, fill=tk.X)
-        self.middle_canvas.configure(yscrollcommand=self.middle_scrollbar.set, xscrollcommand=self.middle_hscrollbar.set)
+        
+        self.middle_canvas = tk.Canvas(self.middle_frame, bg='#111111', highlightthickness=0, bd=0, relief='flat',
+                                        yscrollcommand=self.middle_scrollbar.set)
+        self.middle_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.middle_scrollbar.config(command=self.middle_canvas.yview)
+        
         self.middle_scrollable_frame = ttk.Frame(self.middle_canvas, style='TFrame', borderwidth=0, relief='flat')
         middle_window = self.middle_canvas.create_window((0, 0), window=self.middle_scrollable_frame, anchor='nw')
 
         def _middle_configure(event):
             self.middle_canvas.configure(scrollregion=self.middle_canvas.bbox("all"))
-            req_width = self.middle_scrollable_frame.winfo_reqwidth()
+            # Set the window width to canvas width
             canvas_width = self.middle_canvas.winfo_width()
-            self.middle_canvas.itemconfig(middle_window, width=max(req_width, canvas_width))
+            if canvas_width > 1:
+                self.middle_canvas.itemconfig(middle_window, width=canvas_width)
         self.middle_scrollable_frame.bind("<Configure>", _middle_configure)
         self.middle_canvas.bind("<Configure>", _middle_configure)
 
-        # Right group area with scrollbars
-        self.right_canvas = tk.Canvas(self.right_frame, bg='#111111', highlightthickness=0)
-        self.right_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        # Right group area with scrollbar
         self.right_scrollbar = ttk.Scrollbar(
-            self.right_frame, orient='vertical', command=self.right_canvas.yview
+            self.right_frame, orient='vertical', style='Vertical.TScrollbar'
         )
         self.right_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        self.right_hscrollbar = ttk.Scrollbar(
-            self.right_frame, orient='horizontal', command=self.right_canvas.xview
-        )
-        self.right_hscrollbar.pack(side=tk.BOTTOM, fill=tk.X)
-        self.right_canvas.configure(yscrollcommand=self.right_scrollbar.set, xscrollcommand=self.right_hscrollbar.set)
+        
+        self.right_canvas = tk.Canvas(self.right_frame, bg='#111111', highlightthickness=0, bd=0, relief='flat',
+                                       yscrollcommand=self.right_scrollbar.set)
+        self.right_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.right_scrollbar.config(command=self.right_canvas.yview)
+        
         self.right_scrollable_frame = ttk.Frame(self.right_canvas, style='TFrame', borderwidth=0, relief='flat')
         right_window = self.right_canvas.create_window((0, 0), window=self.right_scrollable_frame, anchor='nw')
 
         def _right_configure(event):
             self.right_canvas.configure(scrollregion=self.right_canvas.bbox("all"))
-            req_width = self.right_scrollable_frame.winfo_reqwidth()
+            # Set the window width to canvas width
             canvas_width = self.right_canvas.winfo_width()
-            self.right_canvas.itemconfig(right_window, width=max(req_width, canvas_width))
+            if canvas_width > 1:
+                self.right_canvas.itemconfig(right_window, width=canvas_width)
         self.right_scrollable_frame.bind("<Configure>", _right_configure)
         self.right_canvas.bind("<Configure>", _right_configure)
 
@@ -624,11 +723,101 @@ class BMPtoXMLConverter:
             lambda e: self.right_canvas.configure(scrollregion=self.right_canvas.bbox("all"))
         )
 
-        # Load groups into the scrollable frames
-        self.load_groups(self.left_scrollable_frame, GROUPS_LEFT)
-        self.load_groups(self.middle_scrollable_frame, GROUPS_MIDDLE)
-        self.load_groups(self.right_scrollable_frame, GROUPS_RIGHT)
+        # Load groups into the scrollable frames based on checkbox state
+        self.reload_all_groups()
         print("Groups loaded.")
+
+    def get_wip_groups_json_path(self):
+        """
+        Returns the expected path for the optional external WIP groups JSON file.
+        The file name is '00_mod_selector_wip_groups.json' and it should reside in the same
+        directory as this script. If not present, no WIP groups are loaded.
+        """
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        return os.path.join(script_dir, "00_mod_selector_wip_groups.json")
+
+    def load_json_groups(self):
+        """
+        Load optional WIP groups from an external JSON file into separate storage.
+        JSON schema example:
+        {
+          "left": { "GroupName": {"images": [...], "layout": "right|below", "subgroups": {"Name": {"path": "...", "default_state": true}} } },
+          "middle": { ... },
+          "right": { ... }
+        }
+
+        Behavior: Store JSON groups separately from hardcoded groups.
+        """
+        json_path = self.get_wip_groups_json_path()
+        if not os.path.exists(json_path):
+            print(f"No WIP groups JSON found at: {json_path}. Using hardcoded groups only.")
+            return
+        try:
+            with open(json_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+        except Exception as e:
+            print(f"Failed to load WIP groups JSON ({json_path}): {e}")
+            return
+
+        def _load_json(src_dict, dst_dict, column_name):
+            if not isinstance(src_dict, dict):
+                print(f"WIP groups JSON: '{column_name}' is not a dict. Skipping.")
+                return
+            for group_key, group_val in src_dict.items():
+                # Only add if not in hardcoded groups
+                if group_key in self.groups_left_hardcoded or group_key in self.groups_middle_hardcoded or group_key in self.groups_right_hardcoded:
+                    print(f"WIP group '{group_key}' already exists in hardcoded {column_name}; not loading.")
+                    continue
+                dst_dict[group_key] = group_val
+                # Track all subgroup paths from JSON
+                if 'subgroups' in group_val:
+                    for subgroup_info in group_val['subgroups'].values():
+                        if 'path' in subgroup_info:
+                            self.json_group_paths.add(subgroup_info['path'])
+
+        _load_json(data.get('left', {}), self.groups_left_json, 'left')
+        _load_json(data.get('middle', {}), self.groups_middle_json, 'middle')
+        _load_json(data.get('right', {}), self.groups_right_json, 'right')
+    
+    def on_json_checkbox_changed(self, *args):
+        """Callback when the Include JSON Groups checkbox changes state."""
+        print(f"JSON checkbox changed to: {self.include_json_groups.get()}")
+        self.reload_all_groups()
+    
+    def reload_all_groups(self):
+        """Reload all groups based on current checkbox state."""
+        # Clear existing groups from UI
+        for widget in self.left_scrollable_frame.winfo_children():
+            widget.destroy()
+        for widget in self.middle_scrollable_frame.winfo_children():
+            widget.destroy()
+        for widget in self.right_scrollable_frame.winfo_children():
+            widget.destroy()
+        
+        # Clear checkbox states
+        self.checkbox_states.clear()
+        self.export_states.clear()
+        
+        # Determine which groups to show
+        include_json = self.include_json_groups.get()
+        
+        if include_json:
+            # Merge hardcoded and JSON groups
+            groups_left = {**self.groups_left_hardcoded, **self.groups_left_json}
+            groups_middle = {**self.groups_middle_hardcoded, **self.groups_middle_json}
+            groups_right = {**self.groups_right_hardcoded, **self.groups_right_json}
+            print("Loading hardcoded + JSON groups")
+        else:
+            # Only hardcoded groups
+            groups_left = dict(self.groups_left_hardcoded)
+            groups_middle = dict(self.groups_middle_hardcoded)
+            groups_right = dict(self.groups_right_hardcoded)
+            print("Loading hardcoded groups only")
+        
+        # Load groups into UI
+        self.load_groups(self.left_scrollable_frame, groups_left)
+        self.load_groups(self.middle_scrollable_frame, groups_middle)
+        self.load_groups(self.right_scrollable_frame, groups_right)
 
     def load_groups(self, parent, groups):
         print(f"Loading groups into {parent}...")
@@ -638,7 +827,7 @@ class BMPtoXMLConverter:
 
     def add_group_section(self, parent, group_name, group_info):
         print(f"Adding group section for {group_name}...")
-        section_frame = ttk.Frame(parent, style='TFrame', borderwidth=0, relief='flat')
+        section_frame = ttk.Frame(parent, style='NoBorder.TFrame')
         section_frame.pack(fill=tk.BOTH, padx=PADX, pady=PADY)
 
         layout = group_info.get("layout", "right").lower()
@@ -690,12 +879,11 @@ class BMPtoXMLConverter:
                 section_frame.columnconfigure(i, weight=1)
         else:
             # Only image column gets weight, label/button column does not expand
-            section_frame.configure(borderwidth=0, relief='flat')
             section_frame.columnconfigure(0, weight=1)
             section_frame.columnconfigure(1, weight=0)
-            image_frame = ttk.Frame(section_frame, style='TFrame', borderwidth=0, relief='flat')
+            image_frame = ttk.Frame(section_frame, style='NoBorder.TFrame')
             image_frame.grid(row=0, column=0, padx=(PADX, 6), pady=PADY, sticky='ns')
-            subgroup_frame = ttk.Frame(section_frame, style='TFrame', borderwidth=0, relief='flat')
+            subgroup_frame = ttk.Frame(section_frame, style='NoBorder.TFrame')
             subgroup_frame.grid(row=0, column=1, padx=(6, PADX), pady=PADY, sticky='ns')
             section_frame.rowconfigure(0, weight=1)
             # Add subgroup entries (label/button area)
@@ -735,9 +923,6 @@ class BMPtoXMLConverter:
                 img_label.grid(row=i, column=0, pady=PADY, sticky='ns')
             for idx in range(len(image_labels)):
                 image_frame.rowconfigure(idx, weight=1)
-            # Ensure label/button area is always at least min_label_width
-            subgroup_frame.grid_propagate(True)
-            subgroup_frame.config(width=min_label_width)
 
     def add_subgroup_entry(self, parent, subgroup_name, subgroup_info, layout):
         print(f"Adding subgroup entry for {subgroup_name}...")
@@ -779,24 +964,24 @@ class BMPtoXMLConverter:
 
         return subgroup_frame
 
+    def show_status(self, message):
+        """Display a status message permanently."""
+        self.status_label.config(text=message)
+    
     def export_individual_group(self, folder_path, state):
         if state.get():
             self.process_bmp_files_to_XML(folder_path)
-            messagebox.showinfo(
-                "Success",
-                f"XML and TXT files have been successfully created for '{folder_path}'."
-            )
+            folder_name = os.path.basename(folder_path)
+            self.show_status(f"✓ Exported: {folder_name}")
 
 
     def export_all_groups(self):
+        count = 0
         for path, state_var in self.checkbox_states.items():
             if state_var.get():
                 self.process_bmp_files_to_XML(path)
-        messagebox.showinfo(
-            "Success",
-            "XML and TXT files have been successfully created for all selected groups.",
-            f" saved to folder = {self.prefix}   file = 00_ART_MODS_MassImport.xml"
-        )
+                count += 1
+        self.show_status(f"✓ Exported {count} group(s) successfully")
 
     def export_all_to_master_xml(self):
         all_xml_entries = []
@@ -804,6 +989,7 @@ class BMPtoXMLConverter:
 
         for path, state_var in self.checkbox_states.items():
             if state_var.get():
+                # No need to check JSON status here - if checkbox is OFF, JSON groups won't be in checkbox_states
                 result = self.process_bmp_files_to_XML(path)
                 if result:
                     xml_entries = result['xml_entries']
@@ -834,15 +1020,9 @@ class BMPtoXMLConverter:
                     txt_file.write('\n'.join(txt_lines))
                 print(f"Created mulpatcher autopatch TXT file: {txt_output_path}")
 
-            messagebox.showinfo(
-                "Success",
-                f"MassImport XML and autopatch TXT files have been successfully created."
-            )
+            self.show_status(f"✓ MassImport XML created successfully ({len(all_xml_entries)} entries)")
         else:
-            messagebox.showinfo(
-                "No Data",
-                "No XML entries were generated. Please check your groups and try again."
-            )
+            self.show_status("⚠ No XML entries generated")
 
     def determine_category_and_master_txt(self, folder_path):
         normalized_path = folder_path.replace("\\", "/").lower()
@@ -951,7 +1131,7 @@ if __name__ == "__main__":
     
     style = ttk.Style()
     style.theme_use('clam')
-    style.configure('TFrame', background='#111111', bordercolor='#000000', borderwidth=0)
+    style.configure('TFrame', background='#111111', bordercolor='#111111', borderwidth=0, relief='flat')
     style.configure('NoBorder.TFrame', background='#111111', borderwidth=0, relief='flat')
     style.configure('Large.TButton', background='#3c3c3c', foreground='white', borderwidth=0,
                     font=('Helvetica', 12), bordercolor='#000000')
@@ -968,6 +1148,14 @@ if __name__ == "__main__":
                     font=('Helvetica', 12), bordercolor='#000000', borderwidth=0)
     style.configure('Large.TEntry', fieldbackground='#000000', foreground='white',
                     font=('Helvetica', 16), bordercolor='#000000', borderwidth=0)
+    
+    # Scrollbar styling - dark mode with black background and muted blue arrows
+    style.configure('Vertical.TScrollbar', background='#1a1a1a', troughcolor='#000000', 
+                    bordercolor='#000000', arrowcolor='#5a7a9a', relief='flat', borderwidth=0)
+    style.configure('Horizontal.TScrollbar', background='#1a1a1a', troughcolor='#000000',
+                    bordercolor='#000000', arrowcolor='#5a7a9a', relief='flat', borderwidth=0)
+    style.map('Vertical.TScrollbar', background=[('active', '#2a3a4a'), ('pressed', '#3a4a5a')])
+    style.map('Horizontal.TScrollbar', background=[('active', '#2a3a4a'), ('pressed', '#3a4a5a')])
 
     app = BMPtoXMLConverter(root)
     print("start")

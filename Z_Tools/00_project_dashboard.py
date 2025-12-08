@@ -22,6 +22,10 @@ TODO:
 hover over item to display the full path  in upper right of up , 
 optionally the display of only items that contain a suffix using hex id as a  filter , example item_apple_0x0294.png the 0x indicates hexidecimal id .
 
+TOOLSGROUP::PROJECT
+SORTGROUP::2
+SORTPRIORITY::21
+STATUS::working
 VERSION::20251129
 """
 
@@ -114,7 +118,7 @@ def adjust_color(hex_color: str, factor: float) -> str:
     return _rgb_to_hex((r, g, b))
 
 # Item discovery with debug logging
-def find_items(project_root, show_upscale=True, include_categories=None):
+def find_items(project_root, show_upscale=True, include_categories=None, require_base_psd=True):
     items = []
     root_path = Path(project_root)
     logging.info(f"Scanning for assets in: {root_path.resolve()}")
@@ -163,6 +167,10 @@ def find_items(project_root, show_upscale=True, include_categories=None):
                         base_psd = group_folder / f"{item_name}.psd"
                         base_bmp = group_folder / f"{item_name}.bmp"
                         gen_folder = upscale_folder / item_name / "gen" / "01"
+
+                        # If require_base_psd is True, skip items that don't have a base .psd in GROUP folder
+                        if require_base_psd and not base_psd.exists():
+                            continue
 
                         # Choose best available preview: upscale PNG > base BMP > upscale PSD > base PSD
                         if up_png.exists():
@@ -256,6 +264,7 @@ class ImageDashboard:
         self.spreadsheet_mode = BooleanVar(value=False)  # Toggle for spreadsheet view mode
         self.hide_approved = BooleanVar(value=False)  # Toggle to hide approved items
         self.preview_base_bmp = BooleanVar(value=False)  # Toggle to show base BMP instead of upscale PNG
+        self.require_base_psd = BooleanVar(value=True)  # Toggle to require base .psd in GROUP folder (filters out Upscale-only items)
 
         # Background preview generation
         self.preview_task_queue: Queue = Queue()
@@ -285,6 +294,15 @@ class ImageDashboard:
             bg=DARK_GRAY, fg=WHITE, selectcolor=ACCENT,
             activebackground=DARK_GRAY, activeforeground=WHITE
         ).pack(side=LEFT, padx=(8,2), pady=4)
+        # Require base PSD checkbox
+        Checkbutton(
+            controls,
+            text="Require Base PSD",
+            variable=self.require_base_psd,
+            command=self.refresh_items,
+            bg=DARK_GRAY, fg=WHITE, selectcolor=ACCENT,
+            activebackground=DARK_GRAY, activeforeground=WHITE
+        ).pack(side=LEFT, padx=(2,8), pady=4)
         # Photoshop path input
         Label(controls, text="Photoshop Path:", bg=DARK_GRAY, fg=WHITE).pack(side=LEFT, padx=(8,2))
         self.ps_path_var = StringVar(value=PHOTOSHOP_EXE)
@@ -409,7 +427,7 @@ class ImageDashboard:
             present = []
         enabled_cats = {c for c in present if c not in self.excluded_categories}
         # Re-discover items based on toggle and enabled categories
-        found_items = find_items(PROJECT_ROOT, show_upscale=self.show_upscale.get(), include_categories=enabled_cats if enabled_cats else None)
+        found_items = find_items(PROJECT_ROOT, show_upscale=self.show_upscale.get(), include_categories=enabled_cats if enabled_cats else None, require_base_psd=self.require_base_psd.get())
         # Apply category and group filtering
         filtered = []
         for it in found_items:
@@ -1271,7 +1289,7 @@ class ImageDashboard:
         """
         try:
             import tkinter.messagebox as mb
-            originals = find_items(PROJECT_ROOT, show_upscale=False)
+            originals = find_items(PROJECT_ROOT, show_upscale=False, require_base_psd=False)
             created = 0
             skipped = 0
             errors = 0

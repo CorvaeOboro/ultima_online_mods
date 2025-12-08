@@ -1,7 +1,14 @@
-#=================================
+"""
+DEBUG add numbers and random colors to art 
 # FOR EACH BMP IN FOLDER, composite NUMBER, BORDER AND randomly COLORIZE for visual debug testing 
 # updated for ui and art gumps now write the filename repeating at smallest size possible
-#=================================
+
+TOOLSGROUP::DEBUG
+SORTGROUP::8
+SORTPRIORITY::81
+STATUS::wip
+VERSION::20240415
+"""
 import os
 import re
 import numpy as np

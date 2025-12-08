@@ -1,0 +1,427 @@
+{
+  "images": {
+    "d:\\ULTIMA\\MODS\\ultima_online_mods\\ENV\\ENV_CaveDark\\00_env_cavedark_title.png": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "d:\\ULTIMA\\MODS\\ultima_online_mods\\ENV\\ENV_DirtHills\\00_env_DirtHills_title.png": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "d:\\ULTIMA\\MODS\\ultima_online_mods\\ENV\\ENV_FarmLands\\00_env_FarmLands_title.png": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "d:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Eggs\\00_item_egg_comparison.png": {
+      "excluded": false,
+      "priority": 0,
+      "type": "normal"
+    },
+    "d:\\ULTIMA\\MODS\\ultima_online_mods\\ENV\\ENV_ForestGrove\\00_env_ForestGrove_title.png": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ENV\\ENV_DirtHills\\00_env_DirtHills_title.png": {
+      "excluded": false,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_ArchStone_Multi\\00_ui_archstone_multi_equipslots_comp.png": {
+      "excluded": false,
+      "priority": 1,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Creature\\00_item_creature_compare_vases.png": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Eggs\\00_item_egg_comparison.png": {
+      "excluded": false,
+      "priority": 95,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ENV\\ENV_HeartWood\\00_env_heartwood_ingame_A.png": {
+      "excluded": false,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Resource\\00_item_resource_bark_fragment.png": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_BackPack\\00_ui_container_backpack_comp.png": {
+      "excluded": false,
+      "priority": 2,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_DarkScrolls\\00_dark_scrolls_comp_wide.jpg": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Vase\\00_item_vase_compare.png": {
+      "excluded": false,
+      "priority": 70,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Food\\00_item_food_comp_modded.png": {
+      "excluded": false,
+      "priority": 50,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Key\\00_item_key_comp_upscale.png": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Vase\\00_ui_darkstats_medium_and_vases.png": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Weapon\\00_item_weapon_compare.png": {
+      "excluded": true,
+      "priority": 80,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ENV\\ENV_HeartWood\\00_env_heartwood_ingame_E.png": {
+      "excluded": false,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Creature\\00_item_creature_compare.png": {
+      "excluded": false,
+      "priority": 99,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Book\\00_item_book_comp.png": {
+      "excluded": false,
+      "priority": 90,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Fish\\00_item_fish_compB_modded.png": {
+      "excluded": false,
+      "priority": 41,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Food\\00_item_food_compB.png": {
+      "excluded": false,
+      "priority": 51,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Reagents\\00_item_reagent_compare.png": {
+      "excluded": false,
+      "priority": 1,
+      "type": "comparison"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Reagents\\00_item_reagent_comp.png": {
+      "excluded": false,
+      "priority": 1,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_ReagentPagan\\00_item_reagentPagan_comp.png": {
+      "excluded": false,
+      "priority": 2,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\00_item_GemRare_compB.png": {
+      "excluded": false,
+      "priority": 3,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_GemRare\\00_item_gemRare_comp.png": {
+      "excluded": false,
+      "priority": 4,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Potions\\00_item_potion_comp.png": {
+      "excluded": false,
+      "priority": 4,
+      "type": "comparison"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_PotionsRare\\00_item_PotionRare_comp.png": {
+      "excluded": false,
+      "priority": 4,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Resource\\00_item_resource_comp.png": {
+      "excluded": false,
+      "priority": 8,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Resource\\00_item_resource_compare.png": {
+      "excluded": false,
+      "priority": 8,
+      "type": "comparison"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Tools\\00_item_tool_00_comp.png": {
+      "excluded": false,
+      "priority": 5,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Tools\\00_item_tool_00_comp_music.png": {
+      "excluded": false,
+      "priority": 2,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Jewelry\\00_item_jewelry_comp.png": {
+      "excluded": false,
+      "priority": 40,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Key\\00_item_key_comp.png": {
+      "excluded": false,
+      "priority": 55,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Fish\\00_item_fish_compB.png": {
+      "excluded": false,
+      "priority": 7,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Resource\\00_item_resource_comp_long.png": {
+      "excluded": false,
+      "priority": 60,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Resource\\00_item_resource_luminescent_fungi.png": {
+      "excluded": false,
+      "priority": 60,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Talisman\\00_item_talisman_comp.png": {
+      "excluded": false,
+      "priority": 99,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_MagicScrolls\\00_item_scroll_comp_nospace_wide.png": {
+      "excluded": false,
+      "priority": 66,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_SpellsChivalry\\00_ui_spells_chivalry_comp.png": {
+      "excluded": false,
+      "priority": 44,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_SpellsNecromancy\\00_ui_spells_necromancy_comp.png": {
+      "excluded": false,
+      "priority": 55,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_SpellsWeaving\\00_ui_spell_weaving_comp.png": {
+      "excluded": false,
+      "priority": 77,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Eggs\\00_item_egg_render.png": {
+      "excluded": false,
+      "priority": 95,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Tree\\00_ART_Tree_autumn_render.png": {
+      "excluded": false,
+      "priority": 85,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Tree\\00_ART_Tree_render.png": {
+      "excluded": false,
+      "priority": 84,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Weapon\\00_item_weapon_comparison.png": {
+      "excluded": false,
+      "priority": 80,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Weapon\\00_item_weapon_comp.png": {
+      "excluded": false,
+      "priority": 80,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Vase\\00_item_vase_comp.png": {
+      "excluded": false,
+      "priority": 70,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_ProfessionCodex\\00_ui_profession_codex_comp.png": {
+      "excluded": false,
+      "priority": 99,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_SpellsBushido\\00_ui_spell_bushido_comp.png": {
+      "excluded": false,
+      "priority": 88,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_SpellsCombat\\00_ui_spell_combat_comp.png": {
+      "excluded": false,
+      "priority": 88,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_SpellsMastery\\00_ui_spell_mastery_comp.png": {
+      "excluded": false,
+      "priority": 88,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_SpellsMysticism\\00_ui_spell_mysticism_comp.png": {
+      "excluded": false,
+      "priority": 77,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_SpellsNinjitsu\\00_ui_spell_ninjitsu_comp.png": {
+      "excluded": false,
+      "priority": 89,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_SpellsRacial\\00_ui_spell_racial_comp.png": {
+      "excluded": false,
+      "priority": 99,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_Profession\\00_ui_profession_comp.png": {
+      "excluded": false,
+      "priority": 99,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_DarkScrolls\\00_dark_scrolls_comp_01.jpg": {
+      "excluded": false,
+      "priority": 3,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_LightScrolls\\00_dark_scrolls_comp_wide_light.jpg": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_DarkFrame\\00_ui_dark_frame_comp.png": {
+      "excluded": false,
+      "priority": 7,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_DarkBook\\00_ui_dark_book_comp.png": {
+      "excluded": false,
+      "priority": 6,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_MagicSpells\\00_ui_spell_comp.png": {
+      "excluded": false,
+      "priority": 2,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_DarkStats\\00_ui_scroll_stats_render.png": {
+      "excluded": false,
+      "priority": 4,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_DarkStatsMedium\\00_ui_scroll_stats_medium.png": {
+      "excluded": false,
+      "priority": 4,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_DarkStatsLong\\00_ui_scroll_stats_long_render.png": {
+      "excluded": false,
+      "priority": 4,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_MainMenu_Orbs\\00_ui_menu_orbs.png": {
+      "excluded": false,
+      "priority": 90,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_MainMenu\\00_ui_menu_comp.png": {
+      "excluded": false,
+      "priority": 88,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\UI\\UI_MagicSpells_Eldritch\\00_ui_spell_comp_eldritch_magic.jpg": {
+      "excluded": false,
+      "priority": 6,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_WeaponExpand\\00_ART_WeaponExpand_compare.png": {
+      "excluded": false,
+      "priority": 83,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_WeaponArchery\\00_ART_WeaponArchery_comparison.png": {
+      "excluded": false,
+      "priority": 82,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_WeaponArchery\\00_ART_WeaponArchery_render.png": {
+      "excluded": false,
+      "priority": 81,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_WeaponExpand\\00_ART_WeaponExpand_render.png": {
+      "excluded": false,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\ART_Wand\\00_item_wand_compare.png": {
+      "excluded": false,
+      "priority": 8,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\00_art_comp_items_A.png": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\00_art_comp_items_B.png": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    },
+    "D:\\ULTIMA\\MODS\\ultima_online_mods\\ART\\00_art_comp_items_C.png": {
+      "excluded": true,
+      "priority": 0,
+      "type": "normal"
+    }
+  },
+  "groups": {
+    "ENV_CaveDark": {
+      "excluded": true,
+      "priority": 0
+    },
+    "ENV_DirtHills": {
+      "excluded": true,
+      "priority": 0
+    },
+    "ENV_ForestGrove": {
+      "excluded": true,
+      "priority": 0
+    },
+    "ENV_FarmLands": {
+      "excluded": true,
+      "priority": 0
+    },
+    "ART_Jewelry": {
+      "excluded": false,
+      "priority": 0
+    },
+    "UI_SpellsNecromancy": {
+      "excluded": false,
+      "priority": 0
+    },
+    "ART_Key": {
+      "excluded": false,
+      "priority": 0
+    },
+    "UI_SpellsCombat": {
+      "excluded": false,
+      "priority": 0
+    },
+    "UI_MainMenu": {
+      "excluded": false,
+      "priority": 0
+    }
+  }
+}

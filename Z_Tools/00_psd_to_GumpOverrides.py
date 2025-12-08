@@ -1,6 +1,28 @@
-# PSD TO PNG BATCH EXPORTER
-# for each PSD name with a hexadecimal suffix, save a PNG copy named by HEX for GumpOverrides. example =
-# Mod group visualization and export UI for selection by folder paths
+"""
+PSD TO PNG BATCH EXPORTER 
+used to select specific art mods to be exported for use with Ultima clients that can load the altered art on startup
+such as Ultima Online Outlands which supports altered gump art by placing hexidecimal or numbered images in GumpOverrides folder
+
+this tool is useful if want to customize the texturepack , 
+it is NOT neccesary , as the default export is included in ./UI/GumpOverrides 
+the default UI gump texturepack includes = 
+MagicSpells , Necromancy & Chivalry , Buffs , ArchStoneMulti ( paperdoll with rightsight equipment slots ) , Backpack , 
+Dark Scrolls , Dark Stats , Dark Book , Dark Frame , Profession ( Codex ) 
+
+Mod group visualization and export UI for selection by folder paths
+for each PSD name with a hexadecimal suffix, save a PNG copy named by HEX for GumpOverrides. 
+example = 
+
+TODO:
+- The groups and filepath sections should all be stored to a JSON file so that any custom added path/groups are loaded the next time.
+- Make all the borders of the sections dark grey
+
+TOOLSGROUP::INSTALL
+SORTGROUP::1
+SORTPRIORITY::2
+STATUS::working
+VERSION::20241211
+"""
 import os  # folders filepaths
 import tkinter as tk  # UI
 from tkinter import filedialog, ttk, messagebox
@@ -369,7 +391,3 @@ if __name__ == "__main__":
     print("start")
     root.mainloop()
 
-# //==================================================================================================
-# // TODO
-# The groups and filepath sections should all be stored to a JSON file so that any custom added path/groups are loaded the next time.
-# Make all the borders of the sections dark grey

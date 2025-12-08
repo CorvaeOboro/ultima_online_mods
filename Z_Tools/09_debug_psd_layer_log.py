@@ -1,5 +1,13 @@
-#// PSD LAYER NAME LOG - DEBUG
-#// recursive search for psd then store all layer names to csv for review 
+"""
+DEBUG PSD LAYER NAME LOG - DEBUG
+recursive search for psd then store all layer names to csv for review
+
+TOOLSGROUP::DEBUG
+SORTGROUP::8
+SORTPRIORITY::82
+STATUS::wip
+VERSION::20240317
+"""
 import os
 import csv
 from psd_tools import PSDImage

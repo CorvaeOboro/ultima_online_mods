@@ -5,10 +5,16 @@ display as keyboard with color coded variants , and to the right an organized li
 
 TODO: 
 add custom "short names" for display 
-add custom images for hotkeys , for example spell icons or item icons like potions , display the images in the keyboard layout
+add custom images for hotkeys , ( can we use the projects .bmp files? ) for example spell icons or item icons like potions , display the images in the keyboard layout
 hotkey list should be sorted by numbers , then by qwerty , not alphabetical 
 add shift , control , alt modifiers as tabs or filter , including the combinations
-show the currently opened profile name at the top 
+show the currently opened profile name at the top
+
+TOOLSGROUP::GAMEPLAY
+SORTGROUP::3
+SORTPRIORITY::31
+STATUS::wip
+VERSION::20251207
 """
 import os
 import sys

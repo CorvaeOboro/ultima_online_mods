@@ -1,7 +1,15 @@
+"""
 # PAINTOVER TO PSD
 # given a set of images that should be added to matching psd it will load photoshop and place as top most layer 
 # this workflow useful for paintover passes from blender or updating tree slices . 
 # reset transform may be neccesary after so the layer is proper size
+
+TOOLSGROUP::IMAGE
+SORTGROUP::4
+SORTPRIORITY::42
+STATUS::wip , older workflow
+VERSION::20241208
+"""
 import os
 import logging
 import tkinter as tk

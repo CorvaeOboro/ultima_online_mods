@@ -1,10 +1,10 @@
 """
 Combined Image Composer – Integrated Interactive and Automated Overlap Modes
+This is helpful for use with certain tree images ( heartwood ) and art that have been sliced into vertical strips
+attempts to reassemble like a puzzle with possible overlapping parts into a composite single image and store the slice information for later
+we can then alter the single composited image , alter it , then deconstruct into its original sliced image strips .
 
-Features:
-• Load images as draggable pieces on a canvas.
-• Use arrow keys to manually adjust selected pieces.
-• “Auto Compose” automatically arranges images by brute‐forcing over a range of offsets.
+- “Auto Compose” automatically arranges images by brute‐forcing over a range of offsets.
   For each image, a two‑stage (coarse then fine) search is performed.
   Overlap scoring is computed per pixel in the overlapping region as follows:
     - If both pixels have alpha >= 128 (opaque):
@@ -12,13 +12,22 @@ Features:
          * Otherwise, add match_bonus * similarity.
     - If exactly one pixel is opaque, subtract mismatch_penalty.
     - Fully transparent–transparent pixels contribute 0.
-• “Use Overlap Scoring” and “Use Edge Scoring” options are available.
-• A debug overlay (when enabled) is drawn directly on the canvas as a semi‑transparent (40% opacity) overlay:
+- “Use Overlap Scoring” and “Use Edge Scoring” options are available.
+
+A debug overlay  on the canvas as a semi‑transparent (40% opacity) overlay:
     - Each image is outlined with its unique green–blue border.
     - Overlapping regions are filled with pink.
-• You can save the composite image and a JSON file (with positions) and later disassemble the composite.
 
-Dependencies: Pillow, numpy
+WORKFLOW:
+Load images as draggable pieces on a canvas.
+Use arrow keys to manually adjust selected pieces.
+Save the composite image and a JSON file (with positions) and later disassemble the composite.
+
+TOOLSGROUP::RENDER
+SORTGROUP::7
+SORTPRIORITY::71
+STATUS::wip
+VERSION::20251207
 """
 
 import tkinter as tk
@@ -27,34 +36,34 @@ from PIL import Image, ImageTk, ImageDraw
 import numpy as np
 import os, threading, json, random
 
-# ---------------------------------------------------------------------
-# DraggableImage: used for interactive (manual) arrangement.
-# ---------------------------------------------------------------------
+
+# DraggableImage: used for interactive manual arrangement.
+
 class DraggableImage:
-    def __init__(self, app, canvas, image, x, y, filename):
+    def __init__(self, app, canvas, image, initial_x_position, initial_y_position, filename):
         self.app = app  # Reference to the main CombinedComposerApp
         self.canvas = canvas
         self.image = image  # PIL Image (RGBA)
         self.filename = filename
         self.image_tk = ImageTk.PhotoImage(self.image)
-        self.id = self.canvas.create_image(x, y, image=self.image_tk, anchor='nw', tags='draggable')
-        self.canvas.tag_bind(self.id, '<ButtonPress-1>', self.on_press)
-        self.canvas.tag_bind(self.id, '<ButtonRelease-1>', self.on_release)
-        self.canvas.tag_bind(self.id, '<B1-Motion>', self.on_motion)
-        self.offset_x = 0
-        self.offset_y = 0
+        self.canvas_image_id = self.canvas.create_image(initial_x_position, initial_y_position, image=self.image_tk, anchor='nw', tags='draggable')
+        self.canvas.tag_bind(self.canvas_image_id, '<ButtonPress-1>', self.on_press)
+        self.canvas.tag_bind(self.canvas_image_id, '<ButtonRelease-1>', self.on_release)
+        self.canvas.tag_bind(self.canvas_image_id, '<B1-Motion>', self.on_motion)
+        self.drag_offset_x = 0
+        self.drag_offset_y = 0
         self.group = None  # For grouping overlapping pieces
-        self.score = 0
-        self.text_id = None
+        self.overlap_score = 0
+        self.score_text_id = None
         # Assign a unique debug border color (in a green/blue range)
-        r = 0
-        g = random.randint(150, 255)
-        b = random.randint(150, 255)
-        self.debug_color = f'#{r:02x}{g:02x}{b:02x}'
+        red_component = 0
+        green_component = random.randint(150, 255)
+        blue_component = random.randint(150, 255)
+        self.debug_border_color = f'#{red_component:02x}{green_component:02x}{blue_component:02x}'
 
     def on_press(self, event):
-        self.offset_x = event.x
-        self.offset_y = event.y
+        self.drag_offset_x = event.x
+        self.drag_offset_y = event.y
         self.app.select_image(self)
         self.app.canvas.focus_set()
 
@@ -65,60 +74,73 @@ class DraggableImage:
         self.app.update_debug_overlay()
 
     def on_motion(self, event):
-        dx = event.x - self.offset_x
-        dy = event.y - self.offset_y
+        delta_x = event.x - self.drag_offset_x
+        delta_y = event.y - self.drag_offset_y
         if self.group:
-            self.app.move_group(self.group, dx, dy)
+            self.app.move_group(self.group, delta_x, delta_y)
         else:
-            self.canvas.move(self.id, dx, dy)
-        self.offset_x = event.x
-        self.offset_y = event.y
+            self.canvas.move(self.canvas_image_id, delta_x, delta_y)
+        self.drag_offset_x = event.x
+        self.drag_offset_y = event.y
         self.app.update_score_display()
         self.app.update_debug_overlay()
 
     def get_position(self):
-        coords = self.canvas.coords(self.id)
-        return int(coords[0]), int(coords[1])
+        canvas_coordinates = self.canvas.coords(self.canvas_image_id)
+        position_x = int(canvas_coordinates[0])
+        position_y = int(canvas_coordinates[1])
+        return position_x, position_y
     
     def snap_to_nearest_edge(self):
-        current_x, current_y = self.get_position()
-        current_w, current_h = self.image.width, self.image.height
-        others = [img for img in self.app.draggable_images if img != self]
-        best_score = float('-inf')
-        best_position = (current_x, current_y)
-        best_group = None
-        threshold = 80  # edge score threshold
-        for other in others:
-            ox, oy = other.get_position()
-            ow, oh = other.image.width, other.image.height
-            positions = [
-                (ox + ow, oy, 'left'),
-                (ox - current_w, oy, 'right'),
-                (ox, oy + oh, 'top'),
-                (ox, oy - current_h, 'bottom')
+        current_x_position, current_y_position = self.get_position()
+        current_image_width = self.image.width
+        current_image_height = self.image.height
+        other_draggable_images = [img for img in self.app.draggable_images if img != self]
+        best_edge_score = float('-inf')
+        best_snap_position = (current_x_position, current_y_position)
+        best_matching_group = None
+        edge_score_threshold = 80  # edge score threshold
+        
+        for other_image in other_draggable_images:
+            other_x_position, other_y_position = other_image.get_position()
+            other_image_width = other_image.image.width
+            other_image_height = other_image.image.height
+            
+            # Calculate potential snap positions (right, left, bottom, top)
+            potential_snap_positions = [
+                (other_x_position + other_image_width, other_y_position, 'left'),
+                (other_x_position - current_image_width, other_y_position, 'right'),
+                (other_x_position, other_y_position + other_image_height, 'top'),
+                (other_x_position, other_y_position - current_image_height, 'bottom')
             ]
-            for x, y, pos in positions:
-                if self.app.check_overlap(x, y, current_w, current_h, exclude=[self, other]):
+            
+            for test_x_position, test_y_position, edge_position in potential_snap_positions:
+                if self.app.check_overlap(test_x_position, test_y_position, current_image_width, current_image_height, exclude=[self, other_image]):
                     continue
-                score = self.app.calculate_edge_score_single(self.image, x, y,
-                                                               other.image, ox, oy, pos)
-                if score > best_score:
-                    best_score = score
-                    best_position = (x, y)
-                    best_group = other.group
-        if best_score >= threshold:
-            dx = best_position[0] - current_x
-            dy = best_position[1] - current_y
-            self.canvas.move(self.id, dx, dy)
-            if best_group:
-                self.app.merge_groups(self, best_group)
+                    
+                edge_score = self.app.calculate_edge_score_single(
+                    self.image, test_x_position, test_y_position,
+                    other_image.image, other_x_position, other_y_position, edge_position
+                )
+                
+                if edge_score > best_edge_score:
+                    best_edge_score = edge_score
+                    best_snap_position = (test_x_position, test_y_position)
+                    best_matching_group = other_image.group
+                    
+        if best_edge_score >= edge_score_threshold:
+            move_delta_x = best_snap_position[0] - current_x_position
+            move_delta_y = best_snap_position[1] - current_y_position
+            self.canvas.move(self.canvas_image_id, move_delta_x, move_delta_y)
+            if best_matching_group:
+                self.app.merge_groups(self, best_matching_group)
             self.app.update_scores()
             self.app.update_score_display()
 
-# ---------------------------------------------------------------------
+
 # CombinedComposerApp: main application GUI integrating interactive
-# and automated (auto compose) modes.
-# ---------------------------------------------------------------------
+# and automated auto compose modes.
+
 class CombinedComposerApp:
     def __init__(self, master):
         self.master = master
@@ -224,9 +246,9 @@ class CombinedComposerApp:
         self.group_display = tk.Text(control_panel, height=10, bg=self.bg_color, fg=self.fg_color)
         self.group_display.pack(pady=5)
     
-    # ----------------------------------------------------
-    # Image Loading and Dragging (Interactive Mode)
-    # ----------------------------------------------------
+    
+    # Image Loading and Dragging 
+    
     def select_images(self):
         files = filedialog.askopenfilenames(title="Select Image Files", 
                                             filetypes=[("PNG Images", "*.png")])
@@ -239,78 +261,101 @@ class CombinedComposerApp:
         self.canvas.delete("all")
         self.draggable_images = []
         self.groups = {}
-        x, y = 50, 50
-        group_name = f"Group{self.group_counter}"
+        initial_canvas_x_position = 50
+        initial_canvas_y_position = 50
+        current_group_name = f"Group{self.group_counter}"
         self.group_counter += 1
-        for img, fname in zip(self.images, self.image_files):
-            di = DraggableImage(self, self.canvas, img, x, y, os.path.basename(fname))
-            di.group = group_name
-            self.draggable_images.append(di)
-            x += img.width
+        
+        for loaded_image, image_filepath in zip(self.images, self.image_files):
+            draggable_image_instance = DraggableImage(
+                self, self.canvas, loaded_image, 
+                initial_canvas_x_position, initial_canvas_y_position, 
+                os.path.basename(image_filepath)
+            )
+            draggable_image_instance.group = current_group_name
+            self.draggable_images.append(draggable_image_instance)
+            initial_canvas_x_position += loaded_image.width
+            
         self.update_group_display()
         self.update_debug_overlay()
     
     def load_composition(self):
-        json_path = filedialog.askopenfilename(title="Select Composition JSON", filetypes=[("JSON Files", "*.json")])
-        if not json_path:
+        json_filepath = filedialog.askopenfilename(title="Select Composition JSON", filetypes=[("JSON Files", "*.json")])
+        if not json_filepath:
             return
+            
         try:
-            with open(json_path, "r") as f:
-                data = json.load(f)
-        except Exception as e:
-            messagebox.showerror("Error", f"Failed to load JSON: {e}")
+            with open(json_filepath, "r") as json_file:
+                composition_data = json.load(json_file)
+        except Exception as load_error:
+            messagebox.showerror("Error", f"Failed to load JSON: {load_error}")
             return
+            
         self.canvas.delete("all")
         self.draggable_images = []
         self.groups = {}
-        images_info = data.get("images", [])
-        group_name = data.get("group_name", f"Group{self.group_counter}")
+        
+        images_metadata_list = composition_data.get("images", [])
+        loaded_group_name = composition_data.get("group_name", f"Group{self.group_counter}")
         self.group_counter += 1
-        min_x, min_y = 50, 50
-        json_dir = os.path.dirname(json_path)
-        for info in images_info:
-            fname = info["filename"]
-            x = info["x"] + min_x
-            y = info["y"] + min_y
-            image_path = os.path.join(json_dir, fname)
-            if not os.path.exists(image_path):
-                messagebox.showerror("Error", f"Image {fname} not found.")
+        
+        canvas_offset_x = 50
+        canvas_offset_y = 50
+        json_directory = os.path.dirname(json_filepath)
+        
+        for image_metadata in images_metadata_list:
+            image_filename = image_metadata["filename"]
+            image_x_position = image_metadata["x"] + canvas_offset_x
+            image_y_position = image_metadata["y"] + canvas_offset_y
+            full_image_path = os.path.join(json_directory, image_filename)
+            
+            if not os.path.exists(full_image_path):
+                messagebox.showerror("Error", f"Image {image_filename} not found.")
                 continue
+                
             try:
-                img = Image.open(image_path).convert("RGBA")
-            except Exception as e:
-                messagebox.showerror("Error", f"Failed to open image {fname}: {e}")
+                loaded_pil_image = Image.open(full_image_path).convert("RGBA")
+            except Exception as image_error:
+                messagebox.showerror("Error", f"Failed to open image {image_filename}: {image_error}")
                 continue
-            di = DraggableImage(self, self.canvas, img, x, y, fname)
-            di.group = group_name
-            self.draggable_images.append(di)
+                
+            draggable_image_instance = DraggableImage(
+                self, self.canvas, loaded_pil_image, 
+                image_x_position, image_y_position, image_filename
+            )
+            draggable_image_instance.group = loaded_group_name
+            self.draggable_images.append(draggable_image_instance)
+            
         self.update_group_display()
         self.update_debug_overlay()
     
-    # ----------------------------------------------------
+    
     # Automated (Overlap) Composition Functions
-    # ----------------------------------------------------
-    def search_best_offset(self, composite_img, img, max_offset, coarse_step, fine_step):
-        best_score = -100000
-        best_dx = 0
-        best_dy = 0
-        # Coarse search:
-        for dx in range(-max_offset, max_offset+1, coarse_step):
-            for dy in range(-max_offset, max_offset+1, coarse_step):
-                score = self.calculate_matching_score(composite_img, img, dx, dy)
-                if score > best_score:
-                    best_score = score
-                    best_dx = dx
-                    best_dy = dy
-        # Fine search around best candidate:
-        for dx in range(best_dx - coarse_step, best_dx + coarse_step + 1, fine_step):
-            for dy in range(best_dy - coarse_step, best_dy + coarse_step + 1, fine_step):
-                score = self.calculate_matching_score(composite_img, img, dx, dy)
-                if score > best_score:
-                    best_score = score
-                    best_dx = dx
-                    best_dy = dy
-        return best_dx, best_dy, best_score
+    
+    def search_best_offset(self, composite_image, new_image, maximum_offset_range, coarse_search_step, fine_search_step):
+        best_matching_score = -100000
+        best_offset_x = 0
+        best_offset_y = 0
+        
+        # Coarse search: scan with larger steps to find general area
+        for offset_x in range(-maximum_offset_range, maximum_offset_range + 1, coarse_search_step):
+            for offset_y in range(-maximum_offset_range, maximum_offset_range + 1, coarse_search_step):
+                current_score = self.calculate_matching_score(composite_image, new_image, offset_x, offset_y)
+                if current_score > best_matching_score:
+                    best_matching_score = current_score
+                    best_offset_x = offset_x
+                    best_offset_y = offset_y
+                    
+        # Fine search: refine around best candidate with smaller steps
+        for offset_x in range(best_offset_x - coarse_search_step, best_offset_x + coarse_search_step + 1, fine_search_step):
+            for offset_y in range(best_offset_y - coarse_search_step, best_offset_y + coarse_search_step + 1, fine_search_step):
+                current_score = self.calculate_matching_score(composite_image, new_image, offset_x, offset_y)
+                if current_score > best_matching_score:
+                    best_matching_score = current_score
+                    best_offset_x = offset_x
+                    best_offset_y = offset_y
+                    
+        return best_offset_x, best_offset_y, best_matching_score
 
     def auto_compose(self):
         if not self.images:
@@ -320,91 +365,142 @@ class CombinedComposerApp:
     
     def auto_compose_thread(self):
         self.update_progress("Starting auto composition...")
-        max_offset = self.max_offset_var.get()
-        coarse_step = 5
-        fine_step = 1
-        base_img = self.images[0]
-        composite_img = base_img.copy()
+        maximum_offset_range = self.max_offset_var.get()
+        coarse_search_step_size = 5
+        fine_search_step_size = 1
+        
+        base_image = self.images[0]
+        composite_image = base_image.copy()
+        
         self.positions = [{
             "filename": os.path.basename(self.image_files[0]),
             "x": 0,
             "y": 0,
-            "width": base_img.width,
-            "height": base_img.height,
+            "width": base_image.width,
+            "height": base_image.height,
         }]
         print(f"Base image: {self.image_files[0]} placed at (0,0)")
-        for idx in range(1, len(self.images)):
-            img = self.images[idx]
-            print(f"Processing image {self.image_files[idx]}")
-            dx, dy, score = self.search_best_offset(composite_img, img, max_offset, coarse_step, fine_step)
-            if score <= 0:
-                print(f"No positive overlap score for image {self.image_files[idx]}; skipping.")
+        
+        for image_index in range(1, len(self.images)):
+            current_image = self.images[image_index]
+            current_image_filepath = self.image_files[image_index]
+            print(f"Processing image {current_image_filepath}")
+            
+            best_offset_x, best_offset_y, best_score = self.search_best_offset(
+                composite_image, current_image, 
+                maximum_offset_range, coarse_search_step_size, fine_search_step_size
+            )
+            
+            if best_score <= 0:
+                print(f"No positive overlap score for image {current_image_filepath}; skipping.")
                 continue
-            print(f"Best offset for image {self.image_files[idx]}: ({dx},{dy}) with score {score}")
-            composite_img, updated_positions = self.update_composite_image(composite_img, img, dx, dy, idx)
+                
+            print(f"Best offset for image {current_image_filepath}: ({best_offset_x},{best_offset_y}) with score {best_score}")
+            
+            composite_image, updated_positions = self.update_composite_image(
+                composite_image, current_image, best_offset_x, best_offset_y, image_index
+            )
             self.positions = updated_positions
-            self.update_progress(f"Placed {idx+1} of {len(self.images)} images...")
-        self.composite_image = composite_img
+            self.update_progress(f"Placed {image_index + 1} of {len(self.images)} images...")
+            
+        self.composite_image = composite_image
         self.update_progress("Auto composition completed.")
         self.update_canvas_positions()
     
-    def calculate_matching_score(self, composite_img, img, dx, dy):
-        comp_np = np.array(composite_img)
-        img_np = np.array(img)
-        x_start = max(0, dx)
-        y_start = max(0, dy)
-        x_end = min(comp_np.shape[1], dx + img_np.shape[1])
-        y_end = min(comp_np.shape[0], dy + img_np.shape[0])
-        if x_end <= x_start or y_end <= y_start:
+    def calculate_matching_score(self, composite_image, new_image, offset_x, offset_y):
+        composite_array = np.array(composite_image)
+        new_image_array = np.array(new_image)
+        
+        # Calculate overlapping region boundaries
+        overlap_x_start = max(0, offset_x)
+        overlap_y_start = max(0, offset_y)
+        overlap_x_end = min(composite_array.shape[1], offset_x + new_image_array.shape[1])
+        overlap_y_end = min(composite_array.shape[0], offset_y + new_image_array.shape[0])
+        
+        # Check if there's no overlap
+        if overlap_x_end <= overlap_x_start or overlap_y_end <= overlap_y_start:
             return -100000
-        x_img_start = max(0, -dx)
-        y_img_start = max(0, -dy)
-        region_w = x_end - x_start
-        region_h = y_end - y_start
-        comp_region = comp_np[y_start:y_end, x_start:x_end]
-        img_region = img_np[y_img_start:y_img_start+region_h, x_img_start:x_img_start+region_w]
-        alpha_thresh = 128
-        comp_opaque = comp_region[..., 3] >= alpha_thresh
-        img_opaque = img_region[..., 3] >= alpha_thresh
-        both_opaque = comp_opaque & img_opaque
-        one_transparent = comp_opaque ^ img_opaque
-        score = 0
-        if np.any(both_opaque):
-            diff = np.abs(comp_region[..., :3] - img_region[..., :3]).astype(np.float32)
-            sim = 1 - np.mean(diff, axis=2)/255.0
-            # Use elementwise multiplication on booleans converted to float:
-            score += self.match_bonus * np.sum(both_opaque.astype(np.float32) * ((sim > 0.9).astype(np.float32)))
-            score += self.match_bonus * np.sum(both_opaque.astype(np.float32) * ((sim <= 0.9).astype(np.float32)) * sim)
-        score -= self.mismatch_penalty * np.sum(one_transparent)
-        return score
+            
+        # Calculate corresponding region in new image
+        new_image_x_start = max(0, -offset_x)
+        new_image_y_start = max(0, -offset_y)
+        overlap_region_width = overlap_x_end - overlap_x_start
+        overlap_region_height = overlap_y_end - overlap_y_start
+        
+        # Extract overlapping regions from both images
+        composite_overlap_region = composite_array[overlap_y_start:overlap_y_end, overlap_x_start:overlap_x_end]
+        new_image_overlap_region = new_image_array[
+            new_image_y_start:new_image_y_start + overlap_region_height, 
+            new_image_x_start:new_image_x_start + overlap_region_width
+        ]
+        
+        # Determine pixel opacity using alpha channel threshold
+        alpha_threshold = 128
+        composite_pixels_opaque = composite_overlap_region[..., 3] >= alpha_threshold
+        new_image_pixels_opaque = new_image_overlap_region[..., 3] >= alpha_threshold
+        both_pixels_opaque = composite_pixels_opaque & new_image_pixels_opaque
+        one_pixel_transparent = composite_pixels_opaque ^ new_image_pixels_opaque
+        
+        matching_score = 0
+        
+        # Calculate similarity for pixels where both are opaque
+        if np.any(both_pixels_opaque):
+            rgb_difference = np.abs(composite_overlap_region[..., :3] - new_image_overlap_region[..., :3]).astype(np.float32)
+            color_similarity = 1 - np.mean(rgb_difference, axis=2) / 255.0
+            
+            # High similarity bonus (>0.9 similarity)
+            high_similarity_mask = (color_similarity > 0.9).astype(np.float32)
+            matching_score += self.match_bonus * np.sum(both_pixels_opaque.astype(np.float32) * high_similarity_mask)
+            
+            # Partial similarity bonus (<=0.9 similarity)
+            partial_similarity_mask = (color_similarity <= 0.9).astype(np.float32)
+            matching_score += self.match_bonus * np.sum(both_pixels_opaque.astype(np.float32) * partial_similarity_mask * color_similarity)
+            
+        # Penalty for mismatched opacity
+        matching_score -= self.mismatch_penalty * np.sum(one_pixel_transparent)
+        
+        return matching_score
     
-    def update_composite_image(self, composite_img, img, dx, dy, idx):
-        x_min = min(0, dx)
-        y_min = min(0, dy)
-        x_max = max(composite_img.width, dx + img.width)
-        y_max = max(composite_img.height, dy + img.height)
-        new_width = x_max - x_min
-        new_height = y_max - y_min
-        new_composite = Image.new("RGBA", (new_width, new_height), (0,0,0,0))
-        comp_offset = (-x_min, -y_min)
-        new_composite.paste(composite_img, comp_offset)
-        img_offset = (dx - x_min, dy - y_min)
-        new_composite.paste(img, img_offset, img)
-        updated_positions = []
-        for pos in self.positions:
-            up = pos.copy()
-            up["x"] += comp_offset[0]
-            up["y"] += comp_offset[1]
-            updated_positions.append(up)
-        updated_positions.append({
-            "filename": os.path.basename(self.image_files[idx]),
-            "x": img_offset[0],
-            "y": img_offset[1],
-            "width": img.width,
-            "height": img.height,
+    def update_composite_image(self, composite_image, new_image, offset_x, offset_y, image_index):
+        # Calculate bounding box for expanded composite
+        bounding_box_x_min = min(0, offset_x)
+        bounding_box_y_min = min(0, offset_y)
+        bounding_box_x_max = max(composite_image.width, offset_x + new_image.width)
+        bounding_box_y_max = max(composite_image.height, offset_y + new_image.height)
+        
+        expanded_composite_width = bounding_box_x_max - bounding_box_x_min
+        expanded_composite_height = bounding_box_y_max - bounding_box_y_min
+        
+        # Create new expanded composite image
+        expanded_composite_image = Image.new("RGBA", (expanded_composite_width, expanded_composite_height), (0, 0, 0, 0))
+        
+        # Paste existing composite at adjusted position
+        composite_paste_offset = (-bounding_box_x_min, -bounding_box_y_min)
+        expanded_composite_image.paste(composite_image, composite_paste_offset)
+        
+        # Paste new image at calculated position
+        new_image_paste_offset = (offset_x - bounding_box_x_min, offset_y - bounding_box_y_min)
+        expanded_composite_image.paste(new_image, new_image_paste_offset, new_image)
+        
+        # Update all existing image positions
+        updated_image_positions = []
+        for existing_position in self.positions:
+            adjusted_position = existing_position.copy()
+            adjusted_position["x"] += composite_paste_offset[0]
+            adjusted_position["y"] += composite_paste_offset[1]
+            updated_image_positions.append(adjusted_position)
+            
+        # Add new image position
+        updated_image_positions.append({
+            "filename": os.path.basename(self.image_files[image_index]),
+            "x": new_image_paste_offset[0],
+            "y": new_image_paste_offset[1],
+            "width": new_image.width,
+            "height": new_image.height,
         })
-        print(f"Image {self.image_files[idx]} placed at ({img_offset[0]}, {img_offset[1]})")
-        return new_composite, updated_positions
+        
+        print(f"Image {self.image_files[image_index]} placed at ({new_image_paste_offset[0]}, {new_image_paste_offset[1]})")
+        return expanded_composite_image, updated_image_positions
     
     def update_progress(self, msg):
         self.progress_label.config(text=msg)
@@ -425,45 +521,50 @@ class CombinedComposerApp:
         self.update_score_display()
         self.update_debug_overlay()
     
-    # ----------------------------------------------------
-    # Refinement and Fine-Tuning (Interactive Mode)
-    # ----------------------------------------------------
+    
+    # Refinement and Fine-Tuning 
+    
     def refine_composite(self):
         threading.Thread(target=self.refine_composite_thread).start()
     
     def refine_composite_thread(self):
         if not self.draggable_images:
             return
-        placed = []
-        unplaced = self.draggable_images.copy()
-        current = unplaced.pop(0)
-        placed.append(current)
-        self.canvas.moveto(current.id, 100, 100)
-        while unplaced:
+        placed_images = []
+        unplaced_images = self.draggable_images.copy()
+        first_image = unplaced_images.pop(0)
+        placed_images.append(first_image)
+        self.canvas.moveto(first_image.canvas_image_id, 100, 100)
+        
+        while unplaced_images:
             best_pair_score = float('-inf')
-            best_attachment = None
-            best_anchor = None
-            best_position = None
-            for anchor in placed:
-                for candidate in unplaced:
-                    pos, score = self.search_attachment_position(anchor, candidate, "right", "left", max_radius=30, step=2)
-                    if score > best_pair_score:
-                        best_pair_score = score
-                        best_attachment = candidate
-                        best_anchor = anchor
-                        best_position = pos
-            if best_attachment is None:
-                candidate = unplaced.pop(0)
-                anchor = placed[-1]
-                ax, ay = anchor.get_position()
-                best_position = (ax + anchor.image.width + 10, ay)
-                self.canvas.moveto(candidate.id, best_position[0], best_position[1])
-                placed.append(candidate)
+            best_attachment_image = None
+            best_anchor_image = None
+            best_attachment_position = None
+            
+            for anchor_image in placed_images:
+                for candidate_image in unplaced_images:
+                    attachment_position, attachment_score = self.search_attachment_position(
+                        anchor_image, candidate_image, "right", "left", max_radius=30, step=2
+                    )
+                    if attachment_score > best_pair_score:
+                        best_pair_score = attachment_score
+                        best_attachment_image = candidate_image
+                        best_anchor_image = anchor_image
+                        best_attachment_position = attachment_position
+                        
+            if best_attachment_image is None:
+                fallback_candidate = unplaced_images.pop(0)
+                last_placed_anchor = placed_images[-1]
+                anchor_x_position, anchor_y_position = last_placed_anchor.get_position()
+                best_attachment_position = (anchor_x_position + last_placed_anchor.image.width + 10, anchor_y_position)
+                self.canvas.moveto(fallback_candidate.canvas_image_id, best_attachment_position[0], best_attachment_position[1])
+                placed_images.append(fallback_candidate)
             else:
-                self.canvas.moveto(best_attachment.id, best_position[0], best_position[1])
-                placed.append(best_attachment)
-                unplaced.remove(best_attachment)
-                self.merge_groups(best_attachment, best_anchor.group)
+                self.canvas.moveto(best_attachment_image.canvas_image_id, best_attachment_position[0], best_attachment_position[1])
+                placed_images.append(best_attachment_image)
+                unplaced_images.remove(best_attachment_image)
+                self.merge_groups(best_attachment_image, best_anchor_image.group)
             self.update_scores()
             self.update_score_display()
             self.update_debug_overlay()
@@ -550,31 +651,48 @@ class CombinedComposerApp:
                 best_score = score
                 best_dx = dx
                 best_dy = dy
-        self.canvas.move(self.selected_image.id, best_dx, best_dy)
+        self.canvas.move(self.selected_image.canvas_image_id, best_dx, best_dy)
         self.update_scores()
         self.update_score_display()
         self.update_debug_overlay()
     
-    def check_overlap(self, x, y, width, height, exclude=[]):
-        rect1 = (x, y, x+width, y+height)
-        for img in self.draggable_images:
-            if img in exclude:
+    def check_overlap(self, test_x_position, test_y_position, test_width, test_height, exclude=[]):
+        test_rectangle = (test_x_position, test_y_position, test_x_position + test_width, test_y_position + test_height)
+        
+        for draggable_image in self.draggable_images:
+            if draggable_image in exclude:
                 continue
-            ix, iy = img.get_position()
-            rect2 = (ix, iy, ix+img.image.width, iy+img.image.height)
-            if self.rectangles_overlap(rect1, rect2):
+                
+            image_x_position, image_y_position = draggable_image.get_position()
+            image_rectangle = (
+                image_x_position, image_y_position, 
+                image_x_position + draggable_image.image.width, 
+                image_y_position + draggable_image.image.height
+            )
+            
+            if self.rectangles_overlap(test_rectangle, image_rectangle):
                 return True
+                
         return False
     
-    def rectangles_overlap(self, r1, r2):
-        l1, t1, r1_, b1 = r1
-        l2, t2, r2_, b2 = r2
-        return not (r1_ <= l2 or r2_ <= l1 or b1 <= t2 or b2 <= t1)
+    def rectangles_overlap(self, rectangle_1, rectangle_2):
+        rect1_left, rect1_top, rect1_right, rect1_bottom = rectangle_1
+        rect2_left, rect2_top, rect2_right, rect2_bottom = rectangle_2
+        
+        # Rectangles don't overlap if one is completely to the side of the other
+        no_overlap = (
+            rect1_right <= rect2_left or 
+            rect2_right <= rect1_left or 
+            rect1_bottom <= rect2_top or 
+            rect2_bottom <= rect1_top
+        )
+        
+        return not no_overlap
     
-    def move_group(self, group, dx, dy):
-        for img in self.draggable_images:
-            if img.group == group:
-                self.canvas.move(img.id, dx, dy)
+    def move_group(self, group_name, delta_x, delta_y):
+        for draggable_image in self.draggable_images:
+            if draggable_image.group == group_name:
+                self.canvas.move(draggable_image.canvas_image_id, delta_x, delta_y)
         self.update_score_display()
         self.update_debug_overlay()
     
@@ -729,7 +847,7 @@ class CombinedComposerApp:
         target_image = self.selected_image.image
         others = [img for i, img in enumerate(self.draggable_images) if i != idx]
         if not others:
-            self.selected_image.score = 0
+            self.selected_image.overlap_score = 0
         else:
             comp, positions = self.create_composite(others)
             comp_np = np.array(comp)
@@ -740,8 +858,8 @@ class CombinedComposerApp:
                 score += self.calculate_overlap_score(comp_np, target_np, x0-positions[0][1], y0-positions[0][2])
             if use_edge:
                 score += self.calculate_edge_score(comp_np, target_np, x0-positions[0][1], y0-positions[0][2])
-            self.selected_image.score = score
-        self.score_label.config(text=f"Selected Piece Score: {self.selected_image.score}")
+            self.selected_image.overlap_score = score
+        self.score_label.config(text=f"Selected Piece Score: {self.selected_image.overlap_score}")
         if self.selected_image.group:
             group_images = [img for img in self.draggable_images if img.group == self.selected_image.group]
             total = 0
@@ -803,48 +921,75 @@ class CombinedComposerApp:
         self.canvas.delete("debug_overlay")
         if not self.debug_mode.get():
             return
+            
         self.canvas.update()
-        cw = self.canvas.winfo_width()
-        ch = self.canvas.winfo_height()
-        overlay = Image.new("RGBA", (cw, ch), (0,0,0,0))
-        draw = ImageDraw.Draw(overlay, "RGBA")
-        # Draw green–blue border (0.4 opacity) for each image.
-        for img in self.draggable_images:
-            x, y = img.get_position()
-            w, h = img.image.width, img.image.height
-            color_hex = img.debug_color
-            r = int(color_hex[1:3], 16)
-            g = int(color_hex[3:5], 16)
-            b = int(color_hex[5:7], 16)
-            border_color = (r, g, b, int(0.4 * 255))
-            draw.rectangle([x, y, x+w, y+h], outline=border_color)
-        # Fill overlapping regions in pink (0.4 opacity).
-        pink = (255, 0, 255, int(0.4 * 255))
-        n = len(self.draggable_images)
-        for i in range(n):
-            for j in range(i+1, n):
-                img1 = self.draggable_images[i]
-                img2 = self.draggable_images[j]
-                x1, y1 = img1.get_position()
-                w1, h1 = img1.image.width, img1.image.height
-                x2, y2 = img2.get_position()
-                w2, h2 = img2.image.width, img2.image.height
-                overlap_left = max(x1, x2)
-                overlap_top = max(y1, y2)
-                overlap_right = min(x1+w1, x2+w2)
-                overlap_bottom = min(y1+h1, y2+h2)
-                if overlap_right > overlap_left and overlap_bottom > overlap_top:
-                    draw.rectangle([overlap_left, overlap_top, overlap_right, overlap_bottom], fill=pink)
-        self.debug_overlay_image = ImageTk.PhotoImage(overlay)
+        canvas_width = self.canvas.winfo_width()
+        canvas_height = self.canvas.winfo_height()
+        
+        # Create transparent overlay image
+        debug_overlay_image = Image.new("RGBA", (canvas_width, canvas_height), (0, 0, 0, 0))
+        overlay_draw = ImageDraw.Draw(debug_overlay_image, "RGBA")
+        
+        # Draw unique colored border for each image (40% opacity)
+        for draggable_image in self.draggable_images:
+            image_x_position, image_y_position = draggable_image.get_position()
+            image_width = draggable_image.image.width
+            image_height = draggable_image.image.height
+            
+            # Parse hex color to RGB
+            border_color_hex = draggable_image.debug_border_color
+            red_value = int(border_color_hex[1:3], 16)
+            green_value = int(border_color_hex[3:5], 16)
+            blue_value = int(border_color_hex[5:7], 16)
+            border_color_rgba = (red_value, green_value, blue_value, int(0.4 * 255))
+            
+            overlay_draw.rectangle(
+                [image_x_position, image_y_position, 
+                 image_x_position + image_width, image_y_position + image_height], 
+                outline=border_color_rgba
+            )
+            
+        # Fill overlapping regions with pink (40% opacity)
+        overlap_fill_color = (255, 0, 255, int(0.4 * 255))
+        total_images = len(self.draggable_images)
+        
+        for first_image_index in range(total_images):
+            for second_image_index in range(first_image_index + 1, total_images):
+                first_image = self.draggable_images[first_image_index]
+                second_image = self.draggable_images[second_image_index]
+                
+                first_x, first_y = first_image.get_position()
+                first_width, first_height = first_image.image.width, first_image.image.height
+                
+                second_x, second_y = second_image.get_position()
+                second_width, second_height = second_image.image.width, second_image.image.height
+                
+                # Calculate overlap region
+                overlap_region_left = max(first_x, second_x)
+                overlap_region_top = max(first_y, second_y)
+                overlap_region_right = min(first_x + first_width, second_x + second_width)
+                overlap_region_bottom = min(first_y + first_height, second_y + second_height)
+                
+                # Draw overlap if it exists
+                if overlap_region_right > overlap_region_left and overlap_region_bottom > overlap_region_top:
+                    overlay_draw.rectangle(
+                        [overlap_region_left, overlap_region_top, overlap_region_right, overlap_region_bottom], 
+                        fill=overlap_fill_color
+                    )
+                    
+        self.debug_overlay_image = ImageTk.PhotoImage(debug_overlay_image)
         self.canvas.create_image(0, 0, image=self.debug_overlay_image, anchor="nw", tags="debug_overlay")
     
     def update_score_display(self):
         self.canvas.delete("score_text")
         if self.selected_image:
-            x, y = self.selected_image.get_position()
-            txt = f"Score: {self.selected_image.score}"
-            self.selected_image.text_id = self.canvas.create_text(
-                x + self.selected_image.image.width//2, y - 10, text=txt, fill="white", tags="score_text")
+            selected_x_position, selected_y_position = self.selected_image.get_position()
+            score_display_text = f"Score: {self.selected_image.overlap_score}"
+            self.selected_image.score_text_id = self.canvas.create_text(
+                selected_x_position + self.selected_image.image.width // 2, 
+                selected_y_position - 10, 
+                text=score_display_text, fill="white", tags="score_text"
+            )
     
     def select_image(self, img):
         self.selected_image = img
@@ -854,35 +999,34 @@ class CombinedComposerApp:
     
     def move_selected_left(self, event):
         if self.selected_image:
-            self.canvas.move(self.selected_image.id, -1, 0)
+            self.canvas.move(self.selected_image.canvas_image_id, -1, 0)
             self.update_scores()
             self.update_score_display()
             self.update_debug_overlay()
     
     def move_selected_right(self, event):
         if self.selected_image:
-            self.canvas.move(self.selected_image.id, 1, 0)
+            self.canvas.move(self.selected_image.canvas_image_id, 1, 0)
             self.update_scores()
             self.update_score_display()
             self.update_debug_overlay()
     
     def move_selected_up(self, event):
         if self.selected_image:
-            self.canvas.move(self.selected_image.id, 0, -1)
+            self.canvas.move(self.selected_image.canvas_image_id, 0, -1)
             self.update_scores()
             self.update_score_display()
             self.update_debug_overlay()
     
     def move_selected_down(self, event):
         if self.selected_image:
-            self.canvas.move(self.selected_image.id, 0, 1)
+            self.canvas.move(self.selected_image.canvas_image_id, 0, 1)
             self.update_scores()
             self.update_score_display()
             self.update_debug_overlay()
     
-    # ----------------------------------------------------
+    
     # Saving and Disassembly
-    # ----------------------------------------------------
     def save_composites(self):
         if not self.groups:
             messagebox.showinfo("Info", "No groups to save.")
@@ -966,9 +1110,7 @@ class CombinedComposerApp:
     def run(self):
         self.master.mainloop()
 
-# ---------------------------------------------------------------------
-# Main: Create the application window and run the CombinedComposerApp.
-# ---------------------------------------------------------------------
+# Create the application window and run the CombinedComposerApp.
 def main():
     root = tk.Tk()
     app = CombinedComposerApp(root)

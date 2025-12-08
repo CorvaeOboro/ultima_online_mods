@@ -6,14 +6,16 @@ IMAGE ROTATE 45degree for TEX to ART_M
  attempting to closer match the original's style by sharpening 5% , blending 1% noise , and darkening 12% 
 #requires ALPHA folder with bmp included to apply the original opacity
 
-
 TODO: 
 - hardcode the alpha into the code , since so far all our textures use same opacity mask
 - use blender scene setup with render , and possibly using existing to create a baseline for render , we may want to implement this as belnder render?
-- add gui 
+- add gui
 
-STATUS:: updating from old cli version 
-VERSION::
+TOOLSGROUP::IMAGE
+SORTGROUP::4
+SORTPRIORITY::41
+STATUS::wip , updating from old cli version
+VERSION::20251207
 """
 from PIL import Image, ImageDraw, ImageFont ,ImageEnhance,ImageFilter , ImageChops , ImageOps
 import PIL

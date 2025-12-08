@@ -38,6 +38,10 @@ Details:
 - Working Canvas order: Sorted by Y position (top to bottom), then X (left to right)
 - Output format: PNG (static), WebP (animated, 2000ms per frame, loop=0 infinite )
 
+TOOLSGROUP::RENDER
+SORTGROUP::7
+SORTPRIORITY::74
+STATUS::wip
 VERSION::20251128
 """
 import os

@@ -1,7 +1,17 @@
+"""
+MAP EXTRACT FROM MUL 
+
 # extract map mul landtiles position and land id which correspond to the land textures
 # load a map like map0.mul , convert from uop in UOfiddler first to get mul 
 # can define region to export the data to a csv that can be later read by a blender addon to place matching tiles 
 # use search to find the locations of a known tile in order to find regions
+
+TOOLSGROUP::MAP
+SORTGROUP::6
+SORTPRIORITY::61
+STATUS::wip
+VERSION::20251207
+"""
 
 import os
 import struct

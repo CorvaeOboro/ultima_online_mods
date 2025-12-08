@@ -1,9 +1,12 @@
 """
- FILE RENAMER - NUMBER TO HEX CONVERTER
+FILE RENAMER - NUMBER TO HEX CONVERTER
  Converts numbered files to hexadecimal format with various renaming modes
  Merged functionality from 02_rename_num_to_hex.py and 02_rename_all_hex_suffix.py
 
-STATUS:: wip updated from cli version
+TOOLSGROUP::DEV
+SORTGROUP::9
+SORTPRIORITY::98
+STATUS::wip updated from cli version
 VERSION::20251207
 """
 import os

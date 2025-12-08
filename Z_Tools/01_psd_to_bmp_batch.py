@@ -19,6 +19,12 @@ RULES:
 - do not export PSD files to BMP files if they are in a folder named "Upscale" , instead export those to PNG (only if newer than existing)
 - only export to BMP if the PSD is newer
 - match bmp format codec specific settings without the dependency of imagemagick
+
+TOOLSGROUP::PROJECT
+SORTGROUP::2
+SORTPRIORITY::22
+STATUS::working
+VERSION::20250929
 """
 import os
 import re

@@ -1,10 +1,16 @@
 """
 UI GUMP COMPOSITE LOADER 
-- a Ultima Online gump view from .def files like "Intrface.def"
+- a Ultima Online gump view from .def files like "Intrface.def" 
 - Loads the file information of in-game gumps and their arrangement
 - Visualizes a gomp composite like the paperdoll
 - Exports arrangement as JSON with x, y, w, h of each gump part
 on the right side is a list of components , click to follow referenced composites
+
+TOOLSGROUP::UI
+SORTGROUP::5
+SORTPRIORITY::53
+STATUS::wip
+VERSION::20251207
 """
 
 import os

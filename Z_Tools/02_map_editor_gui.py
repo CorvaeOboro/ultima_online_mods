@@ -73,6 +73,11 @@ Stage 4: GUI Implementation
 Create interactive GUI
 Integrate map rendering and editing
 
+TOOLSGROUP::MAP
+SORTGROUP::6
+SORTPRIORITY::62
+STATUS::not working
+VERSION::20251207
 """
 DEFAULT_ITEM_IMAGE_FOLDER = r"D:\ULTIMA\MODS\ultima_online_mods\Z_Tools\items"
 
