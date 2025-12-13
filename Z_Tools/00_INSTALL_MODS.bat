@@ -74,12 +74,22 @@ for /f "tokens=1,2 delims=." %%a in ("%PYTHON_VERSION%") do (
 if %PY_MAJOR% LSS 3 (
     echo [WARNING] Python 3.8 or higher is recommended. Current: %PYTHON_VERSION%
     set /p CONTINUE="Continue anyway? (y/n): "
-    if /i not "!CONTINUE!"=="y" exit /b 1
+    if /i not "!CONTINUE!"=="y" (
+        echo.
+        echo [INFO] Setup cancelled by user.
+        pause
+        exit /b 1
+    )
 )
 if %PY_MAJOR% EQU 3 if %PY_MINOR% LSS 8 (
     echo [WARNING] Python 3.8 or higher is recommended. Current: %PYTHON_VERSION%
     set /p CONTINUE="Continue anyway? (y/n): "
-    if /i not "!CONTINUE!"=="y" exit /b 1
+    if /i not "!CONTINUE!"=="y" (
+        echo.
+        echo [INFO] Setup cancelled by user.
+        pause
+        exit /b 1
+    )
 )
 
 :: ===================================================
@@ -185,6 +195,8 @@ if not exist "%VENV_DIR%\" (
         exit /b 1
     )
     echo [OK] Virtual environment created successfully.
+    echo [INFO] Waiting for virtual environment to initialize...
+    timeout /t 3 /nobreak >nul
     echo.
 )
 
@@ -196,10 +208,21 @@ echo [STEP 4/4] Installing Python packages...
 echo.
 
 call "%VENV_DIR%\Scripts\activate.bat"
+echo [INFO] Waiting for virtual environment activation...
+timeout /t 2 /nobreak >nul
 
 echo [INFO] Installing packages from requirements.txt...
 echo.
 python -m pip install --upgrade pip
+if errorlevel 1 (
+    echo.
+    echo [ERROR] Failed to upgrade pip!
+    echo.
+    pause
+    call deactivate 2>nul
+    exit /b 1
+)
+
 python -m pip install -r "%REQUIREMENTS%"
 
 if errorlevel 1 (
@@ -208,7 +231,7 @@ if errorlevel 1 (
     echo.
     set /p RETRY="Try recreating virtual environment? (y/n): "
     if /i "!RETRY!"=="y" (
-        deactivate
+        call deactivate 2>nul
         rmdir /s /q "%VENV_DIR%"
         echo [INFO] Recreating virtual environment...
         python -m venv "%VENV_DIR%"
@@ -218,22 +241,30 @@ if errorlevel 1 (
             exit /b 1
         )
         call "%VENV_DIR%\Scripts\activate.bat"
+        timeout /t 2 /nobreak >nul
         python -m pip install --upgrade pip
+        if errorlevel 1 (
+            echo [ERROR] Failed to upgrade pip on retry.
+            pause
+            call deactivate 2>nul
+            exit /b 1
+        )
         python -m pip install -r "%REQUIREMENTS%"
         if errorlevel 1 (
             echo [ERROR] Installation failed again. Check your internet connection.
-            deactivate
             pause
+            call deactivate 2>nul
             exit /b 1
         )
     ) else (
-        deactivate
+        echo [INFO] Installation cancelled by user.
         pause
+        call deactivate 2>nul
         exit /b 1
     )
 )
 
-deactivate
+call deactivate 2>nul
 echo.
 echo [OK] All packages installed successfully!
 echo.
@@ -253,8 +284,18 @@ echo.
 
 :: Launch the mod selector tool
 call "%VENV_DIR%\Scripts\activate.bat"
+timeout /t 1 /nobreak >nul
 python "00_mod_selector.py"
-deactivate
+set "SCRIPT_EXIT_CODE=%ERRORLEVEL%"
+call deactivate 2>nul
+
+if %SCRIPT_EXIT_CODE% NEQ 0 (
+    echo.
+    echo [ERROR] Mod Selector exited with error code: %SCRIPT_EXIT_CODE%
+    echo.
+    pause
+    exit /b %SCRIPT_EXIT_CODE%
+)
 
 echo.
 echo [INFO] Mod Selector closed.

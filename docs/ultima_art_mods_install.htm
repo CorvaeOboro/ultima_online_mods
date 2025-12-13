@@ -14,23 +14,19 @@ body {
 </style></head>
 <body>
 
-	  <h1>Installation / Patching</h1>
 
-  <h2>UO Outlands</h2>
-  <ol class="steps">
-    <li>Download <a href="https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip">GumpOverrides</a>.</li>
-    <li>Unzip into a <strong>GumpOverrides</strong> folder inside your Outlands folder.</li>
-  </ol>
-
-  <h2>Classic Shards</h2>
-  <ol class="steps">
-    <li>Download <a href="https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip">UO_ART_MODS.zip</a>.</li>
-    <li>Extract the downloaded zip to a new folder anywhere.</li>
-    <li>Use <strong>UOFiddler</strong> (recommended) to handle the full install via its <em>MassImport</em> plugin.</li>
-    <li>Create a backup of your Ultima Online client folder.</li>
-    <li>Watch the install video below (unmute), or <a href="https://github.com/CorvaeOboro/ultima_online_mods/Z_InstallNotes/ultima_online_art_mods_install.mp4">download the install guide video</a>.</li>
-  </ol>
-
+<br>
+<h1>Installation / Patching</h1>
+<ul>
+<li>for UO Outlands = <a href="https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip" target="_parent">Download GumpOverrides</a> , unzip into a GumpOverrides folder in Outlands folder</li>
+<li>for Classic Shards =</li>
+<li>download <a href=" https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip " target="_parent">UO_ART_MODS.zip</a> .</li>
+<li>extract downloaded zip to a new folder anywhere</li>
+<li>UOFiddler is now the reccomended tool for complete mod install process by using its MassImport plugin</li>
+<li>create a backup of your Ultima Online Client folder</li>
+<li>unmute and watch video below , or <a href=" https://github.com/CorvaeOboro/ultima_online_mods/Z_InstallNotes/ultima_online_art_mods_install.mp4 " target="_parent">download install guide video</a></li>
+</ul>
+<br>
 
 <section id="video">
 <video controls autoplay loop>
@@ -39,59 +35,54 @@ body {
 </video>
 
 
+
 <br>
-	
-
-  <h2>Setting up UOFiddler</h2>
-  <ol class="steps">
-    <li>Download the latest release of <a href="https://github.com/polserver/UOFiddler">UOFiddler</a>.</li>
-    <li><strong>Settings &gt; Path Settings</strong> &rarr; paste your Ultima folder path &rarr; click <em>Reload paths</em> (list should populate with <code>.mul</code>, <code>.idx</code>, and <code>.uop</code> files).</li>
-    <li><strong>Setting &gt; Options &gt; Output Path</strong> &rarr; set to a new local <strong>OUTPUT</strong> folder (this is where the <code>.mul</code> and <code>.uop</code> files will be written).</li>
-    <li><strong>Plugins &gt; Manage</strong> &rarr; enable <em>MassImportPlugin</em>.</li>
-    <li><strong>Plugins &gt; Manage</strong> &rarr; enable <em>UOPpacker</em>.</li>
-  </ol>
-
-  <h2>Patching using UOFiddler</h2>
-  <ol class="steps">
-    <li>The <code>ultima_online_mods</code> folder includes <code>00_ART_MODS_MassImport.xml</code> (a list of item IDs and file paths for the modded art). Edit the file paths with a global “replace all” to match your system paths, or generate a custom XML using
-      <a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py"><code>00_mod_selector.py</code></a>.
-    </li>
-    <li><strong>Plugins &gt; MassImport</strong> &rarr; <em>Load XML</em> &rarr; select <code>00_ART_MODS_MassImport.xml</code> from the downloaded mods folder (loads replacement art files).</li>
-    <li>Enable <strong>DirectSave</strong>, then click <strong>Start</strong> (may take ~1 minute).</li>
-    <li>Your <strong>OUTPUT</strong> folder will now contain the modded <code>.mul</code> files.</li>
-    <li><strong>UOFiddler &rarr; UOP Packer</strong> &rarr; paste the <strong>OUTPUT</strong> folder path &rarr; turn ON <em>Pack MUL to UOP</em> &rarr; <strong>Start</strong>.</li>
-    <li>Close UOFiddler. Copy the <code>.mul</code>, <code>.idx</code>, and <code>.uop</code> files from <strong>OUTPUT</strong> into your Ultima folder, overwriting existing files.</li>
-    <li>Installation complete — launch Ultima Online.</li>
-    <li>If your shard updates later, patch using their updater (verify), then repeat the MassImport process in UOFiddler.</li>
-  </ol>
-
-  <h2>Patching Troubleshooting</h2>
-  <ul class="steps">
-    <li><strong>Terrain textures look mismatched/random in-game:</strong> This usually means a shard patch updated over the modded files. Re-apply mods with MassImport <em>after</em> updating to the shard’s latest.</li>
-    <li><strong>MassImport crashes/freezes (&gt;2 minutes):</strong> Your source <code>.mul</code> may be corrupted. Restore backup <code>.mul</code> files or delete them and verify via your shard’s launcher to download fresh unmodded versions, then re-run MassImport. This can happen after shard updates.</li>
-    <li><strong>After a shard update, the client crashes with</strong> <em>“System.OutOfMemoryException: Array dimensions exceeded supported range.”</em> referencing <em>ArtLoader</em>:
-      delete the recently updated <code>.mul</code> or <code>.uop</code> files in the client directory, verify again with the shard launcher to fetch clean copies, confirm the client launches, then run MassImport on top using UOFiddler.
-    </li>
-  </ul>
-
-  <br>
-
-<h2>- OR - Install using Varan Mulpatcher ( OLD METHOD ) </h2>
+<h2>Setting up UOFiddler</h2>
 <ul>
-<li>alternatively can install using <a href="http://varan.uodev.de/" target="_parent">Mulpatcher</a> | <a href="https://downloads.runuo.net/Mul/Mulpatcher.zip" target="_parent"> Alternate Download</a> </li>
-<li>Settings &gt; Art &gt; set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .</li>
-<li>Features &gt; Autopatch &gt; select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  &gt; hit START . </li>
-<li>Repeat Autopatch process for the following mod txt files :</li>
-<li>00_UI_ALL_GUMP.txt ( Gumps ) , 00_ENV_ALL_TEX.txt ( Textures ) , 00_ENV_ALL_ART_M.txt ( Art (M) ) , 00_ENV_ALL_ART_S.txt ( Art (S) ) </li>
-<li>Settings &gt; Save the Art mul to the Ultima directory ( Ultima directory ) . repeat for Gumps and Textures .</li>
+<li>download the latest release of <a href="https://github.com/polserver/UOFiddler" target="_parent">UOFiddler</a></li>
+<li>Settings > Path Settings > paste your Ultima folder path then click "Reload paths" ( list should populate with .mul .idx and .uop files )</li>
+<li>Setting > Options > Output Path > set to a new local OUTPUT folder ( this is where the mul and uop will output )</li>
+<li>Plugins > Manage > turn on MassImportPlugin</li>
+<li>Plugins > Manage > turn on UOPpacker</li>
 </ul>
-<p><a href="https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_InstallNotes#installation--patching---expanded">INSTALL NOTES EXPANDED</a> </p>
-<p>Additional Guides and Mods hosted by Gaechti :
-- http://www.burningsheep.ch/finished.html
-- http://www.burningsheep.ch/howtoUOP.html</p>
-
 <br>
-
+<h2>Patching using UOFiddler</h2>
+<ul>
+<li>the ultima_online_mods folder contains a 00_ART_MODS_MassImport.xml file , ( this xml is a list of item ids and where the modded art files are located ) , edit the filepaths in the XML with "replace all" to match your own , or create a custom XML file using the <a href="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py" target="_parent">00_mod_selector.py</a> tool</li>
+<li>Plugins > MassImport > Load XML > select the xml file in downloaded MOD folder 00_ART_MODS_MassImport.xml ( loads replacement art files)</li>
+<li>checkbox ON "DirectSave" , click "Start" ( may take 1 minute )</li>
+<li>the OUTPUT folder now contains the modded .mul files</li>
+<li>UOFiddler Tabs >UOP Packer > paste the OUTPUT folder path that contains the modded .mul files > turn ON "Pack MUL to UOP" > Start</li>
+<li>close UOFiddler , then copy the .mul , .idx , and .uop files , in the OUTPUT folder into your Ultima folder , overwriting</li>
+<li>Install is complete , play Ultima Online</li>
+<li>if your shard updates , then patch using their updater ( verify ), and repeat the MassImport process using UOFiddler  after</li>
+</ul>
+<br>
+<h2>Patching Troubleshooting</h2>
+<ul>
+<li>if Terrain textures are incorrect in-game showing mismatch random texture = this is typically a shard patch update applied on top of the modded , mod textures should be applied by MassImport AFTER updating to your shards latest</li>
+<li>if MassImport crashes/freezes ( longer then 2min ) = the source .mul may be corrupted , restore backup .mul files or remove them and verify your shards latest patch ( so it downloads unmodded versions ) . this may happen after patching latest in a shard updater</li>
+<li>if after a Shard Update the client crashes with "System.OutOfMemoryException: Array dimensions exceeded supported range." referencing the ArtLoader. this is likely a failed diff update , delete the .mul or .uop files in the client directly that were recently updated , then verify again with your shard's launcher to download a fresh copy. test that the client loads , then may MassImport ontop using UOFiddler</li>
+</ul>
+<br>
+<h2>or OLD Install using Varan Mulpatcher</h2>
+<ul>
+<li>alternatively can install using <a href=" http://varan.uodev.de/ " target="_parent">Mulpatcher</a> <a href=" https://downloads.runuo.net/Mul/Mulpatcher.zip " target="_parent">Alternate Download</a> , this is an older method , may run out of memory</li>
+<li>Settings > Art > set the mul paths : Art.mul path ( Ultima directory ) and artidx.mul . click LOAD . repeat for Gumps and Textures .</li>
+<li>Features > Autopatch > select the mod txt file( 00_ART_ALL_ART_S.txt ) and set Art(S) as category dropdown  > hit START .</li>
+<li>Repeat Autopatch process for the following mod txt files :</li>
+<li>00_UI_ALL_GUMP.txt ( Gumps ) , 00_ENV_ALL_TEX.txt ( Textures ) , 00_ENV_ALL_ART_M.txt ( Art (M) ) , 00_ENV_ALL_ART_S.txt ( Art (S) )</li>
+<li>Settings > Save the Art mul to the Ultima directory ( Ultima directory ) . repeat for Gumps and Textures .</li>
+</ul>
+<br>
+<p><a href=" https://github.com/CorvaeOboro/ultima_online_mods/tree/main/Z_InstallNotes#installation--patching---expanded" target="_parent">INSTALL NOTES EXPANDED</a></p>
+<br>
+<p>Additional Guides and Mods hosted by Gaechti :</p>
+<ul>
+<li>http://www.burningsheep.ch/finished.html</li>
+<li>http://www.burningsheep.ch/howtoUOP.html</li>
+</ul>
+<br>
 
 
 </ul>

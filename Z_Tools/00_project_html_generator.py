@@ -96,7 +96,7 @@ CONTENT SOURCES
 ===============================================================================
 
 Project Structure:
-   - Scans ART/, UI/, ENV/ folders recursively
+   - Search ART/, UI/, ENV/ folders recursively
    - Finds composite images (00_* prefix) for group previews
    - Counts individual renders in Upscale/ subfolders
    - Detects .png, .jpg, .gif, .bmp, .psd files
@@ -180,7 +180,7 @@ SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 DOCS_DIR = PROJECT_ROOT / "docs"
 PREVIEW_CACHE_DIR = SCRIPT_DIR / "_preview_cache"
-README_PATH = SCRIPT_DIR / "README.md"
+README_PATH = PROJECT_ROOT / "README.md"
 
 # GitHub raw content base URL
 GITHUB_RAW_BASE = "https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master"
@@ -193,15 +193,19 @@ body {
     color: #666666;
     margin: 20px;
     padding: 0;
+    text-align: center;
+}
+p {
+    text-align: center;
 }
 h1 {
     color: #888888;
-    border-bottom: 2px solid #333333;
-    padding-bottom: 10px;
+    text-align: center;
 }
 h2 {
     color: #777777;
     margin-top: 30px;
+    text-align: center;
 }
 a {
     color: #5c9ccc;
@@ -212,10 +216,9 @@ a:hover {
     text-decoration: underline;
 }
 img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #333333;
-    margin: 10px 0;
+    border: none;
+    margin: 0;
+    display: block;
 }
 .thumbnail {
     display: inline-block;
@@ -227,19 +230,26 @@ img {
     max-height: 200px;
 }
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    display: block;
     margin: 20px 0;
-}
-.gallery-item {
-    flex: 0 1 auto;
     text-align: center;
 }
+.gallery-item {
+    display: block;
+    text-align: center;
+    margin: 0;
+}
 .gallery-item img {
-    max-width: 300px;
-    max-height: 300px;
-    object-fit: contain;
+    border: none;
+    margin: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.gallery-item .caption {
+    margin-top: 5px;
+    color: #999999;
+    font-size: 12px;
 }
 .category-section {
     margin: 40px 0;
@@ -256,6 +266,8 @@ img {
 }
 ul {
     line-height: 1.8;
+    list-style-position: inside;
+    text-align: center;
 }
 code {
     background-color: #1a1a1a;
@@ -361,6 +373,20 @@ def build_main_page_layout(structure):
     
     return layout
 
+def clean_group_name(group_name, category):
+    """Remove category prefix from group name and capitalize
+    Example: 'ART_Fish' -> 'FISH', 'UI_ArchStone' -> 'ARCHSTONE'
+    """
+    # Remove category prefix (e.g., "ART_", "UI_", "ENV_")
+    prefix = f"{category}_"
+    if group_name.startswith(prefix):
+        cleaned = group_name[len(prefix):]
+    else:
+        cleaned = group_name
+    
+    # Capitalize the result
+    return cleaned.upper()
+
 def build_category_page_layout(category, groups, structure, group_metadata=None, image_metadata=None):
     """Build layout definition for category page with priority sorting"""
     layout = PageLayout(category.lower(), f'{category} Mods')
@@ -449,8 +475,10 @@ def build_category_page_layout(category, groups, structure, group_metadata=None,
         composites = [i for i in items if i['type'] == 'composite']
         
         if composites:
-            # Group header
-            layout.add_header(group_name, level=2)
+            # Group header - clean the name by removing category prefix
+            display_name = clean_group_name(group_name, category)
+            # Store original group_name for metadata lookups
+            layout.add_section('header', display_name, level=2, original_group_name=group_name)
             
             # Show all composite images for this group
             group_images = []
@@ -515,9 +543,11 @@ def build_install_page_layout():
 
 # ===== RENDERERS: Convert PageLayout to output formats =====
 
-def render_layout_to_html(layout):
+def render_layout_to_html(layout, image_metadata=None, group_metadata=None, show_excluded=False):
     """Convert PageLayout to HTML string"""
     html_parts = []
+    image_metadata = image_metadata or {}
+    group_metadata = group_metadata or {}
     
     # Header
     html_parts.append(f"""<!DOCTYPE html>
@@ -532,6 +562,10 @@ def render_layout_to_html(layout):
 <body>
 """)
     
+    # Track if we should skip sections (for excluded groups)
+    skip_until_next_header = False
+    last_was_group_gallery = False  # Track if last section was a group gallery
+    
     # Render each section
     for section in layout.sections:
         section_type = section['type']
@@ -539,40 +573,90 @@ def render_layout_to_html(layout):
         
         if section_type == 'header':
             level = section.get('level', 1)
+            
+            # For H2 headers (group names), check if group is excluded
+            if level == 2:
+                # Add extra spacing before new group (if previous section was a group gallery)
+                if last_was_group_gallery:
+                    html_parts.append('<br>\n')
+                
+                original_name = section.get('original_group_name', content)
+                group_meta = group_metadata.get(original_name, {})
+                is_excluded = group_meta.get('excluded', False)
+                
+                # Skip entire group if excluded (unless show_excluded is True)
+                if is_excluded and not show_excluded:
+                    skip_until_next_header = True
+                    continue
+                else:
+                    skip_until_next_header = False
+            
             html_parts.append(f"<h{level}>{content}</h{level}>\n")
+            last_was_group_gallery = False
+            
+        elif skip_until_next_header:
+            # Skip all content until we hit the next header
+            continue
             
         elif section_type == 'text':
             html_parts.append(f"<p>{content}</p>\n")
+            last_was_group_gallery = False
             
         elif section_type == 'button':
             url = section.get('url', '#')
             html_parts.append(f'<a href="{url}" class="download-button">{content}</a>\n')
+            last_was_group_gallery = False
             
         elif section_type == 'list':
             html_parts.append("<ul>\n")
             for item in content:
                 html_parts.append(f"  <li>{item}</li>\n")
             html_parts.append("</ul>\n")
+            last_was_group_gallery = False
             
         elif section_type == 'gallery':
             columns = section.get('columns', 3)
-            html_parts.append('<div class="gallery">\n')
+            
+            # Filter out excluded images (same logic as canvas renderer)
+            filtered_images = []
             for img_data in content:
-                img_path = img_data['path']
-                img_name = img_data.get('name', '')
-                # Convert to GitHub URL
-                rel_path = str(img_path).replace('\\', '/').split('ultima_online_mods/')[-1]
-                github_url = f"{GITHUB_RAW_BASE}/{rel_path}"
-                html_parts.append(f'  <div class="gallery-item">\n')
-                html_parts.append(f'    <img src="{github_url}" alt="{img_name}" />\n')
-                html_parts.append(f'    <p>{img_name}</p>\n')
-                html_parts.append(f'  </div>\n')
-            html_parts.append('</div>\n')
+                img_path = str(img_data.get('path', ''))
+                img_meta = image_metadata.get(img_path, {})
+                is_excluded = img_meta.get('excluded', False)
+                
+                # Skip excluded images unless show_excluded is True
+                if is_excluded and not show_excluded:
+                    continue
+                
+                filtered_images.append(img_data)
+            
+            # Only render gallery if there are images to show
+            if filtered_images:
+                html_parts.append('<div class="gallery">\n')
+                for img_data in filtered_images:
+                    img_path = img_data['path']
+                    img_name = img_data.get('name', '')
+                    # Convert to GitHub URL
+                    rel_path = str(img_path).replace('\\', '/').split('ultima_online_mods/')[-1]
+                    github_url = f"{GITHUB_RAW_BASE}/{rel_path}"
+                    
+                    # Get caption from metadata
+                    img_meta = image_metadata.get(str(img_path), {})
+                    caption = img_meta.get('caption', '')
+                    
+                    html_parts.append(f'  <div class="gallery-item">\n')
+                    html_parts.append(f'    <img src="{github_url}" alt="{img_name}" />\n')
+                    if caption:
+                        html_parts.append(f'    <div class="caption">{caption}</div>\n')
+                    html_parts.append(f'  </div>\n')
+                html_parts.append('</div>\n')
+                last_was_group_gallery = True
             
         elif section_type == 'html':
             # Raw HTML content (from README conversion)
             html_parts.append(content)
             html_parts.append('\n')
+            last_was_group_gallery = False
     
     # Footer
     html_parts.append("""
@@ -631,6 +715,7 @@ def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, i
         text_font = ImageFont.load_default()
     
     current_y = padding
+    last_was_group_gallery = False  # Track if last section was a group gallery
     
     # Render each section
     for section in layout.sections:
@@ -645,7 +730,12 @@ def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, i
             
             # For H2 headers (group names), check if group is excluded
             if level == 2:
-                group_meta = group_metadata.get(header_text, {})
+                # Add extra spacing before new group (if previous section was a group gallery)
+                if last_was_group_gallery:
+                    current_y += 20  # Extra spacing between groups
+                
+                original_name = section.get('original_group_name', header_text)
+                group_meta = group_metadata.get(original_name, {})
                 is_excluded = group_meta.get('excluded', False)
                 
                 # Skip entire group if excluded (unless show_excluded is True)
@@ -653,54 +743,86 @@ def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, i
                     # Skip this header and all following sections until next header
                     continue
             
-            # Draw header text
+            # Draw header text (display name) - centered
             header_y_start = current_y
-            draw.text((padding, current_y), header_text, fill=color, font=font)
+            last_was_group_gallery = False
+            # Calculate text width for centering
+            bbox = draw.textbbox((0, 0), header_text, font=font)
+            text_width = bbox[2] - bbox[0]
+            centered_x = (width - text_width) // 2
+            
+            draw.text((centered_x, current_y), header_text, fill=color, font=font)
             current_y += 25 if level == 1 else 20
             
             # Store bbox for H2 headers (group names) for click detection
+            # Use original name for metadata key
             if level == 2:
-                group_bboxes[header_text] = (padding, header_y_start, width - padding, current_y)
+                original_name = section.get('original_group_name', header_text)
+                group_bboxes[original_name] = (padding, header_y_start, width - padding, current_y)
             
-            # Draw underline for h1
+            # Draw underline for h1 (centered)
             if level == 1:
-                draw.line([(padding, current_y), (width-padding, current_y)], fill='#333333', width=2)
+                underline_margin = 20
+                draw.line([(underline_margin, current_y), (width-underline_margin, current_y)], fill='#333333', width=2)
                 current_y += 5
                 
         elif section_type == 'text':
-            # Word wrap text
+            # Word wrap text - centered
             words = str(content).split()
             line = ""
             for word in words:
                 test_line = line + " " + word if line else word
                 if len(test_line) > 35:  # Approximate character limit
-                    draw.text((padding, current_y), line, fill=text_color, font=text_font)
+                    # Center the line
+                    bbox = draw.textbbox((0, 0), line, font=text_font)
+                    text_width = bbox[2] - bbox[0]
+                    centered_x = (width - text_width) // 2
+                    draw.text((centered_x, current_y), line, fill=text_color, font=text_font)
                     current_y += 15
                     line = word
                 else:
                     line = test_line
             if line:
-                draw.text((padding, current_y), line, fill=text_color, font=text_font)
+                # Center the last line
+                bbox = draw.textbbox((0, 0), line, font=text_font)
+                text_width = bbox[2] - bbox[0]
+                centered_x = (width - text_width) // 2
+                draw.text((centered_x, current_y), line, fill=text_color, font=text_font)
                 current_y += 15
             current_y += 5
+            last_was_group_gallery = False
             
         elif section_type == 'button':
-            # Draw button rectangle
+            # Draw button rectangle - centered
             button_height = 25
+            button_width = width - padding * 2
+            button_x = padding
+            
             draw.rectangle(
-                [(padding, current_y), (width-padding, current_y + button_height)],
+                [(button_x, current_y), (button_x + button_width, current_y + button_height)],
                 fill=button_color,
                 outline='#3a5a7a'
             )
-            # Button text
-            draw.text((padding + 10, current_y + 5), str(content)[:30], fill='#ffffff', font=text_font)
+            # Button text - centered
+            button_text = str(content)[:30]
+            bbox = draw.textbbox((0, 0), button_text, font=text_font)
+            text_width = bbox[2] - bbox[0]
+            text_x = button_x + (button_width - text_width) // 2
+            draw.text((text_x, current_y + 5), button_text, fill='#ffffff', font=text_font)
             current_y += button_height + 10
+            last_was_group_gallery = False
             
         elif section_type == 'list':
+            # Center list items
             for item in content[:5]:  # Limit items
-                draw.text((padding + 10, current_y), f"• {str(item)[:35]}", fill=text_color, font=text_font)
+                list_text = f"• {str(item)[:35]}"
+                bbox = draw.textbbox((0, 0), list_text, font=text_font)
+                text_width = bbox[2] - bbox[0]
+                centered_x = (width - text_width) // 2
+                draw.text((centered_x, current_y), list_text, fill=text_color, font=text_font)
                 current_y += 15
             current_y += 5
+            last_was_group_gallery = False
             
         elif section_type == 'gallery':
             # Draw actual images at real size (no boxes)
@@ -766,20 +888,46 @@ def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, i
                             new_height = int(comp_img.height * scale_factor)
                             comp_img = comp_img.resize((new_width, new_height), Image.Resampling.LANCZOS)
                         
-                        # Paste image (scaled or original size)
-                        if comp_img.mode == 'RGBA':
-                            img.paste(comp_img, (img_x, img_y), comp_img)
-                        else:
-                            img.paste(comp_img, (img_x, img_y))
+                        # Center the image horizontally
+                        center_offset = (col_width - comp_img.width) // 2
+                        centered_x = img_x + center_offset
                         
-                        # Store bounding box for click detection
-                        image_bboxes[str(img_path)] = (img_x, img_y, img_x + comp_img.width, img_y + comp_img.height)
+                        # Paste image (scaled or original size) - centered
+                        if comp_img.mode == 'RGBA':
+                            img.paste(comp_img, (centered_x, img_y), comp_img)
+                        else:
+                            img.paste(comp_img, (centered_x, img_y))
+                        
+                        # Get caption if exists
+                        img_meta = image_metadata.get(str(img_path), {})
+                        caption_text = img_meta.get('caption', '')
+                        
+                        # Calculate total height including caption
+                        total_height = comp_img.height
+                        if caption_text:
+                            # Draw caption below image (centered)
+                            caption_y = img_y + comp_img.height + 5
+                            try:
+                                caption_font = ImageFont.truetype("segoeui.ttf", 9)
+                            except:
+                                caption_font = text_font
+                            
+                            # Center caption text
+                            bbox = draw.textbbox((0, 0), caption_text, font=caption_font)
+                            caption_width = bbox[2] - bbox[0]
+                            caption_x = img_x + (col_width - caption_width) // 2
+                            
+                            draw.text((caption_x, caption_y), caption_text, fill='#999999', font=caption_font)
+                            total_height += 20  # Add height for caption
+                        
+                        # Store bounding box for click detection (includes caption area)
+                        image_bboxes[str(img_path)] = (centered_x, img_y, centered_x + comp_img.width, img_y + total_height)
                         
                         # Track max height for this row
                         if row not in row_max_heights:
-                            row_max_heights[row] = comp_img.height
+                            row_max_heights[row] = total_height
                         else:
-                            row_max_heights[row] = max(row_max_heights[row], comp_img.height)
+                            row_max_heights[row] = max(row_max_heights[row], total_height)
                         
                         actual_index += 1
                 except Exception as e:
@@ -790,6 +938,7 @@ def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, i
             if row_y_positions:
                 last_row = max(row_y_positions.keys())
                 current_y = row_y_positions[last_row] + row_max_heights.get(last_row, 0) + 10
+                last_was_group_gallery = True
             
     
     # Crop image to actual content height (add some padding at bottom)
@@ -804,6 +953,87 @@ def render_layout_to_canvas(layout, canvas, start_x=20, start_y=20, width=280, i
         img = img.crop((0, 0, width, actual_height))
     
     return img, image_bboxes, group_bboxes
+
+def render_info_panel_to_canvas(info_messages, width=280, max_height=800):
+    """Render project info panel as an image"""
+    from PIL import ImageDraw, ImageFont
+    
+    bg_color = '#0a0a0a'
+    text_color = '#cccccc'
+    header_color = '#888888'
+    
+    # Try to load fonts
+    try:
+        header_font = ImageFont.truetype("segoeui.ttf", 12)
+        text_font = ImageFont.truetype("consolas.ttf", 8)
+    except:
+        header_font = ImageFont.load_default()
+        text_font = ImageFont.load_default()
+    
+    # Calculate required height
+    line_height = 12
+    padding = 10
+    estimated_height = min(max_height, len(info_messages) * line_height + padding * 2 + 30)
+    
+    img = Image.new('RGB', (width, estimated_height), color=bg_color)
+    draw = ImageDraw.Draw(img)
+    
+    # Draw header
+    draw.text((padding, padding), "PROJECT INFORMATION", fill=header_color, font=header_font)
+    draw.line([(padding, padding + 20), (width - padding, padding + 20)], fill='#333333', width=1)
+    
+    # Draw info messages
+    y = padding + 30
+    for msg in info_messages[:60]:  # Limit to 60 lines
+        # Truncate long lines
+        display_msg = msg[:45] if len(msg) > 45 else msg
+        draw.text((padding, y), display_msg, fill=text_color, font=text_font)
+        y += line_height
+        if y > estimated_height - padding:
+            break
+    
+    return img
+
+def render_log_panel_to_canvas(log_messages, width=280, max_height=800):
+    """Render generation log panel as an image"""
+    from PIL import ImageDraw, ImageFont
+    
+    bg_color = '#0a0a0a'
+    text_color = '#88cc88'
+    header_color = '#888888'
+    
+    # Try to load fonts
+    try:
+        header_font = ImageFont.truetype("segoeui.ttf", 12)
+        text_font = ImageFont.truetype("consolas.ttf", 7)
+    except:
+        header_font = ImageFont.load_default()
+        text_font = ImageFont.load_default()
+    
+    # Calculate required height
+    line_height = 10
+    padding = 10
+    estimated_height = min(max_height, len(log_messages) * line_height + padding * 2 + 30)
+    
+    img = Image.new('RGB', (width, estimated_height), color=bg_color)
+    draw = ImageDraw.Draw(img)
+    
+    # Draw header
+    draw.text((padding, padding), "GENERATION LOG", fill=header_color, font=header_font)
+    draw.line([(padding, padding + 20), (width - padding, padding + 20)], fill='#333333', width=1)
+    
+    # Draw log messages (show last N messages)
+    y = padding + 30
+    display_messages = log_messages[-80:] if len(log_messages) > 80 else log_messages
+    for msg in display_messages:
+        # Truncate long lines
+        display_msg = msg[:50] if len(msg) > 50 else msg
+        draw.text((padding, y), display_msg, fill=text_color, font=text_font)
+        y += line_height
+        if y > estimated_height - padding:
+            break
+    
+    return img
 
 # ===== UTILITY FUNCTIONS =====
 
@@ -849,6 +1079,13 @@ def scan_project_structure():
                     "path": img_file,
                     "type": "composite"
                 })
+        for img_file in category_path.glob("00_*.webp"):
+            if img_file.is_file():
+                base_items.append({
+                    "name": img_file.name,
+                    "path": img_file,
+                    "type": "composite"
+                })
         
         # Store base folder images with special key
         if base_items:
@@ -881,6 +1118,41 @@ def scan_project_structure():
                     "path": img_file,
                     "type": "composite"
                 })
+            for img_file in group_folder.glob("00_*.webp"):
+                items.append({
+                    "name": img_file.name,
+                    "path": img_file,
+                    "type": "composite"
+                })
+            
+            # For ENV category, also scan ART_S subfolder for composite images
+            if category == "ENV":
+                art_s_folder = group_folder / "ART_S"
+                if art_s_folder.exists():
+                    for img_file in art_s_folder.glob("00_*.png"):
+                        items.append({
+                            "name": img_file.name,
+                            "path": img_file,
+                            "type": "composite"
+                        })
+                    for img_file in art_s_folder.glob("00_*.jpg"):
+                        items.append({
+                            "name": img_file.name,
+                            "path": img_file,
+                            "type": "composite"
+                        })
+                    for img_file in art_s_folder.glob("00_*.gif"):
+                        items.append({
+                            "name": img_file.name,
+                            "path": img_file,
+                            "type": "composite"
+                        })
+                    for img_file in art_s_folder.glob("00_*.webp"):
+                        items.append({
+                            "name": img_file.name,
+                            "path": img_file,
+                            "type": "composite"
+                        })
                 
             # Find upscale renders if available
             upscale_folder = group_folder / "Upscale"
@@ -926,24 +1198,45 @@ def parse_readme_section(section_name):
 
 def convert_readme_urls_to_github(markdown_text):
     """Convert local file paths in README to GitHub raw URLs"""
-    # Convert image src paths: /ART/... or /UI/... or /ENV/...
-    def replace_image_path(match):
-        path = match.group(1)
-        # Remove leading slash and ?raw=true if present
-        path = path.lstrip('/').replace('?raw=true', '')
-        return f'"{GITHUB_RAW_BASE}/{path}?raw=true"'
-    
-    # Replace src="/..." and src='/...'
-    markdown_text = re.sub(r'src=["\']([^"\']+)["\']', replace_image_path, markdown_text)
-    
-    # Replace markdown image syntax: ![alt](/path)
+    def _is_local_readme_path(path: str) -> bool:
+        if not path:
+            return False
+        p = path.strip()
+        if p.startswith('http://') or p.startswith('https://'):
+            return False
+        # README uses both /ART/... and ART/... (and UI/ENV/Z_Tools)
+        p2 = p.lstrip('/')
+        return p2.startswith(('ART/', 'UI/', 'ENV/', 'Z_Tools/'))
+
+    def _to_github_raw_url(path: str) -> str:
+        p = (path or '').strip().replace('?raw=true', '')
+        p2 = p.lstrip('/')
+        return f"{GITHUB_RAW_BASE}/{p2}?raw=true"
+
+    # Replace HTML src="..." inside README
+    def replace_src(match):
+        quote = match.group(1)
+        path = match.group(2)
+        if not _is_local_readme_path(path):
+            return match.group(0)
+        return f'src={quote}{_to_github_raw_url(path)}{quote}'
+
+    markdown_text = re.sub(r'src=(["\'])([^"\']+)\1', replace_src, markdown_text)
+
+    # Replace markdown image syntax anywhere in the text:
+    # ![alt](/path?raw=true "title") or ![alt](/path)
     def replace_md_image(match):
         alt = match.group(1)
-        path = match.group(2).lstrip('/').replace('?raw=true', '')
-        return f'![{alt}]({GITHUB_RAW_BASE}/{path}?raw=true)'
-    
-    markdown_text = re.sub(r'!\[([^\]]*)\]\((/[^\)]+)\)', replace_md_image, markdown_text)
-    
+        path = match.group(2)
+        title = match.group(3) or ''
+        if _is_local_readme_path(path):
+            path = _to_github_raw_url(path)
+        if title:
+            return f'![{alt}]({path} "{title}")'
+        return f'![{alt}]({path})'
+
+    markdown_text = re.sub(r'!\[([^\]]*)\]\(([^\s\)]+)(?:\s+"([^"]*)")?\)', replace_md_image, markdown_text)
+
     return markdown_text
 
 def markdown_to_html(markdown_text):
@@ -956,6 +1249,15 @@ def markdown_to_html(markdown_text):
     in_list = False
     in_table = False
     
+    def apply_inline_formatting(text: str) -> str:
+        # Links: [text](url)
+        text = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', r'<a href="\2" target="_parent">\1</a>', text)
+        # Bold: **text**
+        text = re.sub(r'\*\*([^\*]+)\*\*', r'<strong>\1</strong>', text)
+        # Code: `text`
+        text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+        return text
+
     for line in lines:
         stripped = line.strip()
         
@@ -1009,7 +1311,7 @@ def markdown_to_html(markdown_text):
             if not in_list:
                 new_lines.append('<ul>')
                 in_list = True
-            item_text = stripped[2:]
+            item_text = apply_inline_formatting(stripped[2:])
             new_lines.append(f'<li>{item_text}</li>')
             continue
         else:
@@ -1017,18 +1319,29 @@ def markdown_to_html(markdown_text):
                 new_lines.append('</ul>')
                 in_list = False
         
-        # Images: ![alt](url)
-        if stripped.startswith('!'):
-            img_match = re.match(r'!\[([^\]]*)\]\(([^\)]+)\)', stripped)
-            if img_match:
-                alt = img_match.group(1)
-                url = img_match.group(2)
+        # Images: ![alt](url "title")
+        # (Handle leading spaces and optional title; allow query params)
+        img_match = re.match(r'!\[([^\]]*)\]\(([^\s\)]+)(?:\s+"([^"]*)")?\)', stripped)
+        if img_match:
+            alt = img_match.group(1)
+            url = img_match.group(2)
+            title = img_match.group(3)
+            if title:
+                new_lines.append(f'<img src="{url}" alt="{alt}" title="{title}" />')
+            else:
                 new_lines.append(f'<img src="{url}" alt="{alt}" />')
-                continue
+            continue
         
         # HTML tags (pass through)
         if stripped.startswith('<'):
-            new_lines.append(stripped)
+            lower = stripped.lower()
+            if lower.startswith('<a ') and '<img' in lower and '</a>' not in lower:
+                if re.match(r'^<a\s+[^>]*>\s*<img\s+[^>]*>\s*$', stripped, flags=re.IGNORECASE):
+                    new_lines.append(stripped + '</a>')
+                else:
+                    new_lines.append(stripped)
+            else:
+                new_lines.append(stripped)
             continue
         
         # Video embeds (GitHub specific)
@@ -1037,15 +1350,7 @@ def markdown_to_html(markdown_text):
             continue
         
         # Regular paragraph
-        # Apply inline formatting
-        text = stripped
-        # Links: [text](url)
-        text = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', r'<a href="\2" target="_parent">\1</a>', text)
-        # Bold: **text**
-        text = re.sub(r'\*\*([^\*]+)\*\*', r'<strong>\1</strong>', text)
-        # Code: `text`
-        text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
-        
+        text = apply_inline_formatting(stripped)
         new_lines.append(f'<p>{text}</p>')
     
     if in_list:
@@ -1407,7 +1712,7 @@ class HTMLGeneratorGUI:
         self.preview_images = {}
         
         # Canvas pan/zoom state
-        self.canvas_scale = 1.0
+        self.canvas_scale = 0.3  # Default to 30% zoom for better overview
         self.canvas_offset_x = 0
         self.canvas_offset_y = 0
         self.is_panning = False
@@ -1422,6 +1727,7 @@ class HTMLGeneratorGUI:
         self.webpage_config_path = PROJECT_ROOT / 'Z_Tools' / '00_project_html_generator.json'
         self.show_excluded = False
         self.use_priority_sort = True  # Sort by priority (on by default)
+        self.output_folder = DOCS_DIR  # Default output folder
         self.load_webpage_config()
         
         # Colors
@@ -1510,70 +1816,289 @@ class HTMLGeneratorGUI:
         )
         self.open_btn.pack(side=tk.LEFT, padx=5)
         
-        # Main content area with splitter
-        main_paned = tk.PanedWindow(
-            self.root,
-            orient=tk.HORIZONTAL,
+        # Output folder selection row (below title/buttons)
+        output_folder_frame = tk.Frame(self.root, bg=self.bg_darker, padx=10, pady=8)
+        output_folder_frame.pack(side=tk.TOP, fill=tk.X)
+        
+        tk.Label(
+            output_folder_frame,
+            text="Output Folder:",
+            font=("Segoe UI", 10, "bold"),
+            bg=self.bg_darker,
+            fg=self.fg_color
+        ).pack(side=tk.LEFT, padx=(0, 10))
+        
+        self.output_folder_var = tk.StringVar(value=str(DOCS_DIR))
+        output_entry = tk.Entry(
+            output_folder_frame,
+            textvariable=self.output_folder_var,
+            font=("Consolas", 9),
             bg=self.bg_dark,
-            sashwidth=5,
-            sashrelief=tk.RAISED
+            fg=self.fg_color,
+            insertbackground=self.fg_color,
+            width=80
         )
-        main_paned.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+        output_entry.pack(side=tk.LEFT, padx=(0, 10), fill=tk.X, expand=True)
         
-        # Left panel - Preview canvas (WIDER)
-        left_frame = tk.Frame(main_paned, bg=self.bg_dark)
-        main_paned.add(left_frame, minsize=800)
+        tk.Button(
+            output_folder_frame,
+            text="Browse",
+            command=self.browse_output_folder,
+            bg=self.accent_color,
+            fg='white',
+            font=("Segoe UI", 9, "bold"),
+            padx=10,
+            pady=3,
+            relief=tk.FLAT,
+            cursor="hand2"
+        ).pack(side=tk.LEFT, padx=(0, 5))
         
-        # Preview header with controls
-        preview_header = tk.Frame(left_frame, bg=self.bg_dark)
-        preview_header.pack(side=tk.TOP, fill=tk.X, padx=10, pady=(5, 2))
+        tk.Button(
+            output_folder_frame,
+            text="Reset",
+            command=lambda: self.output_folder_var.set(str(DOCS_DIR)),
+            bg=self.bg_lighter,
+            fg=self.fg_color,
+            font=("Segoe UI", 9),
+            padx=10,
+            pady=3,
+            relief=tk.FLAT,
+            cursor="hand2"
+        ).pack(side=tk.LEFT)
         
-        # Refresh button
+        # Properties and controls row (below output folder)
+        props_row = tk.Frame(self.root, bg=self.bg_darker, padx=10, pady=8)
+        props_row.pack(side=tk.TOP, fill=tk.X)
+        
+        # Left section: Refresh button
+        left_section = tk.Frame(props_row, bg=self.bg_darker)
+        left_section.pack(side=tk.LEFT, padx=(0, 20))
+        
         self.refresh_preview_btn = tk.Button(
-            preview_header,
+            left_section,
             text="[REFRESH] Preview",
             command=self.manual_refresh_preview,
             bg=self.accent_color,
             fg='white',
             font=("Segoe UI", 9, "bold"),
             padx=10,
-            pady=2,
+            pady=3,
             relief=tk.FLAT,
             cursor="hand2"
         )
-        self.refresh_preview_btn.pack(side=tk.LEFT, padx=(0, 10))
+        self.refresh_preview_btn.pack(side=tk.LEFT)
         
-        # Use priority sort checkbox
+        # Middle section: Selected Image Properties
+        middle_section = tk.Frame(props_row, bg=self.bg_darker)
+        middle_section.pack(side=tk.LEFT, padx=(0, 20))
+        
+        # Selection type and name
+        tk.Label(
+            middle_section,
+            text="Selected:",
+            font=("Segoe UI", 9, "bold"),
+            bg=self.bg_darker,
+            fg=self.fg_color
+        ).pack(side=tk.LEFT, padx=(0, 5))
+        
+        self.selection_type_label = tk.Label(
+            middle_section,
+            text="[None]",
+            font=("Consolas", 8, "bold"),
+            bg=self.bg_darker,
+            fg='#666666'
+        )
+        self.selection_type_label.pack(side=tk.LEFT, padx=(0, 5))
+        
+        self.selected_img_label = tk.Label(
+            middle_section,
+            text="No selection",
+            font=("Consolas", 8),
+            bg=self.bg_darker,
+            fg='#aaaaaa',
+            width=25,
+            anchor='w'
+        )
+        self.selected_img_label.pack(side=tk.LEFT, padx=(0, 10))
+        
+        # Exclude checkbox
+        self.exclude_var = tk.BooleanVar()
+        self.exclude_check = tk.Checkbutton(
+            middle_section,
+            text="Exclude",
+            variable=self.exclude_var,
+            command=self.toggle_exclude,
+            bg=self.bg_darker,
+            fg=self.fg_color,
+            selectcolor=self.bg_dark,
+            activebackground=self.bg_darker,
+            activeforeground=self.fg_color,
+            font=("Consolas", 8)
+        )
+        self.exclude_check.pack(side=tk.LEFT, padx=(0, 10))
+        
+        # Type dropdown
+        tk.Label(
+            middle_section,
+            text="Type:",
+            font=("Consolas", 8),
+            bg=self.bg_darker,
+            fg=self.fg_color
+        ).pack(side=tk.LEFT, padx=(0, 3))
+        
+        self.type_var = tk.StringVar(value="normal")
+        self.type_dropdown = ttk.Combobox(
+            middle_section,
+            textvariable=self.type_var,
+            values=["normal", "comparison"],
+            width=10,
+            font=("Consolas", 8),
+            state="disabled"
+        )
+        self.type_dropdown.pack(side=tk.LEFT, padx=(0, 10))
+        self.type_dropdown.bind('<<ComboboxSelected>>', lambda e: self.update_type())
+        
+        # Priority
+        tk.Label(
+            middle_section,
+            text="Priority:",
+            font=("Consolas", 9, "bold"),
+            bg=self.bg_darker,
+            fg=self.fg_color
+        ).pack(side=tk.LEFT, padx=(0, 3))
+        
+        self.priority_var = tk.StringVar(value="0")
+        self.priority_entry = tk.Entry(
+            middle_section,
+            textvariable=self.priority_var,
+            width=5,
+            font=("Consolas", 10, "bold"),
+            bg=self.bg_dark,
+            fg=self.fg_color,
+            insertbackground=self.fg_color,
+            justify='center'
+        )
+        self.priority_entry.pack(side=tk.LEFT, padx=(0, 5))
+        self.priority_entry.bind('<Return>', lambda e: self.update_priority())
+        self.priority_entry.bind('<KeyRelease>', self.on_priority_key_release)
+        
+        tk.Button(
+            middle_section,
+            text="Set",
+            command=self.update_priority,
+            bg=self.accent_color,
+            fg='white',
+            font=("Consolas", 8),
+            padx=8,
+            pady=2,
+            relief=tk.FLAT,
+            cursor="hand2"
+        ).pack(side=tk.LEFT, padx=(0, 10))
+        
+        # Caption
+        tk.Label(
+            middle_section,
+            text="Caption:",
+            font=("Consolas", 9, "bold"),
+            bg=self.bg_darker,
+            fg=self.fg_color
+        ).pack(side=tk.LEFT, padx=(0, 3))
+        
+        self.caption_var = tk.StringVar(value="")
+        self.caption_entry = tk.Entry(
+            middle_section,
+            textvariable=self.caption_var,
+            width=30,
+            font=("Consolas", 9),
+            bg=self.bg_dark,
+            fg=self.fg_color,
+            insertbackground=self.fg_color
+        )
+        self.caption_entry.pack(side=tk.LEFT, padx=(0, 5))
+        self.caption_entry.bind('<Return>', lambda e: self.update_caption())
+        
+        tk.Button(
+            middle_section,
+            text="Set",
+            command=self.update_caption,
+            bg=self.accent_color,
+            fg='white',
+            font=("Consolas", 8),
+            padx=8,
+            pady=2,
+            relief=tk.FLAT,
+            cursor="hand2"
+        ).pack(side=tk.LEFT)
+        
+        # Right section: Display options
+        right_section = tk.Frame(props_row, bg=self.bg_darker)
+        right_section.pack(side=tk.RIGHT)
+        
+        # Show Info Panel checkbox
+        self.show_info_panel_var = tk.BooleanVar(value=False)
+        show_info_panel_check = tk.Checkbutton(
+            right_section,
+            text="Show Info Panel",
+            variable=self.show_info_panel_var,
+            command=self.toggle_info_panel,
+            bg=self.bg_darker,
+            fg=self.fg_color,
+            selectcolor=self.bg_dark,
+            activebackground=self.bg_darker,
+            activeforeground=self.fg_color,
+            font=("Consolas", 8)
+        )
+        show_info_panel_check.pack(side=tk.LEFT, padx=(0, 10))
+        
+        # Show Log Panel checkbox
+        self.show_log_panel_var = tk.BooleanVar(value=False)
+        show_log_panel_check = tk.Checkbutton(
+            right_section,
+            text="Show Log Panel",
+            variable=self.show_log_panel_var,
+            command=self.toggle_log_panel,
+            bg=self.bg_darker,
+            fg=self.fg_color,
+            selectcolor=self.bg_dark,
+            activebackground=self.bg_darker,
+            activeforeground=self.fg_color,
+            font=("Consolas", 8)
+        )
+        show_log_panel_check.pack(side=tk.LEFT, padx=(0, 10))
+        
         self.use_priority_var = tk.BooleanVar(value=True)
         priority_sort_check = tk.Checkbutton(
-            preview_header,
+            right_section,
             text="Sort by Priority",
             variable=self.use_priority_var,
             command=self.toggle_priority_sort,
-            bg=self.bg_dark,
+            bg=self.bg_darker,
             fg=self.fg_color,
-            selectcolor=self.bg_darker,
-            activebackground=self.bg_dark,
+            selectcolor=self.bg_dark,
+            activebackground=self.bg_darker,
             activeforeground=self.fg_color,
             font=("Consolas", 8)
         )
-        priority_sort_check.pack(side=tk.RIGHT, padx=(0, 10))
+        priority_sort_check.pack(side=tk.LEFT, padx=(0, 10))
         
-        # Show excluded checkbox
         self.show_excluded_var = tk.BooleanVar(value=False)
         show_excluded_check = tk.Checkbutton(
-            preview_header,
+            right_section,
             text="Show Excluded",
             variable=self.show_excluded_var,
             command=self.toggle_show_excluded,
-            bg=self.bg_dark,
+            bg=self.bg_darker,
             fg=self.fg_color,
-            selectcolor=self.bg_darker,
-            activebackground=self.bg_dark,
+            selectcolor=self.bg_dark,
+            activebackground=self.bg_darker,
             activeforeground=self.fg_color,
             font=("Consolas", 8)
         )
-        show_excluded_check.pack(side=tk.RIGHT)
+        show_excluded_check.pack(side=tk.LEFT)
+        
+        # Main content area - full width canvas
+        left_frame = tk.Frame(self.root, bg=self.bg_dark)
+        left_frame.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
         
         # Canvas for previews
         self.preview_canvas = tk.Canvas(
@@ -1584,168 +2109,9 @@ class HTMLGeneratorGUI:
         )
         self.preview_canvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True, padx=5, pady=(0, 5))
         
-        # Right panel - Info and logs (NARROWER)
-        right_frame = tk.Frame(main_paned, bg=self.bg_dark, width=220)
-        main_paned.add(right_frame, minsize=200)
-        
-        # Info section
-        info_label = tk.Label(
-            right_frame,
-            text="Project Information",
-            font=("Segoe UI", 11, "bold"),
-            bg=self.bg_dark,
-            fg=self.fg_color,
-            anchor='w'
-        )
-        info_label.pack(side=tk.TOP, fill=tk.X, padx=10, pady=(5, 3))
-        
-        self.info_text = scrolledtext.ScrolledText(
-            right_frame,
-            bg=self.bg_darker,
-            fg=self.fg_color,
-            font=("Consolas", 7),
-            wrap=tk.WORD,
-            height=10,
-            insertbackground=self.fg_color
-        )
-        self.info_text.pack(side=tk.TOP, fill=tk.BOTH, expand=True, padx=8, pady=(0, 3))
-        
-        # Log section
-        log_label = tk.Label(
-            right_frame,
-            text="Generation Log",
-            font=("Segoe UI", 11, "bold"),
-            bg=self.bg_dark,
-            fg=self.fg_color,
-            anchor='w'
-        )
-        log_label.pack(side=tk.TOP, fill=tk.X, padx=10, pady=(5, 3))
-        
-        self.log_text = scrolledtext.ScrolledText(
-            right_frame,
-            bg=self.bg_darker,
-            fg='#88cc88',
-            font=("Consolas", 7),
-            wrap=tk.WORD,
-            height=8,
-            insertbackground=self.fg_color
-        )
-        self.log_text.pack(side=tk.TOP, fill=tk.BOTH, expand=True, padx=8, pady=(0, 3))
-        
-        # Selected Image Properties section
-        props_label = tk.Label(
-            right_frame,
-            text="Selected Image",
-            font=("Segoe UI", 11, "bold"),
-            bg=self.bg_dark,
-            fg=self.fg_color,
-            anchor='w'
-        )
-        props_label.pack(side=tk.TOP, fill=tk.X, padx=10, pady=(5, 3))
-        
-        props_frame = tk.Frame(right_frame, bg=self.bg_darker)
-        props_frame.pack(side=tk.TOP, fill=tk.X, padx=8, pady=(0, 10))
-        
-        # Selection type label
-        self.selection_type_label = tk.Label(
-            props_frame,
-            text="[Image]",
-            font=("Consolas", 7, "bold"),
-            bg=self.bg_darker,
-            fg='#5c9ccc',
-            anchor='w'
-        )
-        self.selection_type_label.pack(side=tk.TOP, fill=tk.X, padx=5, pady=(2, 0))
-        
-        # Image/Group name label
-        self.selected_img_label = tk.Label(
-            props_frame,
-            text="No selection",
-            font=("Consolas", 7),
-            bg=self.bg_darker,
-            fg='#aaaaaa',
-            anchor='w',
-            wraplength=190
-        )
-        self.selected_img_label.pack(side=tk.TOP, fill=tk.X, padx=5, pady=(0, 2))
-        
-        # Exclude checkbox
-        self.exclude_var = tk.BooleanVar()
-        self.exclude_check = tk.Checkbutton(
-            props_frame,
-            text="Exclude from webpage",
-            variable=self.exclude_var,
-            command=self.toggle_exclude,
-            bg=self.bg_darker,
-            fg=self.fg_color,
-            selectcolor=self.bg_dark,
-            activebackground=self.bg_darker,
-            activeforeground=self.fg_color,
-            font=("Consolas", 7)
-        )
-        self.exclude_check.pack(side=tk.TOP, fill=tk.X, padx=5, pady=2)
-        
-        # Image type dropdown
-        type_frame = tk.Frame(props_frame, bg=self.bg_darker)
-        type_frame.pack(side=tk.TOP, fill=tk.X, padx=5, pady=2)
-        
-        tk.Label(
-            type_frame,
-            text="Type:",
-            font=("Consolas", 7),
-            bg=self.bg_darker,
-            fg=self.fg_color
-        ).pack(side=tk.LEFT)
-        
-        self.type_var = tk.StringVar(value="normal")
-        self.type_dropdown = ttk.Combobox(
-            type_frame,
-            textvariable=self.type_var,
-            values=["normal", "comparison"],
-            width=12,
-            font=("Consolas", 7),
-            state="readonly"
-        )
-        self.type_dropdown.pack(side=tk.LEFT, padx=5)
-        self.type_dropdown.bind('<<ComboboxSelected>>', lambda e: self.update_type())
-        
-        # Sorting priority
-        priority_frame = tk.Frame(props_frame, bg=self.bg_darker)
-        priority_frame.pack(side=tk.TOP, fill=tk.X, padx=5, pady=2)
-        
-        tk.Label(
-            priority_frame,
-            text="Sort Priority:",
-            font=("Consolas", 9, "bold"),
-            bg=self.bg_darker,
-            fg=self.fg_color
-        ).pack(side=tk.LEFT)
-        
-        self.priority_var = tk.StringVar(value="0")
-        self.priority_entry = tk.Entry(
-            priority_frame,
-            textvariable=self.priority_var,
-            width=6,
-            font=("Consolas", 12, "bold"),
-            bg=self.bg_dark,
-            fg=self.fg_color,
-            insertbackground=self.fg_color,
-            justify='center'
-        )
-        self.priority_entry.pack(side=tk.LEFT, padx=5)
-        self.priority_entry.bind('<Return>', lambda e: self.update_priority())
-        # Auto-update on key release (after typing)
-        self.priority_entry.bind('<KeyRelease>', self.on_priority_key_release)
-        
-        tk.Button(
-            priority_frame,
-            text="Set",
-            command=self.update_priority,
-            bg=self.accent_color,
-            fg='white',
-            font=("Consolas", 8),
-            padx=8
-        ).pack(side=tk.LEFT)
+        # Store log and info messages in memory (for canvas rendering)
+        self.info_messages = []
+        self.log_messages = []
         
         # Bind mouse events for pan, zoom, and selection
         self.preview_canvas.bind("<ButtonPress-1>", self.on_canvas_click)  # Left click to select
@@ -1756,23 +2122,63 @@ class HTMLGeneratorGUI:
         
         # Initial message
         self.log("Initializing...")
-        self.info_text.insert('1.0', "Scanning project on startup...\n\n")
+        self.add_info("Scanning project on startup...")
         
         # Auto-scan on startup
         self.root.after(100, self.scan_project)
         
     def log(self, message):
-        """Add message to log"""
-        self.log_text.insert(tk.END, f"{message}\n")
-        self.log_text.see(tk.END)
+        """Add message to log (stored in memory for canvas rendering or printed to console)"""
+        # If log panel is off, print to console instead
+        if not self.show_log_panel_var.get():
+            print(f"[LOG] {message}")
+        else:
+            self.log_messages.append(message)
+            # Keep only last 100 messages to avoid memory bloat
+            if len(self.log_messages) > 100:
+                self.log_messages = self.log_messages[-100:]
         self.root.update_idletasks()
+    
+    def add_info(self, message):
+        """Add message to info (stored in memory for canvas rendering or printed to console)"""
+        # If info panel is off, print to console instead
+        if not self.show_info_panel_var.get():
+            print(f"[INFO] {message}")
+        else:
+            self.info_messages.append(message)
+            # Keep only last 50 messages
+            if len(self.info_messages) > 50:
+                self.info_messages = self.info_messages[-50:]
+    
+    def toggle_info_panel(self):
+        """Toggle info panel visibility and refresh preview"""
+        # When turning on, we need to rebuild info messages from current state
+        if self.show_info_panel_var.get():
+            print("[INFO PANEL] Enabled - info will appear on canvas")
+        else:
+            print("[INFO PANEL] Disabled - info will print to console")
+            self.info_messages.clear()
+        # Refresh preview to show/hide panel
+        if hasattr(self, 'page_layouts') and self.page_layouts:
+            self.preview_pages()
+    
+    def toggle_log_panel(self):
+        """Toggle log panel visibility and refresh preview"""
+        if self.show_log_panel_var.get():
+            print("[LOG PANEL] Enabled - logs will appear on canvas")
+        else:
+            print("[LOG PANEL] Disabled - logs will print to console")
+            self.log_messages.clear()
+        # Refresh preview to show/hide panel
+        if hasattr(self, 'page_layouts') and self.page_layouts:
+            self.preview_pages()
         
     def scan_project(self):
         """Scan project structure and build page layouts"""
         self.log("=" * 50)
         self.log("PHASE 1: SCANNING PROJECT & BUILDING LAYOUTS")
         self.log("=" * 50)
-        self.info_text.delete('1.0', tk.END)
+        self.info_messages.clear()
         
         try:
             # Ensure output directory exists
@@ -1822,7 +2228,11 @@ class HTMLGeneratorGUI:
             self.log(f"  - Total renders: {total_renders}")
             self.log(f"  - Total items: {total_composites + total_renders}")
             
-            self.info_text.insert('1.0', info)
+            # Store info for canvas rendering
+            self.info_messages.clear()
+            for line in info.split('\n'):
+                if line.strip():
+                    self.add_info(line)
             
             # BUILD PAGE LAYOUTS (Single Source of Truth)
             self.log("\n> Building page layouts...")
@@ -1868,6 +2278,17 @@ class HTMLGeneratorGUI:
             self.log(f"   Traceback: {traceback.format_exc()}")
             messagebox.showerror("Scan Error", f"Failed to scan project:\n{e}")
             
+    def browse_output_folder(self):
+        """Open folder browser dialog to select output directory"""
+        from tkinter import filedialog
+        folder = filedialog.askdirectory(
+            title="Select Output Folder for Generated HTML",
+            initialdir=str(DOCS_DIR)
+        )
+        if folder:
+            self.output_folder_var.set(folder)
+            self.log(f"[OUTPUT] Output folder set to: {folder}")
+    
     def generate_html(self):
         """Generate HTML files from existing page layouts"""
         if not hasattr(self, 'page_layouts') or not self.page_layouts:
@@ -1880,6 +2301,14 @@ class HTMLGeneratorGUI:
         
         try:
             self.generated_pages = {}
+            
+            # Get output folder from UI
+            output_dir = Path(self.output_folder_var.get())
+            self.log(f"\n> Output directory: {output_dir}")
+            
+            # Ensure output directory exists
+            output_dir.mkdir(parents=True, exist_ok=True)
+            self.log(f"  [OK] Output directory ready")
             
             # Reload config to ensure we have latest priority settings
             self.log("\n> Reloading configuration...")
@@ -1904,9 +2333,14 @@ class HTMLGeneratorGUI:
             
             for page_name, layout in self.page_layouts.items():
                 self.log(f"  - Rendering {page_name}")
-                html = render_layout_to_html(layout)
+                html = render_layout_to_html(
+                    layout, 
+                    image_metadata=self.image_metadata,
+                    group_metadata=self.group_metadata,
+                    show_excluded=False  # Don't show excluded items in generated HTML
+                )
                 filename = f"ultima_art_mods_{page_name}.htm"
-                with open(DOCS_DIR / filename, 'w', encoding='utf-8') as f:
+                with open(output_dir / filename, 'w', encoding='utf-8') as f:
                     f.write(html)
                 self.generated_pages[page_name] = html
                 self.log(f"    [OK] {len(html)} chars, {len(layout.sections)} sections")
@@ -1914,19 +2348,19 @@ class HTMLGeneratorGUI:
             # Generate frameset and menu (these don't use layouts)
             self.log("\n> Generating frameset and menu...")
             html = generate_index_frameset()
-            with open(DOCS_DIR / "index.html", 'w', encoding='utf-8') as f:
+            with open(output_dir / "index.html", 'w', encoding='utf-8') as f:
                 f.write(html)
             self.generated_pages['index'] = html
             
             html = generate_menu_frame()
-            with open(DOCS_DIR / "ultima_art_mods_menu.htm", 'w', encoding='utf-8') as f:
+            with open(output_dir / "ultima_art_mods_menu.htm", 'w', encoding='utf-8') as f:
                 f.write(html)
             self.generated_pages['menu'] = html
             
             self.log(f"\n[OK] GENERATION COMPLETE")
             self.log(f"  - Pages generated: {len(self.generated_pages)}")
             self.log(f"  - Layouts created: {len(self.page_layouts)}")
-            self.log(f"  - Output directory: {DOCS_DIR}")
+            self.log(f"  - Output directory: {output_dir}")
             self.log("=" * 50)
             
             # Enable open button
@@ -1974,7 +2408,7 @@ class HTMLGeneratorGUI:
             
             # Only reset if this is the first preview generation
             if not hasattr(self, 'canvas_scale') or not hasattr(self, 'composite_image'):
-                self.canvas_scale = 1.0
+                self.canvas_scale = 0.3  # Default to 30% zoom for better overview
                 self.canvas_offset_x = 0
                 self.canvas_offset_y = 0
             else:
@@ -1987,6 +2421,22 @@ class HTMLGeneratorGUI:
             side_padding = 40  # Padding on left/right edges
             label_height = 35
             footer_buffer = 50  # Extra space at bottom of each page
+            
+            # Render info and log panels if enabled
+            panel_width = 280
+            info_panel_img = None
+            log_panel_img = None
+            show_info = self.show_info_panel_var.get()
+            show_log = self.show_log_panel_var.get()
+            
+            if show_info or show_log:
+                self.log(f"\n> Rendering enabled panels...")
+                if show_info:
+                    info_panel_img = render_info_panel_to_canvas(self.info_messages, width=panel_width)
+                    self.log(f"  - Info panel: {info_panel_img.width}x{info_panel_img.height}")
+                if show_log:
+                    log_panel_img = render_log_panel_to_canvas(self.log_messages, width=panel_width)
+                    self.log(f"  - Log panel: {log_panel_img.width}x{log_panel_img.height}")
             
             # First pass: render all pages to get their natural heights and widths
             self.log(f"\n> Rendering pages at natural size...")
@@ -2018,12 +2468,36 @@ class HTMLGeneratorGUI:
                 self.log(f"    Natural size: {page_with_footer.width}x{page_with_footer.height}")
             
             # Calculate composite image size (HORIZONTAL LAYOUT - single row)
+            # Include enabled panels to the left of main page
             num_pages = len(self.page_layouts)
             
-            # Calculate total width: sum of all page widths + spacing between them + side padding
+            # Calculate panels width based on which panels are enabled
+            panels_width = 0
+            panels_height = 0
+            
+            if show_info and show_log:
+                # Both panels: side by side
+                panels_width = panel_width * 2 + page_spacing
+                panels_height = max(info_panel_img.height, log_panel_img.height)
+            elif show_info:
+                # Only info panel
+                panels_width = panel_width
+                panels_height = info_panel_img.height
+            elif show_log:
+                # Only log panel
+                panels_width = panel_width
+                panels_height = log_panel_img.height
+            
+            # Calculate total width
             total_pages_width = sum(page_widths.values())
-            composite_width = total_pages_width + (page_spacing * (num_pages - 1)) + (side_padding * 2)
-            composite_height = max_height + label_height + side_padding * 2
+            if panels_width > 0:
+                composite_width = panels_width + page_spacing + total_pages_width + (page_spacing * (num_pages - 1)) + (side_padding * 2)
+            else:
+                # No panels, just pages
+                composite_width = total_pages_width + (page_spacing * (num_pages - 1)) + (side_padding * 2)
+            
+            # Height is max of panels and pages
+            composite_height = max(max_height + label_height, panels_height) + side_padding * 2
             
             self.log(f"\n> Creating composite: {composite_width}x{composite_height}")
             self.log(f"  - Pages: {num_pages} (horizontal layout)")
@@ -2048,9 +2522,36 @@ class HTMLGeneratorGUI:
             self.image_metadata_canvas = {}
             self.group_metadata_canvas = {}
             
+            # Paste enabled panels first (to the left)
+            if show_info or show_log:
+                self.log(f"\n> Compositing enabled panels...")
+                panel_x = side_padding
+                panel_y = side_padding
+                
+                if show_info and show_log:
+                    # Both panels side by side
+                    composite_img.paste(info_panel_img, (panel_x, panel_y))
+                    self.log(f"  - Info panel at ({panel_x}, {panel_y})")
+                    
+                    log_x = panel_x + panel_width + page_spacing
+                    composite_img.paste(log_panel_img, (log_x, panel_y))
+                    self.log(f"  - Log panel at ({log_x}, {panel_y})")
+                elif show_info:
+                    # Only info panel
+                    composite_img.paste(info_panel_img, (panel_x, panel_y))
+                    self.log(f"  - Info panel at ({panel_x}, {panel_y})")
+                elif show_log:
+                    # Only log panel
+                    composite_img.paste(log_panel_img, (panel_x, panel_y))
+                    self.log(f"  - Log panel at ({panel_x}, {panel_y})")
+            
             # Paste pre-rendered pages onto composite (HORIZONTAL - single row)
+            # Start pages after the panels (if any)
             self.log(f"\n> Compositing pages...")
-            x_pos = side_padding  # Start with side padding
+            if panels_width > 0:
+                x_pos = side_padding + panels_width + page_spacing  # Start after panels
+            else:
+                x_pos = side_padding  # No panels, start at left edge
             y_pos = side_padding
             
             for page_name, page_img in page_images.items():
@@ -2345,7 +2846,8 @@ class HTMLGeneratorGUI:
             self.image_metadata[img_path] = {
                 'excluded': False,
                 'priority': 0,
-                'type': 'normal'
+                'type': 'normal',
+                'caption': ''
             }
         
         img_meta = self.image_metadata[img_path]
@@ -2357,8 +2859,9 @@ class HTMLGeneratorGUI:
         self.exclude_var.set(img_meta.get('excluded', False))
         self.priority_var.set(str(img_meta.get('priority', 0)))
         self.type_var.set(img_meta.get('type', 'normal'))
+        self.caption_var.set(img_meta.get('caption', ''))
         
-        # Show/hide type dropdown (only for images)
+        # Enable type dropdown for images
         self.type_dropdown.config(state="readonly")
         
         # Highlight on canvas
@@ -2387,7 +2890,7 @@ class HTMLGeneratorGUI:
         self.priority_var.set(str(group_meta.get('priority', 0)))
         self.type_var.set('normal')  # Groups don't have type
         
-        # Hide type dropdown for groups
+        # Disable type dropdown for groups
         self.type_dropdown.config(state="disabled")
         
         # Highlight on canvas
@@ -2404,6 +2907,7 @@ class HTMLGeneratorGUI:
         self.exclude_var.set(False)
         self.priority_var.set("0")
         self.type_var.set("normal")
+        self.caption_var.set("")
         self.type_dropdown.config(state="disabled")
         
         # Remove highlight
@@ -2505,6 +3009,18 @@ class HTMLGeneratorGUI:
         img_name = Path(self.selected_image).name
         self.log(f"[TYPE] {img_name} -> {img_type}")
     
+    def update_caption(self):
+        """Update caption text for selected image"""
+        if not self.selected_image:
+            return
+        
+        caption = self.caption_var.get()
+        self.image_metadata[self.selected_image]['caption'] = caption
+        self.save_webpage_config()
+        
+        img_name = Path(self.selected_image).name
+        self.log(f"[CAPTION] {img_name} -> '{caption}' (refresh to apply)")
+    
     def toggle_show_excluded(self):
         """Toggle showing excluded images in preview (no auto-refresh)"""
         self.show_excluded = self.show_excluded_var.get()
@@ -2531,12 +3047,13 @@ class HTMLGeneratorGUI:
     
     def open_in_browser(self):
         """Open generated index.html in default browser"""
-        index_path = DOCS_DIR / "index.html"
+        output_dir = Path(self.output_folder_var.get())
+        index_path = output_dir / "index.html"
         if index_path.exists():
             webbrowser.open(str(index_path))
             self.log(f"[BROWSER] Opened {index_path}")
         else:
-            messagebox.showwarning("File Not Found", "index.html not found. Generate pages first!")
+            messagebox.showwarning("File Not Found", f"index.html not found in {output_dir}. Generate pages first!")
 
 # ===== MAIN EXECUTION =====
 

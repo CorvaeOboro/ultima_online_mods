@@ -583,7 +583,10 @@ class BMPtoXMLConverter:
             text="",
             bg='#111111',
             fg='#4ade80',  # Green color for success messages
-            font=('Helvetica', 11, 'bold')
+            font=('Helvetica', 11, 'bold'),
+            justify=tk.LEFT,
+            anchor='w',
+            wraplength=400
         )
         self.status_label.pack(side=tk.LEFT, padx=(0, 15))
         
@@ -964,15 +967,19 @@ class BMPtoXMLConverter:
 
         return subgroup_frame
 
-    def show_status(self, message):
-        """Display a status message permanently."""
-        self.status_label.config(text=message)
+    def show_status(self, message, path=None):
+        """Display a status message permanently with optional path underneath."""
+        if path:
+            display_text = f"{message}\n{path}"
+        else:
+            display_text = message
+        self.status_label.config(text=display_text)
     
     def export_individual_group(self, folder_path, state):
         if state.get():
             self.process_bmp_files_to_XML(folder_path)
             folder_name = os.path.basename(folder_path)
-            self.show_status(f"✓ Exported: {folder_name}")
+            self.show_status(f"Exported: {folder_name}", path=folder_path)
 
 
     def export_all_groups(self):
@@ -981,7 +988,7 @@ class BMPtoXMLConverter:
             if state_var.get():
                 self.process_bmp_files_to_XML(path)
                 count += 1
-        self.show_status(f"✓ Exported {count} group(s) successfully")
+        self.show_status(f"Exported {count} group(s) successfully")
 
     def export_all_to_master_xml(self):
         all_xml_entries = []
@@ -1020,9 +1027,9 @@ class BMPtoXMLConverter:
                     txt_file.write('\n'.join(txt_lines))
                 print(f"Created mulpatcher autopatch TXT file: {txt_output_path}")
 
-            self.show_status(f"✓ MassImport XML created successfully ({len(all_xml_entries)} entries)")
+            self.show_status(f"MassImport XML created successfully ({len(all_xml_entries)} entries)", path=xml_output_path)
         else:
-            self.show_status("⚠ No XML entries generated")
+            self.show_status("No XML entries generated")
 
     def determine_category_and_master_txt(self, folder_path):
         normalized_path = folder_path.replace("\\", "/").lower()
@@ -1127,7 +1134,7 @@ class BMPtoXMLConverter:
  # Main UI
 if __name__ == "__main__":
     root = tk.Tk()
-    root.minsize(600, 400)  # Allow resizing, but set a reasonable minimum
+    root.minsize(600, 400) 
     
     style = ttk.Style()
     style.theme_use('clam')
