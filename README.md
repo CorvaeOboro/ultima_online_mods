@@ -208,21 +208,32 @@ Additional Guides and Mods hosted by Gaechti :
 - [02_font_import_mul_edit.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_font_import_mul_edit.py) = visualize and edit font glyphs from .mul file
 - <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_font_import_mul_edit.png?raw=true?raw=true"/>
 
-- [03_image_comparison_compositor.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_image_comparison_compositor.py) = creates composite image of before and after item art
+- [03_image_comparison_compositor.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_image_comparison_compositor.py) = creates composite image of original and altered item art
 - <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_image_comparison_compositor.png?raw=true?raw=true"/>
 
 - [04_ui_gump_composite_loader.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_ui_gump_composite_loader.py) = visualize gump composites for debug
 - <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_ui_gump_composite_loader.png?raw=true"/>
 
-- [04_image_tree_compositor.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_image_tree_compositor.py) = visualize gump composites for debug
+- [04_image_tree_compositor.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_image_tree_compositor.py) = creates composite image of original and altered for tree art , a canvas dashboard to organize and link trunks , leaves , and  variants ( autumn ) and define a subset for arranged render.
 - <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_image_tree_compositor.png?raw=true"/>
 
-# UO Outlands
-https://uooutlands.com/
+# Shards
+[UO Outlands](https://uooutlands.com/)
 - fantastic shard , highly recommend ! some notes for using art mods in outlands :
 - [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip)  
 - copy UI/GumpOverrides folder into game directory [https://uooutlands.com/wiki/Gump_Overrides]( https://uooutlands.com/wiki/Gump_Overrides )  
-- currently only UI art moddable 
+- currently only UI art is moddable on Outlands
+
+[UO Unchained](https://www.play-uo.com/)
+- great shard , modded UOR lots of custom systems , fully moddable with UoFiddler and razor enhanced allowed
+
+[UO Alive](https://uoalive.com/)
+- modern AOS PVM only , fully moddable with UoFiddler and razor enhanced allowed
+
+more shards = [https://www.servuo.com/servers/](https://www.servuo.com/servers/) , [https://uoaddicts.com/scripts/servers](https://uoaddicts.com/scripts/servers)
+
+# Razor Enhanced Python Scripts
+a collection of ultima online scripts focused on UI customization , item management , and rituals = [ultima_online_razor_enhanced_python_scripts]( https://github.com/CorvaeOboro/ultima_online_razor_enhanced_python_scripts )
 
 # Thanks
 - many thanks to ultima community creating shards , guides , tools , and content !
