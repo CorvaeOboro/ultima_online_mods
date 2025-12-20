@@ -143,7 +143,7 @@ Dark Frame
 - extract downloaded zip to a new folder anywhere
 - UOFiddler is now the reccomended tool for complete mod install process by using its MassImport plugin 
 - create a backup of your Ultima Online Client folder
-- unmute and watch video below , or [download install guide video]( https://github.com/CorvaeOboro/ultima_online_mods/Z_InstallNotes/ultima_online_art_mods_install.mp4 )  
+- unmute and watch video below , or [download install guide video]( https://github.com/CorvaeOboro/ultima_online_mods/raw/refs/heads/main/Z_InstallNotes/ultima_online_art_mods_install.mp4 )  
 
 https://github.com/user-attachments/assets/e8cc7671-414f-475d-8246-ace18b2a2cf1
 
