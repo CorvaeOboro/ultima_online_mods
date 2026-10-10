@@ -10,45 +10,44 @@ GENERATED PAGES
 ===============================================================================
 
 1. index.html
-   - Frameset layout with side navigation and main content area
+   - Redirects to ultima_art_mods_main.html
    - Entry point for the documentation website
-   - Loads menu frame and main content frame
 
-2. ultima_art_mods_menu.htm
-   - Side navigation menu frame
+2. ultima_art_mods_menu.html
+   - Sidebar navigation menu embedded via iframe in every page
    - Links to all major sections (HOME, ART, UI, ENV, TOOLS, INSTALL)
    - Dark themed with hover effects
-   - Fixed position navigation
+   - Links use target="_parent" so they navigate the whole window
 
-3. ultima_art_mods_main.htm
+3. ultima_art_mods_main.html
    - Main landing page with overview
    - Featured mod gallery with thumbnails
    - Category summaries with group counts
    - Download buttons and quick links
    - Credits and license information
 
-4. ultima_art_mods_art.htm
+4. ultima_art_mods_art.html
    - ART category showcase page
    - Lists all ART mod groups (Magic Scrolls, Reagents, Food, Weapons, etc.)
    - Displays composite preview images for each group
    - Shows render counts for items with upscale versions
    - Organized by group sections with galleries
 
-5. ultima_art_mods_ui.htm
+5. ultima_art_mods_ui.html
    - UI category showcase page
    - Lists all UI mod groups (Magic Spells, Dark Scrolls, Buffs, etc.)
    - Displays composite preview images for each group
    - Shows render counts for gump overrides
    - Organized by group sections with galleries
 
-6. ultima_art_mods_env.htm
+6. ultima_art_mods_env.html
    - ENV category showcase page
    - Lists all ENV mod groups (Cave Dark, Dirt Hills, Forest Grove, etc.)
    - Displays environment texture previews
    - Shows landtile and texture modifications
    - Organized by group sections with galleries
 
-7. ultima_art_mods_tools.htm
+7. ultima_art_mods_tools.html
    - Modding tools and technical documentation
    - Parsed from Z_Tools/README.md sections
    - Tool descriptions with screenshots (mod_selector, psd_to_GumpOverrides)
@@ -58,7 +57,7 @@ GENERATED PAGES
    - Autopatch, naming conventions, hues documentation
    - Links to external resources
 
-8. ultima_art_mods_install.htm
+8. ultima_art_mods_install.html
    - Installation and patching instructions
    - UO Outlands GumpOverrides method (gumps only)
    - UOFiddler MassImport method (recommended)
@@ -124,7 +123,7 @@ FEATURES
 - project structure scanning
 - Markdown to HTML conversion
 - Category-specific organization
-- Navigation menu with frameset layout
+- Sidebar navigation menu embedded in every page (iframe)
 - Installation guides with multiple methods
 - Tool documentation with screenshots
 
@@ -162,7 +161,6 @@ import os
 import re
 import json
 from pathlib import Path
-from datetime import datetime
 import shutil
 import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
@@ -185,77 +183,86 @@ README_PATH = PROJECT_ROOT / "README.md"
 # GitHub raw content base URL
 GITHUB_RAW_BASE = "https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master"
 
-# HTML styling constants
-HTML_STYLE = """
-body {
-    background-color: #000000;
+# Shared site assets - written to the output folder alongside generated pages
+# so every page renders with the sidebar-iframe layout, shared CSS, and lightbox.
+SITE_CSS_FILENAME = "ultima_art_mods_style.css"
+SITE_JS_FILENAME = "ultima_art_mods_script.js"
+MENU_FILENAME = "ultima_art_mods_menu.html"
+
+SITE_CSS = """:root {
+    --bg: #000000;
+    --surface: #141414;
+    --border: #2a2a2a;
+    --text: #999999;
+    --muted: #777777;
+    --accent: #4a7fb5;
+    --link: #64b5f6;
+    --code: #1e1e1e;
+}
+* { box-sizing: border-box; }
+html, body {
+    margin: 0;
+    height: 100%;
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    color: #666666;
-    margin: 20px;
-    padding: 0;
-    text-align: center;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
 }
-p {
-    text-align: center;
+.page { display: flex; height: 100vh; }
+.sidebar {
+    width: 200px;
+    min-width: 200px;
+    border-right: 1px solid var(--border);
+    background: var(--bg);
+    overflow-y: auto;
 }
+.sidebar iframe { width: 100%; height: 100%; border: none; display: block; }
+.content { flex: 1; overflow-y: auto; }
+.container { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1.5rem 3rem; text-align: center; }
+
 h1 {
-    color: #888888;
+    color: #e0e0e0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-top: 2.2rem;
+    font-size: 1.4rem;
     text-align: center;
 }
 h2 {
-    color: #777777;
-    margin-top: 30px;
+    color: #d0d0d0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem;
+    margin-top: 1.8rem;
+    font-size: 1.15rem;
     text-align: center;
 }
-a {
-    color: #5c9ccc;
-    text-decoration: none;
+p { text-align: center; }
+a { color: var(--link); text-decoration: none; }
+a:hover { color: #8cc9fb; text-decoration: underline; }
+ul, ol { line-height: 1.8; text-align: center; list-style-position: inside; }
+code {
+    background: var(--code);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
 }
-a:hover {
-    color: #7cb4e4;
-    text-decoration: underline;
-}
-img {
-    border: none;
-    margin: 0;
-    display: block;
-}
-.thumbnail {
-    display: inline-block;
-    margin: 10px;
-    vertical-align: top;
-}
-.thumbnail img {
-    max-width: 200px;
-    max-height: 200px;
-}
-.gallery {
-    display: block;
-    margin: 20px 0;
-    text-align: center;
-}
-.gallery-item {
-    display: block;
-    text-align: center;
-    margin: 0;
-}
-.gallery-item img {
-    border: none;
-    margin: 0;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.gallery-item .caption {
-    margin-top: 5px;
-    color: #999999;
-    font-size: 12px;
-}
+table { margin: 0 auto; }
+th { padding: 4px; }
+
+img { max-width: 100%; height: auto; }
+.content img { cursor: zoom-in; }
+
+.gallery { display: block; margin: 1rem 0; }
+.gallery-item { display: block; margin: 0 0 1.2rem 0; }
+.gallery-item img { display: block; margin: 0 auto; max-width: 100%; }
+.gallery-item .caption { margin-top: 5px; color: var(--muted); font-size: 12px; text-align: center; }
+.thumbnail { display: inline-block; margin: 10px; vertical-align: top; }
+.thumbnail img { max-width: 200px; max-height: 200px; }
 .category-section {
     margin: 40px 0;
     padding: 20px;
     background-color: #0a0a0a;
-    border: 1px solid #222222;
+    border: 1px solid var(--border);
     border-radius: 5px;
 }
 .group-section {
@@ -264,17 +271,8 @@ img {
     background-color: #111111;
     border-left: 3px solid #444444;
 }
-ul {
-    line-height: 1.8;
-    list-style-position: inside;
-    text-align: center;
-}
-code {
-    background-color: #1a1a1a;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-family: 'Courier New', monospace;
-}
+separator { display: block; border-top: 1px solid var(--border); margin: 2rem 0; }
+
 .download-button {
     display: inline-block;
     padding: 12px 24px;
@@ -284,9 +282,43 @@ code {
     border-radius: 5px;
     font-weight: bold;
 }
-.download-button:hover {
-    background-color: #3a5a7a;
+.download-button:hover { background-color: #3a5a7a; }
+
+video { max-width: 100%; }
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.95);
+    cursor: zoom-out;
+    padding: 2rem;
 }
+.lightbox.active { display: flex; }
+.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+"""
+
+SITE_JS = """(function() {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.content img').forEach(function(img) {
+        img.addEventListener('click', function(e) {
+            e.preventDefault();
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+        });
+    });
+    lightbox.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+})();
 """
 
 #====================================================================================
@@ -477,8 +509,10 @@ def build_category_page_layout(category, groups, structure, group_metadata=None,
         if composites:
             # Group header - clean the name by removing category prefix
             display_name = clean_group_name(group_name, category)
+            # Anchor preserves original casing so README links like #MagicScrolls work
+            anchor_id = group_name[len(f"{category}_"):] if group_name.startswith(f"{category}_") else group_name
             # Store original group_name for metadata lookups
-            layout.add_section('header', display_name, level=2, original_group_name=group_name)
+            layout.add_section('header', display_name, level=2, original_group_name=group_name, anchor=anchor_id)
             
             # Show all composite images for this group
             group_images = []
@@ -554,12 +588,15 @@ def render_layout_to_html(layout, image_metadata=None, group_metadata=None, show
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{layout.title}</title>
-<style type="text/css">
-{HTML_STYLE}
-</style>
+<link rel="stylesheet" href="{SITE_CSS_FILENAME}">
 </head>
 <body>
+<div class="page">
+<div class="sidebar"><iframe src="{MENU_FILENAME}"></iframe></div>
+<div class="content">
+<div class="container">
 """)
     
     # Track if we should skip sections (for excluded groups)
@@ -591,7 +628,11 @@ def render_layout_to_html(layout, image_metadata=None, group_metadata=None, show
                 else:
                     skip_until_next_header = False
             
-            html_parts.append(f"<h{level}>{content}</h{level}>\n")
+            anchor = section.get('anchor')
+            if anchor:
+                html_parts.append(f'<h{level} id="{anchor}">{content}</h{level}>\n')
+            else:
+                html_parts.append(f"<h{level}>{content}</h{level}>\n")
             last_was_group_gallery = False
             
         elif skip_until_next_header:
@@ -659,7 +700,12 @@ def render_layout_to_html(layout, image_metadata=None, group_metadata=None, show
             last_was_group_gallery = False
     
     # Footer
-    html_parts.append("""
+    html_parts.append(f"""
+</div>
+</div>
+</div>
+<div class="lightbox" id="lightbox"><img id="lightbox-img" alt=""></div>
+<script src="{SITE_JS_FILENAME}"></script>
 </body>
 </html>
 """)
@@ -1363,48 +1409,41 @@ def markdown_to_html(markdown_text):
 # ===== HTML GENERATION FUNCTIONS =====
 
 def generate_html_header(title):
-    """Generate HTML header with styling"""
+    """Generate HTML header, shared stylesheet link, and sidebar-iframe page shell"""
     return f"""<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
-<style type="text/css">
-{HTML_STYLE}
-</style>
+<link rel="stylesheet" href="{SITE_CSS_FILENAME}">
 </head>
 <body>
+<div class="page">
+<div class="sidebar"><iframe src="{MENU_FILENAME}"></iframe></div>
+<div class="content">
+<div class="container">
 """
 
 def generate_html_footer():
-    """Generate HTML footer"""
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    """Generate HTML footer - closes page shell and adds lightbox + script"""
     return f"""
 <hr style="border-color: #222222; margin-top: 50px;">
 <p style="text-align: center; color: #444444; font-size: 0.9em;">
-<a href="https://github.com/CorvaeOboro/ultima_online_mods">download source from github</a>
+<a href="https://github.com/CorvaeOboro/ultima_online_mods" target="_parent">download source from github</a>
 </p>
+</div>
+</div>
+</div>
+<div class="lightbox" id="lightbox"><img id="lightbox-img" alt=""></div>
+<script src="{SITE_JS_FILENAME}"></script>
 </body>
 </html>
-"""
-
-def generate_navigation_menu():
-    """Generate navigation menu HTML"""
-    return """
-<div style="background-color: #0a0a0a; padding: 15px; margin-bottom: 30px; border-radius: 5px;">
-    <a href="index.html" style="margin-right: 20px;">HOME</a>
-    <a href="ultima_art_mods_art.htm" style="margin-right: 20px;">ART</a>
-    <a href="ultima_art_mods_ui.htm" style="margin-right: 20px;">UI</a>
-    <a href="ultima_art_mods_env.htm" style="margin-right: 20px;">ENV</a>
-    <a href="ultima_art_mods_tools.htm" style="margin-right: 20px;">TOOLS</a>
-    <a href="ultima_art_mods_install.htm" style="margin-right: 20px;">INSTALL</a>
-</div>
 """
 
 def generate_main_page(structure):
     """Generate main index page"""
     html = generate_html_header("Ultima Online Art Mods")
-    html += generate_navigation_menu()
     
     html += """
 <h1>ULTIMA ONLINE ART MODS</h1>
@@ -1453,7 +1492,7 @@ def generate_main_page(structure):
         group_count = len(groups)
         html += f"""
 <div class="category-section">
-    <h3><a href="ultima_art_mods_{category.lower()}.htm">{category}</a></h3>
+    <h3><a href="ultima_art_mods_{category.lower()}.html">{category}</a></h3>
     <p>{group_count} mod groups available</p>
 </div>
 """
@@ -1462,8 +1501,8 @@ def generate_main_page(structure):
     html += """
 <h2>Quick Links</h2>
 <ul>
-    <li><a href="ultima_art_mods_install.htm">Installation Guide</a></li>
-    <li><a href="ultima_art_mods_tools.htm">Modding Tools & Notes</a></li>
+    <li><a href="ultima_art_mods_install.html">Installation Guide</a></li>
+    <li><a href="ultima_art_mods_tools.html">Modding Tools & Notes</a></li>
     <li><a href="https://github.com/CorvaeOboro/ultima_online_mods/releases">Releases</a></li>
     <li><a href="https://uooutlands.com/wiki/Gump_Overrides">UO Outlands GumpOverrides Guide</a></li>
 </ul>
@@ -1487,15 +1526,16 @@ free to redistribute, attribution not required.</p>
 def generate_category_page(category, groups, structure):
     """Generate category-specific page (ART, UI, or ENV)"""
     html = generate_html_header(f"Ultima Online Art Mods - {category}")
-    html += generate_navigation_menu()
     
     html += f"<h1>{category} MODS</h1>\n"
     html += f"<p>Art modifications for {category} category</p>\n"
     
     # Generate section for each group
     for group_name, items in sorted(groups.items()):
+        # Anchor preserves original casing so README links like #MagicScrolls work
+        anchor_id = group_name[len(f"{category}_"):] if group_name.startswith(f"{category}_") else group_name
         html += f'<div class="group-section">\n'
-        html += f'<h2>{group_name}</h2>\n'
+        html += f'<h2 id="{anchor_id}">{group_name}</h2>\n'
         
         # Show composite images first
         composites = [item for item in items if item['type'] == 'composite']
@@ -1521,7 +1561,6 @@ def generate_category_page(category, groups, structure):
 def generate_tools_page():
     """Generate tools and modding notes page"""
     html = generate_html_header("Ultima Online Art Mods - Tools")
-    html += generate_navigation_menu()
     
     html += "<h1>Modding Tools / Notes</h1>\n"
     
@@ -1562,7 +1601,6 @@ def generate_tools_page():
 def generate_install_page():
     """Generate installation guide page"""
     html = generate_html_header("Ultima Online Art Mods - Installation")
-    html += generate_navigation_menu()
     
     html += "<h1>Installation / Patching</h1>\n"
     
@@ -1633,67 +1671,120 @@ def generate_install_page():
     html += generate_html_footer()
     return html
 
-def generate_menu_frame():
-    """Generate side menu frame (for frameset layout)"""
+def generate_menu_page():
+    """Generate sidebar menu page (embedded via iframe in every page)"""
     html = """<!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Menu</title>
+    <meta charset="utf-8">
+    <title>ultima_art_mods</title>
+
 <style type="text/css">
 body {
-    background-color: #0a0a0a;
+    background-color: #000000;
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    color: #666666;
+    color: #999;
     margin: 0;
-    padding: 10px;
+    padding: 0;
 }
-a {
-    display: block;
-    color: #5c9ccc;
+a:link, a:visited {
+    color: #e0e0e0;
     text-decoration: none;
-    padding: 8px 5px;
-    margin: 2px 0;
-    border-left: 3px solid transparent;
+    display: block;
+    padding: 6px 0;
 }
 a:hover {
-    color: #7cb4e4;
-    background-color: #1a1a1a;
-    border-left: 3px solid #5c9ccc;
+    color: #4a7fb5;
+}
+a:active {
+    color: #e0e0e0;
+}
+h1 {
+    color: #888888;
+    font-size: 1.1rem;
+}
+.menu-section {
+    margin-top: 1rem;
+}
+.menu-section img {
+    width: 90%;
+    max-width: 160px;
+    margin-top: 4px;
+}
+.external {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #2a2a2a;
 }
 </style>
+
 </head>
 <body>
-<a href="ultima_art_mods_main.htm" target="main_ultima">HOME</a>
-<a href="ultima_art_mods_art.htm" target="main_ultima">ART</a>
-<a href="ultima_art_mods_ui.htm" target="main_ultima">UI</a>
-<a href="ultima_art_mods_env.htm" target="main_ultima">ENV</a>
-<a href="ultima_art_mods_tools.htm" target="main_ultima">TOOLS</a>
-<a href="ultima_art_mods_install.htm" target="main_ultima">INSTALL</a>
-<hr style="border-color: #222222; margin: 20px 0;">
-<a href="https://github.com/CorvaeOboro/ultima_online_mods" target="_blank">GITHUB</a>
+
+<center>
+<br>
+<h1> Ultima <br> art mods </h1>
+<b>
+<a href="ultima_art_mods_main.html" target="_parent">MAIN</a>
+
+<div class="menu-section">
+<a href="ultima_art_mods_art.html" target="_parent">ART
+<br><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/ART_BaseItemVariants_comp.jpg"></a>
+</div>
+
+<div class="menu-section">
+<a href="ultima_art_mods_ui.html" target="_parent">UI
+<br><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_MagicSpells/ui_spell_00_comp_nospace_wide.png">
+<br><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_DarkScrolls/00_dark_scrolls_comp_wide.jpg"></a>
+</div>
+
+<div class="menu-section">
+<a href="ultima_art_mods_env.html" target="_parent">ENV
+<br><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ENV/ENV_00_AlteredLands_header.jpg"></a>
+</div>
+
+<div class="menu-section">
+<a href="ultima_art_mods_install.html" target="_parent">INSTALL</a>
+<a href="ultima_art_mods_tools.html" target="_parent">TOOLS</a>
+</div>
+
+<div class="external">
+<a href="https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/master.zip" target="_parent">DOWNLOAD</a>
+<a href="https://github.com/CorvaeOboro/ultima_online_mods" target="_parent">GITHUB</a>
+</div>
+</b>
+
 </body>
 </html>
 """
     return html
 
-def generate_index_frameset():
-    """Generate index.html with frameset"""
+def generate_index_redirect():
+    """Generate index.html redirecting to the main page"""
     html = """<!DOCTYPE html>
 <html>
+
 <head>
     <title>Ultima Online Art Mods</title>
+    <meta http-equiv="refresh" content="0; url=ultima_art_mods_main.html">
+    <link rel="canonical" href="ultima_art_mods_main.html">
 </head>
-<frameset cols="10%,90%" framespacing="0" border="0">
-    <frame name="side_ultima" src="ultima_art_mods_menu.htm" scrolling="no" />
-    <frame name="main_ultima" src="ultima_art_mods_main.htm" />
-    <noframes>
-        <body>Your browser does not support frames.</body>
-    </noframes>
-</frameset>
+
+<body>
+    <a href="ultima_art_mods_main.html">Ultima Online Art Mods</a>
+</body>
+
 </html>
 """
     return html
+
+def write_shared_assets(output_dir):
+    """Write the shared stylesheet and lightbox script used by all pages"""
+    with open(output_dir / SITE_CSS_FILENAME, 'w', encoding='utf-8') as f:
+        f.write(SITE_CSS)
+    with open(output_dir / SITE_JS_FILENAME, 'w', encoding='utf-8') as f:
+        f.write(SITE_JS)
 
 # ===== GUI CLASS =====
 
@@ -2339,23 +2430,27 @@ class HTMLGeneratorGUI:
                     group_metadata=self.group_metadata,
                     show_excluded=False  # Don't show excluded items in generated HTML
                 )
-                filename = f"ultima_art_mods_{page_name}.htm"
+                filename = f"ultima_art_mods_{page_name}.html"
                 with open(output_dir / filename, 'w', encoding='utf-8') as f:
                     f.write(html)
                 self.generated_pages[page_name] = html
                 self.log(f"    [OK] {len(html)} chars, {len(layout.sections)} sections")
             
-            # Generate frameset and menu (these don't use layouts)
-            self.log("\n> Generating frameset and menu...")
-            html = generate_index_frameset()
+            # Generate index redirect and menu (these don't use layouts)
+            self.log("\n> Generating index and menu...")
+            html = generate_index_redirect()
             with open(output_dir / "index.html", 'w', encoding='utf-8') as f:
                 f.write(html)
             self.generated_pages['index'] = html
             
-            html = generate_menu_frame()
-            with open(output_dir / "ultima_art_mods_menu.htm", 'w', encoding='utf-8') as f:
+            html = generate_menu_page()
+            with open(output_dir / MENU_FILENAME, 'w', encoding='utf-8') as f:
                 f.write(html)
             self.generated_pages['menu'] = html
+            
+            # Write shared stylesheet and lightbox script
+            self.log("  - Writing shared css/js assets")
+            write_shared_assets(output_dir)
             
             self.log(f"\n[OK] GENERATION COMPLETE")
             self.log(f"  - Pages generated: {len(self.generated_pages)}")
@@ -3076,36 +3171,40 @@ def main_cli():
     # Generate pages
     print("\n[GEN] Generating HTML pages...")
     
-    # Index frameset
+    # Index redirect
     print("  > index.html")
     with open(DOCS_DIR / "index.html", 'w', encoding='utf-8') as f:
-        f.write(generate_index_frameset())
+        f.write(generate_index_redirect())
     
-    # Menu frame
-    print("  > ultima_art_mods_menu.htm")
-    with open(DOCS_DIR / "ultima_art_mods_menu.htm", 'w', encoding='utf-8') as f:
-        f.write(generate_menu_frame())
+    # Sidebar menu page
+    print(f"  > {MENU_FILENAME}")
+    with open(DOCS_DIR / MENU_FILENAME, 'w', encoding='utf-8') as f:
+        f.write(generate_menu_page())
+    
+    # Shared stylesheet and lightbox script
+    print(f"  > {SITE_CSS_FILENAME} / {SITE_JS_FILENAME}")
+    write_shared_assets(DOCS_DIR)
     
     # Main page
-    print("  > ultima_art_mods_main.htm")
-    with open(DOCS_DIR / "ultima_art_mods_main.htm", 'w', encoding='utf-8') as f:
+    print("  > ultima_art_mods_main.html")
+    with open(DOCS_DIR / "ultima_art_mods_main.html", 'w', encoding='utf-8') as f:
         f.write(generate_main_page(structure))
     
     # Category pages
     for category, groups in structure.items():
-        filename = f"ultima_art_mods_{category.lower()}.htm"
+        filename = f"ultima_art_mods_{category.lower()}.html"
         print(f"  > {filename}")
         with open(DOCS_DIR / filename, 'w', encoding='utf-8') as f:
             f.write(generate_category_page(category, groups, structure))
     
     # Tools page
-    print("  > ultima_art_mods_tools.htm")
-    with open(DOCS_DIR / "ultima_art_mods_tools.htm", 'w', encoding='utf-8') as f:
+    print("  > ultima_art_mods_tools.html")
+    with open(DOCS_DIR / "ultima_art_mods_tools.html", 'w', encoding='utf-8') as f:
         f.write(generate_tools_page())
     
     # Install page
-    print("  > ultima_art_mods_install.htm")
-    with open(DOCS_DIR / "ultima_art_mods_install.htm", 'w', encoding='utf-8') as f:
+    print("  > ultima_art_mods_install.html")
+    with open(DOCS_DIR / "ultima_art_mods_install.html", 'w', encoding='utf-8') as f:
         f.write(generate_install_page())
     
     print("\n[OK] HTML generation complete!")

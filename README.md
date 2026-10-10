@@ -3,12 +3,12 @@ fan art modifications in ultima online classic
 
 [DOWNLOAD]( https://github.com/CorvaeOboro/ultima_online_mods/archive/refs/heads/main.zip )    |   [INSTALL NOTES]( https://github.com/CorvaeOboro/ultima_online_mods#installation--patching )   |    [VIEW IMAGES]( https://corvaeoboro.github.io/ultima_online_mods/ ) 
 
-| <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-scrolls"> <img src="/ART/ART_MagicScrolls/ART_MagicScrolls_thumb.jpg?raw=true" width="140" height="140" /> </a>| <a href="https://github.com/CorvaeOboro/ultima_online_mods#reagents"> <img src="/ART/ART_BaseItemVariants_thumb.jpg?raw=true" width="140" height="140" />  </a>  |  <a href="https://github.com/CorvaeOboro/ultima_online_mods#magic-spells"> <img src="/UI/UI_MagicSpells/ui_spell_00_comp_thumb.png?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#dark-scrolls"> <img src="/UI/ui_dark_scrolls_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://github.com/CorvaeOboro/ultima_online_mods#altered-lands"> <img src="/ENV/ENV_00_AlteredLands_thumb.jpg?raw=true" width="140" height="140" /> </a>|
+| <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_art.html#MagicScrolls"> <img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/ART_MagicScrolls/ART_MagicScrolls_thumb.jpg?raw=true" width="140" height="140" /> </a>| <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_art.html#Reagents"> <img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/ART_BaseItemVariants_thumb.jpg?raw=true" width="140" height="140" />  </a>  |  <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#MagicSpells"> <img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_MagicSpells/ui_spell_00_comp_thumb.png?raw=true" width="140" height="140" />  </a>  | <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#DarkScrolls"> <img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/ui_dark_scrolls_comp_thumb.jpg?raw=true" width="140" height="140" />  </a>  | <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.html#AlteredLands"> <img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ENV/ENV_00_AlteredLands_thumb.jpg?raw=true" width="140" height="140" /> </a>|
 | :---: | :---: | :---: | :---: | :---: |
 
 Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip ) | [DOWNLOAD GumpOverrides without DarkScrolls]( https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides_NoDarkScrolls/GumpOverrides_NoDarkScrolls_20241210.zip )  
 
-<img src="/UI/00_ui_comp_spells_gif_anim.gif?raw=true"  />
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#MagicSpells"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/00_ui_comp_spells_gif_anim.gif?raw=true"  /></a>
 
 - ART items = MagicScrolls , Reagents , Potions , Gems , Tools , Books , Fish , Food , Rare Gems , Jewelry , Keys , Rare Potions , Power Rares , Talismans , Pagan Reagents , Resources
 - UI colorized spell icons = MagicSpells , Necromancy and Chivalry , Mysticism , SpellWeaving , Mastery , Combat , Bushido , Ninjitsu
@@ -19,90 +19,90 @@ Outlands : [DOWNLOAD GumpOverrides]( https://github.com/CorvaeOboro/ultima_onlin
 - Colorized paintover on icons of the classic linework  .
 - [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/UI/UI_MagicSpells#complete-list)
 
-![Magic Spells Icons](/UI/UI_MagicSpells/00_ui_spell_comp.png?raw=true "Magic Spells Icons")
+[![Magic Spells Icons](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_MagicSpells/00_ui_spell_comp.png?raw=true "Magic Spells Icons")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#MagicSpells)
 
 # Items
-![Items](/ART/00_ART_item_00_comp.png?raw=true "ART")
+[![Items](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/00_ART_item_00_comp.png?raw=true "ART")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_art.html#ArtItems)
 
 # Weapons
-![Weapons](/ART/ART_Weapon/00_item_weapon_comp.png?raw=true "ART")
+[![Weapons](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/ART_Weapon/00_item_weapon_comp.png?raw=true "ART")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_art.html#Weapon)
 
-![Weapons Expand](/ART/ART_WeaponExpand/00_ART_WeaponExpand_render.png?raw=true "Weapons Expand")
+[![Weapons Expand](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/ART_WeaponExpand/00_ART_WeaponExpand_render.png?raw=true "Weapons Expand")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_art.html#WeaponExpand)
 
-![Weapons Archery](/ART/ART_WeaponArchery/00_ART_WeaponArchery_render.png?raw=true "Weapons Archery")
+[![Weapons Archery](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/ART_WeaponArchery/00_ART_WeaponArchery_render.png?raw=true "Weapons Archery")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_art.html#WeaponArchery)
 
 # Arch Stone
 - an archway of the avatar crafted from stone
 
-![Arch Stone Multi](/UI/UI_ArchStone_Multi/00_ui_archstone_multi_equipslots_comp.png?raw=true "Arch Stone Multi")
+[![Arch Stone Multi](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_ArchStone_Multi/00_ui_archstone_multi_equipslots_comp.png?raw=true "Arch Stone Multi")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#ArchStoneMulti)
 
 # Stats
-Dark Stats 
+Dark Stats
 
-<img src="/UI/UI_DarkStats/00_ui_scroll_stats_render.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#DarkStats"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_DarkStats/00_ui_scroll_stats_render.png"></a>
 Dark Stats Medium
 
-<img src="/UI/UI_DarkStatsMedium/00_ui_scroll_stats_medium.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#DarkStatsMedium"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_DarkStatsMedium/00_ui_scroll_stats_medium.png"></a>
 Dark Stats Long
 
-<img src="/UI/UI_DarkStatsLong/00_ui_scroll_stats_long_render.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#DarkStatsLong"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_DarkStatsLong/00_ui_scroll_stats_long_render.png"></a>
 
 # Magic Scrolls
-![Magic Scrolls Backpack](/ART/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")
+[![Magic Scrolls Backpack](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/ART_MagicScrolls/item_scroll_00_magic_compB.jpg?raw=true "Magic Scrolls Backpack")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_art.html#MagicScrolls)
 - Aims to quickly convey the use and importance of certain scrolls .
 - Simpler scroll with ribbon colourized by harmful \ beneficial \ utility . 
 - Low circle spell scrolls are desaturated and rough looking in contrast to higher 6+ circle spells glowing and resembling the spell they contain .
 - Useful spell scrolls like Recall are shown glowing and easily distinguishable even when they are lower circle .
 - [ITEM LIST](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ART/ART_MagicScrolls#complete-list)
 
-![Magic Scrolls](/ART/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")
+[![Magic Scrolls](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/ART_MagicScrolls/item_scroll_00_magic_comp.jpg?raw=true "Magic Scrolls")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_art.html#MagicScrolls)
 
 # Spells Additional
 Chivalry
 
-<img src="/UI/UI_SpellsChivalry/00_ui_spells_chivalry_comp.png?raw=true"  />
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#SpellsChivalry"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_SpellsChivalry/00_ui_spells_chivalry_comp.png?raw=true"  /></a>
 Necromancy
 
-<img src="/UI/UI_SpellsNecromancy/00_ui_spells_necromancy_comp.png?raw=true"  />
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#SpellsNecromancy"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_SpellsNecromancy/00_ui_spells_necromancy_comp.png?raw=true"  /></a>
 Mysticism
 
-<img src="/UI/UI_SpellsMysticism/00_ui_spell_mysticism_comp.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#SpellsMysticism"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_SpellsMysticism/00_ui_spell_mysticism_comp.png"></a>
 SpellWeaving
 
-<img src="/UI/UI_SpellsWeaving/00_ui_spell_weaving_comp.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#SpellsWeaving"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_SpellsWeaving/00_ui_spell_weaving_comp.png"></a>
 Mastery
 
-<img src="/UI/UI_SpellsMastery/00_ui_spell_mastery_comp.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#SpellsMastery"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_SpellsMastery/00_ui_spell_mastery_comp.png"></a>
 Combat
 
-<img src="/UI/UI_SpellsCombat/00_ui_spell_combat_comp.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#SpellsCombat"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_SpellsCombat/00_ui_spell_combat_comp.png"></a>
 Bushido
 
-<img src="/UI/UI_SpellsBushido/00_ui_spell_bushido_comp.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#SpellsBushido"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_SpellsBushido/00_ui_spell_bushido_comp.png"></a>
 Ninjitsu
 
-<img src="/UI/UI_SpellsNinjitsu/00_ui_spell_ninjitsu_comp.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#SpellsNinjitsu"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_SpellsNinjitsu/00_ui_spell_ninjitsu_comp.png"></a>
 Eldritch Magic
 
-<img src="/UI/UI_MagicSpells_Eldritch/00_ui_spell_comp_eldritch_magic.jpg">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#MagicSpellsEldritch"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_MagicSpells_Eldritch/00_ui_spell_comp_eldritch_magic.jpg"></a>
 
 # Dark Scrolls
 - ui enchanted with dark magic
 
-![Dark Scrolls](/UI/UI_DarkScrolls/00_dark_scrolls_comp_01.jpg?raw=true "Dark Scrolls")
+[![Dark Scrolls](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_DarkScrolls/00_dark_scrolls_comp_01.jpg?raw=true "Dark Scrolls")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#DarkScrolls)
 
 # Dark UI
 Dark Book
 
-<img src="/UI/UI_DarkBook/00_ui_dark_book_comp.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#DarkBook"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_DarkBook/00_ui_dark_book_comp.png"></a>
 Dark Frame
 
-<img src="/UI/UI_DarkFrame/00_ui_dark_frame_comp.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#DarkFrame"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_DarkFrame/00_ui_dark_frame_comp.png"></a>
 
 # Altered Lands
 - a collection of land texture modifications 
 
-![Altered Lands](/ENV/ENV_00_AlteredLands.gif?raw=true "Altered Lands")
+[![Altered Lands](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ENV/ENV_00_AlteredLands.gif?raw=true "Altered Lands")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.html#AlteredLands)
 
 - [Additional Images](https://github.com/CorvaeOboro/ultima_online_mods/tree/main/ENV/#altered-lands)
 - Farm Lands : Verdant farms of sproutlings and wild weeds
@@ -113,28 +113,28 @@ Dark Frame
 - Snow Ridge : Smoothed snow slopes
 - Sand Dunes : Blended embankments , darkened and desaturated
 
-  <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.htm#HeartWood"> <img src="/ENV/ENV_HeartWood/00_env_HeartWood_title.png?raw=true?raw=true"/>
+  <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.html#HeartWood"> <img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ENV/ENV_HeartWood/00_env_HeartWood_title.png?raw=true"/></a>
 
- <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.htm#HeartWood"> <img src="/ENV/ENV_HeartWood/ART_S/00_item_heartwood_tree_comp.png?raw=true?raw=true"/>
+ <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.html#HeartWood"> <img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ENV/ENV_HeartWood/ART_S/00_item_heartwood_tree_comp.png?raw=true"/></a>
 
-  <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.htm#Paroxysmus"> <img src="/ENV/ENV_Paroxysmus/00_env_Paroxysmus_title.png?raw=true?raw=true"/>
+  <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_env.html#Paroxysmus"> <img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ENV/ENV_Paroxysmus/00_env_Paroxysmus_title.png"/></a>
 
 # Trees
-![Trees In-Game](/ART/ART_Tree/00_art_tree_ingame_A.png?raw=true "Trees")
+[![Trees In-Game](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/ART_Tree/00_art_tree_ingame_A.png?raw=true "Trees")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_art.html#Tree)
 
-![Trees](/ART/ART_Tree/00_ART_Tree_render.png?raw=true "Trees In-Game")
+[![Trees](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/ART_Tree/00_ART_Tree_render.png?raw=true "Trees In-Game")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_art.html#Tree)
 
-![Trees Autumn](/ART/ART_Tree/00_ART_Tree_autumn_render.png?raw=true "Trees Autumn")
+[![Trees Autumn](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/ART/ART_Tree/00_ART_Tree_autumn_render.png?raw=true "Trees Autumn")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_art.html#Tree)
 
 # Magic Buffs
 - buffs and debuffs stylized darker matching magic spells and outlands specific buffs
 
-![Dark Buffs](/UI/UI_Buffs/ui_buff_00_comp_names_wide.jpg?raw=true "Dark Buffs")
+[![Dark Buffs](https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_Buffs/ui_buff_00_comp_names_wide.jpg?raw=true "Dark Buffs")](https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html)
 
 <h2>MAIN MENU</h2>
-<img src="/UI/UI_MainMenu/00_ui_menu_comp.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#MainMenu"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_MainMenu/00_ui_menu_comp.png"></a>
 
-<img src="/UI/UI_MainMenu_Orbs/00_ui_menu_orbs.png">
+<a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_ui.html#MainMenuOrbs"><img src="https://raw.githubusercontent.com/CorvaeOboro/ultima_online_mods/master/UI/UI_MainMenu_Orbs/00_ui_menu_orbs.png"></a>
 
 # Installation / Patching
 - for UO Outlands = [Download GumpOverrides](https://github.com/CorvaeOboro/ultima_online_mods/releases/download/UO_ART_MODS_20241211_GumpOverrides/GumpOverrides_20241210.zip) , unzip into a GumpOverrides folder in Outlands folder
@@ -188,34 +188,34 @@ Additional Guides and Mods hosted by Gaechti :
 - located in Z_Tools , includes :
 
 - [00_mod_selector.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.py ) = art mod selector , generates a custom MassImport list from selected mod folders 
-- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.png?raw=true "/>
+- <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_tools.html"><img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_mod_selector.png?raw=true "/></a>
 
 - [00_psd_to_GumpOverrides.py]( https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.py ) = art mod selector for  Ultima Outlands , exports source art to GumpOverrides
-- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.png?raw=true "/>
+- <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_tools.html"><img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/00_psd_to_GumpOverrides.png?raw=true "/></a>
 
 - [01_image_rotate_to_isometric.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/01_image_rotate_to_isometric.py) = convert square textre to isometric 45 degree land tile ( ART_M ) 
-- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/ultima_TEX_convert_to_ART_M.jpg?raw=true?raw=true"/>
+- <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_tools.html"><img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/ultima_TEX_convert_to_ART_M.jpg?raw=true"/></a>
 
 - [02_image_composite_multi.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_image_composite_multi.py) = composites adjacent or overlaping images to assemble sliced tree images , saves arrangment as json for disassembly later 
-- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/ENV/ENV_HeartWood/ART_S/00_item_heartwood_tree_tools.png?raw=true?raw=true"/>
+- <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_tools.html"><img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/ENV/ENV_HeartWood/ART_S/00_item_heartwood_tree_tools.png?raw=true"/></a>
 
 - [02_extract_map_mul.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_extract_map_mul.py) = loads map mul and exports land tile data from region to csv , to be loaded in blender addon [z_blender_GEN_ultima_landtiles.py](https://github.com/CorvaeOboro/zenv_blender/blob/main/addon/z_blender_GEN_ultima_landtiles.py ) 
 - substance painter files for ENV textures 
 
 - [03_hotkeys_to_diagram.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_hotkeys_to_diagram.py) = visualize hotkeys from razor
-- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_hotkeys_to_diagram.png?raw=true?raw=true"/>
+- <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_tools.html"><img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_hotkeys_to_diagram.png?raw=true"/></a>
 
 - [02_font_import_mul_edit.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_font_import_mul_edit.py) = visualize and edit font glyphs from .mul file
-- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_font_import_mul_edit.png?raw=true?raw=true"/>
+- <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_tools.html"><img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/02_font_import_mul_edit.png?raw=true"/></a>
 
 - [03_image_comparison_compositor.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_image_comparison_compositor.py) = creates composite image of original and altered item art
-- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_image_comparison_compositor.png?raw=true?raw=true"/>
+- <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_tools.html"><img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/03_image_comparison_compositor.png?raw=true"/></a>
 
 - [04_ui_gump_composite_loader.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_ui_gump_composite_loader.py) = visualize gump composites for debug
-- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_ui_gump_composite_loader.png?raw=true"/>
+- <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_tools.html"><img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_ui_gump_composite_loader.png?raw=true"/></a>
 
 - [04_image_tree_compositor.py](https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_image_tree_compositor.py) = creates composite image of original and altered for tree art , a canvas dashboard to organize and link trunks , leaves , and  variants ( autumn ) and define a subset for arranged render.
-- <img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_image_tree_compositor.png?raw=true"/>
+- <a href="https://corvaeoboro.github.io/ultima_online_mods/ultima_art_mods_tools.html"><img src="https://github.com/CorvaeOboro/ultima_online_mods/blob/main/Z_Tools/04_image_tree_compositor.png?raw=true"/></a>
 
 # Shards
 [UO Outlands](https://uooutlands.com/)
